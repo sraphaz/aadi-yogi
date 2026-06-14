@@ -1,0 +1,9 @@
+{
+  "name": "aadi-yogi",
+  "private": true,
+  "scripts": {
+    "validate:content": "python scripts/validate/validate_markdown.py",
+    "test": "pytest",
+    "lint:python": "ruff check ."
+  }
+}
