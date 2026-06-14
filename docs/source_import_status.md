@@ -12,30 +12,46 @@ This document records what has been imported into the repository, what has only 
 
 ### Upanishads
 
+- Canon coverage now catalogued for all 108 Upanishads in the Muktika list.
 - Public-domain translations located in the Sacred Books of the East editions hosted by the Internet Sacred Text Archive.
 - Verified collection pages:
   - `https://www.sacred-texts.com/hin/sbe01/index.htm`
   - `https://www.sacred-texts.com/hin/sbe15/index.htm`
+  - `https://www.sacred-texts.com/hin/tmu/index.htm`
 - Phase 1 import:
   - Isha Upanishad public-domain English translation by Max Muller.
+- Phase 2 expansion:
+  - root canon index for the full 108-text corpus
+  - intake stub indexes for the remaining 107 Upanishads
 
 ### Vedas
 
+- Canon coverage now catalogued for Rig, Sama, Krishna Yajur, Shukla Yajur, and Atharva intake branches.
 - Ancient Sanskrit source material is public domain in substance.
 - Verified collection pages:
   - `https://www.sacred-texts.com/hin/rvsan/index.htm`
   - `https://www.sacred-texts.com/hin/rigveda/`
+  - `https://www.sacred-texts.com/hin/index.htm`
 - Phase 1 import:
   - Rig Veda Mandala 1 Hymn 1 with Sanskrit, transliteration, and public-domain English translation by Ralph T. H. Griffith.
+- Phase 2 expansion:
+  - root Veda canon index
+  - intake stubs for Sama Veda, Krishna Yajur Veda, Shukla Yajur Veda, and Atharva Veda
 - Caution:
   - The sacred-texts Sanskrit Rig Veda pages describe their Unicode transcription as experimental and not fully vetted.
 
 ### Puranas
 
+- Canon coverage now catalogued for all 18 Mahapuranas.
 - Public-domain English translation located for the Vishnu Purana:
   - `https://www.sacred-texts.com/hin/vp/index.htm`
 - Phase 1 import:
   - Vishnu Purana Book 1 Chapter 1 from the 1840 H. H. Wilson translation.
+- Phase 2 expansion:
+  - root Mahapurana canon index
+  - intake stub indexes for the remaining 17 Mahapuranas
+- Important assumption:
+  - the repository currently interprets `all Puranas` as the 18 Mahapuranas for canonical baseline coverage; Upapuranas remain a later expansion
 
 ### Siddha Texts
 
@@ -66,7 +82,8 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Import more public-domain Upanishad and Vedic material from the verified Sacred Texts collections.
-2. Add collection manifests for more Puranas with public-domain translations.
-3. Review Tirumandiram source quality and rights before ingesting actual verses.
-4. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.
+1. Import more public-domain Upanishad text from the catalogued 108-text corpus, starting with principal texts that already have stable public-domain witnesses.
+2. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
+3. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
+4. Review Tirumandiram source quality and rights before ingesting actual verses.
+5. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.
