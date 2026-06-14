@@ -61,11 +61,28 @@ This document records what has been imported into the repository, what has only 
 ### Siddha Texts
 
 - Ancient source tradition is suitable in principle.
-- Verified online leads for Tirumandiram exist, but translation and edition rights are not yet cleared sufficiently for full-text import.
-- Catalogued only in Phase 1:
+- Working intake shelf now created for major Siddha corpora with Tamil primary-text witness leads.
+- Verified Siddha collection and text pages:
+  - `https://ta.wikisource.org/wiki/சித்தர்_பாடல்கள்`
+  - `https://ta.wikisource.org/wiki/திருமந்திரம்`
+  - `https://ta.wikisource.org/wiki/சிவவாக்கியார்`
+  - `https://ta.wikisource.org/wiki/பட்டினத்தார்`
+  - `https://ta.wikisource.org/wiki/பாம்பாட்டிச்_சித்தர்`
+  - `https://ta.wikisource.org/wiki/அகத்தியர்_ஞானப்_பாடல்கள்`
+  - `https://ta.wikisource.org/wiki/குதம்பைச்_சித்தர்`
+  - `https://ta.wikisource.org/wiki/இடைக்காட்டுச்_சித்தர்`
+  - `https://ta.wikisource.org/wiki/அகப்பேய்ச்_சித்தர்`
+- Phase 1 catalogued only:
   - Tamil Virtual University page
   - Himalayan Academy translation page
   - Thirumandiram.net reference site
+- Phase 2 Siddha expansion:
+  - root Siddha corpus index for major public-domain-ready texts
+  - structured intake stubs for Sivavakkiyar, Pattinathar, Pambatti Siddhar, Agathiyar Gnana Padalgal, Kudhambai Siddhar, Idaikkattu Siddhar, and Agappey Siddhar
+  - Tirumandiram section map aligned to payiram plus nine tantras
+  - Tirumandiram payiram imported from the Tamil Wikisource witness
+- Caution:
+  - English translations and modern edited Siddha compilations still require edition-specific rights review before bulk import.
 
 ### Sri Aurobindo
 
@@ -90,5 +107,5 @@ This document records what has been imported into the repository, what has only 
 1. Import more public-domain Upanishad text from the catalogued 108-text corpus, continuing with principal texts that already have stable public-domain witnesses such as Prashna, Taittiriya, Shvetashvatara, Aitareya, and Kaushitaki.
 2. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
 3. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
-4. Review Tirumandiram source quality and rights before ingesting actual verses.
+4. Continue Siddha intake from the Tamil primary-text side, starting with additional Tirumandiram tantras and shorter Siddhar poem corpora before any translation-layer expansion.
 5. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.

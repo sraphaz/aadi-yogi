@@ -1,36 +1,47 @@
 ---
 id: siddha_texts/tirumandiram/index
-title: Tirumandiram - Intake Index
+title: Tirumandiram - Source Index
 source_title: Tirumandiram
 source_type: internal_note
 tradition:
   - siddha
   - shaiva
+  - tamil
 themes:
   - source_navigation
-  - collection_intake
-status: draft
+  - study_structure
+status: active
 notes:
-  - Metadata-only intake in Phase 1.
-  - Candidate Tamil source URL: https://www.tamilvu.org/library/l4100/html/l41A0ind.htm
-  - Candidate English translation URL: http://www.himalayanacademy.com/resources/books/tirumantiram/TableOfContents.html
-  - Candidate reference URL: https://www.thirumandiram.net/
+  - Public-domain Tamil payiram witness imported from Tamil Wikisource.
+  - Root Tamil witness URL: https://ta.wikisource.org/wiki/திருமந்திரம்.
+  - English translation leads remain review items, not bulk-import witnesses.
 ---
 
 # Tirumandiram
 
-## Phase 1 Status
+## Purpose
 
-Metadata only.
+This index anchors staged intake for the Tirumandiram with the payiram already imported and the nine tantra sections prepared for later witness-by-witness import.
 
-## Why Full Text Was Not Imported Yet
+## Imported Public-Domain Witness
 
-- The original Tamil work is ancient, but the easily discoverable online English translations and presentation layers need clearer rights review.
-- The repository should not ingest a translation only because it is online.
-- This collection needs a better edition-quality review before source text import.
+- `payiram/full.public_domain.md`
+
+## Structured Sections
+
+- `payiram/index.md`
+- `tantra_01/index.md`
+- `tantra_02/index.md`
+- `tantra_03/index.md`
+- `tantra_04/index.md`
+- `tantra_05/index.md`
+- `tantra_06/index.md`
+- `tantra_07/index.md`
+- `tantra_08/index.md`
+- `tantra_09/index.md`
 
 ## Next Actions
 
-1. Confirm which Tamil text witness should be treated as the canonical intake base.
-2. Review translation rights and editorial reliability.
-3. Import a first verse-level sample only after those checks.
+1. Continue importing the Tamil witness section by section from the structured nine-tantra layout.
+2. Split the payiram into smaller reviewable units after witness comparison.
+3. Keep English translations metadata-only until rights and editorial lineage are explicit.

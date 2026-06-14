@@ -32,6 +32,12 @@ This folder is reserved for ingestion helpers such as metadata extraction, intak
 - `content/sources/upanishads/katha/full.public_domain.md`
 - `content/sources/upanishads/mundaka/full.public_domain.md`
 
+## Phase 2 Siddha Expansion
+
+- `content/sources/siddha_texts/index.md` now tracks a working intake shelf for major Tamil Siddha corpora.
+- `content/sources/siddha_texts/tirumandiram/payiram/full.public_domain.md` imports the first Tamil primary-text witness from Tamil Wikisource.
+- additional major Siddha corpora are catalogued as intake stubs pending witness-by-witness import.
+
 ## Wikisource SBE Importer
 
 - script: `scripts/ingest/import_wikisource_sbe.py`
@@ -40,6 +46,16 @@ This folder is reserved for ingestion helpers such as metadata extraction, intak
 
 ```bash
 python scripts/ingest/import_wikisource_sbe.py kena katha mundaka
+```
+
+## Tamil Wikisource Importer
+
+- script: `scripts/ingest/import_ta_wikisource.py`
+- current configured texts: `tirumandiram_payiram`
+- usage:
+
+```bash
+python scripts/ingest/import_ta_wikisource.py tirumandiram_payiram
 ```
 
 ## Practical Rule

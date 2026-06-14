@@ -1,3 +1,7 @@
 # Siddha Texts
 
-This folder will collect Siddha and related transformational materials with careful distinctions between symbolic, practical, and esoteric content.
+This folder now tracks a working intake shelf for major Tamil Siddha corpora with provenance-first handling.
+
+- corpus index: `content/sources/siddha_texts/index.md`
+- imported public-domain text: Tirumandiram payiram
+- additional major Siddha corpora: catalogued as intake stubs pending witness-by-witness import
