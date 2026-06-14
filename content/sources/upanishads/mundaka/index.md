@@ -1,27 +1,32 @@
 ---
 id: upanishads/mundaka/index
-title: Mundaka Upanishad - Intake Index
+title: Mundaka Upanishad - Source Index
 source_title: Mundaka Upanishad
 source_type: internal_note
 tradition:
   - upanishadic
 themes:
   - source_navigation
-  - collection_intake
-status: catalogued
+  - study_structure
+status: active
 notes:
-  - "Catalogued as part of the Muktika 108 Upanishad corpus."
-  - "Prefer public-domain witnesses from Sacred Books of the East, Thirty Minor Upanishads, or equivalent verified editions where available."
+  - "Public-domain translation imported from the Sacred Books of the East, Volume 15 witness on English Wikisource."
+  - "Later segmentation should break this witness into mundaka and khanda-level entries without altering source provenance."
 ---
 
 # Mundaka Upanishad
 
-## Phase 2 Status
+## Purpose
 
-Catalogued for structured intake.
+This index anchors future mundaka-level, khanda-level, and editorial review checkpoints for the Mundaka Upanishad.
 
-## Import Strategy
+## Imported Public-Domain Witness
 
-- identify the best available public-domain or permission-safe witness
-- record translator and edition before importing full text
-- keep provenance explicit in the final Markdown source file
+- `full.public_domain.md`
+
+## Planned Coverage
+
+- mundaka and khanda segmentation
+- translation comparison notes
+- thematic cross-links
+- citation verification notes

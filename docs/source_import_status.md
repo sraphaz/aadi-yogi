@@ -13,8 +13,10 @@ This document records what has been imported into the repository, what has only 
 ### Upanishads
 
 - Canon coverage now catalogued for all 108 Upanishads in the Muktika list.
-- Public-domain translations located in the Sacred Books of the East editions hosted by the Internet Sacred Text Archive.
+- Public-domain translations located in the Sacred Books of the East editions hosted on English Wikisource, with the Internet Sacred Text Archive retained as a parallel witness pool.
 - Verified collection pages:
+  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_1`
+  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15`
   - `https://www.sacred-texts.com/hin/sbe01/index.htm`
   - `https://www.sacred-texts.com/hin/sbe15/index.htm`
   - `https://www.sacred-texts.com/hin/tmu/index.htm`
@@ -22,7 +24,10 @@ This document records what has been imported into the repository, what has only 
   - Isha Upanishad public-domain English translation by Max Muller.
 - Phase 2 expansion:
   - root canon index for the full 108-text corpus
-  - intake stub indexes for the remaining 107 Upanishads
+  - intake stub indexes established across the remaining 107 Upanishads before full-text import began
+  - Kena Upanishad public-domain English translation by Max Muller from the Talavakara-upanishad witness in SBE 1
+  - Katha Upanishad public-domain English translation by Max Muller from SBE 15
+  - Mundaka Upanishad public-domain English translation by Max Muller from SBE 15
 
 ### Vedas
 
@@ -82,7 +87,7 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Import more public-domain Upanishad text from the catalogued 108-text corpus, starting with principal texts that already have stable public-domain witnesses.
+1. Import more public-domain Upanishad text from the catalogued 108-text corpus, continuing with principal texts that already have stable public-domain witnesses such as Prashna, Taittiriya, Shvetashvatara, Aitareya, and Kaushitaki.
 2. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
 3. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
 4. Review Tirumandiram source quality and rights before ingesting actual verses.

@@ -1,27 +1,32 @@
 ---
 id: upanishads/katha/index
-title: Katha Upanishad - Intake Index
+title: Katha Upanishad - Source Index
 source_title: Katha Upanishad
 source_type: internal_note
 tradition:
   - upanishadic
 themes:
   - source_navigation
-  - collection_intake
-status: catalogued
+  - study_structure
+status: active
 notes:
-  - "Catalogued as part of the Muktika 108 Upanishad corpus."
-  - "Prefer public-domain witnesses from Sacred Books of the East, Thirty Minor Upanishads, or equivalent verified editions where available."
+  - "Public-domain translation imported from the Sacred Books of the East, Volume 15 witness on English Wikisource."
+  - "Later segmentation should break this witness into adhyaya and valli-level entries without altering source provenance."
 ---
 
 # Katha Upanishad
 
-## Phase 2 Status
+## Purpose
 
-Catalogued for structured intake.
+This index anchors future adhyaya-level, valli-level, and editorial review checkpoints for the Katha Upanishad.
 
-## Import Strategy
+## Imported Public-Domain Witness
 
-- identify the best available public-domain or permission-safe witness
-- record translator and edition before importing full text
-- keep provenance explicit in the final Markdown source file
+- `full.public_domain.md`
+
+## Planned Coverage
+
+- adhyaya and valli segmentation
+- translation comparison notes
+- dialogue structure cross-links
+- citation verification notes

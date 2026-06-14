@@ -24,8 +24,8 @@ For repository intake purposes, `all Upanishads` means the 108-text Muktika cano
 
 ## Current Coverage
 
-- Imported public-domain text: Isha Upanishad.
-- Catalogued intake stubs: the remaining 107 Upanishads.
+- Imported public-domain text: Isha, Kena, Katha, and Mundaka Upanishads.
+- Catalogued intake stubs: the remaining 104 Upanishads.
 - Additional public-domain witness pools identified: Sacred Books of the East volumes and *Thirty Minor Upanishads*.
 
 ## Canon Table
@@ -33,10 +33,10 @@ For repository intake purposes, `all Upanishads` means the 108-text Muktika cano
 | # | Text | Status | Path |
 | --- | --- | --- | --- |
 | 1 | Isha Upanishad | `import_started_public_domain` | `content/sources/upanishads/isha/index.md` |
-| 2 | Kena Upanishad | `catalogued` | `content/sources/upanishads/kena/index.md` |
-| 3 | Katha Upanishad | `catalogued` | `content/sources/upanishads/katha/index.md` |
+| 2 | Kena Upanishad | `import_started_public_domain` | `content/sources/upanishads/kena/index.md` |
+| 3 | Katha Upanishad | `import_started_public_domain` | `content/sources/upanishads/katha/index.md` |
 | 4 | Prashna Upanishad | `catalogued` | `content/sources/upanishads/prashna/index.md` |
-| 5 | Mundaka Upanishad | `catalogued` | `content/sources/upanishads/mundaka/index.md` |
+| 5 | Mundaka Upanishad | `import_started_public_domain` | `content/sources/upanishads/mundaka/index.md` |
 | 6 | Mandukya Upanishad | `catalogued` | `content/sources/upanishads/mandukya/index.md` |
 | 7 | Taittiriya Upanishad | `catalogued` | `content/sources/upanishads/taittiriya/index.md` |
 | 8 | Aitareya Upanishad | `catalogued` | `content/sources/upanishads/aitareya/index.md` |

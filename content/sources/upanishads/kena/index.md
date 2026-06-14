@@ -1,27 +1,32 @@
 ---
 id: upanishads/kena/index
-title: Kena Upanishad - Intake Index
+title: Kena Upanishad - Source Index
 source_title: Kena Upanishad
 source_type: internal_note
 tradition:
   - upanishadic
 themes:
   - source_navigation
-  - collection_intake
-status: catalogued
+  - study_structure
+status: active
 notes:
-  - "Catalogued as part of the Muktika 108 Upanishad corpus."
-  - "Prefer public-domain witnesses from Sacred Books of the East, Thirty Minor Upanishads, or equivalent verified editions where available."
+  - "Public-domain translation imported from the Sacred Books of the East, Volume 1 Talavakara-upanishad witness on English Wikisource."
+  - "Later segmentation should break this witness into khanda-level entries without altering source provenance."
 ---
 
 # Kena Upanishad
 
-## Phase 2 Status
+## Purpose
 
-Catalogued for structured intake.
+This index anchors future khanda-level entries, editorial notes, and review checkpoints for the Kena Upanishad.
 
-## Import Strategy
+## Imported Public-Domain Witness
 
-- identify the best available public-domain or permission-safe witness
-- record translator and edition before importing full text
-- keep provenance explicit in the final Markdown source file
+- `full.public_domain.md`
+
+## Planned Coverage
+
+- khanda-level segmentation
+- translation comparison notes
+- thematic cross-links
+- citation verification notes

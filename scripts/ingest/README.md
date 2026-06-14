@@ -26,6 +26,22 @@ This folder is reserved for ingestion helpers such as metadata extraction, intak
 - `content/sources/puranas/index.md` now tracks the 18 Mahapuranas as the baseline Purana corpus.
 - `content/sources/vedas/index.md` now tracks Rig, Sama, Krishna Yajur, Shukla Yajur, and Atharva intake branches.
 
+## Phase 2 Public-Domain Upanishad Expansion
+
+- `content/sources/upanishads/kena/full.public_domain.md`
+- `content/sources/upanishads/katha/full.public_domain.md`
+- `content/sources/upanishads/mundaka/full.public_domain.md`
+
+## Wikisource SBE Importer
+
+- script: `scripts/ingest/import_wikisource_sbe.py`
+- current configured texts: `kena`, `katha`, `mundaka`
+- usage:
+
+```bash
+python scripts/ingest/import_wikisource_sbe.py kena katha mundaka
+```
+
 ## Practical Rule
 
 Canonical coverage and full-text coverage are not the same thing.
