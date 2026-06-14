@@ -11,6 +11,7 @@ themes:
 status: draft
 notes:
   - Placeholder index for future mantra-level entries.
+  - Public-domain collection page inspected at https://www.sacred-texts.com/hin/sbe01/index.htm
 ---
 
 # Isha Upanishad
@@ -18,6 +19,10 @@ notes:
 ## Purpose
 
 This index anchors future mantra-level source entries, editorial notes, and review checkpoints for the Isha Upanishad.
+
+## Imported In Phase 1
+
+- `full.public_domain.md`
 
 ## Planned Coverage
 
