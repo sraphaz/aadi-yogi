@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import os
 import re
 from dataclasses import dataclass
 from pathlib import Path
 
 from packages.rag.dense_vector_store import DEFAULT_DENSE_INDEX_PATH, DenseVectorStore
-from packages.rag.embeddings import HashEmbeddingProvider
+from packages.rag.embeddings import HashEmbeddingProvider, get_embedding_provider
+from packages.rag.qdrant_retriever import QdrantRetriever
 from packages.rag.retriever import RetrievedChunk, SimpleRetriever
 from packages.rag.vector_store import DEFAULT_INDEX_PATH, TfidfVectorStore
 
@@ -13,6 +15,7 @@ from packages.rag.vector_store import DEFAULT_INDEX_PATH, TfidfVectorStore
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CHUNK_ROOT = REPO_ROOT / "data" / "chunks"
 EXPLICIT_SOURCE_SCORE_FLOOR = 0.85
+USE_QDRANT = os.environ.get("AADI_YOGI_USE_QDRANT", "").lower() in {"1", "true", "yes"}
 
 
 def extract_source_id_hints(query: str) -> list[str]:
@@ -64,6 +67,13 @@ class HybridRetriever:
         self.dense_weight = dense_weight
         self._vector_store: TfidfVectorStore | None = None
         self._dense_store: DenseVectorStore | None = None
+        self._qdrant_retriever = QdrantRetriever()
+
+    def _embedding_provider(self) -> HashEmbeddingProvider:
+        dense_store = self._dense_store_instance()
+        if dense_store is not None and dense_store.provider_name != "hash_v1":
+            return get_embedding_provider(prefer_openai=True)  # type: ignore[return-value]
+        return HashEmbeddingProvider()
 
     def _vector_store_instance(self) -> TfidfVectorStore | None:
         if self._vector_store is not None:
@@ -84,23 +94,13 @@ class HybridRetriever:
     def retrieve(self, query: str, top_k: int = 5) -> list[HybridRetrievedChunk]:
         keyword_hits = self.keyword_retriever.retrieve(query, top_k=top_k * 3)
         keyword_map = {hit.chunk_id: hit for hit in keyword_hits}
+        chunk_lookup: dict[str, RetrievedChunk] = {hit.chunk_id: hit for hit in keyword_hits}
 
         vector_map: dict[str, float] = {}
         store = self._vector_store_instance()
         if store is not None:
             for chunk, score in store.search(query, top_k=top_k * 3):
                 vector_map[chunk.chunk_id] = score
-
-        dense_map: dict[str, float] = {}
-        dense_store = self._dense_store_instance()
-        if dense_store is not None:
-            provider = HashEmbeddingProvider()
-            for chunk, score in dense_store.search_text(query, provider=provider, top_k=top_k * 3):
-                dense_map[chunk.chunk_id] = score
-
-        chunk_lookup: dict[str, RetrievedChunk] = {hit.chunk_id: hit for hit in keyword_hits}
-        if store is not None:
-            for chunk, score in store.search(query, top_k=top_k * 3):
                 if chunk.chunk_id not in chunk_lookup:
                     chunk_lookup[chunk.chunk_id] = RetrievedChunk(
                         chunk_id=chunk.chunk_id,
@@ -110,9 +110,18 @@ class HybridRetriever:
                         citation=chunk.citation,
                         metadata=chunk.metadata,
                     )
-        if dense_store is not None:
-            provider = HashEmbeddingProvider()
+
+        dense_map: dict[str, float] = {}
+        dense_store = self._dense_store_instance()
+        provider = self._embedding_provider()
+        if USE_QDRANT and self._qdrant_retriever.configured:
+            for chunk, score in self._qdrant_retriever.search(query, provider=provider, top_k=top_k * 3):
+                dense_map[chunk.chunk_id] = score
+                if chunk.chunk_id not in chunk_lookup:
+                    chunk_lookup[chunk.chunk_id] = chunk
+        elif dense_store is not None:
             for chunk, score in dense_store.search_text(query, provider=provider, top_k=top_k * 3):
+                dense_map[chunk.chunk_id] = score
                 if chunk.chunk_id not in chunk_lookup:
                     chunk_lookup[chunk.chunk_id] = RetrievedChunk(
                         chunk_id=chunk.chunk_id,

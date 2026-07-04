@@ -75,5 +75,19 @@
     "expected_source_ids": ["upanishads/chandogya/prapathaka_06_public_domain_translation"],
     "themes": ["atman", "self_knowledge", "teacher_student_dialogue"],
     "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_012",
+    "question": "What does the Shvetashvatara Upanishad teach about Rudra and the Lord?",
+    "expected_source_ids": ["upanishads/shvetashvatara/full_public_domain_translation"],
+    "themes": ["rudra", "lord", "devotion"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_013",
+    "question": "What does Yajnavalkya teach Maitreyi about the Self in the Brihadaranyaka Upanishad?",
+    "expected_source_ids": ["upanishads/brihadaranyaka/full_public_domain_translation"],
+    "themes": ["atman", "self_knowledge", "yajnavalkya"],
+    "tradition": "upanishadic"
   }
 ]

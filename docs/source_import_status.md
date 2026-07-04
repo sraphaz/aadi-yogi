@@ -18,6 +18,8 @@ This document records what has been imported into the repository, what has only 
 - Phase 3 expansion:
   - **Taittiriya Upanishad** full public-domain translation from English Wikisource standalone witness.
   - **Chandogya Upanishad** all eight prapathakas imported from SBE Volume 1 (partial corpus, complete prapathaka coverage).
+  - **Shvetashvatara Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
+  - **Brihadaranyaka Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
 
 ### Vedas
 
@@ -107,7 +109,8 @@ This document records what has been imported into the repository, what has only 
 
 ### Rig Veda Expansion
 
-- Mandala 1 Hymns 1–100 imported from English Wikisource (Griffith translation).
+- Mandala 1 **all 191 hymns** imported from English Wikisource (Griffith translation).
+- Import script supports `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
 
 ### Siddha Expansion (Phase 3)
 
@@ -120,12 +123,14 @@ This document records what has been imported into the repository, what has only 
 
 ### Pipeline and Agent Scaffold
 
-- Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export operational.
-- **610 chunks** across **96** imported sources.
-- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection and boosting.
+- Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
+- **1668 chunks** across **246** normalized source artifacts.
+- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
+- Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
-- 5 synthesis notes, consciousness core v1 approved, **10 golden questions** (100% retrieval), **10/10** response quality checks (fallback mode).
+- 5 synthesis notes, consciousness core v1 approved, **13 golden questions** (100% retrieval), **13/13** response quality checks (fallback mode).
 - Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
+- Production setup: `docker-compose.yml`, `.env.example`, `docs/production_setup.md`, `scripts/run_production_pipeline.sh`.
 
 ### Internal Content (Consciousness Core + Ontology + Synthesis)
 
@@ -136,10 +141,9 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Import additional principal Upanishads when stable Wikisource witnesses become available (Shvetashvatara, Brihadaranyaka, remaining Chandogya prapathakas, Kaushitaki).
-2. Expand Rig Veda Mandala 1 beyond hymn 50 toward the full mandala (191 hymns) and begin Mandala 2 intake.
-3. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
-4. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
-5. Enable OpenAI embeddings and Qdrant sync in production deployments.
-6. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
-7. Complete human production review via `docs/production_review_checklist.md`.
+1. Expand Rig Veda beyond Mandala 1 (Mandalas 2–10).
+2. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
+3. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
+4. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
+5. Complete human production review via `docs/production_review_checklist.md`.
+6. Improve OCR cleanup for Brihadaranyaka Archive.org witness where needed.

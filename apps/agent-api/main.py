@@ -13,8 +13,10 @@ from pydantic import BaseModel, Field
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.orchestrator import AgentAnswer, ask_question
+from packages.rag.embeddings import get_embedding_provider
+from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk, USE_QDRANT
+from packages.rag.qdrant_retriever import QdrantRetriever
 from packages.rag.retriever import RetrievedChunk
-from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk
 
 
 APP_ROOT = Path(__file__).resolve().parent
@@ -93,12 +95,22 @@ def root() -> FileResponse:
 
 @app.get("/health")
 def health() -> dict[str, object]:
+    dense_store = retriever._dense_store_instance()
+    embedding_provider = get_embedding_provider(
+        prefer_openai=dense_store is not None and dense_store.provider_name != "hash_v1"
+    )
+    qdrant = QdrantRetriever()
     return {
         "status": "ok",
         "service": "aadi-yogi-agent-api",
         "llm_configured": llm_client.available,
+        "embedding_provider": embedding_provider.name,
         "tfidf_index": retriever.index_path.exists(),
         "dense_index": retriever.dense_index_path.exists(),
+        "dense_provider": dense_store.provider_name if dense_store else None,
+        "qdrant_configured": qdrant.configured,
+        "qdrant_enabled": USE_QDRANT and qdrant.configured,
+        "qdrant_collection": qdrant.collection if qdrant.configured else None,
     }
 
 

@@ -13,6 +13,7 @@ build/
 .next/
 data/raw/*
 data/ocr/*
+data/cache/*
 data/indexes/*
 !data/raw/.gitkeep
 !data/ocr/.gitkeep

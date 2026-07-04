@@ -76,8 +76,19 @@ def fetch_html(page_title: str) -> str:
     )
     url = f"https://en.wikisource.org/w/api.php?{query}"
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(request, timeout=60) as response:
-        payload = json.loads(response.read().decode("utf-8"))
+    for attempt in range(6):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429 and attempt < 5:
+                time.sleep(min(2 ** attempt * 2, 30))
+                continue
+            raise
+    else:
+        raise RuntimeError(f"Failed to fetch {page_title}")
+
     parse_payload = payload.get("parse")
     if not isinstance(parse_payload, dict) or "text" not in parse_payload:
         raise ValueError(f"Unexpected payload for {page_title}")
@@ -177,7 +188,7 @@ def import_hymn(config: HymnConfig) -> Path:
     return config.output_path
 
 
-def import_hymns(book: int, hymns: list[int], delay_seconds: float = 0.5) -> list[Path]:
+def import_hymns(book: int, hymns: list[int], delay_seconds: float = 1.0) -> list[Path]:
     written: list[Path] = []
     for index, hymn in enumerate(hymns):
         if index:
@@ -191,6 +202,8 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--book", type=int, default=1)
     parser.add_argument("--from", dest="from_hymn", type=int, help="First hymn number in range.")
     parser.add_argument("--to", dest="to_hymn", type=int, help="Last hymn number in range.")
+    parser.add_argument("--delay", type=float, default=1.0, help="Delay between hymn requests.")
+    parser.add_argument("--skip-existing", action="store_true", help="Skip hymns already on disk.")
     parser.add_argument("hymns", nargs="*", type=int, help="Hymn numbers to import.")
     return parser.parse_args(argv)
 
@@ -201,7 +214,17 @@ def main(argv: list[str]) -> int:
         hymns = list(range(args.from_hymn, args.to_hymn + 1))
     else:
         hymns = args.hymns or list(range(1, 11))
-    for path in import_hymns(args.book, hymns):
+
+    if args.skip_existing:
+        filtered: list[int] = []
+        for hymn in hymns:
+            path = HymnConfig(book=args.book, hymn=hymn).output_path
+            if path.exists():
+                continue
+            filtered.append(hymn)
+        hymns = filtered
+
+    for path in import_hymns(args.book, hymns, delay_seconds=args.delay):
         print(path.relative_to(REPO_ROOT).as_posix())
     return 0
 

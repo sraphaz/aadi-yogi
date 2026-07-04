@@ -1,0 +1,53 @@
+---
+id: vedas/rig_veda/mandala_01_hymn_191
+title: Rig Veda - Mandala 1 Hymn 191
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_01_hymn_191
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_1/Hymn_191
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 1, Hymn 191; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_01_hymn_191.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 1 Hymn 191
+
+## Normalized Primary Text
+
+Hymn 191
+
+Book 2, Hymn 1
+
+15584The Hymns of the Rigveda, Book 1 — Hymn 191Ralph T.H. Griffith
+
+1. VENOMOUS, slightly venomous, or venomous aquatic worm,-- Both creatures, stinging, unobserved, with poison have infected me. 2. Coming, it kills the unobserved; it kills them as it goes away, It kills them as it drives them off, and bruising bruises them to death. 3. Sara grass, Darbha, Kusara, and Sairya, Muñja, Virana, Where all these creatures dwell unseen, with poison have infected me. 4. The cows had settled in their stalls, the beasts of prey had sought their lairs, Extinguished were the lights of men, when things unseen infected me. 5. Or these, these reptiles, are observed, like lurking thieves at evening time. Seers of all, themselves unseen: be therefore very vigilant. 6. Heaven is your Sire, your Mother Earth, Soma your Brother, Aditi Your Sister: seeing all, unseen, keep still and dwell ye happily. 7. Biters of shoulder or of limb, with needle-stings, most venomous, Unseen, whatever ye may be, vanish together and be gone. 8. Slayer of things unseen, the Sun, beheld of all, mounts, eastward, up, Consuming all that are not seen, and evil spirits of the night. 9. There hath the Sun-God mounted up, who scorches much and everything. Even the Aditya from the hills, all-seen, destroying things unseen. 10. I hang the poison in the Sun, a wine-skin in a vintner's house, He will not die, nor shall we die: his path is far: he whom Bay Horses bear hath turned thee to sweet meath. 11. This little bird, so very small, hath swallowed all thy poison up. She will not die, nor shall we die: his path is far: he whom Bay Horses bear hath turned thee to sweet meath. 12. The three-times-seven bright sparks of fire have swallowed up the poison's strength. They will not die, nor shall we die: his path is far: he whom Bay Horses bear hath turned thee to sweet meath. 13. Of ninety rivers and of nine with power to stay the venom's course,-- The names of all I have secured: his path is far: he whom Bay Horses bear hath turned thee to sweet meath. 14. So have the peahens three-times-seven, so have the maiden Sisters Seven Carried thy venom far away, as girls bear water in their jars. 15. The poison-insect is so small; I crush the creature with a stone. I turn the poison hence away, departed unto distant lands. 16. Forth issuing from the mountain's side the poison-insect spake and said: Scorpion, they venom is but weak.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_1/Hymn_191
+- Translator: Ralph T. H. Griffith (public domain).
