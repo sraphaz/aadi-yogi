@@ -102,10 +102,31 @@ This document records what has been imported into the repository, what has only 
   - metadata-only catalog
   - no full-text import
 
+### Bhagavad Gita
+
+- Canon coverage now catalogued for all 18 chapters.
+- Index at `content/sources/bhagavad_gita/index.md`.
+- Public-domain translation candidates identified:
+  - `https://www.sacred-texts.com/hin/gita/index.htm` (Edwin Arnold, 1885)
+  - Sacred Books of the East Volume 39 (Swami Swarupananda, 1909)
+- Phase 1 action:
+  - catalog only; 1 template exists for chapter 2
+- Next safe expansion:
+  - import chapters 1–2 using a single consistent PD translation
+
+### Internal Content (Consciousness Core + Ontology)
+
+- Consciousness Core: 9 guidance files at v1 draft (`content/consciousness_core/`).
+- Ontology: concepts, deities, practices, sanskrit terms, states, 4 living maps.
+- Synthesis: placeholder only (`content/synthesis/`).
+- These are not source imports but are required for agent behavior; see `docs/content_import_roadmap.md` section B.
+
 ## Next Safe Expansion
 
-1. Import more public-domain Upanishad text from the catalogued 108-text corpus, continuing with principal texts that already have stable public-domain witnesses such as Prashna, Taittiriya, Shvetashvatara, Aitareya, and Kaushitaki.
-2. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
-3. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
-4. Continue Siddha intake from the Tamil primary-text side, starting with additional Tirumandiram tantras and shorter Siddhar poem corpora before any translation-layer expansion.
-5. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.
+1. Import Bhagavad Gita chapters 1–2 from a consistent public-domain translation.
+2. Import more public-domain Upanishad text from the catalogued 108-text corpus, continuing with principal texts that already have stable public-domain witnesses such as Prashna, Mandukya, Taittiriya, Shvetashvatara, Aitareya, and Kaushitaki.
+3. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
+4. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
+5. Continue Siddha intake from the Tamil primary-text side, starting with additional Tirumandiram tantras and shorter Siddhar poem corpora before any translation-layer expansion.
+6. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.
+7. Expand ontology concepts and create initial synthesis notes linked to living maps.

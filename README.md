@@ -37,14 +37,23 @@ Markdown sources
 
 ## Current Status
 
-The repository is in the foundation phase. The current scope covers:
+The repository has completed Phase 1 (foundation) and is actively in **Phase 2 — Source Operations**.
 
-- monorepo structure
-- editorial and architectural documentation
-- source templates and ontology starters
-- consciousness core guidelines
-- Markdown validation scaffolding
-- tests and CI validation
+What exists today:
+
+- monorepo structure, editorial docs, consciousness core v1 draft, ontology starters
+- Markdown validation, tests, and CI
+- **canon catalogs** for 108 Upanishads, 18 Mahapuranas, 5 Vedic collections, Siddha corpus, Bhagavad Gita
+- **8 public-domain imports** (4 Upanishads, Rig Veda hymn, Vishnu Purana chapter, Tirumandiram payiram)
+- automated ingestion scripts for Wikisource SBE and Tamil Wikisource
+
+What is urgently in progress:
+
+- Bhagavad Gita chapter imports
+- expansion of principal Upanishad and Siddha text imports
+- normalization and chunking pipeline
+
+See [`docs/content_import_roadmap.md`](docs/content_import_roadmap.md) for the full import plan.
 
 ## Validate Markdown
 
