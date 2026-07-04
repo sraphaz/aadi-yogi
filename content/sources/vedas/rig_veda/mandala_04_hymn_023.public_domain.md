@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_04_hymn_023
+title: Rig Veda - Mandala 4 Hymn 23
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_04_hymn_023
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_4/Hymn_23
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 4, Hymn 23; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 4 Hymn 23
+
+## Public-Domain Translation
+
+1. How, what priest's sacrifice hath he made mighty, rejoicing in the Soma and its fountain? Delighting in juice, eagerly drinking, the Lofty One hath waxed for splendid riches. 2. What hero hath been made his feast-companion? Who hath been partner in his loving-kindness? What know we of his wondrous acts? How often comes he to aid and speed the pious toiler? 3. How heareth Indra offered invocation? How, hearing, marketh he the invoker's wishes? What are his ancient acts of bounty? Wherefore call they him One who filleth full the singer? 4. How doth the priest who laboureth, ever longing, win for himself the wealth which he possesseth? May he, the God, mark well my truthful praises, having received the homage which he loveth. 5. How, and what bond of friendship with a mortal hath the God chosen as this morn is breaking? How, and what love hath he for those who love him, who have entwined in him their firm affection? 6. Is then thy friendship with thy friends most mighty? Thy brotherhood with us, -when may we tell it? The streams of milk move, as most wondrous sunlight, the beauty of the Lovely One for glory. 7. About to stay the Indra-less destructive spirit he sharpens his keen arms to strike her. Whereby the Strong, although our debts' exactor, drives in the distant mornings that we know not. 8. Eternal Law hath varied food that strengthens; thought of eternal Law, removes transgressions. The praise-hymn of eternal Law, arousing, glowing, hath opened the deaf ears of the living. 9. Firm-seated are eternal Law's foundations in its fair form are many splendid beauties. By holy Law long lasting food they bring us; by holy Law have cows come to our worship. 10. Fixing eternal Law he, too, upholds it swift moves the might of Law and wins the booty. To Law belong the vast deep Earth and Heaven: Milch-kine supreme, to Law their milk they render. 11. Now, Indra! lauded,- glorified with praises, let power swell high like rivers to the singer. For thee a new hymn, Lord of Bays, is fashioned. May we, car-borne, through song be victors ever.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_4/Hymn_23
+- Translator: Ralph T. H. Griffith (public domain).

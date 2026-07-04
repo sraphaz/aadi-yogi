@@ -103,5 +103,12 @@
     "expected_source_ids": ["vedas/rig_veda/mandala_03_hymn_057"],
     "themes": ["indra", "waters", "visvamitra"],
     "tradition": "vedic"
+  },
+  {
+    "id": "gq_016",
+    "question": "What does Rig Veda Mandala 4 Hymn 1 say about Agni and Varuna?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_04_hymn_001"],
+    "themes": ["agni", "varuna", "vamadeva"],
+    "tradition": "vedic"
   }
 ]

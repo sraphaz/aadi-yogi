@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_04_hymn_040
+title: Rig Veda - Mandala 4 Hymn 40
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_04_hymn_040
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_4/Hymn_40
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 4, Hymn 40; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 4 Hymn 40
+
+## Public-Domain Translation
+
+1. LET us recite the praise of Dadhikravan: may all the Mornings move me to exertion; Praise of the Lord of Waters, Dawn, and Agni, Brhaspati Son of Angiras, and Surya. 2. Brave, seeking war and booty, dwelling with the good and with the swift, may he hasten the food of Dawn. May he the true, the fleet, the lover of the course, the bird-like Dadhikravan, bring food, strength, and light. 3. His pinion, rapid runner, fans him m his way, as of a bird that hastens onward to its aim, And, as it were a falcon's gliding through the air, strikes Dadhikravan's side as he speeds on with might. 4. Bound by the neck and by the flanks and by the mouth, the vigorous Courser lends new swiftness to his speed. Drawing himself together, as his strength allows, Dadhikras springs along the windings of the paths. 5. The Hamsa homed in light, the Vasu in mid-air, the priest beside the altar, in the house the guest, Dweller in noblest place, mid men, in truth, in sky, born of flood, kine, truth, mountain, he is holy Law.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_4/Hymn_40
+- Translator: Ralph T. H. Griffith (public domain).
