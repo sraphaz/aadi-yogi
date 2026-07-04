@@ -1,0 +1,160 @@
+version: "1.0"
+spec_version: "1.1"
+slug: darshan
+sky_score: 72
+score_kind: intent
+elevation_level: horizon
+
+policies:
+  open_to_elevation: true
+  open_to_humanity_connections: true
+  open_to_ux_dignity_review: true
+
+weights:
+  SPI: 0.25
+  HCE: 0.20
+  GAP: 0.20
+  CWB: 0.20
+  UXD: 0.15
+
+indices:
+  SPI:
+    score: 58
+    confidence: low
+    band: 14
+    rationale: |
+      Free access to a wisdom corpus otherwise gated by scholarship or
+      commercial wellness products; anonymous-first removes economic and
+      identity barriers. Material prosperity impact is indirect (clarity,
+      steadiness, discernment in life and work).
+    evidence:
+      - type: artifact
+        ref: "brief-draft.yaml -> tier: mvp-free, anonymous-first auth (INT-003)"
+  HCE:
+    score: 88
+    confidence: medium
+    band: 8
+    rationale: |
+      Consciousness expansion is the product's explicit axis: source-grounded
+      study across eight traditions, states-of-consciousness ontology, living
+      maps of inner growth, practices of attention and self-observation -
+      with a hard no-manipulation design law (no engagement mechanics).
+    evidence:
+      - type: artifact
+        ref: "content/consciousness_core/ - behavioral law of the engine"
+      - type: artifact
+        ref: "darshan_interface_concept.md -> ten principles, inverted metrics"
+      - type: artifact
+        ref: "content/sources/ - imported canonical corpus with citation discipline"
+  GAP:
+    score: 62
+    confidence: medium
+    band: 10
+    rationale: |
+      Strong alignment with CH-OPEN-KNOWLEDGE (open, cited access to a
+      preserved corpus) and CH-HEALTH in its mental-wellbeing dimension
+      (calm technology, crisis-aware restraint); indirect alignment with
+      CH-PEACE through comparative study that names differences without
+      flattening traditions.
+    evidence:
+      - type: artifact
+        ref: "docs/copyright_policy.md + source manifests - preservation with provenance"
+      - type: artifact
+        ref: "darshan_interface_spec.md section 4.3 - crisis protocol"
+  CWB:
+    score: 70
+    confidence: medium
+    band: 10
+    rationale: |
+      Anti-addiction architecture (presence metrics, closure as success,
+      no notifications by default) directly counters attention-economy harms;
+      contemplative practice support contributes to collective mental health.
+      Community features deliberately deferred until they can avoid
+      social-media dynamics.
+    evidence:
+      - type: artifact
+        ref: "darshan_interface_spec.md section 6 - forbidden engagement targets"
+  UXD:
+    score: 75
+    confidence: medium
+    band: 9
+    rationale: |
+      UX spec mandates WCAG 2.1 AA, reduced-motion equivalents for every
+      ritual, skippable ceremonies, tokens-only styling, low excitation and
+      explicit anti-pattern list; unverified until implementation audit.
+    evidence:
+      - type: artifact
+        ref: "docs/skyforge/darshan/ux-spec.yaml -> anti_patterns_forbidden, accessibility"
+
+elevation_suggestions:
+  - id: ELV-001
+    title: Public domain corpus API
+    description: |
+      Expose the public-domain portion of the corpus (chunks + ontology +
+      citations) as an open API/dataset so other calm applications and
+      researchers can build on it - raises GAP (CH-OPEN-KNOWLEDGE) without
+      touching the contemplative surfaces.
+    challenge_id: CH-OPEN-KNOWLEDGE
+    impact_indices: [GAP, SPI]
+    ai_suggested: true
+    user_confirmed: null
+    evidenced: false
+    scope: post_mvp
+  - id: ELV-002
+    title: Low-bandwidth and offline distribution
+    description: |
+      Package the Seed phase (library + daily word + silence room) as a fully
+      offline PWA bundle distributable in low-connectivity regions - inclusion
+      dimension of SPI.
+    challenge_id: CH-INEQUALITY
+    impact_indices: [SPI, GAP]
+    ai_suggested: true
+    user_confirmed: null
+    evidenced: false
+    scope: post_mvp
+  - id: ELV-003
+    title: Educator mode for contemplative studies
+    description: |
+      Curated reading paths and comparative views packaged for teachers of
+      philosophy/religious studies, with classroom-safe defaults.
+    challenge_id: CH-EDUCATION
+    impact_indices: [HCE, CWB]
+    ai_suggested: true
+    user_confirmed: null
+    evidenced: false
+    scope: optional
+
+humanity_connections:
+  - challenge_id: CH-OPEN-KNOWLEDGE
+    product_feature: Library reading rooms with full provenance and public-domain corpus
+    connection_rationale: |
+      Preserves and opens canonical spiritual literature with citation
+      integrity, against both paywalled scholarship and decontextualized
+      content farms.
+    ai_suggested: true
+  - challenge_id: CH-HEALTH
+    product_feature: Presence metrics, honored silence, crisis protocol
+    connection_rationale: |
+      Calm technology stance and crisis-aware restraint address the mental
+      health externalities of attention-economy design.
+    ai_suggested: true
+  - challenge_id: CH-PEACE
+    product_feature: Comparative philosophy views that name differences
+    connection_rationale: |
+      Teaching how to hold plural truths without flattening or forced
+      syncretism is a capacity for dialogue across worldviews.
+    ai_suggested: true
+
+ux_design:
+  principles:
+    - mobile_first
+    - wcag_aa
+    - low_excitation
+    - design_tokens_only
+    - renunciation_by_design
+  accessibility_target: WCAG 2.1 AA
+  excitation_level: minimal
+  design_tokens_required: true
+
+cycles: []
+impact_checkpoints: []

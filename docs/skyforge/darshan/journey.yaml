@@ -1,0 +1,37 @@
+version: "1.0"
+slug: darshan
+current_phase: shape
+updated_at: "2026-07-04T21:00:00Z"
+
+user_preferences:
+  communication_style: contemplative_precise
+  outputs_location: default
+  public_showcase: undecided
+
+phase_history:
+  - phase: arrival
+    at: "2026-07-04T20:40:00Z"
+    agent: sky-host
+  - phase: shape
+    at: "2026-07-04T21:00:00Z"
+    agent: intake-conductor
+
+next_suggested_actions:
+  - id: confirm_elevations
+    label: Review and confirm elevation suggestions and humanity connections (user_confirmed)
+    agent: sky-elevator
+  - id: ux_tokens
+    label: Produce design tokens and visual language for the four hour-themes
+    agent: ux-design-specialist
+  - id: market_benchmark
+    label: Run market benchmark (MPI) against meditation, scripture and AI-guidance apps
+    agent: market-benchmark
+  - id: architecture
+    label: Model C4 architecture over the aadi-yogi monorepo layers
+    agent: c4-modeler
+
+notes: |
+  Session seeded from the aadi-yogi repository. Narrative sources:
+  docs/darshan_interface_concept.md and docs/darshan_interface_spec.md.
+  Engine ground: content/consciousness_core/, content/ontology/,
+  content/sources/ (CWSA + CWM imported), docs/architecture.md.

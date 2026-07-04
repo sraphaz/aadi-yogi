@@ -1,0 +1,72 @@
+requirements:
+  - id: NFR-001
+    category: privacy
+    title: Diary is architecturally private
+    description: |
+      Inner Diary stored local-first, encrypted at rest with user-derived key;
+      never indexed, never used for training, profiling or metrics; witness
+      mode reads only the explicitly invited entry and retains nothing.
+    priority: must
+  - id: NFR-002
+    category: privacy
+    title: No surveillance economics
+    description: |
+      No third-party analytics, no advertising, no data resale, anonymous use
+      as default mode. Presence metrics computed on-device or aggregated
+      without user-level engagement profiles.
+    priority: must
+  - id: NFR-003
+    category: accessibility
+    title: WCAG 2.1 AA with honest ritual equivalents
+    description: |
+      All contemplative elements (breath cue, fades, silence room) have
+      reduced-motion and screen-reader-honest equivalents; every ritual is
+      skippable; touch targets >= 44px; typography sized for long reading.
+    priority: must
+  - id: NFR-004
+    category: integrity
+    title: Citation resolution rate 1.0
+    description: |
+      Every rendered citation must resolve to a passage in the Library. CI
+      evaluation gates releases on citation integrity and on tone/safety
+      suites derived from consciousness_core examples.
+    priority: must
+  - id: NFR-005
+    category: integrity
+    title: Copyright enforcement at index build time
+    description: |
+      Works marked restricted in content/sources frontmatter are excluded
+      from quotable indexes at build time per docs/copyright_policy.md;
+      the interface renders their metadata records with pointers to official
+      sources.
+    priority: must
+  - id: NFR-006
+    category: performance
+    title: Contemplative latency posture
+    description: |
+      Interface absorbs answer latency into pacing (no spinners); honest
+      "still composing" state after 20s; reading surfaces render instantly
+      from local cache.
+    priority: should
+  - id: NFR-007
+    category: availability
+    title: Offline-first reading
+    description: |
+      Library rooms, prefetched daily word, practice field and diary work
+      fully offline; Inquiry states its need for connection plainly.
+    priority: should
+  - id: NFR-008
+    category: safety
+    title: Crisis routing
+    description: |
+      Restraint-case detection routes to cautionary/silence modes with
+      region-appropriate human-support resources; never medical or psychiatric
+      instruction; evaluated as a success mode in the eval suite.
+    priority: must
+  - id: NFR-009
+    category: i18n
+    title: English and Portuguese at launch
+    description: |
+      Full interface and engine voice in en and pt-BR; canonical quotations
+      remain in source language with licensed translations.
+    priority: should

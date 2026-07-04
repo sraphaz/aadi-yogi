@@ -1,0 +1,121 @@
+requirements:
+  - id: RF-001
+    title: Threshold entry ritual
+    description: One-breath contemplative entry absorbing all loading; skippable; hour-aware atmosphere.
+    source: darshan_interface_spec.md section 3.1
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-002
+    title: Court hub with one gesture per card
+    description: Single calm hub, max one level of navigation depth, explicit closing gesture.
+    source: darshan_interface_spec.md section 2
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-003
+    title: Darshan of the Word (daily passage)
+    description: One curated passage per day, typographically honored, cited, with optional commentary; no archive scroll by default.
+    source: darshan_interface_spec.md section 3.2
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-004
+    title: Inquiry oracle with contemplation pages
+    description: Single-question flow producing one composed, cited page; optional single clarifying reflection; well rhythm between questions.
+    source: darshan_interface_spec.md section 3.3
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-005
+    title: Response contract enforcement
+    description: State detection, guidance mode, mandatory resolvable citations, difference blocks, at most one offered movement.
+    source: darshan_interface_spec.md section 4
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-006
+    title: Honored silence and crisis protocol
+    description: Restraint cases route to cautionary or silence modes with grounding pointers and human-support encouragement.
+    source: consciousness_core/silence_and_non_answering.md
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-007
+    title: Library reading rooms with provenance
+    description: Offline long-form reading of all imported collections; every in-app quotation deep-links to passage in context.
+    source: darshan_interface_spec.md section 3.6
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-008
+    title: Silence Room (mauna mode)
+    description: Zero-telemetry near-black room with breath pulse, reachable from every surface by one gesture.
+    source: darshan_interface_concept.md zeroth gesture
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-009
+    title: Living Maps walker
+    description: Station-based inner journeys from content/ontology/living_maps with manual advance and dignified regression.
+    source: darshan_interface_spec.md section 3.4
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-010
+    title: Practice Field
+    description: Silence timer, morning offering, evening look-back (three questions), japa support; no statistics.
+    source: darshan_interface_spec.md section 3.5
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-011
+    title: Concept lens over ontology
+    description: Tappable terms open tradition-by-tradition senses and named differences.
+    source: darshan_interface_spec.md section 3.6
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-012
+    title: Inner Diary with witness mode
+    description: Local-first encrypted journal; engine blind by default; single witness response per explicit invitation.
+    source: darshan_interface_spec.md section 3.7
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+  - id: RF-013
+    title: Opt-in dawn/dusk bells
+    description: Up to two daily quiet notifications, no content teasers, off by default.
+    source: darshan_interface_spec.md section 5
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: null
+  - id: RF-014
+    title: Comparative reading view
+    description: Two passages side by side with cited comparison naming differences explicitly.
+    source: darshan_interface_spec.md section 3.6
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: null
+  - id: RF-015
+    title: Presence metrics pipeline
+    description: Closure rate, depth ratio, honored-silence precision, citation integrity; engagement metrics forbidden.
+    source: darshan_interface_spec.md section 6
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true

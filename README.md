@@ -54,6 +54,10 @@ pytest
 ruff check .
 ```
 
+## Interface Vision
+
+The application layer is designed as **Darshan**, an interface whose behavior embodies the wisdom of the corpus instead of talking about it: silence before speech, one question at a time, presence metrics instead of engagement metrics. See `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`, and the Sky-Forge session package in `docs/skyforge/darshan/`.
+
 ## Next Milestones
 
 - define richer source metadata conventions

@@ -1,0 +1,119 @@
+# UX Spec - Darshan interface
+version: "1.0"
+slug: darshan
+
+principles:
+  - silence_before_speech
+  - one_pointedness_single_focus_per_screen
+  - low_excitation_no_dark_patterns
+  - renunciation_by_design_no_engagement_mechanics
+  - reverent_typography_for_sacred_text
+  - non_coercion_everything_offered_never_assigned
+  - hour_aware_atmosphere
+  - wcag_2_1_aa
+  - mobile_first_pwa
+  - privacy_by_architecture
+
+tokens:
+  source: design_tokens_css_variables
+  hardcoded_colors_forbidden: true
+  themes:
+    - pre_dawn
+    - day
+    - dusk
+    - night
+  motion:
+    breath_cycle: 8s
+    reveal_pace: reading_speed
+    reduced_motion_equivalents_required: true
+  typography:
+    passage_display: large_serif_generous_leading
+    body: humanist_sans
+    min_size: 12px
+
+key_screens:
+  - id: threshold
+    title: Threshold
+    primary_action: one breath, then enter
+    accessibility:
+      - skippable_by_single_tap
+      - reduced_motion_static_variant
+  - id: court
+    title: The Court (hub)
+    primary_action: choose one gesture
+    accessibility:
+      - max_one_navigation_level
+      - explicit_closing_gesture_always_visible
+  - id: word
+    title: Darshan of the Word
+    primary_action: receive the daily passage
+    accessibility:
+      - passage_readable_by_screen_reader_before_animation_ends
+  - id: inquiry
+    title: Inquiry
+    primary_action: compose one question with intention
+    accessibility:
+      - no_streaming_text_during_composition
+      - contemplation_page_is_single_document
+  - id: maps
+    title: Living Maps
+    primary_action: walk to the next station (manual)
+    accessibility:
+      - no_progress_percentages
+      - regression_is_first_class
+  - id: practice
+    title: Practice Field
+    primary_action: enter a practice
+    accessibility:
+      - haptic_only_japa_mode
+      - screen_off_friendly
+  - id: library
+    title: Library
+    primary_action: read in context
+    accessibility:
+      - offline_reading
+      - position_memory
+      - concept_lens_keyboard_accessible
+  - id: diary
+    title: Inner Diary
+    primary_action: write freely
+    accessibility:
+      - engine_blind_by_default_stated_in_ui
+  - id: silence
+    title: Silence Room
+    primary_action: nothing
+    accessibility:
+      - zero_telemetry
+      - same_gesture_in_and_out
+
+journeys:
+  - persona: seeker in pain
+    steps:
+      - enter through threshold breath
+      - ask one question in inquiry
+      - state detected as pain; response leads with acknowledgment
+      - honored silence or gentle movement offered
+      - exit through silence room or closing gesture
+  - persona: daily practitioner
+    steps:
+      - dawn bell (opt-in) opens darshan of the word
+      - offering gesture in practice field
+      - evening look-back at dusk
+  - persona: student of traditions
+    steps:
+      - read in library room
+      - open concept lens on a term
+      - compare passages across traditions
+      - keep a contemplation page
+
+anti_patterns_forbidden:
+  - feeds_and_infinite_scroll
+  - streaks_badges_gamification
+  - push_notifications_by_default
+  - engagement_time_optimization
+  - autoplay_and_content_teasers
+  - dark_patterns_of_any_kind
+
+institutional_site:
+  required: true
+  tone: calm, source-grounded, no urgency, no spiritual performance

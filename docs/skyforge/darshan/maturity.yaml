@@ -1,0 +1,79 @@
+version: "1.0"
+slug: darshan
+updated_at: "2026-07-04T21:00:00Z"
+overall_readiness: 0.55
+
+weights:
+  business: 0.22
+  product: 0.18
+  ux_design: 0.15
+  technical: 0.18
+  sustainability: 0.12
+  elevation: 0.15
+
+dimensions:
+  business:
+    level: 1
+    score: 0.40
+    gaps:
+      - "sustaining model undecided (donation / patronage / institutional); ads and attention economics are excluded by design law"
+      - "stewardship and governance of the project not yet formalized"
+  product:
+    level: 2
+    score: 0.75
+    gaps:
+      - "curation policy for the daily word needs editorial definition"
+      - "phase Sangha intentionally unresolved"
+  ux_design:
+    level: 2
+    score: 0.70
+    gaps:
+      - "design tokens and visual language not yet produced (spec only)"
+      - "accessibility of ritual elements needs prototype validation with screen readers"
+  technical:
+    level: 1
+    score: 0.50
+    gaps:
+      - "chunking/embedding pipeline specified but not implemented (scripts/chunk, packages/rag empty)"
+      - "response contract needs a reference implementation in apps/agent-api"
+      - "evaluation suites for tone/safety/citation integrity not yet built"
+  sustainability:
+    level: 0
+    score: 0.30
+    gaps:
+      - "hosting, observability and on-call posture undefined"
+      - "editorial review workflow for machine-converted volumes pending"
+  elevation:
+    level: 2
+    score: 0.72
+    gaps:
+      - "humanity_connections await creator confirmation (user_confirmed)"
+      - "impact checkpoints only definable post-launch"
+
+conversation_level: product
+
+pipeline_unlock:
+  market_research:
+    requires: { business: 0.70 }
+    approved: false
+  sky_elevation:
+    requires: { business: 0.65, product: 0.50 }
+    approved: false
+  ux_review:
+    requires: { product: 0.55 }
+    approved: true
+  architecture:
+    requires: { business: 0.80, product: 0.60, ux_design: 0.40 }
+    approved: false
+  roadmap:
+    requires: { product: 0.70 }
+    approved: true
+  prompt_compile:
+    requires: { product: 0.75, technical: 0.50, ux_design: 0.50 }
+    approved: false
+  cloud_design_export:
+    requires: { product: 0.80, technical: 0.60, elevation: 0.35 }
+    approved: false
+  full_package:
+    requires: { overall: 0.85 }
+    approved: false
