@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_07_hymn_018
+title: Rig Veda - Mandala 7 Hymn 18
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_07_hymn_018
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_18
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 7, Hymn 18; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 7 Hymn 18
+
+## Public-Domain Translation
+
+1. ALL is with thee, O Indra, all the treasures which erst our fathers won who sang thy praises. With thee are milch-kine good to milk, and horses: best winner thou of riches for the pious. 2. For like a King among his wives thou dwellest: with glories, as a Sage, surround and help us. Make us, thy servants, strong for wealth, and honour our songs wirth kine and steeds and decoration. 3. Here these our holy hymns with joy and gladness in pious emulation have approached thee. Hitherward come thy path that leads to riches: may we find shelter in thy favour, Indra. 4. Vasistha hath poured forth his prayers, desiring to milk thee like a cow in goodly pasture. All these my people call thee Lord of cattle: may Indra. come unto the prayer we offer. 5. What though the floods spread widely, Indra made them shallow and easy for Sudas to traverse. He, worthy of our praises, caused the Simyu, foe of our hymn, to curse the rivers' fury. 6. Eager for spoil was Turvasa Purodas, fain to win wealth, like fishes urged by hunger. The Bhrgus and the Druhyus quickly listened: friend rescued friend mid the two distant peoples. 7. Together came the Pakthas, the Bhalanas, the Alinas, the Sivas, the Visanins. Yet to the Trtsus came the Arya's Comrade, through love of spoil and heroes' war, to lead them. 8. Fools, in their folly fain to waste her waters, they parted inexhaustible Parusni. Lord of the Earth, he with his might repressed them: still lay the herd and the affrighted herdsman. 9. As to their goal they sped to their destruction: they sought Parusni; e'en the swift returned not. Indra abandoned, to Sudas the manly, the swiftly flying foes, unmanly babblers. 10. They went like kine unherded from the pasture, each clinging to a friend as chance directed. They who drive spotted steeds, sent down by Prsni, gave ear, the Warriors and the harnessed horses. 11. The King who scattered one-and-twenty people of both Vaikarna tribes through lust of glory- As the skilled priest clips grass within the chamber, so hath the Hero Indra, wrought their downfall. 12. Thou, thunder-armed, o'erwhelmedst in the waters famed ancient Kavasa and then the Druhyu. Others here claiming friendship to their friendship, devoted unto thee, in thee were joyful. 13. Indra at once with conquering might demolished all their strong places and their seven castles. The goods of Anu's son he gave to Trtsu. May we in sacrifice conquer scorned Puru. 14. The Anavas and Druhyus, seeking booty, have slept, the sixty hundred, yea, six thousand, And six-and-sixty heroes. For the pious were all these mighty exploits done by Indra. 15. These Trtsus under Indra's careful guidance came speeding like loosed waters rushing downward. The foemen, measuring exceeding closely, abandoned to Sudas all their provisions. 16. The hero's side who drank the dressed oblation, Indra's denier, far o'er earth he scattered. Indra brought down the fierce destroyer's fury. He gave them various roads, the path's Controller. 17. E'en with the weak he wrought this matchless exploit: e'en with a goat he did to death a lion. He pared the pillar's angles with a needle. Thus to Sudas Indra gave all provisions. 18. To thee have all thine enemies submitted: e'en the fierce Bheda hast thou made thy subject. Cast down thy sharpened thunderbolt, O Indra, on him who harms the men who sing thy praises. 19. Yamuna and the Trtsus aided Indra. There he stripped Bheda bare of all his treasures. The Ajas and the Sigrus and the Yaksus brought in to him as tribute heads of horses. 20. Not to be scorned, but like Dawns past and recent, O Indra, are thy favours and thy riches. Devaka, Manyamana's son, thou slewest, and smotest Sambara from the lofty mountain. 21. They who, from home, have gladdened thee, thy servants Parasara, Vasistha, Satayatu, Will not forget thy friendship, liberal Giver. So shall the days dawn prosperous for the princes. 22. Priest-like, with praise, I move around the altar, earning Paijavana's reward, O Agni, Two hundred cows from Devavan's descendant, two chariots from Sudas with mares to draw them. 23. Gift of Paijavana, four horses bear me in foremost place, trained steeds with pearl to deck them. Sudas's brown steeds, firmly-stepping, carry me and my son for progeny and glory. 24. Him whose fame spreads between wide earth and heaven, who, as dispenser, gives each chief his portion, Seven flowing Rivers glorify like Indra. He slew Yudhyamadhi in close encounter. 25. Attend on him O ye heroic Maruts as on Sudas's father Divodasa. Further Paijavana's desire with favour. Guard faithfully his lasting firm dominion.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_18
+- Translator: Ralph T. H. Griffith (public domain).

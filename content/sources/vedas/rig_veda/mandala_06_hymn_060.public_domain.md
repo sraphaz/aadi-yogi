@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_06_hymn_060
+title: Rig Veda - Mandala 6 Hymn 60
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_06_hymn_060
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_60
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 6, Hymn 60; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 6 Hymn 60
+
+## Public-Domain Translation
+
+1. HE slays the foe and wins the spoil who worships Indra and Agni, strong and mighty Heroes, Who rule as Sovrans over ample riches, victorious, showing forth their power in conquest. 2. So battle now, O Indra and thou, Agni, for cows and waters, sunlight, stolen Mornings. Team-borne, thou makest kine thine own, O Agni: thou, Indra, light, Dawns, regions, wondrous waters. 3. With Vrtra-slaying might, Indra and Agni, come, drawn by homage, O ye Vrtra-slayers. Indra and Agni, show yourselves among us with your supreme and unrestricted bounties. 4. I call the Twain whose deeds of old have all been famed in ancient days O Indra-Agni, harm us not. 5. The Strong, the scatterers of the foe, Indra and Agni, we invoke; May they be kind to one like me. 6. They slay our Arya foes, these Lords of heroes, slay our Dasyu foes And drive our enemies away. 7. Indra and Agni, these our songs of praise have sounded forth to you: Ye who bring blessings! drink the juice. 8. Come, Indra-Agni, with those teams, desired of many, which ye have, O Heroes, for the worshipper. 9. With those to this libation poured, ye Heroes, Indra-Agni, come: Come ye to drink the Soma juice. 10. Glorify him who compasses all forests with his glowing flame, And leaves them blackened with his tongue. 11. He who gains Indra's bliss with fire enkindled finds an easy way Over the floods to happiness. 12. Give us fleet coursers to convey Indra and Agni, and bestow Abundant strengthening food on us. 13. Indra and Agni, I will call you hither and make you joyful with the gifts I offer. Ye Twain are givers both of food and riches: to win me strength and vigour I invoke you. 14. Come unto us with riches, come with wealth in horses and in kine. Indra and Agni, we invoke you both, the Gods, as Friends for friendship, bringing bliss. 15. Indra and Agni, hear his call who worships. with libations poured. Come and enjoy the offerings, drink the sweetly-flavoured Soma juice.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_60
+- Translator: Ralph T. H. Griffith (public domain).

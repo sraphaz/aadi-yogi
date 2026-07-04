@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_07_hymn_034
+title: Rig Veda - Mandala 7 Hymn 34
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_07_hymn_034
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_34
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 7, Hymn 34; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 7 Hymn 34
+
+## Public-Domain Translation
+
+1. MAY our divine and brilliant hymn go forth, like a swift chariot wrought and fashioned well. 2. The waters listen as they flow along: they know the origin of heaven and earth. 3. Yea, the broad waters swell their flood for him: of him strong heroes think amid their foes. 4. Set ye for him the coursers to the pole: like Indra Thunderer is the Golden-armed. 5. Arouse you, like the days, to sacrifice speed gladly like a traveller on the way. 6. Go swift to battles, to the sacrifice: set up a flag, a hero for the folk. 7. Up from his strength hath risen as 'twere a light: it bears the load as earth bears living things. 8. Agni, no demon I invoke the Gods: by law completing it, I form a hymn. 9. Closely about you lay your heavenly song, and send your voice to where the Gods abide. 10. Varuna, Mighty, with a thousand eyes, beholds the paths wherein these rivers run. 11. He, King of kings, the glory of the floods, o'er all that liveth hath resistless sway. 12. May he assist us among all the tribes, and make the envier's praise devoid of light. 13. May the foes' threatening arrow pass us by: may he put far from us our bodies' sin. 14. Agni, oblation-cater, through our prayers aid us: to him our dearest laud is brought. 15. Accordant with the Gods choose for our Friend the Waters' Child: may he be good to us. 16. With lauds I sing the Dragon born of floods: he sits beneath the streams in middle air. 17. Ne'er may the Dragon of the Deep harm us: ne'er fail this faithful servant's sacrifice. 18. To these our heroes may they grant renown: may pious men march boldly on to wealth. 19. Leading great hosts, with fierce attacks of these, they burn their foes as the Sun burns the earth. 20. What time our wives draw near to us, may he, left-handed Tvastar, give us hero sons. 21. May Tvastar find our hymn acceptable, and may Aramati, seeking wealth, be ours. 22. May they who lavish gifts bestow those treasures: may Rodasi and Varunani listen. May he, with the Varutris, be our refuge, may bountiful Tvastar give us store of riches. 23. So may rich Mountains and the liberal Waters, so may all Herbs that grow on ground, and Heaven, And Earth accordant with the Forest-Sovrans, and both the World-halves round about protect us. 24. To this may both the wide Worlds lend approval, and Varuna in heaven, whose Friend is Indra. May all the Maruts give consent, the Victors, that we may hold great wealth in firm possession. 25. May Indra, Varuna, Mitra, and Agni, Waters, Herbs, Trees accept the praise we offer. May we find refuge in the Marut's bosom. Protect us evermore, ye Gods, with blessings.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_34
+- Translator: Ralph T. H. Griffith (public domain).

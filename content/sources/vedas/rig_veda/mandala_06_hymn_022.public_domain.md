@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_06_hymn_022
+title: Rig Veda - Mandala 6 Hymn 22
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_06_hymn_022
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_22
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 6, Hymn 22; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 6 Hymn 22
+
+## Public-Domain Translation
+
+1. WITH these my hymns I glorify that Indra who is alone to be invoked by mortals, The Lord, the Mighty One, of manly vigour, victorious, Hero, true, and full of wisdom. 2. Our sires of old,. Navagvas, sages seven, while urging him to show his might, extolled him, Dwelling on heights, swift, smiting down opponents, guileless in word, and in his thoughts most mighty. 3. We seek that Indra to obtain his riches that bring much food, and men, and store of heroes. Bring us, Lord of Bay Steeds, to make us joyful, celestial wealth, abundant, undecaying. 4. Tell thou us this, if at thy hand aforetime the earlier singers have obtained good fortune, What is thy share and portion, Strong Subduer, Asura-slayer, rich, invoked of many? 5. He who for car-borne Indra, armed with thunder, hath a hymn, craving, deeply-piercing, fluent, Who sends a song effectual, firmly-grasping, and strength-bestowing, he comes near the mighty. 6. Strong of thyself, thou by this art hast shattered, with thought-swift Parvata, him who waxed against thee, And, Mightiest! roaring! boldly rent in pieces things that were firmly fixed and never shaken. 7. Him will we fit for you with new devotion, the strongest Ancient One, in ancient manner. So may that Indra, boundless, faithful Leader, conduct us o'er all places hard to traverse. 8. Thou for the people who oppress hast kindled the earthly firmament and that of heaven. With heat, O Bull, on every side consume them: heat earth and flood for him who hates devotion. 9. Of all the Heavenly Folk, of earthly creatures thou art the King, O God of splendid aspect. In thy right hand, O Indra, grasp die thunder: Eternal! thou destroyest all enchantments. 10. Give us confirmed prosperity, O Indra, vast and exhaustless for the foe's subduing. Strengthen therewith the Arya's hate and Dasa's, and let the arms of Nahusas be mighty. 11. Come with thy team which brings all blessings hither, Disposer, much-invoked, exceeding holy. Thou whom no fiend, no God can stay or hinder, come swittly with these Steeds in my direction.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_22
+- Translator: Ralph T. H. Griffith (public domain).
