@@ -1,11 +1,12 @@
 version: "1.1"
 spec_version: "1.1"
 slug: darshan
-# Round 2: recomputed honestly from the weighted formula
-# (0.25*58 + 0.20*88 + 0.20*62 + 0.20*70 + 0.15*78 = 70.2); the round-1
-# value of 72 overstated the arithmetic. MPI published alongside, not in
-# the composite (spec v1.2 governance).
-sky_score: 70
+# Round 2 recomputed honestly from the weighted formula (70.2 -> 70).
+# Round 3 (sky map + house of nature): GAP 62->64 (CH-HEALTH connection now
+# carried by designed features with a responsibility fence), CWB 70->72
+# (self-care commons, anti-mood-tracker inner sky). New composite:
+# 0.25*58 + 0.20*88 + 0.20*64 + 0.20*72 + 0.15*78 = 71.0.
+sky_score: 71
 score_kind: intent
 elevation_level: horizon
 
@@ -51,33 +52,43 @@ indices:
       - type: artifact
         ref: "content/sources/ - imported canonical corpus with citation discipline"
   GAP:
-    score: 62
+    score: 64
     confidence: medium
     band: 10
     rationale: |
       Strong alignment with CH-OPEN-KNOWLEDGE (open, cited access to a
-      preserved corpus) and CH-HEALTH in its mental-wellbeing dimension
-      (calm technology, crisis-aware restraint); indirect alignment with
-      CH-PEACE through comparative study that names differences without
-      flattening traditions.
+      preserved corpus) and CH-HEALTH - now carried by designed features:
+      the House of Nature preserves traditional health/longevity heritage
+      inside a three-tier responsibility fence, and the inner sky supports
+      self-observation without diagnosis. Indirect alignment with CH-PEACE
+      through comparative study that names differences without flattening
+      traditions.
     evidence:
       - type: artifact
         ref: "docs/copyright_policy.md + source manifests - preservation with provenance"
       - type: artifact
         ref: "darshan_interface_spec.md section 4.3 - crisis protocol"
+      - type: artifact
+        ref: "docs/darshan_nature_health_design.md - responsibility fence, healing memory"
   CWB:
-    score: 70
+    score: 72
     confidence: medium
     band: 10
     rationale: |
       Anti-addiction architecture (presence metrics, closure as success,
       no notifications by default) directly counters attention-economy harms;
       contemplative practice support contributes to collective mental health.
-      Community features deliberately deferred until they can avoid
-      social-media dynamics.
+      Round 3 adds embodied wellbeing: rhythm attunement (sky map), safe-tier
+      regimen wisdom, and an inner-sky instrument explicitly designed against
+      mood-tracker scoring dynamics. Community features deliberately deferred
+      until they can avoid social-media dynamics.
     evidence:
       - type: artifact
         ref: "darshan_interface_spec.md section 6 - forbidden engagement targets"
+      - type: artifact
+        ref: "docs/darshan_sky_map_design.md section 3 - mirror without diagnosis, no scoring"
+      - type: artifact
+        ref: "functional-requirements.yaml RF-036 - three-tier enforcement"
   UXD:
     score: 78
     confidence: medium

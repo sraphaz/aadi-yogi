@@ -117,11 +117,14 @@ performs mystical authority (see `docs/project_vision.md` boundaries). Its
 voice is the voice already defined in `content/consciousness_core/voice.md`:
 calm but not cold, deep but not obscure, reverent but not dogmatic.
 
-## The Seven Gestures
+## The Gestures
 
 Functionalities are conceived as gestures of consciousness, not features.
 Each one answers: what is its purpose, and where does it touch the essence of
-the person?
+the person? The first seven form the founding circle; gestures 8 and 9
+arrived as the corpus grew - and the design expects more: the library is
+alive, imports continue, and new gestures must earn their place by the same
+law (behavior that embodies the wisdom, never features for their own sake).
 
 ### Gesture 1 - The Threshold (Dvara)
 
@@ -241,6 +244,45 @@ Aurobindo and the Mother modeled by keeping records of their own sadhana.
 **Where it touches essence.** The witness (sakshi). Writing to no audience,
 before a presence that does not judge, cultivates the inner separation
 between the one who experiences and the one who sees.
+
+### Gesture 8 - The Sky Map (Akasha)
+
+**What it is.** One map, two hemispheres. The outer sky: the real cosmic
+rhythm the traditions keep time by - sun and sandhyas, moon and tithi, the
+six seasons, the observance days - drawn as a quiet sky, computed on the
+device, every element opening into cited sources. The inner sky: the five
+planes of the being (physical, energetic, emotional, mental, spiritual) as
+five bands of weather that **the seeker marks and the app mirrors** - never
+the reverse. Full design: `darshan_sky_map_design.md`.
+
+**Purpose.** To give daily life a consultable map of conditions - outer
+rhythm and inner weather - the way one reads the sky before choosing a coat.
+The boundary is absolute: the sky is rhythm, not fate; no horoscopes, no
+predictions, no verdicts.
+
+**Where it touches essence.** Attunement - the capacity to live in rhythm
+rather than against it - and the witness: seeing one's inner weather already
+separates the seer from the storm.
+
+### Gesture 9 - The House of Nature (Prakriti)
+
+**What it is.** The corpus's knowledge of the elements, the land, the body,
+health and long life - the pancha mahabhutas as rooms, dinacharya and the
+seasons, Tirumular's songs of the body as temple, the Siddha longevity
+heritage, the healing memory of the ancestors - all cited at source and held
+inside a responsibility fence: heritage, not prescription; it accompanies
+qualified care, never replaces it. Full design:
+`darshan_nature_health_design.md`.
+
+**Purpose.** To reveal that the traditions held a whole physiology of the
+sacred, and to preserve and open that knowledge with a care so strict it can
+be trusted - three content tiers (safe, documentary, closed), restraint
+posture for illness, double editorial gate.
+
+**Where it touches essence.** Embodiment - the reconciliation with matter
+that the Upanishads count in sheaths and the Mother took as yoga's final
+frontier. The body stops being the ego's property or enemy and becomes the
+temple where practice happens.
 
 ### The Zeroth Gesture - The Silence Room (Mauna)
 

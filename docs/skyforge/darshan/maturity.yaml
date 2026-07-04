@@ -1,7 +1,7 @@
-version: "1.1"
+version: "1.2"
 slug: darshan
-updated_at: "2026-07-04T21:30:00Z"
-overall_readiness: 0.62
+updated_at: "2026-07-04T22:00:00Z"
+overall_readiness: 0.63
 
 weights:
   business: 0.22
@@ -21,14 +21,20 @@ dimensions:
       - "market benchmark done (MPI 68); positioning language exists (situation doors, GAP-002) but go-to-market unwritten"
   product:
     level: 2
-    score: 0.82
+    score: 0.85
     gaps:
       - "editorial curation policy for the daily word still needs an owner and cadence"
       - "phase Sangha intentionally unresolved"
+      - "observance calendar data (INT-007) needs an editorial owner"
     round_2_gains:
       - "library designed in depth (seven depths, six doors, facets) - darshan_library_design.md"
       - "becoming path designed (postures, day-as-ashram, situation doors, reading journeys) - darshan_becoming_path.md"
       - "29 RFs with acceptance criteria"
+    round_3_gains:
+      - "gesture 8 Sky Map designed (outer rhythm + inner planes, rhythm-not-fate boundary) - darshan_sky_map_design.md"
+      - "gesture 9 House of Nature designed (elements, body, health heritage, three tiers) - darshan_nature_health_design.md"
+      - "living corpus protocol (RF-038) aligns the app with the ongoing parallel imports"
+      - "38 RFs with acceptance criteria"
   ux_design:
     level: 2
     score: 0.78
@@ -55,6 +61,7 @@ dimensions:
       - "hosting, observability and on-call posture undefined"
       - "editorial review workflow for machine-converted volumes pending"
       - "bundle size budget defined (NFR-013) but unmeasured"
+      - "double editorial gate for health content (RF-037) needs named reviewers before the House of Nature can open"
   elevation:
     level: 2
     score: 0.78

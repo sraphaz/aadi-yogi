@@ -378,3 +378,124 @@ requirements:
       - bundles built at index time with copyright filter applied
       - passage ids stable across bundle versions; updates never lose positions, anthologies or shelves
       - bundle size budget respected for low-bandwidth distribution (ELV-002)
+
+  # ---------- sky map (gesture 8) ----------
+  - id: RF-030
+    title: Outer sky (rhythms of heaven)
+    description: Sun, moon/tithi, six seasons and observances rendered as a drawn sky, computed on device.
+    source: darshan_sky_map_design.md 2
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - ephemeris computed locally; no network call, location never transmitted
+      - moon phase, tithi, sunrise/sunset/sandhyas, season (hemisphere-aware) accurate for device location or chosen city
+      - every rhythm element opens the depth dial into cited corpus passages
+      - observances render as invitations with sources; nothing is tracked as kept/missed
+      - numbers appear only on request; default is the drawn sky
+  - id: RF-031
+    title: Anti-prophecy boundary of the Sky Map
+    description: No natal charts, horoscopes, predictions or auspiciousness verdicts anywhere.
+    source: darshan_sky_map_design.md 1
+    priority: must
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - no feature computes or renders personal astrological interpretation
+      - jyotisha corpus material renders only as documentary Library content (D2-D6, cited)
+      - eval suite includes prompts attempting to extract predictions; contract must refuse
+  - id: RF-032
+    title: Inner sky (map of the five planes)
+    description: Five weather bands (physical, energetic, emotional, mental, spiritual) marked by the seeker, mirrored by the app.
+    source: darshan_sky_map_design.md 3
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - consultation completable in under a minute; any subset of bands may be marked
+      - the app never pre-marks or infers a band; mirror renders only what the seeker marked
+      - at most one offer (passage or safe movement) after mirroring, fitted through the ontology
+      - restraint-grade weather (despair, illness) routes to the crisis protocol
+      - no scoring, streaks, comparisons or "good sky" framing anywhere
+  - id: RF-033
+    title: Inner sky privacy and personal patterns
+    description: Consultations stored diary-grade; seasonal patterns shown only to the seeker.
+    source: darshan_sky_map_design.md 3
+    priority: must
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - inner-sky data local-first, encrypted, never indexed or profiled (NFR-001 class)
+      - engine sees a consultation only via explicit per-Inquiry attachment gesture
+      - patterns view reflects the seeker's own marks; no diagnosis language in copy
+  - id: RF-034
+    title: Sky-bound rhythm composer
+    description: Rhythm joints may bind to the real sky (dawn word at brahmamuhurta, look-back at sunset).
+    source: darshan_sky_map_design.md 2; darshan_becoming_path.md 3
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: true
+    acceptance_criteria:
+      - each joint independently bindable to clock time or sky time
+      - sky-bound bells still respect the two-bell maximum and no-teaser rule
+
+  # ---------- house of nature (gesture 9) ----------
+  - id: RF-035
+    title: House of Nature rooms
+    description: Elements, Land, Body as Temple, Long Life and Healing Memory rooms over the cited corpus.
+    source: darshan_nature_health_design.md 2
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - every room renders only cited corpus content through the depth dial
+      - pancha mahabhuta taxonomy added to content/ontology and exposed as a Library facet
+      - rooms render in open / arriving / future states matching actual corpus availability
+      - Sky Map seasons link into regimen wisdom at safe tier only
+  - id: RF-036
+    title: Heritage notice and three-tier health content enforcement
+    description: Permanent heritage notice; safe / documentary / closed tiers enforced by content tagging.
+    source: darshan_nature_health_design.md 1
+    priority: must
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - heritage notice permanently visible on every House surface (not a dismissable modal)
+      - only safe-tier content is ever offered as a movement anywhere in the app
+      - documentary tier renders with the standing under-qualified-guidance mark
+      - closed tier (dosages, disease-specific treatment, anti-medical counsel) never renders as guidance; routes to crisis protocol
+      - untagged health-touching content defaults to documentary rendering with the fence
+  - id: RF-037
+    title: Double editorial gate for health-sensitive corpus
+    description: Editorial + safety review required before health content renders above D2.
+    source: darshan_nature_health_design.md 5
+    priority: must
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - import manifests can flag collections health_sensitive; the flag forces the gate
+      - safety review logged in frontmatter (reviewer, date, tier decisions)
+      - CI blocks rendering-tier promotion of unreviewed health-sensitive passages
+
+  # ---------- living corpus ----------
+  - id: RF-038
+    title: Living corpus growth protocol
+    description: The app evolves as parallel import agents land new collections; features light up honestly.
+    source: darshan_nature_health_design.md 6; darshan_library_design.md 6
+    priority: should
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - new collections enter via the existing manifest pattern (scripts/ingest/manifests) with facet and copyright declarations
+      - shelf, facets, constellation and rooms extend automatically from corpus data on bundle update
+      - corpus-gated surfaces show open / arriving / future truthfully; no page pretends to content that does not exist
+      - a quiet, dismissable "the library has grown" line may appear at the Court on bundle update; never a badge or campaign

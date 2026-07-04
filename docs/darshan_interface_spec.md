@@ -14,6 +14,15 @@ Two deepening documents extend this specification:
 - `darshan_becoming_path.md` - how the application accompanies the seeker's
   becoming in daily life: the four postures, the day as ashram, situation
   doors, reading journeys, and the mirrors (diary, anthology, season letter).
+- `darshan_sky_map_design.md` - gesture 8: the outer sky of real cosmic
+  rhythm and the inner sky of the five planes, with the rhythm-not-fate
+  boundary.
+- `darshan_nature_health_design.md` - gesture 9: elements, land, body,
+  health and longevity heritage inside a three-tier responsibility fence.
+- `darshan_reuse_map.md` - what to reuse, adapt or consciously not reuse
+  from the already-implemented oracle at github.com/sraphaz/darshan
+  (ephemeris core, time pulse, sacred remedy engine, twelve-petals filter,
+  Next.js shell).
 
 ## 1. Product Definition
 
@@ -40,6 +49,8 @@ Threshold (entry ritual)
     ├── Living Maps           (guided inner journeys)
     ├── Practice Field        (silence, offering, evening look-back, japa)
     ├── Library               (reading rooms, concept lens, comparisons)
+    ├── Sky Map               (outer rhythm + inner weather; see 3.8)
+    ├── House of Nature       (elements, body, health heritage; see 3.9)
     ├── Inner Diary           (private journal, witness mode)
     └── Silence Room          (mauna mode; also reachable from anywhere)
 ```
@@ -155,7 +166,51 @@ attached; the shelf is a small stack, not a history log.
 - Diary content never influences Inquiry answers unless the seeker pastes it
   there themselves.
 
-### 3.8 Silence Room
+### 3.8 Sky Map
+
+Full design in `darshan_sky_map_design.md`. Contract essentials:
+
+- **Outer sky**: sun, moon/tithi, season and observances computed on device
+  (local ephemeris, no network, location never transmitted); rendered as a
+  drawn sky; every element opens the depth dial into cited sources;
+  observances are invitations, never obligations or tracked duties.
+- **Inner sky**: five bands (physical, energetic, emotional, mental,
+  spiritual); the seeker marks the weather, the app mirrors it as one sky
+  and offers at most one passage or safe movement; restraint-grade weather
+  routes to the crisis protocol.
+- **Privacy**: inner-sky consultations are diary-grade (local-first,
+  encrypted, never profiled, never visible to the engine without a
+  per-consultation consent gesture that attaches the map to an Inquiry).
+- **Hard boundary**: no natal charts, horoscopes, predictions or
+  auspiciousness verdicts anywhere; jyotisha material in the corpus renders
+  only as documentary Library content.
+- The rhythm composer may bind bells to the real sky (dawn word at
+  brahmamuhurta, look-back at actual sunset).
+
+### 3.9 House of Nature
+
+Full design in `darshan_nature_health_design.md`. Contract essentials:
+
+- Rooms: the Elements (pancha mahabhuta, also a Library facet), the Land,
+  the Body as Temple (dinacharya, ritucharya, mitahara), Long Life (Siddha
+  kaya kalpa heritage), Healing Memory (traditional medicine as documentary
+  library).
+- **Heritage notice** permanently visible on every surface of the House:
+  cited heritage, not medical advice; accompanies qualified care, never
+  replaces it.
+- **Three tiers enforced by content tagging**: safe (offerable as
+  micro-movements), documentary (readable, cited, marked "under qualified
+  guidance traditionally; not instructed here"), closed (never rendered as
+  guidance; routes to crisis protocol).
+- Illness-related arrivals and questions always take the restraint posture
+  of the consciousness core.
+- **Double editorial gate**: health-touching content requires editorial +
+  safety review before rendering above D2; collections flagged
+  `health_sensitive` in their import manifests cannot skip it.
+- **Living corpus states**: rooms render as open / arriving / future as the
+  parallel import work lands new collections - honestly, never as vaporware.
+
+### 3.10 Silence Room
 
 - Reachable from every surface with the same gesture (long-press anywhere on
   the chrome, or a persistent minimal glyph).
@@ -235,6 +290,7 @@ Implemented in `packages/evals` alongside answer-quality suites:
 | movement_adoption | offered movements marked "tried" (self-report) | up |
 | honored_silence_precision | eval-audited correctness of silence/caution decisions | up |
 | citation_integrity | resolvable citations / citations rendered | = 1.0 |
+| petal_filter_pass | answers passing the Twelve Petals rubric (peace vs agitation, opens consciousness vs fixes identity, sincerity vs fear - adopted from the darshan repo) | up |
 
 Explicitly forbidden as targets: session length, DAU/retention curves,
 questions per user, notification opt-in rate.
@@ -281,8 +337,14 @@ Full detail in `docs/skyforge/darshan/nfr.yaml`.
 2. **Voice**: retrieval + response contract + Inquiry with contemplation
    pages; honored-silence and crisis protocols; evaluation suites live
    before public exposure.
-3. **Path**: Living Maps, Practice Field, concept lens, comparative view.
-4. **Witness**: Inner Diary with witness mode; presence metrics dashboards
-   (internal); notification bells (opt-in).
-5. **Sangha (exploratory, unscheduled)**: shared silence sittings and
+3. **Path**: Living Maps, Practice Field, concept lens, comparative view;
+   the Sky Map's outer hemisphere (local ephemeris, observance calendar,
+   sky-bound rhythm composer).
+4. **Witness**: Inner Diary with witness mode; the Sky Map's inner hemisphere
+   with private patterns; presence metrics dashboards (internal);
+   notification bells (opt-in).
+5. **Ground**: the House of Nature, opening room by room as the parallel
+   corpus imports land and pass the double editorial gate (element rooms
+   first - they draw on the already-imported corpus; healing memory last).
+6. **Sangha (exploratory, unscheduled)**: shared silence sittings and
    study circles - only if it can be done without social-media dynamics.

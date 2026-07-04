@@ -49,3 +49,29 @@ integrations:
     ai_recommendation: self_hosted_aggregate_only
     reason: Presence metrics only, aggregated; no third-party analytics allowed by NFR-002.
     user_choice: pending
+  - id: INT-006
+    type: ephemeris
+    required: true   # for the Sky Map (gesture 8)
+    provider_options:
+      - darshan_repo_core        # sraphaz/darshan lib/core: Swiss Ephemeris / mhah-panchang resolver, MIT, tested
+      - astronomy_engine_js      # MIT, pure computation, offline
+      - suncalc_plus_local_tithi_math
+    ai_recommendation: darshan_repo_core
+    reason: |
+      The creators' darshan repo already implements an ephemeris provider
+      resolver (Swiss Ephemeris / mhah-panchang) with tithi and moon-phase
+      logic, tested and MIT - extract as shared package
+      (docs/darshan_reuse_map.md). Must run on device per NFR-014.
+    user_choice: pending
+  - id: INT-007
+    type: observance_calendar
+    required: true   # for the Sky Map observances
+    provider_options:
+      - corpus_maintained_calendar_data
+      - external_panchanga_api
+    ai_recommendation: corpus_maintained_calendar_data
+    reason: |
+      Observances kept as editorially maintained, cited corpus data rather
+      than an external API - provenance discipline applies to the calendar
+      exactly as to texts, and it works offline.
+    user_choice: pending

@@ -1,7 +1,7 @@
-version: "1.1"
+version: "1.2"
 slug: darshan
 current_phase: deepen
-updated_at: "2026-07-04T21:30:00Z"
+updated_at: "2026-07-04T22:00:00Z"
 
 user_preferences:
   communication_style: contemplative_precise
@@ -26,27 +26,45 @@ phase_history:
       modeled (c4-modeler -> c4-model.md). Product deepened with the library
       depth-layer design and the becoming path; RFs expanded to 29 with
       acceptance criteria.
+  - phase: deepen
+    at: "2026-07-04T22:00:00Z"
+    agent: intake-conductor
+    note: |
+      Round 3 added two gestures at the creators' direction: the Sky Map
+      (outer cosmic rhythm + inner sky of the five planes, with a strict
+      rhythm-not-fate boundary) and the House of Nature (elements, land,
+      body, health and longevity heritage inside a three-tier responsibility
+      fence). Living-corpus protocol added for the parallel import agents.
+      RFs now 38; NFRs 16; build phases now include Ground (phase 5).
 
 next_suggested_actions:
   - id: business_model
-    label: Decide the sustaining model (donation / patronage / institutional) - largest maturity gap, gates architecture unlock
+    label: Decide the sustaining model - darshan repo brings a credits model (Stripe/Mercado Pago/PIX) as candidate input; boundary needed so paywalls never gate contemplative surfaces
+    agent: intake-conductor
+  - id: natal_boundary_decision
+    label: "Decide the natal-reading posture vs the anti-prophecy boundary (docs/darshan_reuse_map.md section 3): strict (no birth data) or documentary bridge"
+    agent: sky-host
+  - id: health_review_board
+    label: Name the safety reviewers for the double editorial gate (RF-037) - the House of Nature cannot open without them
     agent: intake-conductor
   - id: passage_id_design
     label: Design the stable passage-id scheme (NFR-012) before any chunking work begins
     agent: solutions-architect
   - id: seed_prototype
-    label: Prototype the Seed phase (threshold, court, word, one reading room, silence room) with the design tokens
+    label: Prototype the Seed phase (threshold, court, word, one reading room, silence room) with the design tokens - evaluate the sraphaz/darshan Next.js shell as base (docs/darshan_reuse_map.md)
     agent: repo-scaffolder
   - id: eval_harness
-    label: Build the eval harness skeleton (citation integrity, honored-silence precision) - unlocks cloud_design_export
+    label: Build the eval harness skeleton (citation integrity, honored-silence precision, health/prophecy refusal probes) - unlocks cloud_design_export
     agent: prompt-assembler
   - id: editorial_policy
-    label: Define the daily-word curation policy and the D1 review workflow (owner + cadence)
+    label: Define the daily-word curation policy, the D1 review workflow and the observance-calendar ownership
     agent: intake-conductor
 
 notes: |
   Session seeded from the aadi-yogi repository. Narrative sources:
   docs/darshan_interface_concept.md, docs/darshan_interface_spec.md,
-  docs/darshan_library_design.md, docs/darshan_becoming_path.md.
+  docs/darshan_library_design.md, docs/darshan_becoming_path.md,
+  docs/darshan_sky_map_design.md, docs/darshan_nature_health_design.md.
   Engine ground: content/consciousness_core/, content/ontology/,
-  content/sources/ (CWSA + CWM imported), docs/architecture.md.
+  content/sources/ (CWSA + CWM imported; parallel imports ongoing),
+  docs/architecture.md.

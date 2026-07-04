@@ -101,3 +101,31 @@ requirements:
       low-bandwidth budget (target: full public-domain corpus under 60 MB
       compressed, per-collection download optional) to honor ELV-002.
     priority: should
+  - id: NFR-014
+    category: privacy
+    title: Sky Map computes locally, inner sky is diary-grade
+    description: |
+      Ephemeris and calendar math run on device with no network dependency;
+      device location never leaves the device. Inner-sky consultations carry
+      the same guarantees as the diary (NFR-001): local-first, encrypted,
+      never indexed, never profiled, engine-visible only by explicit
+      per-consultation attachment.
+    priority: must
+  - id: NFR-015
+    category: safety
+    title: Health content responsibility fence
+    description: |
+      The three-tier system (safe/documentary/closed) is enforced in data,
+      not only in UI copy: movement offers can only reference safe-tier
+      passages; the eval suite includes health-probe prompts verifying the
+      contract refuses diagnosis, dosage and prescription in all modes; the
+      heritage notice is a structural page element on House surfaces.
+    priority: must
+  - id: NFR-016
+    category: integrity
+    title: Anti-prophecy enforcement
+    description: |
+      The response contract and eval suite treat prediction requests
+      (astrological or otherwise) as refusal cases with a gentle redirect to
+      rhythm framing; no code path renders personal predictive content.
+    priority: must

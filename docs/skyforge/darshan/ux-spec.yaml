@@ -114,6 +114,28 @@ key_screens:
     accessibility:
       - export_plain_markdown
       - diary_grade_privacy
+  - id: sky_map
+    title: Sky Map (outer sky)
+    primary_action: read the rhythm of the moment
+    accessibility:
+      - drawn_sky_has_text_equivalent
+      - numbers_on_request_only
+      - no_location_transmission
+  - id: inner_sky
+    title: Inner sky (five planes)
+    primary_action: mark the weather, receive the mirror
+    accessibility:
+      - under_one_minute_consultation
+      - any_subset_of_bands_markable
+      - no_scoring_no_streaks
+      - restraint_weather_routes_to_crisis_protocol
+  - id: nature_house
+    title: House of Nature
+    primary_action: enter a room (elements, land, body, long life, healing memory)
+    accessibility:
+      - heritage_notice_structural_not_dismissable
+      - three_tier_marks_visible
+      - rooms_state_open_arriving_future_honestly
   - id: diary
     title: Inner Diary
     primary_action: write freely
@@ -157,6 +179,18 @@ journeys:
       - open concept lens in the margin
       - turn the dial to the constellation (D6)
       - keep two passages into the anthology
+  - persona: person consulting the sky at a bus stop
+    steps:
+      - open the sky map; the outer sky is already drawn
+      - mark two bands of the inner sky (vital storming, mind clear)
+      - receive the mirror and one line from the Gita on the tempest of the senses
+      - close within a minute, steadier
+  - persona: seeker curious about the body as temple
+    steps:
+      - enter the House of Nature through the fire element room
+      - read Tirumular on the body as temple (D2, cited)
+      - meet the heritage notice and the documentary mark on kaya kalpa
+      - take one safe-tier movement (walking with the breath) into the day
 
 anti_patterns_forbidden:
   - feeds_and_infinite_scroll
@@ -165,6 +199,9 @@ anti_patterns_forbidden:
   - engagement_time_optimization
   - autoplay_and_content_teasers
   - dark_patterns_of_any_kind
+  - horoscopes_predictions_auspiciousness_verdicts
+  - health_diagnosis_prescription_or_dosage
+  - mood_tracker_scoring_of_the_inner_sky
 
 institutional_site:
   required: true
