@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -8,6 +9,7 @@ import pytest
 EVALS_DIR = Path(__file__).resolve().parents[1] / "packages" / "evals"
 sys.path.insert(0, str(EVALS_DIR))
 
+import run_evals  # noqa: E402
 from aadi_evals import (  # noqa: E402
     ResponseEnvelope,
     check_citation_integrity,
@@ -29,7 +31,7 @@ def resolver(passage_id: str) -> str | None:
     return PASSAGES.get(passage_id)
 
 
-def make_envelope(**overrides) -> ResponseEnvelope:
+def make_envelope_payload(**overrides) -> dict:
     data = {
         "state_detected": "philosophical_inquiry",
         "guidance_mode": "source_commentary",
@@ -38,7 +40,18 @@ def make_envelope(**overrides) -> ResponseEnvelope:
         "closing": "plain",
     }
     data.update(overrides)
+    return data
+
+
+def make_envelope(**overrides) -> ResponseEnvelope:
+    data = make_envelope_payload(**overrides)
     return ResponseEnvelope.from_dict(data)
+
+
+def write_probe_file(directory: Path, contents: str, name: str = "suite.yaml") -> Path:
+    path = directory / name
+    path.write_text(contents, encoding="utf-8")
+    return path
 
 
 def test_citation_integrity_passes_for_real_quote() -> None:
@@ -129,3 +142,96 @@ def test_unknown_expectation_rejected(tmp_path: Path) -> None:
     )
     with pytest.raises(ValueError, match="unknown expectations"):
         load_probe_file(bad)
+
+
+def test_score_responses_fails_when_no_checks_run(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    probes_dir = tmp_path / "probes"
+    probes_dir.mkdir()
+    write_probe_file(probes_dir, "probes:\n  - id: probe-001\n    prompt: hi\n")
+    monkeypatch.setattr(run_evals, "PROBES_DIR", probes_dir)
+
+    responses = tmp_path / "responses.jsonl"
+    responses.write_text("\n\n", encoding="utf-8")
+
+    assert run_evals.score_responses(responses) == 1
+
+
+def test_score_responses_fails_on_unknown_probe_id(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    probes_dir = tmp_path / "probes"
+    probes_dir.mkdir()
+    write_probe_file(probes_dir, "probes:\n  - id: probe-001\n    prompt: hi\n")
+    monkeypatch.setattr(run_evals, "PROBES_DIR", probes_dir)
+
+    responses = tmp_path / "responses.jsonl"
+    responses.write_text(
+        "\n".join(
+            (
+                json.dumps({"probe_id": "probe-001", "envelope": make_envelope_payload()}),
+                json.dumps({"probe_id": "missing-probe", "envelope": make_envelope_payload()}),
+            )
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    assert run_evals.score_responses(responses) == 1
+
+
+def test_score_responses_enforces_citation_integrity(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    probes_dir = tmp_path / "probes"
+    probes_dir.mkdir()
+    write_probe_file(
+        probes_dir,
+        "probes:\n"
+        "  - id: cite-001\n"
+        "    prompt: cite this\n"
+        "    expectations:\n"
+        "      must_cite: true\n",
+    )
+    monkeypatch.setattr(run_evals, "PROBES_DIR", probes_dir)
+    monkeypatch.setattr(
+        run_evals,
+        "_resolve_passage_text",
+        lambda passage_id: PASSAGES.get(passage_id),
+    )
+
+    responses = tmp_path / "responses.jsonl"
+    responses.write_text(
+        json.dumps(
+            {
+                "probe_id": "cite-001",
+                "envelope": make_envelope_payload(
+                    citations=[{"passage_id": "gita.ch02.s47", "quote": "You will surely prosper"}]
+                ),
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    assert run_evals.score_responses(responses) == 1
+
+
+def test_validate_files_rejects_same_file_duplicate_ids(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    probes_dir = tmp_path / "probes"
+    rubrics_dir = tmp_path / "rubrics"
+    probes_dir.mkdir()
+    rubrics_dir.mkdir()
+    write_probe_file(
+        probes_dir,
+        "probes:\n"
+        "  - id: dup-001\n"
+        "    prompt: first\n"
+        "  - id: dup-001\n"
+        "    prompt: second\n",
+    )
+    monkeypatch.setattr(run_evals, "PROBES_DIR", probes_dir)
+    monkeypatch.setattr(run_evals, "RUBRICS_DIR", rubrics_dir)
+
+    assert run_evals.validate_files() == 1

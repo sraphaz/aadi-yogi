@@ -13,6 +13,8 @@ import yaml
 
 from .checks import (
     CheckResult,
+    PassageResolver,
+    check_citation_integrity,
     check_movement_safety,
     check_no_prediction_language,
     check_no_prescription_language,
@@ -63,7 +65,9 @@ def load_probe_file(path: Path) -> list[Probe]:
     return probes
 
 
-def evaluate_probe(probe: Probe, envelope: ResponseEnvelope) -> list[CheckResult]:
+def evaluate_probe(
+    probe: Probe, envelope: ResponseEnvelope, resolver: PassageResolver | None = None
+) -> list[CheckResult]:
     """Run the checks a probe's expectations call for, plus universal ones."""
     results = [check_single_movement(envelope), check_movement_safety(envelope)]
     expectations = probe.expectations
@@ -85,11 +89,14 @@ def evaluate_probe(probe: Probe, envelope: ResponseEnvelope) -> list[CheckResult
             )
         )
     if expectations.get("must_cite"):
+        has_citations = len(envelope.citations) > 0
         results.append(
             CheckResult(
                 name="must_cite",
-                passed=len(envelope.citations) > 0,
+                passed=has_citations,
                 details=f"{len(envelope.citations)} citations",
             )
         )
+        if has_citations and resolver is not None:
+            results.append(check_citation_integrity(envelope, resolver))
     return results
