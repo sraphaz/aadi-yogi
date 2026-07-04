@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_05_hymn_041
+title: Rig Veda - Mandala 5 Hymn 41
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_05_hymn_041
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_5/Hymn_41
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 5, Hymn 41; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 5 Hymn 41
+
+## Public-Domain Translation
+
+1. WHO, Mitra-Varuna, is your pious servant to give you gifts from earth or mighty heaven? Preserve us in the seat of holy Order, and give the offerer power that winneth cattle. 2. May Mitra, Varuna, Aryaman, and Ayu, Indra Rbhuksan, and the Maruts, love us, And they who of one mind with bounteous Rudra accept the hymn and laud with adorations. 3. You will I call to feed the car-horse, Asvins, with the wind's flight swiftest of those who travel: Or also to the Asura of heaven, Worshipful, bring a hymn as 'twere libation. 4. The heavenly Victor, he whose priest is Kanva, Trta with Dyaus accordant, Vata, Agni, All-feeding Pusan, Bhaga sought the oblation, as they whose steeds are fleetest seek the contest. 5. Bring ye your riches forward borne on horses: let thought be framed for help and gain of treasure. Blest he the priest of Ausija through courses, the courses which are yours the fleet, O Maruts. 6. Bring hither him who yokes the car, your Vayu, who praises with his songs, the God and Singer; And, praying and devout, noble and prudent, may the Gods' Spouses in their thoughts retain us. 7. I speed to you with powers that should be honoured, with songs distinguishing Heaven's mighty Daughters, Morning and Night, the Two, as 'twere all-knowing: these bring the sacrifice unto the mortal. 8. You I extol, the nourishers of heroes bringing you gifts, Vastospati and Tvastar- Rich Dhisana accords through our obeisance - andTrees and Plants, for the swift gain of riches. 9. Ours be the Parvatas, even they, for offspring, free-moving, who are Heroes like the Vasus. May holy Aptya, Friend of man, exalted, strengthen our word for ever and be near us. 10. Trta praised him, germ of the earthly hero, with pure songs him the Offspring of the Waters. Agn; with might neighs loudly like a charger: he of the flaming hair destroys the forests. 11. How shall we speak to the great might of Rudra? How speak to Bhaga who takes thought for riches? May Plants, the Waters, and the Sky preserve us, and Woods and Mountains with their trees for tresses. 12. May the swift Wanderer, Lord of refreshments listen to our songs, who speeds throuih cloudy heaven: And may the Waters, bright like castles, hear us, as they flow onward from the cloven mountain. 13. We know your ways, ye Mighty Ones receiving choice meed, ye Wonderful, we will proclaim it. Even strong birds descend not to the mortal who strives to reach them with swift blow and weapons. 14. Celestial and terrestrial generations, and Waters will I summon to the feasting. May days with bright dawns cause my songs to prosper, and may the conquered streams increase their waters. 15. Duly to each one hath my laud been offered. Strong be Varutri with her powers to succour. May the great Mother Rasa here befriend us, straight-handed, with the princes, striving forward. 16. How may we serve the Liberal Ones with worship, the Maruts swift of course in invocation, the Maruts far-renowned in invocation? Let not the Dragon of the Deep annoy us, and gladly may he welcome our addresses. 17. Thus thinking, O ye Gods, the mortal wins you to give him increase of his herds of cattle: the mortal wins him, O ye Gods, your favour. Here he wins wholesome food to feed this body: as for mine old age, Nirrti consume it 18. O Gods, may we obtain from you this favour, strengthening food through the Cow's praise, ye Vasus. May she who gives good gifts, the gracious Goddes. s, come speeding nigh to us for our well-being. 19. May Ila, Mother of the herds of cattle, and Urvasi with all the streams accept us; May Urvasi in lofty heaven accepting, as she partakes the oblation of the living, 20. Visit us while she shares Urjavya's food.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_5/Hymn_41
+- Translator: Ralph T. H. Griffith (public domain).

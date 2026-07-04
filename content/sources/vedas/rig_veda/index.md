@@ -27,6 +27,7 @@ notes:
 - **Mandala 2**: hymns 1–43 (complete; chiefly Agni and Indra, Rishi Gritsamada)
 - **Mandala 3**: hymns 1–62 (complete; chiefly Agni and Indra, Rishi Visvamitra)
 - **Mandala 4**: hymns 1–58 (complete; chiefly Agni and Indra, Rishi Vamadeva)
+- **Mandala 5**: hymns 1–87 (complete; chiefly Agni and Indra, Rishi Atri)
 
 ## Provenance
 
