@@ -52,11 +52,11 @@ indices:
       with a hard no-manipulation design law (no engagement mechanics).
     evidence:
       - type: artifact
-        ref: "content/consciousness_core/ - behavioral law of the engine"
+        ref: "content/consciousness_core/ - behavioral law, v1 approved (approved_manifest.yaml)"
       - type: artifact
         ref: "darshan_interface_concept.md -> ten principles, inverted metrics"
       - type: artifact
-        ref: "content/sources/ - imported canonical corpus with citation discipline"
+        ref: "content/sources/ - imported canonical corpus with citation discipline (Vedas, Upanishads, Gita, Puranas, Siddha, CWSA)"
   GAP:
     score: 64
     confidence: medium
