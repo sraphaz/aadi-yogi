@@ -9,8 +9,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
-from packages.evals.runner import evaluate_retrieval_hit, load_golden_questions
-from packages.rag.hybrid_retriever import HybridRetriever
+from packages.evals.runner import evaluate_retrieval_hit, load_golden_questions  # noqa: E402
+from packages.rag.hybrid_retriever import HybridRetriever  # noqa: E402
 
 
 def main() -> int:

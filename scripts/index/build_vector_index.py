@@ -7,7 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
-from packages.rag.vector_store import DEFAULT_INDEX_PATH, TfidfVectorStore, load_records_from_jsonl
+from packages.rag.vector_store import DEFAULT_INDEX_PATH, TfidfVectorStore, load_records_from_jsonl  # noqa: E402
 DEFAULT_CHUNK_ROOT = REPO_ROOT / "data" / "chunks"
 
 

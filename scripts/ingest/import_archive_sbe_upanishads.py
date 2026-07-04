@@ -204,7 +204,7 @@ def build_markdown(config: TextConfig, translation_body: str) -> str:
         "",
         "## Source Provenance",
         "",
-        f"- Extracted from Archive.org witness of Sacred Books of the East, Volume 15.",
+        "- Extracted from Archive.org witness of Sacred Books of the East, Volume 15.",
         f"- Source file: {SBE15_URL}",
         "",
     ]

@@ -47,7 +47,6 @@ def _tirumandiram_config(
     page_suffix: str,
     start_heading: str,
 ) -> TextConfig:
-    encoded_suffix = urllib.parse.quote(page_suffix, safe="/ ")
     page_url = f"https://ta.wikisource.org/wiki/{urllib.parse.quote('திருமந்திரம்')}/{urllib.parse.quote(page_suffix)}"
     raw_url = f"{page_url}?action=raw"
     return TextConfig(

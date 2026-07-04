@@ -7,9 +7,16 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
-from packages.rag.dense_vector_store import DEFAULT_DENSE_INDEX_PATH, build_dense_index, DenseVectorStore
-from packages.rag.embeddings import get_embedding_provider
-from packages.rag.qdrant_adapter import export_qdrant_jsonl, sync_dense_store_to_qdrant
+from packages.rag.dense_vector_store import (  # noqa: E402
+    DEFAULT_DENSE_INDEX_PATH,
+    DenseVectorStore,
+    build_dense_index,
+)
+from packages.rag.embeddings import get_embedding_provider  # noqa: E402
+from packages.rag.qdrant_adapter import (  # noqa: E402
+    export_qdrant_jsonl,
+    sync_dense_store_to_qdrant,
+)
 
 
 DEFAULT_CHUNK_ROOT = REPO_ROOT / "data" / "chunks"
