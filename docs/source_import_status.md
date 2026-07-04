@@ -17,7 +17,7 @@ This document records what has been imported into the repository, what has only 
 - Phase 2 expansion includes Kena, Katha, Mundaka, Prashna, Mandukya, Isha, Kaivalya.
 - Phase 3 expansion:
   - **Taittiriya Upanishad** full public-domain translation from English Wikisource standalone witness.
-  - **Chandogya Upanishad** First Prapathaka partial import from SBE Volume 1.
+  - **Chandogya Upanishad** all eight prapathakas imported from SBE Volume 1 (partial corpus, complete prapathaka coverage).
 
 ### Vedas
 
@@ -107,7 +107,7 @@ This document records what has been imported into the repository, what has only 
 
 ### Rig Veda Expansion
 
-- Mandala 1 Hymns 1–50 imported from English Wikisource (Griffith translation).
+- Mandala 1 Hymns 1–100 imported from English Wikisource (Griffith translation).
 
 ### Siddha Expansion (Phase 3)
 

@@ -189,13 +189,18 @@ def import_hymns(book: int, hymns: list[int], delay_seconds: float = 0.5) -> lis
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import Rig Veda hymns from English Wikisource.")
     parser.add_argument("--book", type=int, default=1)
+    parser.add_argument("--from", dest="from_hymn", type=int, help="First hymn number in range.")
+    parser.add_argument("--to", dest="to_hymn", type=int, help="Last hymn number in range.")
     parser.add_argument("hymns", nargs="*", type=int, help="Hymn numbers to import.")
     return parser.parse_args(argv)
 
 
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
-    hymns = args.hymns or list(range(1, 11))
+    if args.from_hymn is not None and args.to_hymn is not None:
+        hymns = list(range(args.from_hymn, args.to_hymn + 1))
+    else:
+        hymns = args.hymns or list(range(1, 11))
     for path in import_hymns(args.book, hymns):
         print(path.relative_to(REPO_ROOT).as_posix())
     return 0

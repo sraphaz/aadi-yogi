@@ -68,5 +68,12 @@
     "expected_source_ids": ["upanishads/chandogya/prapathaka_01_public_domain_translation"],
     "themes": ["om", "udgitha", "meditation"],
     "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_011",
+    "question": "What does Uddalaka teach Svetaketu in the Sixth Prapathaka of the Chandogya Upanishad?",
+    "expected_source_ids": ["upanishads/chandogya/prapathaka_06_public_domain_translation"],
+    "themes": ["atman", "self_knowledge", "teacher_student_dialogue"],
+    "tradition": "upanishadic"
   }
 ]

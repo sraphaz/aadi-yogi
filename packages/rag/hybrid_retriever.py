@@ -25,6 +25,9 @@ def extract_source_id_hints(query: str) -> list[str]:
     chapter_match = re.search(r"chapter\s+(\d+)", query, re.IGNORECASE)
     if chapter_match:
         hints.append(f"chapter_{int(chapter_match.group(1)):02d}")
+    prapathaka_match = re.search(r"prapathaka\s+(\d+)", query, re.IGNORECASE)
+    if prapathaka_match:
+        hints.append(f"prapathaka_{int(prapathaka_match.group(1)):02d}")
     return hints
 
 

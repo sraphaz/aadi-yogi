@@ -31,10 +31,38 @@ HEADING_PATTERN = re.compile(
     r"(?:khanda|vallî|valli|adhyâya|adhyaya|prapâthaka|prapathaka|mundaka)\.?$",
     re.IGNORECASE,
 )
+CHANDOGYA_ORDINALS = {
+    1: "First",
+    2: "Second",
+    3: "Third",
+    4: "Fourth",
+    5: "Fifth",
+    6: "Sixth",
+    7: "Seventh",
+    8: "Eighth",
+}
+CHANDOGYA_START_MARKERS: dict[int, tuple[str, ...]] = {
+    1: ("1. Let a man meditate on the syllable", "Khandas (not listed in original)"),
+    2: ("1. Meditation on the whole", "Khandas (not listed in original)"),
+    3: ("1. The sun is indeed the honey", "Khandas (not listed in original)"),
+    4: ("1. There lived once upon a time Gânasruti", "Khandas (not listed in original)"),
+    5: ("1. He who knows the oldest and the best", "Khandas (not listed in original)"),
+    6: ("1. Harih, Om. There lived once Svetaketu", "Khandas (not listed in original)"),
+    7: ("1. Nârada approached Sanatkumâra", "Khandas (not listed in original)"),
+    8: ("1. Harih, Om. There is this city of Brahman", "Khandas (not listed in original)"),
+}
+CHANDOGYA_THEMES = ("om", "brahman", "self_knowledge", "teacher_student_dialogue")
+CHANDOGYA_CONCEPTS = ("brahman", "atman", "om", "speech")
+CHANDOGYA_USE_FOR = (
+    "source_grounded_nondual_reflection",
+    "om_contemplation",
+    "teacher_student_dialogue",
+)
 
 
 @dataclass(frozen=True)
 class TextConfig:
+    import_key: str
     slug: str
     output_name: str
     source_id_suffix: str
@@ -58,50 +86,71 @@ class TextConfig:
         return UPANISHAD_ROOT / self.slug / f"{self.output_name}.public_domain.md"
 
 
-TEXTS: dict[str, TextConfig] = {
-    "taittiriya": TextConfig(
-        slug="taittiriya",
-        output_name="full",
-        source_id_suffix="full_public_domain_translation",
-        source_title="Taittiriya Upanishad",
-        title="Taittiriya Upanishad - Max Muller Public Domain Translation",
-        page_title="Taittiriya Upanishad",
-        start_markers=("Taittiryaka Upanishad", "1. HARIH, OM!"),
-        page_url="https://en.wikisource.org/wiki/Taittiriya_Upanishad",
-        citation="Friedrich Max Muller, Taittiriya Upanishad (public domain, SBE lineage)",
-        themes=("brahman", "self_knowledge", "speech", "food", "bliss"),
-        concepts=("brahman", "atman", "annamaya", "pranamaya", "ananda"),
-        use_for=("source_grounded_nondual_reflection", "brahman_contemplation", "sheath_inquiry"),
-        related_sources=("upanishads/taittiriya/index",),
-        notes=("Imported from English Wikisource standalone witness.",),
-    ),
-    "chandogya_prapathaka_01": TextConfig(
+def build_chandogya_config(prapathaka_num: int) -> TextConfig:
+    ordinal = CHANDOGYA_ORDINALS[prapathaka_num]
+    prapathaka_name = f"{ordinal} Prapâthaka"
+    page_title = f"Sacred Books of the East/Volume 1/Khândogya-upanishad/{prapathaka_name}"
+    wiki_suffix = prapathaka_name.replace(" ", "_")
+    page_url = (
+        "https://en.wikisource.org/wiki/"
+        f"Sacred_Books_of_the_East/Volume_1/Kh%C3%A2ndogya-upanishad/{wiki_suffix}"
+    )
+    output_name = f"prapathaka_{prapathaka_num:02d}"
+    return TextConfig(
+        import_key=f"chandogya_prapathaka_{prapathaka_num:02d}",
         slug="chandogya",
-        output_name="prapathaka_01",
-        source_id_suffix="prapathaka_01_public_domain_translation",
+        output_name=output_name,
+        source_id_suffix=f"{output_name}_public_domain_translation",
         source_title="Chandogya Upanishad",
-        title="Chandogya Upanishad - First Prapathaka (Max Muller Public Domain Translation)",
-        page_title="Sacred Books of the East/Volume 1/Khândogya-upanishad/First Prapâthaka",
-        start_markers=("1. Let a man meditate on the syllable", "Khandas (not listed in original)"),
-        page_url=(
-            "https://en.wikisource.org/wiki/"
-            "Sacred_Books_of_the_East/Volume_1/Kh%C3%A2ndogya-upanishad/First_Prap%C3%A2thaka"
+        title=(
+            f"Chandogya Upanishad - {ordinal} Prapathaka "
+            "(Max Muller Public Domain Translation)"
         ),
+        page_title=page_title,
+        start_markers=CHANDOGYA_START_MARKERS[prapathaka_num],
+        page_url=page_url,
         citation=(
-            "Friedrich Max Muller, Chandogya Upanishad, First Prapathaka "
+            f"Friedrich Max Muller, Chandogya Upanishad, {ordinal} Prapathaka "
             "(Sacred Books of the East, Volume 1, public domain)"
         ),
-        section="prapathaka_01",
-        themes=("om", "udgitha", "brahman", "meditation"),
-        concepts=("om", "udgitha", "brahman", "speech"),
-        use_for=("source_grounded_nondual_reflection", "om_contemplation", "teacher_student_dialogue"),
+        section=output_name,
+        themes=CHANDOGYA_THEMES,
+        concepts=CHANDOGYA_CONCEPTS,
+        use_for=CHANDOGYA_USE_FOR,
         related_sources=("upanishads/chandogya/index",),
         notes=(
-            "Partial import of the First Prapathaka from English Wikisource SBE Volume 1.",
-            "Full Chandogya witness remains staged for later prapathaka imports.",
+            f"Partial import of the {ordinal} Prapathaka from English Wikisource SBE Volume 1.",
         ),
-    ),
-}
+    )
+
+
+def build_text_catalog() -> dict[str, TextConfig]:
+    catalog: dict[str, TextConfig] = {
+        "taittiriya": TextConfig(
+            import_key="taittiriya",
+            slug="taittiriya",
+            output_name="full",
+            source_id_suffix="full_public_domain_translation",
+            source_title="Taittiriya Upanishad",
+            title="Taittiriya Upanishad - Max Muller Public Domain Translation",
+            page_title="Taittiriya Upanishad",
+            start_markers=("Taittiryaka Upanishad", "1. HARIH, OM!"),
+            page_url="https://en.wikisource.org/wiki/Taittiriya_Upanishad",
+            citation="Friedrich Max Muller, Taittiriya Upanishad (public domain, SBE lineage)",
+            themes=("brahman", "self_knowledge", "speech", "food", "bliss"),
+            concepts=("brahman", "atman", "annamaya", "pranamaya", "ananda"),
+            use_for=("source_grounded_nondual_reflection", "brahman_contemplation", "sheath_inquiry"),
+            related_sources=("upanishads/taittiriya/index",),
+            notes=("Imported from English Wikisource standalone witness.",),
+        ),
+    }
+    for prapathaka_num in range(1, 9):
+        config = build_chandogya_config(prapathaka_num)
+        catalog[config.import_key] = config
+    return catalog
+
+
+TEXTS = build_text_catalog()
 
 
 class TextExtractor(HTMLParser):
@@ -201,7 +250,7 @@ def extract_body_lines(lines: list[str], config: TextConfig) -> list[str]:
         if start_index is not None:
             break
     if start_index is None:
-        raise ValueError(f"Could not locate start marker for {config.slug}")
+        raise ValueError(f"Could not locate start marker for {config.import_key}")
 
     body: list[str] = []
     for line in lines[start_index:]:
@@ -211,7 +260,7 @@ def extract_body_lines(lines: list[str], config: TextConfig) -> list[str]:
             continue
         body.append(line)
     if not body:
-        raise ValueError(f"No body extracted for {config.slug}")
+        raise ValueError(f"No body extracted for {config.import_key}")
     return body
 
 
@@ -315,13 +364,26 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Import additional Upanishad witnesses from English Wikisource."
     )
-    parser.add_argument("slugs", nargs="*", choices=sorted(TEXTS))
+    parser.add_argument(
+        "slugs",
+        nargs="*",
+        choices=sorted(TEXTS),
+        help="Configured import keys. Use chandogya_prapathaka_* for partial Chandogya imports.",
+    )
+    parser.add_argument(
+        "--chandogya-all",
+        action="store_true",
+        help="Import all eight Chandogya prapathakas.",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
-    selected = args.slugs or sorted(TEXTS)
+    if args.chandogya_all:
+        selected = [key for key in sorted(TEXTS) if key.startswith("chandogya_prapathaka_")]
+    else:
+        selected = args.slugs or sorted(TEXTS)
     for index, slug in enumerate(selected):
         if index:
             time.sleep(1.5)
