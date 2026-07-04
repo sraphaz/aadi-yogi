@@ -1,0 +1,218 @@
+# Manifest: Collected Works of the Mother (CWM).
+# Source library: https://www.sriaurobindoashram.org/mother/writings.php
+#
+# The English Collected Works (17 volumes) are browsable online only; the
+# downloadable PDFs offered by the Ashram are the French originals
+# (https://www.sriaurobindoashram.org/mother/oeuvres.php, 18 volumes).
+#
+# The Mother passed in 1973, so her works remain under active copyright of the
+# Sri Aurobindo Ashram Trust (in India until at least 2034). Following
+# docs/copyright_policy.md, every volume here is full_text: false - only
+# metadata records are committed to content/sources/. The download and
+# conversion scripts still work end to end for personal local study: PDFs go
+# to data/raw/ and converted Markdown goes to data/markdown/, both gitignored.
+collection: the_mother_cwm
+collection_title: Collected Works of the Mother
+author: The Mother
+publisher: Sri Aurobindo Ashram Publication Department, Pondicherry
+source_page: https://www.sriaurobindoashram.org/mother/writings.php
+download_url_template: "https://www.sriaurobindoashram.org/mother/downloadpdf.php?id={id}"
+raw_dir: data/raw/the_mother_cwm
+content_dir: content/sources/the_mother/collected_works
+restricted_markdown_dir: data/markdown/the_mother_cwm
+language: french
+tradition:
+  - integral_yoga
+volumes:
+  - id: 49
+    volume: "1"
+    slug: volume_01_prayers_and_meditations
+    title: Prayers and Meditations
+    title_french: Prières et Méditations
+    full_text: false
+    themes: [prayer, meditation, surrender, aspiration, sadhana_diary]
+    description: >-
+      313 prayers and meditations, written mostly between 1912 and 1917,
+      composed from extracts of a diary kept during years of intensive yogic
+      discipline.
+  - id: 50
+    volume: "2"
+    slug: volume_02_words_of_long_ago
+    title: Words of Long Ago
+    title_french: Paroles d'Autrefois
+    full_text: false
+    themes: [early_talks, stories, inner_life]
+    description: >-
+      All writings of the Mother dating from before 1920 (except Prayers and
+      Meditations), including talks given in Paris to small groups of seekers,
+      texts written in Japan, and tales written for children.
+  - id: 51
+    volume: "3"
+    slug: volume_03_questions_and_answers_1929_31
+    title: Questions and Answers 1929-1931
+    title_french: Entretiens 1929-31
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers]
+    description: >-
+      The Mother's answers to questions on yoga and life asked by disciples in
+      1929 and 1930-31.
+  - id: 52
+    volume: "4"
+    slug: volume_04_questions_and_answers_1950_51
+    title: Questions and Answers 1950-1951
+    title_french: Entretiens 1950-51
+    full_text: false
+    themes: [yoga, education, guidance, questions_and_answers]
+    description: >-
+      Answers to questions of Ashram children and disciples, with commentaries
+      on her books Education and Questions and Answers 1929, and on Sri
+      Aurobindo's The Mother.
+  - id: 53
+    volume: "5"
+    slug: volume_05_questions_and_answers_1953
+    title: Questions and Answers 1953
+    title_french: Entretiens 1953
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers]
+    description: >-
+      Answers to questions of Ashram children and disciples, with commentaries
+      on her Questions and Answers 1929.
+  - id: 54
+    volume: "6"
+    slug: volume_06_questions_and_answers_1954
+    title: Questions and Answers 1954
+    title_french: Entretiens 1954
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers]
+    description: >-
+      Answers to questions of Ashram children and disciples, with commentaries
+      on Education and on Sri Aurobindo's Elements of Yoga, The Mother and
+      Bases of Yoga.
+  - id: 55
+    volume: "7"
+    slug: volume_07_questions_and_answers_1955
+    title: Questions and Answers 1955
+    title_french: Entretiens 1955
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers]
+    description: >-
+      Answers to questions of Ashram children and disciples, with commentaries
+      on Sri Aurobindo's Bases of Yoga, The Human Cycle and The Synthesis of
+      Yoga, and on her play The Great Secret.
+  - id: 56
+    volume: "8"
+    slug: volume_08_questions_and_answers_1956
+    title: Questions and Answers 1956
+    title_french: Entretiens 1956
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers, supramental_manifestation]
+    description: >-
+      Answers to questions of Ashram children and disciples, with commentaries
+      on Sri Aurobindo's The Synthesis of Yoga and Thoughts and Glimpses. The
+      year of the supramental manifestation of 29 February 1956.
+  - id: 57
+    volume: "9"
+    slug: volume_09_questions_and_answers_1957_58
+    title: Questions and Answers 1957-1958
+    title_french: Entretiens 1957-58
+    full_text: false
+    themes: [yoga, guidance, questions_and_answers, supramental_manifestation]
+    description: >-
+      Answers to questions, with commentaries on Sri Aurobindo's Thoughts and
+      Glimpses, The Supramental Manifestation upon Earth and the last six
+      chapters of The Life Divine.
+  - id: 58
+    volume: "10"
+    slug: volume_10_on_thoughts_and_aphorisms
+    title: On Thoughts and Aphorisms
+    title_french: Pensées et Aphorismes de Sri Aurobindo
+    full_text: false
+    themes: [aphorisms, commentary, jnana, karma, bhakti]
+    description: >-
+      The Mother's commentaries on Sri Aurobindo's Thoughts and Aphorisms,
+      together with the text of the aphorisms.
+  - id: 59
+    volume: "11"
+    slug: volume_11_notes_on_the_way
+    title: Notes on the Way
+    title_french: Notes sur le Chemin
+    full_text: false
+    themes: [yoga_of_the_body, transformation, cellular_consciousness]
+    description: >-
+      Conversations in which the Mother confides to a disciple her experiences
+      on the path of the yoga of the body between 1961 and 1973.
+  - id: 60
+    volume: "12"
+    slug: volume_12_on_education
+    title: On Education
+    title_french: Éducation
+    full_text: false
+    themes: [education, integral_education, psychic_education, plays]
+    description: >-
+      Articles, messages, letters and conversations with students and teachers
+      of the Ashram school, and three plays: Towards the Future, The Great
+      Secret and The Ascent to Truth.
+  - id: 61
+    volume: "13"
+    slug: volume_13_commentaries_on_the_dhammapada
+    title: Commentaries on the Dhammapada
+    title_french: Commentaires sur le Dhammapada
+    full_text: false
+    themes: [dhammapada, buddhism, commentary, self_mastery]
+    description: >-
+      The Mother's commentaries on the Dhammapada, with the text translated by
+      a disciple. (In the English Collected Works this material appears with
+      Questions and Answers, volume 3.)
+  - id: 62
+    volume: "14"
+    slug: volume_14_words_of_the_mother_i
+    title: Words of the Mother - I
+    title_french: Paroles de la Mère - I
+    full_text: false
+    themes: [sri_aurobindo, ashram, auroville, india, messages]
+    description: >-
+      Writings on Sri Aurobindo and herself, the Ashram, Auroville, India and
+      the world, with a selection of messages, correspondence and personal
+      notes.
+  - id: 63
+    volume: "15"
+    slug: volume_15_words_of_the_mother_ii
+    title: Words of the Mother - II
+    title_french: Paroles de la Mère - II
+    full_text: false
+    themes: [divine_relations, path_of_yoga, work, human_relations]
+    description: >-
+      Short writings on yoga and life: relations with the Divine, the path of
+      yoga, the qualities required and its difficulties, human relations and
+      work.
+  - id: 64
+    volume: "16"
+    slug: volume_16_words_of_the_mother_iii
+    title: Words of the Mother - III
+    title_french: Paroles de la Mère - III
+    full_text: false
+    themes: [occultism, transformation, health, adverse_forces, prayers]
+    description: >-
+      Brief written communications on the Divine and the universe, religion,
+      occultism, adverse forces, war, government, transformation, health and
+      illness, with messages, prayers and conversations.
+  - id: 65
+    volume: "17"
+    slug: volume_17_some_answers_from_the_mother
+    title: Some Answers from the Mother
+    title_french: Quelques réponses de la Mère - I
+    full_text: false
+    themes: [correspondence, guidance, life_and_yoga]
+    description: >-
+      Correspondence of the Mother with fourteen disciples and students of the
+      Ashram school, answering their questions on life and yoga.
+  - id: 66
+    volume: "18"
+    slug: volume_18_more_answers_from_the_mother
+    title: More Answers from the Mother
+    title_french: Quelques réponses de la Mère - II
+    full_text: false
+    themes: [correspondence, guidance, life_and_yoga]
+    description: >-
+      Correspondence of the Mother with six disciples and students of the
+      Ashram school, answering their questions on life and yoga.

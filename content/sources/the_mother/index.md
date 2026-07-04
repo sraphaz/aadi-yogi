@@ -17,13 +17,17 @@ notes:
 
 # The Mother
 
-## Phase 1 Status
+## Current Status
 
-Metadata only.
+Metadata-only records for all volumes, now structured per volume in
+`collected_works/` via `scripts/ingest/manifests/the_mother_cwm.yaml` (the
+Mother passed in 1973; her works remain under active Trust copyright until at
+least 2034). The pipeline supports local-only full-text conversion for
+personal study (gitignored `data/` tree).
 
 ## Official Catalog Notes
 
-The SABDA catalog page inspected in Phase 1 lists the Collected Works of the Mother as a 17-volume set and carries a current Sri Aurobindo Ashram Trust copyright notice. For that reason, full-text ingestion is deferred.
+The SABDA catalog page inspected in Phase 1 lists the Collected Works of the Mother as a 17-volume set and carries a current Sri Aurobindo Ashram Trust copyright notice. For that reason, committed full-text ingestion is deferred until permission is obtained.
 
 ## Key Catalogued Volumes For Future Work
 

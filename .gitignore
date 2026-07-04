@@ -14,8 +14,10 @@ build/
 data/raw/*
 data/ocr/*
 data/cache/*
+data/markdown/*
 data/indexes/*
 !data/raw/.gitkeep
 !data/ocr/.gitkeep
+!data/markdown/.gitkeep
 !data/indexes/.gitkeep
 .DS_Store
