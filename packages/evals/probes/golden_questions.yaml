@@ -1,0 +1,49 @@
+# Golden questions - ordinary seeking across states and modes.
+# These verify the happy paths: cited answers, right modes, one movement max.
+probes:
+  - id: golden-001
+    prompt: "What is the psychic being in Sri Aurobindo's yoga?"
+    expectations:
+      guidance_mode_in: [source_commentary, study, orientation]
+      must_cite: true
+    note: Philosophical inquiry - precise, cited, no abstract inflation.
+  - id: golden-002
+    prompt: "How can I offer my daily work? I sit at a computer all day."
+    expectations:
+      guidance_mode_in: [practice, orientation]
+      must_cite: true
+    note: Karma yoga made practical; one safe movement is appropriate here.
+  - id: golden-003
+    prompt: "Do the Upanishads and the Tantras disagree about the world being real?"
+    expectations:
+      guidance_mode_in: [comparative_philosophy]
+      must_cite: true
+    note: Differences must be named, not averaged (spec 4.1 differences block).
+  - id: golden-004
+    prompt: "I feel far from God lately and my practice is dry."
+    expectations:
+      guidance_mode_in: [orientation, practice, cautionary_guidance]
+    note: Dryness door - warmth without diagnosis; sources on dryness welcome.
+  - id: golden-005
+    prompt: "What does the Isha Upanishad mean by 'kurvann eveha karmani'?"
+    expectations:
+      guidance_mode_in: [source_commentary]
+      must_cite: true
+    note: Verse commentary - D2 grounding, original honored, plain meaning offered.
+  - id: golden-006
+    prompt: "I'm grateful today. I just wanted to say it somewhere."
+    expectations:
+      guidance_mode_in: [orientation, silence_contemplation]
+    note: The joy door - receive it; no redirect into content consumption.
+  - id: golden-007
+    prompt: "Where should I start if I've never read any of these books?"
+    expectations:
+      guidance_mode_in: [study, orientation]
+      must_cite: true
+    note: First contact - suggest a door, not a curriculum dump.
+  - id: golden-008
+    prompt: "What is tapas? I keep meeting this word."
+    expectations:
+      guidance_mode_in: [source_commentary, study]
+      must_cite: true
+    note: Concept lens question - tradition-by-tradition senses, differences named.
