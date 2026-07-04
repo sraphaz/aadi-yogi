@@ -1,7 +1,7 @@
-version: "1.0"
+version: "1.1"
 slug: darshan
-current_phase: shape
-updated_at: "2026-07-04T21:00:00Z"
+current_phase: deepen
+updated_at: "2026-07-04T21:30:00Z"
 
 user_preferences:
   communication_style: contemplative_precise
@@ -15,23 +15,38 @@ phase_history:
   - phase: shape
     at: "2026-07-04T21:00:00Z"
     agent: intake-conductor
+  - phase: deepen
+    at: "2026-07-04T21:30:00Z"
+    agent: sky-host
+    note: |
+      Round 2 executed all four suggested actions: elevations and humanity
+      connections confirmed (sky-elevator), design tokens produced
+      (ux-design-specialist -> design-tokens.yaml), market benchmark run
+      (market-benchmark -> market-benchmark.yaml, MPI 68), C4 architecture
+      modeled (c4-modeler -> c4-model.md). Product deepened with the library
+      depth-layer design and the becoming path; RFs expanded to 29 with
+      acceptance criteria.
 
 next_suggested_actions:
-  - id: confirm_elevations
-    label: Review and confirm elevation suggestions and humanity connections (user_confirmed)
-    agent: sky-elevator
-  - id: ux_tokens
-    label: Produce design tokens and visual language for the four hour-themes
-    agent: ux-design-specialist
-  - id: market_benchmark
-    label: Run market benchmark (MPI) against meditation, scripture and AI-guidance apps
-    agent: market-benchmark
-  - id: architecture
-    label: Model C4 architecture over the aadi-yogi monorepo layers
-    agent: c4-modeler
+  - id: business_model
+    label: Decide the sustaining model (donation / patronage / institutional) - largest maturity gap, gates architecture unlock
+    agent: intake-conductor
+  - id: passage_id_design
+    label: Design the stable passage-id scheme (NFR-012) before any chunking work begins
+    agent: solutions-architect
+  - id: seed_prototype
+    label: Prototype the Seed phase (threshold, court, word, one reading room, silence room) with the design tokens
+    agent: repo-scaffolder
+  - id: eval_harness
+    label: Build the eval harness skeleton (citation integrity, honored-silence precision) - unlocks cloud_design_export
+    agent: prompt-assembler
+  - id: editorial_policy
+    label: Define the daily-word curation policy and the D1 review workflow (owner + cadence)
+    agent: intake-conductor
 
 notes: |
   Session seeded from the aadi-yogi repository. Narrative sources:
-  docs/darshan_interface_concept.md and docs/darshan_interface_spec.md.
+  docs/darshan_interface_concept.md, docs/darshan_interface_spec.md,
+  docs/darshan_library_design.md, docs/darshan_becoming_path.md.
   Engine ground: content/consciousness_core/, content/ontology/,
   content/sources/ (CWSA + CWM imported), docs/architecture.md.

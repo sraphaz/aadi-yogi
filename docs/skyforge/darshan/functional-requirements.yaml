@@ -1,121 +1,380 @@
+# Functional requirements - Darshan
+# Round 2: detail increased per Sky-Forge recommendations; library depth layers
+# and becoming-path requirements added. Narrative sources:
+# docs/darshan_interface_spec.md, docs/darshan_library_design.md,
+# docs/darshan_becoming_path.md.
 requirements:
+  # ---------- entry and hub ----------
   - id: RF-001
     title: Threshold entry ritual
-    description: One-breath contemplative entry absorbing all loading; skippable; hour-aware atmosphere.
-    source: darshan_interface_spec.md section 3.1
+    description: One-breath contemplative entry absorbing all loading; hour-aware atmosphere.
+    source: darshan_interface_spec.md 3.1
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - breath cue completes in ~8s (motion.breath_cycle token) and absorbs backend warm-up
+      - single tap skips; settings offer permanent direct entry
+      - reduced-motion renders static glyph variant
+      - no spinner appears anywhere in the application
   - id: RF-002
     title: Court hub with one gesture per card
-    description: Single calm hub, max one level of navigation depth, explicit closing gesture.
-    source: darshan_interface_spec.md section 2
+    description: Single calm hub, max one navigation level, explicit closing gesture.
+    source: darshan_interface_spec.md 2
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - every surface reachable in one step from the Court
+      - closing gesture visible on every surface; ends session with farewell line, no re-engagement hook
+      - hour-aware emphasis reorders cards (dawn favors Word, dusk favors look-back) without hiding any
+
+  # ---------- daily word ----------
   - id: RF-003
     title: Darshan of the Word (daily passage)
-    description: One curated passage per day, typographically honored, cited, with optional commentary; no archive scroll by default.
-    source: darshan_interface_spec.md section 3.2
+    description: One curated passage per day, typographically honored, cited, optional commentary.
+    source: darshan_interface_spec.md 3.2
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - exactly one passage per local calendar day, prefetched for offline
+      - passage renders at D0 with full depth dial available (RF-016)
+      - curation policy respects season/festival, active living map, tradition rotation
+      - no "next" affordance; archive list exists only behind settings, off by default
+      - screen reader receives full text before reveal animation completes
+
+  # ---------- inquiry ----------
   - id: RF-004
     title: Inquiry oracle with contemplation pages
-    description: Single-question flow producing one composed, cited page; optional single clarifying reflection; well rhythm between questions.
-    source: darshan_interface_spec.md section 3.3
+    description: Single-question flow producing one composed, cited page; well rhythm between questions.
+    source: darshan_interface_spec.md 3.3
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - composition screen contains one field and nothing else; no streaming during composition
+      - at most one clarifying reflection, only on ambiguous state detection
+      - answer delivered as one page (no chat bubbles), quotations open the depth dial at D2
+      - after delivery, three exits offered (sit / keep / leave); follow-up field reappears after one breath interval
+      - kept pages form the contemplation shelf, rereadable offline
   - id: RF-005
     title: Response contract enforcement
-    description: State detection, guidance mode, mandatory resolvable citations, difference blocks, at most one offered movement.
-    source: darshan_interface_spec.md section 4
+    description: State detection, guidance mode, mandatory resolvable citations, difference blocks, one movement max.
+    source: darshan_interface_spec.md 4
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - every source claim carries a citation resolving into the Library (integrity 1.0 in CI)
+      - traditions that differ produce an explicit differences block, never an average
+      - at most one offered movement per page, labeled optional
+      - contract checker regenerates or degrades to honest non-answer on validation failure
   - id: RF-006
     title: Honored silence and crisis protocol
-    description: Restraint cases route to cautionary or silence modes with grounding pointers and human-support encouragement.
+    description: Restraint cases route to cautionary or silence modes with grounding and human support.
     source: consciousness_core/silence_and_non_answering.md
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
-  - id: RF-007
-    title: Library reading rooms with provenance
-    description: Offline long-form reading of all imported collections; every in-app quotation deep-links to passage in context.
-    source: darshan_interface_spec.md section 3.6
+    acceptance_criteria:
+      - restraint-case detection short-circuits before retrieval
+      - honored-silence page renders acknowledgment + one grounding pointer + Silence Room offer
+      - crisis cases name qualified human support plainly; region-appropriate resources where configured
+      - eval suite scores honored-silence precision as a success metric
+
+  # ---------- library: depth layers ----------
+  - id: RF-016
+    title: Depth dial (the seven depths)
+    description: One continuous gesture moves any passage through D0-D6 without losing position.
+    source: darshan_library_design.md 2
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - from any quotation anywhere (word, inquiry, map, portal) the dial opens at D2
+      - all seven depths reachable; current depth always named; keyboard accessible
+      - position preserved independently at every depth when moving between them
+      - depths render only real corpus content; D6 parallels marked when machine-suggested and unreviewed
+  - id: RF-017
+    title: No-orphan-quotation guarantee
+    description: Every line shown can be followed in unbroken steps to its complete work.
+    source: darshan_library_design.md 1
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - passage ids are stable across corpus rebuilds
+      - D4 for restricted works renders the metadata record and links to the official source
+      - CI check fails the build if any renderable quotation lacks a resolvable passage id
+  - id: RF-018
+    title: D1 plain-meaning layer as reviewed content
+    description: Batch-drafted plain renderings, editorially reviewed, served as static content.
+    source: darshan_library_design.md 2, 6
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - D1 texts versioned in the corpus, not generated at request time
+      - unreviewed drafts visibly marked "machine-drafted, pending review"
+      - written under voice rules; each cites its passage
+  - id: RF-019
+    title: Original language layer (D5)
+    description: Devanagari, Tamil and French originals with IAST transliteration and word senses where available.
+    source: darshan_library_design.md 2
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - original and transliteration render side by side with correct fonts (Noto Serif Devanagari/Tamil, Gentium Plus)
+      - verse-level alignment tables map translation passages to original passages
+      - word-by-word glosses shown where corpus provides them; absence stated plainly, never fabricated
+  - id: RF-020
+    title: Constellation layer (D6)
+    description: Parallels, named differences, ontology concepts and practices around a passage.
+    source: darshan_library_design.md 2, 6
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - every parallel is a real passage with provenance, never paraphrase
+      - difference blocks name positions per tradition
+      - editorially confirmed parallels unmarked; retrieval-suggested ones marked as machine-suggested
+      - concepts link into ontology lens (RF-011); practices link into Practice Field
+
+  # ---------- library: classification and consultation ----------
+  - id: RF-021
+    title: Facet classification browser (door Browse)
+    description: Seven facets from repository data; contemplative browsing, max two active facets.
+    source: darshan_library_design.md 3, 4
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - facets derive from frontmatter/ontology data, no hand-maintained duplicates
+      - at most two facets combinable in the UI
+      - results render as calm entries with tradition and work named; no infinite grid
+      - depth_readiness shapes ordering and introductions, never blocks access
+  - id: RF-022
+    title: Situation portal (door Situate)
+    description: Life-moment doors (grief, fear, work, love, decision, dryness, joy...) opening to curated passage plus micro-movement.
+    source: darshan_becoming_path.md 4; darshan_library_design.md 4
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - each door opens one curated D0/D1 passage, one optional micro-movement, and the constellation
+      - restraint-category doors follow the crisis protocol (fewer words, grounding, human support)
+      - doors named in human words; includes at least one door for joy/gratitude
+      - arriving through a door sets state context for any subsequent Inquiry
+  - id: RF-023
+    title: Corpus search (all doors)
+    description: Exact search offline over local corpus; semantic search online; both facet-filterable.
+    source: darshan_library_design.md 4
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - exact search works offline over downloaded bundles
+      - every result is a passage with provenance opening the depth dial; never a homeless snippet
+      - semantic search states its need for connection plainly
+
+  # ---------- library: reading rooms ----------
+  - id: RF-007
+    title: Reading rooms with provenance (D3/D4)
+    description: Offline long-form reading of complete works; shelf, room, margin, provenance page.
+    source: darshan_library_design.md 5
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - shelf presents each collection with a one-paragraph introduction of its spirit
+      - each room has table of contents, provenance page (edition, copyright status, corpus entry path)
+      - reading position remembered per work indefinitely; offline after first visit
+      - first entry to a work offers its D1 introduction once, then leaves the seeker with the text
+      - reading measure respects margin_inline_max_ch token; hour themes apply
+  - id: RF-011
+    title: Concept lens in the margin
+    description: Marked terms open tradition-by-tradition senses without leaving the page.
+    source: darshan_library_design.md 5
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - lens opens in margin/panel, reading position untouched
+      - senses grouped by tradition with named differences; sources cited
+      - keyboard and screen-reader accessible
+  - id: RF-014
+    title: Comparative reading view
+    description: Two passages side by side with cited comparison naming differences explicitly.
+    source: darshan_library_design.md 2 (D6)
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: true
+    acceptance_criteria:
+      - both passages keep full provenance and dial access
+      - comparison text follows comparative_philosophy guidance mode
+  - id: RF-024
+    title: Personal anthology
+    description: Kept passages and margin notes assemble into the seeker's own book, exportable.
+    source: darshan_library_design.md 5
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - anthology organizable by the seeker's own labels
+      - export produces plain Markdown with citations intact
+      - stored with diary-grade privacy (local-first, never indexed)
+
+  # ---------- becoming path ----------
+  - id: RF-025
+    title: Postures of the seeker (self-declared)
+    description: Four self-declared postures shaping tone, default depth and emphasis; changeable any day.
+    source: darshan_becoming_path.md 2
+    priority: should
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - posture selection optional, in the seeker's own words, changeable in one step
+      - posture changes emphasis and defaults only; never gates content or features
+      - no rank, level, badge or progress framing anywhere
+  - id: RF-026
+    title: Rhythm composer (the day as ashram)
+    description: Seeker weaves dawn word, offering, midday remembrance, dusk look-back, night silence into their own day.
+    source: darshan_becoming_path.md 3
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - every joint independently on/off and time-movable (night workers can invert the arc)
+      - whole default arc under ten minutes of screen time daily
+      - absence accumulates zero debt; return after any gap greeted with warmth, no counters
+  - id: RF-009
+    title: Living Maps walker
+    description: Station-based journeys from ontology living maps; manual advance; dignified regression.
+    source: darshan_interface_spec.md 3.4
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - stations render teaching (cited, dial-enabled), reflection, one offered movement
+      - no progress percentages; "stay here some days" is a first-class suggestion
+      - moving backwards carries no loss framing
+  - id: RF-027
+    title: Reading journeys (study as sadhana)
+    description: Editorially curated sequences (First Contact, Foundation, Deepening) that end where books begin.
+    source: darshan_becoming_path.md 5
+    priority: could
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - journeys are suggested orders, not courses; no enrollment, completion or quiz mechanics
+      - each journey terminates by opening the relevant reading room
+      - resumable and abandonable without any guilt surface
+  - id: RF-010
+    title: Practice Field
+    description: Silence timer, morning offering, evening look-back, japa support; no statistics.
+    source: darshan_interface_spec.md 3.5
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - silence timer ends with single bell and "received", no stats
+      - look-back stores three answers to the diary only
+      - japa mode works with screen off, haptic-only
+  - id: RF-028
+    title: Season letter (opt-in)
+    description: Quarterly letter composed from the seeker's own kept passages, in the voice of a friend.
+    source: darshan_becoming_path.md 6
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: null
+    acceptance_criteria:
+      - uses kept passages and diary titles only; entry contents never read without witness invitation
+      - no metrics, comparisons or year-in-review mechanics
+      - one gesture disables it forever
+
+  # ---------- diary, silence, system ----------
+  - id: RF-012
+    title: Inner Diary with witness mode
+    description: Local-first encrypted journal; engine blind by default; single witness response per invitation.
+    source: darshan_interface_spec.md 3.7
+    priority: should
+    mvp: false
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - diary readable/writable fully offline; encrypted at rest with user-derived key
+      - witness mode sends one invited entry transiently; server stores nothing
+      - witness response reflects the seeker's words with at most one cited source resonance
   - id: RF-008
     title: Silence Room (mauna mode)
-    description: Zero-telemetry near-black room with breath pulse, reachable from every surface by one gesture.
+    description: Zero-telemetry near-black room with breath pulse, one gesture in and out, from every surface.
     source: darshan_interface_concept.md zeroth gesture
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
-  - id: RF-009
-    title: Living Maps walker
-    description: Station-based inner journeys from content/ontology/living_maps with manual advance and dignified regression.
-    source: darshan_interface_spec.md section 3.4
-    priority: should
-    mvp: false
-    ai_suggested: false
-    user_confirmed: true
-  - id: RF-010
-    title: Practice Field
-    description: Silence timer, morning offering, evening look-back (three questions), japa support; no statistics.
-    source: darshan_interface_spec.md section 3.5
-    priority: should
-    mvp: false
-    ai_suggested: false
-    user_confirmed: true
-  - id: RF-011
-    title: Concept lens over ontology
-    description: Tappable terms open tradition-by-tradition senses and named differences.
-    source: darshan_interface_spec.md section 3.6
-    priority: should
-    mvp: false
-    ai_suggested: false
-    user_confirmed: true
-  - id: RF-012
-    title: Inner Diary with witness mode
-    description: Local-first encrypted journal; engine blind by default; single witness response per explicit invitation.
-    source: darshan_interface_spec.md section 3.7
-    priority: should
-    mvp: false
-    ai_suggested: false
-    user_confirmed: true
+    acceptance_criteria:
+      - reachable from every surface with the same gesture
+      - emits zero telemetry events while active
+      - renders only --veil surface and --halo pulse at breath cycle
   - id: RF-013
     title: Opt-in dawn/dusk bells
-    description: Up to two daily quiet notifications, no content teasers, off by default.
-    source: darshan_interface_spec.md section 5
+    description: Up to two daily quiet notifications, one line, no content teasers, off by default.
+    source: darshan_interface_spec.md 5
     priority: could
     mvp: false
     ai_suggested: true
-    user_confirmed: null
-  - id: RF-014
-    title: Comparative reading view
-    description: Two passages side by side with cited comparison naming differences explicitly.
-    source: darshan_interface_spec.md section 3.6
-    priority: could
-    mvp: false
-    ai_suggested: true
-    user_confirmed: null
+    user_confirmed: true
+    acceptance_criteria:
+      - hard maximum of two bells daily; each carries a single line
+      - never contains teaser, streak, or re-engagement copy
   - id: RF-015
     title: Presence metrics pipeline
-    description: Closure rate, depth ratio, honored-silence precision, citation integrity; engagement metrics forbidden.
-    source: darshan_interface_spec.md section 6
+    description: Closure rate, rhythm steadiness, depth ratio, movement adoption, honored-silence precision, citation integrity.
+    source: darshan_interface_spec.md 6
     priority: must
     mvp: true
     ai_suggested: false
     user_confirmed: true
+    acceptance_criteria:
+      - engagement metrics (session length, DAU curves, questions/user) absent from all dashboards
+      - metrics computed on-device or aggregated without user-level profiles
+      - citation integrity gate blocks release below 1.0
+  - id: RF-029
+    title: Offline corpus bundles with versioning
+    description: Reading rooms, daily words and exact search ship as versioned static bundles.
+    source: c4-model.md ADR 5; darshan_library_design.md 6
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - bundles built at index time with copyright filter applied
+      - passage ids stable across bundle versions; updates never lose positions, anthologies or shelves
+      - bundle size budget respected for low-bandwidth distribution (ELV-002)

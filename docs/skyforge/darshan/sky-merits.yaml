@@ -1,7 +1,11 @@
-version: "1.0"
+version: "1.1"
 spec_version: "1.1"
 slug: darshan
-sky_score: 72
+# Round 2: recomputed honestly from the weighted formula
+# (0.25*58 + 0.20*88 + 0.20*62 + 0.20*70 + 0.15*78 = 70.2); the round-1
+# value of 72 overstated the arithmetic. MPI published alongside, not in
+# the composite (spec v1.2 governance).
+sky_score: 70
 score_kind: intent
 elevation_level: horizon
 
@@ -75,16 +79,37 @@ indices:
       - type: artifact
         ref: "darshan_interface_spec.md section 6 - forbidden engagement targets"
   UXD:
-    score: 75
+    score: 78
     confidence: medium
-    band: 9
+    band: 8
     rationale: |
       UX spec mandates WCAG 2.1 AA, reduced-motion equivalents for every
       ritual, skippable ceremonies, tokens-only styling, low excitation and
-      explicit anti-pattern list; unverified until implementation audit.
+      explicit anti-pattern list. Round 2 added the full token set (four
+      hour-themes, original-script typography, contrast targets) and detailed
+      accessibility acceptance criteria per RF; still unverified until
+      implementation audit.
     evidence:
       - type: artifact
         ref: "docs/skyforge/darshan/ux-spec.yaml -> anti_patterns_forbidden, accessibility"
+      - type: artifact
+        ref: "docs/skyforge/darshan/design-tokens.yaml -> themes, fonts, motion, contrast_target"
+      - type: artifact
+        ref: "functional-requirements.yaml -> acceptance_criteria (RF-001, RF-016, RF-019)"
+  MPI:
+    score: 68
+    confidence: medium
+    band: 10
+    rationale: |
+      Positioning consciousness established by market-benchmark.yaml across
+      four segments: parity on per-tradition corpus depth and contemplative
+      seriousness; better on reading dignity, privacy and persona honesty;
+      new on anti-engagement design law, citation-integrity contract,
+      state-aware restraint and cross-tradition constellation. Not part of
+      the composite score.
+    evidence:
+      - type: artifact
+        ref: "docs/skyforge/darshan/market-benchmark.yaml"
 
 elevation_suggestions:
   - id: ELV-001
@@ -97,8 +122,8 @@ elevation_suggestions:
     challenge_id: CH-OPEN-KNOWLEDGE
     impact_indices: [GAP, SPI]
     ai_suggested: true
-    user_confirmed: null
-    evidenced: false
+    user_confirmed: true   # confirmed round 2 by the creators
+    evidenced: false       # rises only when the API/dataset exists
     scope: post_mvp
   - id: ELV-002
     title: Low-bandwidth and offline distribution
@@ -109,8 +134,8 @@ elevation_suggestions:
     challenge_id: CH-INEQUALITY
     impact_indices: [SPI, GAP]
     ai_suggested: true
-    user_confirmed: null
-    evidenced: false
+    user_confirmed: true   # confirmed round 2; NFR-013 (bundle budget) and RF-029 carry it into spec
+    evidenced: false       # rises only at distribution checkpoints
     scope: post_mvp
   - id: ELV-003
     title: Educator mode for contemplative studies
@@ -120,7 +145,7 @@ elevation_suggestions:
     challenge_id: CH-EDUCATION
     impact_indices: [HCE, CWB]
     ai_suggested: true
-    user_confirmed: null
+    user_confirmed: true   # confirmed round 2; reading journeys (RF-027) are its seed
     evidenced: false
     scope: optional
 
@@ -132,18 +157,21 @@ humanity_connections:
       integrity, against both paywalled scholarship and decontextualized
       content farms.
     ai_suggested: true
+    user_confirmed: true
   - challenge_id: CH-HEALTH
     product_feature: Presence metrics, honored silence, crisis protocol
     connection_rationale: |
       Calm technology stance and crisis-aware restraint address the mental
       health externalities of attention-economy design.
     ai_suggested: true
+    user_confirmed: true
   - challenge_id: CH-PEACE
     product_feature: Comparative philosophy views that name differences
     connection_rationale: |
       Teaching how to hold plural truths without flattening or forced
       syncretism is a capacity for dialogue across worldviews.
     ai_suggested: true
+    user_confirmed: true
 
 ux_design:
   principles:

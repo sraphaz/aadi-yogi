@@ -15,7 +15,7 @@ principles:
   - privacy_by_architecture
 
 tokens:
-  source: design_tokens_css_variables
+  source: design-tokens.yaml   # produced round 2; single source of truth
   hardcoded_colors_forbidden: true
   themes:
     - pre_dawn
@@ -29,6 +29,7 @@ tokens:
   typography:
     passage_display: large_serif_generous_leading
     body: humanist_sans
+    original_scripts: [devanagari, tamil, iast]
     min_size: 12px
 
 key_screens:
@@ -68,12 +69,51 @@ key_screens:
       - haptic_only_japa_mode
       - screen_off_friendly
   - id: library
-    title: Library
-    primary_action: read in context
+    title: Library (the shelf)
+    primary_action: enter a collection or a door
     accessibility:
       - offline_reading
       - position_memory
       - concept_lens_keyboard_accessible
+  - id: depth_dial
+    title: Depth dial (D0-D6)
+    primary_action: press deeper into any passage
+    accessibility:
+      - current_depth_always_named
+      - keyboard_operable
+      - position_preserved_per_depth
+  - id: situation_portal
+    title: Situation doors
+    primary_action: arrive with a life moment
+    accessibility:
+      - human_words_no_jargon
+      - restraint_doors_follow_crisis_protocol
+      - includes_a_door_for_joy
+  - id: facet_browser
+    title: Facet browsing
+    primary_action: wander by tradition, theme, concept or practice
+    accessibility:
+      - max_two_active_facets
+      - no_infinite_grid
+  - id: book_room
+    title: Reading room (D3/D4)
+    primary_action: read the complete work
+    accessibility:
+      - reading_measure_max_62ch
+      - provenance_page_per_work
+      - first_entry_offers_d1_introduction_once
+  - id: original_view
+    title: The Original (D5)
+    primary_action: meet the source language
+    accessibility:
+      - language_tagged_for_screen_readers
+      - transliteration_parallel_view
+  - id: anthology
+    title: Personal anthology
+    primary_action: keep and arrange passages
+    accessibility:
+      - export_plain_markdown
+      - diary_grade_privacy
   - id: diary
     title: Inner Diary
     primary_action: write freely
@@ -105,6 +145,18 @@ journeys:
       - open concept lens on a term
       - compare passages across traditions
       - keep a contemplation page
+  - persona: person who never read scripture (posture Touched)
+    steps:
+      - arrive through situation door "grief"
+      - receive one word (D0) and its plain meaning (D1)
+      - days later, press the dial to the passage (D2)
+      - one evening, read the whole section (D3) without ever being told to
+  - persona: practitioner deepening a term (posture Practicing)
+    steps:
+      - meet a recurring term in a reading room
+      - open concept lens in the margin
+      - turn the dial to the constellation (D6)
+      - keep two passages into the anthology
 
 anti_patterns_forbidden:
   - feeds_and_infinite_scroll

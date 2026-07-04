@@ -2,8 +2,18 @@
 
 Companion to `darshan_interface_concept.md`. That document says why; this one
 says what and how. A complete Sky-Forge maturity package (brief, functional
-requirements, NFRs, UX spec, SKY merit indices, maturity, journey) lives in
-`docs/skyforge/darshan/`, formatted for direct import as a Sky-Forge session.
+requirements, NFRs, UX spec, design tokens, market benchmark, C4 model, SKY
+merit indices, maturity, journey) lives in `docs/skyforge/darshan/`, formatted
+for direct import as a Sky-Forge session.
+
+Two deepening documents extend this specification:
+
+- `darshan_library_design.md` - the Library in layers of depth: the seven
+  depths (D0-D6), the depth dial, classification facets, the six doors of
+  consultation, reading rooms, and the editorial pipeline that makes depth real.
+- `darshan_becoming_path.md` - how the application accompanies the seeker's
+  becoming in daily life: the four postures, the day as ashram, situation
+  doors, reading journeys, and the mirrors (diary, anthology, season letter).
 
 ## 1. Product Definition
 

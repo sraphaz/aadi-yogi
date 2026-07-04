@@ -1,7 +1,7 @@
-version: "1.0"
+version: "1.1"
 slug: darshan
-updated_at: "2026-07-04T21:00:00Z"
-overall_readiness: 0.55
+updated_at: "2026-07-04T21:30:00Z"
+overall_readiness: 0.62
 
 weights:
   business: 0.22
@@ -14,48 +14,64 @@ weights:
 dimensions:
   business:
     level: 1
-    score: 0.40
+    score: 0.42
     gaps:
-      - "sustaining model undecided (donation / patronage / institutional); ads and attention economics are excluded by design law"
+      - "sustaining model undecided (donation / patronage / institutional); ads and attention economics excluded by design law"
       - "stewardship and governance of the project not yet formalized"
+      - "market benchmark done (MPI 68); positioning language exists (situation doors, GAP-002) but go-to-market unwritten"
   product:
     level: 2
-    score: 0.75
+    score: 0.82
     gaps:
-      - "curation policy for the daily word needs editorial definition"
+      - "editorial curation policy for the daily word still needs an owner and cadence"
       - "phase Sangha intentionally unresolved"
+    round_2_gains:
+      - "library designed in depth (seven depths, six doors, facets) - darshan_library_design.md"
+      - "becoming path designed (postures, day-as-ashram, situation doors, reading journeys) - darshan_becoming_path.md"
+      - "29 RFs with acceptance criteria"
   ux_design:
     level: 2
-    score: 0.70
+    score: 0.78
     gaps:
-      - "design tokens and visual language not yet produced (spec only)"
+      - "tokens defined in YAML but not yet materialized as CSS/prototype"
       - "accessibility of ritual elements needs prototype validation with screen readers"
+    round_2_gains:
+      - "full design tokens for four hour-themes incl. original-script typography (design-tokens.yaml)"
+      - "seven new key screens specified (depth dial, situation doors, book room, original view, anthology)"
   technical:
     level: 1
-    score: 0.50
+    score: 0.58
     gaps:
       - "chunking/embedding pipeline specified but not implemented (scripts/chunk, packages/rag empty)"
       - "response contract needs a reference implementation in apps/agent-api"
       - "evaluation suites for tone/safety/citation integrity not yet built"
+      - "passage-id stability scheme (NFR-012) needs a concrete design before chunking starts"
+    round_2_gains:
+      - "C4 model levels 1-3 with component homes and five draft ADRs (c4-model.md)"
   sustainability:
     level: 0
-    score: 0.30
+    score: 0.32
     gaps:
       - "hosting, observability and on-call posture undefined"
       - "editorial review workflow for machine-converted volumes pending"
+      - "bundle size budget defined (NFR-013) but unmeasured"
   elevation:
     level: 2
-    score: 0.72
+    score: 0.78
     gaps:
-      - "humanity_connections await creator confirmation (user_confirmed)"
+      - "elevations confirmed but none evidenced yet (evidence requires shipped artifacts/checkpoints)"
       - "impact checkpoints only definable post-launch"
+    round_2_gains:
+      - "all three elevation suggestions and humanity connections user_confirmed"
+      - "ELV-002 carried into spec as NFR-013 and RF-029"
 
-conversation_level: product
+conversation_level: architecture
 
 pipeline_unlock:
   market_research:
     requires: { business: 0.70 }
     approved: false
+    note: "market-benchmark.yaml produced as design input; formal unlock still gated on business dimension"
   sky_elevation:
     requires: { business: 0.65, product: 0.50 }
     approved: false
@@ -65,15 +81,17 @@ pipeline_unlock:
   architecture:
     requires: { business: 0.80, product: 0.60, ux_design: 0.40 }
     approved: false
+    note: "c4-model.md exists as draft; gate honestly closed until business dimension matures"
   roadmap:
     requires: { product: 0.70 }
     approved: true
   prompt_compile:
     requires: { product: 0.75, technical: 0.50, ux_design: 0.50 }
-    approved: false
+    approved: true
   cloud_design_export:
     requires: { product: 0.80, technical: 0.60, elevation: 0.35 }
     approved: false
+    note: "one decimal from unlocking on technical; passage-id design and eval harness would carry it over"
   full_package:
     requires: { overall: 0.85 }
     approved: false

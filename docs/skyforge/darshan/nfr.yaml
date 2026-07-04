@@ -70,3 +70,34 @@ requirements:
       Full interface and engine voice in en and pt-BR; canonical quotations
       remain in source language with licensed translations.
     priority: should
+  - id: NFR-010
+    category: i18n
+    title: Faithful rendering of original scripts
+    description: |
+      Devanagari, Tamil and IAST transliteration render correctly with bundled
+      fonts (design-tokens.yaml); no tofu glyphs; screen readers receive
+      language-tagged text for correct pronunciation.
+    priority: should
+  - id: NFR-011
+    category: performance
+    title: Reading and search latency offline
+    description: |
+      Reading rooms open from local bundle in under 1s on mid-range devices;
+      exact search over the local corpus returns in under 2s.
+    priority: should
+  - id: NFR-012
+    category: integrity
+    title: Stable passage identity across corpus versions
+    description: |
+      Passage ids survive corpus rebuilds and bundle updates so positions,
+      anthologies, contemplation shelves and citations never break
+      (the no-orphan-quotation law depends on this).
+    priority: must
+  - id: NFR-013
+    category: sustainability
+    title: Bundle size budget
+    description: |
+      The Seed offline bundle (library + daily words + silence room) fits a
+      low-bandwidth budget (target: full public-domain corpus under 60 MB
+      compressed, per-collection download optional) to honor ELV-002.
+    priority: should
