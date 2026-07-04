@@ -3,6 +3,9 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
@@ -35,6 +38,44 @@ class TextConfig:
     use_for: tuple[str, ...]
     related_sources: tuple[str, ...]
     notes: tuple[str, ...]
+
+
+def _tirumandiram_config(
+    slug: str,
+    section: str,
+    tantra_num: int,
+    page_suffix: str,
+    start_heading: str,
+) -> TextConfig:
+    encoded_suffix = urllib.parse.quote(page_suffix, safe="/ ")
+    page_url = f"https://ta.wikisource.org/wiki/{urllib.parse.quote('திருமந்திரம்')}/{urllib.parse.quote(page_suffix)}"
+    raw_url = f"{page_url}?action=raw"
+    return TextConfig(
+        slug=slug,
+        source_id=f"siddha_texts/tirumandiram/{section}/full_public_domain",
+        source_title="Tirumandiram",
+        title=f"Tirumandiram - Tantra {tantra_num} Tamil Public-Domain Witness",
+        raw_url=raw_url,
+        page_url=page_url,
+        citation=f"Tirumular, Tirumandiram, Tantra {tantra_num}, Tamil Wikisource witness",
+        start_heading=start_heading,
+        output_path=SIDDHA_ROOT / "tirumandiram" / section / "full.public_domain.md",
+        author="Tirumular",
+        section=section,
+        tradition=("siddha", "shaiva", "tamil"),
+        themes=("shiva", "yoga", "mantra", "transformation"),
+        concepts=("shiva", "yoga", "mantra", "grace"),
+        use_for=("siddha_source_grounding", "shaiva_devotional_source", "tamil_primary_text"),
+        related_sources=(
+            "siddha_texts/index",
+            "siddha_texts/tirumandiram/index",
+            f"siddha_texts/tirumandiram/{section}/index",
+        ),
+        notes=(
+            "Ancient Tamil primary text imported from the Tamil Wikisource witness.",
+            f"Tantra {tantra_num} of the Tirumandiram.",
+        ),
+    )
 
 
 TEXTS: dict[str, TextConfig] = {
@@ -79,14 +120,36 @@ TEXTS: dict[str, TextConfig] = {
             "Ancient Tamil primary text imported from the Tamil Wikisource witness.",
             "The visible online page includes editorial presentation by Wikisource; repository intake preserves the core text with explicit provenance.",
         ),
-    )
+    ),
 }
+
+TEXTS["tirumandiram_tantra_01"] = _tirumandiram_config(
+    "tirumandiram_tantra_01", "tantra_01", 1, "முதலாம் தந்திரம்", "முதலாம் தந்திரம்"
+)
+TEXTS["tirumandiram_tantra_02"] = _tirumandiram_config(
+    "tirumandiram_tantra_02", "tantra_02", 2, "இரண்டாம் தந்திரம்", "இரண்டாம் தந்திரம்"
+)
+TEXTS["tirumandiram_tantra_03"] = _tirumandiram_config(
+    "tirumandiram_tantra_03", "tantra_03", 3, "மூன்றாம் தந்திரம்", "மூன்றாம் தந்திரம்"
+)
 
 
 def fetch_raw_wikitext(config: TextConfig) -> str:
     request = urllib.request.Request(config.raw_url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return response.read().decode("utf-8")
+    last_error: Exception | None = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return response.read().decode("utf-8")
+        except urllib.error.HTTPError as exc:
+            last_error = exc
+            if exc.code == 429 and attempt < 3:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+    if last_error:
+        raise last_error
+    raise RuntimeError("Failed to fetch raw wikitext.")
 
 
 def convert_wikilinks(text: str) -> str:
@@ -107,23 +170,19 @@ def normalize_inline_markup(text: str) -> str:
 
 
 def strip_leading_templates(lines: list[str]) -> list[str]:
-    result = list(lines)
-    while result:
-        first = result[0].strip()
-        if not first:
-            result.pop(0)
+    text = "\n".join(lines)
+    text = re.sub(r"\{\{header.*?\}\}", "", text, count=1, flags=re.DOTALL)
+    remaining = text.splitlines()
+    result: list[str] = []
+    for line in remaining:
+        stripped = line.strip()
+        if not stripped:
+            if result:
+                result.append(line)
             continue
-        if first.startswith("{{header"):
-            result.pop(0)
-            while result:
-                line = result.pop(0)
-                if line.strip() == "}}":
-                    break
+        if stripped.startswith("{{") and stripped.endswith("}}"):
             continue
-        if first.startswith("{{") and first.endswith("}}"):
-            result.pop(0)
-            continue
-        break
+        result.append(line)
     return result
 
 
@@ -147,7 +206,11 @@ def normalize_wikitext(raw_text: str, start_heading: str) -> list[str]:
         if heading_match:
             depth = len(heading_match.group(1))
             heading_text = heading_match.group(2).strip()
-            if not started and heading_text == start_heading:
+            if not started and (
+                heading_text == start_heading
+                or start_heading in heading_text
+                or heading_text in start_heading
+            ):
                 started = True
             if not started:
                 continue
@@ -219,8 +282,9 @@ def build_markdown(config: TextConfig, body_lines: list[str]) -> str:
         "---",
         "",
     ]
+    section_label = config.section.replace("_", " ").title()
     sections = [
-        "# Tirumandiram - Payiram",
+        f"# Tirumandiram - {section_label}",
         "",
         "## Tamil Primary Text",
         "",
@@ -233,7 +297,7 @@ def build_markdown(config: TextConfig, body_lines: list[str]) -> str:
         "",
         "## Notes",
         "",
-        "This import captures an initial public-domain Tamil witness for the Tirumandiram. Later work can split the payiram into smaller reviewable units and compare alternate editions.",
+        f"This import captures a public-domain Tamil witness for the Tirumandiram ({section_label}).",
         "",
     ]
     return "\n".join(frontmatter + sections)

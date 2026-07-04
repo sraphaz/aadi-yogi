@@ -112,6 +112,46 @@ TEXTS: dict[str, TextConfig] = {
         use_for=("source_grounded_nondual_reflection", "higher_and_lower_knowledge", "brahman_contemplation"),
         related_sources=("upanishads/mundaka/index",),
     ),
+    "prashna": TextConfig(
+        slug="prashna",
+        source_title="Prashna Upanishad",
+        title="Prashna Upanishad - Max Muller 1884 Public Domain Translation",
+        title_line="PRASÑA-UPANISHAD.",
+        page_url=(
+            "https://en.wikisource.org/wiki/"
+            "Sacred_Books_of_the_East/Volume_15/Pras%C3%B1a-upanishad"
+        ),
+        volume_url="https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+        citation=(
+            "Friedrich Max Muller, The Upanishads, Part 2 (SBE 15), "
+            "Prashna Upanishad, 1884"
+        ),
+        source_locator={"pageid": "1375729"},
+        themes=("inquiry", "prana", "meditation", "self_knowledge"),
+        concepts=("prana", "atman", "brahman", "om"),
+        use_for=("source_grounded_inquiry", "prana_contemplation", "teacher_student_dialogue"),
+        related_sources=("upanishads/prashna/index",),
+    ),
+    "isha": TextConfig(
+        slug="isha",
+        source_title="Isha Upanishad",
+        title="Isha Upanishad - Max Muller 1879 Public Domain Translation",
+        title_line="Vâgasaneyi-samhitâ-upanishad",
+        page_url=(
+            "https://en.wikisource.org/wiki/"
+            "Sacred_Books_of_the_East/Volume_1/V%C3%A2gasaneyi-samhit%C3%A2-upanishad"
+        ),
+        volume_url="https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_1",
+        citation=(
+            "Friedrich Max Muller, The Upanishads, Part 1 (SBE 1), "
+            "Isha Upanishad (Vâgasaneyi-samhitâ), 1879"
+        ),
+        source_locator={"pageid": "1372168"},
+        themes=("divine_immanence", "self_knowledge", "renunciation", "action"),
+        concepts=("atman", "brahman", "renunciation", "unity"),
+        use_for=("source_grounded_nondual_reflection", "action_without_possession", "divine_in_world"),
+        related_sources=("upanishads/isha/index", "upanishads/isha/mantra_01"),
+    ),
 }
 
 

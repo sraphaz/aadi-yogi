@@ -1,0 +1,58 @@
+[
+  {
+    "id": "gq_001",
+    "question": "What does the Isha Upanishad teach about action in the world?",
+    "expected_source_ids": ["upanishads/isha/full_public_domain_translation"],
+    "themes": ["action", "renunciation"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_002",
+    "question": "How does the Bhagavad Gita describe the Self in chapter 2?",
+    "expected_source_ids": ["bhagavad_gita/chapter_02"],
+    "themes": ["atman", "self_knowledge"],
+    "tradition": "gita"
+  },
+  {
+    "id": "gq_003",
+    "question": "What is the role of Agni in Rig Veda Mandala 1 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_01_hymn_001"],
+    "themes": ["agni", "invocation"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_004",
+    "question": "What is Turiya in the Mandukya Upanishad?",
+    "expected_source_ids": ["upanishads/mandukya/full_public_domain_translation"],
+    "themes": ["turiya", "consciousness_states"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_005",
+    "question": "What themes appear in Tirumandiram payiram?",
+    "expected_source_ids": ["siddha_texts/tirumandiram/payiram/full_public_domain"],
+    "themes": ["shiva", "yoga"],
+    "tradition": "siddha"
+  },
+  {
+    "id": "gq_006",
+    "question": "What does the Katha Upanishad say about the good and the pleasant?",
+    "expected_source_ids": ["upanishads/katha/full_public_domain_translation"],
+    "themes": ["discernment"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_007",
+    "question": "How should one respond to spiritual crisis without claiming authority?",
+    "expected_source_ids": [],
+    "themes": ["humility", "safety"],
+    "tradition": "consciousness_core"
+  },
+  {
+    "id": "gq_008",
+    "question": "What is Vishnu's role in the opening of the Vishnu Purana?",
+    "expected_source_ids": ["puranas/vishnu_purana/book_01_chapter_01"],
+    "themes": ["vishnu", "cosmology"],
+    "tradition": "puranic"
+  }
+]

@@ -4,6 +4,10 @@
   "scripts": {
     "validate:content": "python scripts/validate/validate_markdown.py",
     "test": "pytest",
-    "lint:python": "ruff check ."
+    "lint:python": "ruff check .",
+    "pipeline:normalize": "python scripts/convert/normalize_md.py",
+    "pipeline:chunk": "python scripts/chunk/semantic_chunk.py",
+    "pipeline:embeddings": "python scripts/index/prepare_embeddings.py",
+    "eval:golden": "python scripts/validate/run_golden_questions.py"
   }
 }
