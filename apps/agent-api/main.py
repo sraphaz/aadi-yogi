@@ -13,8 +13,8 @@ from pydantic import BaseModel, Field
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.orchestrator import AgentAnswer, ask_question
-from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk
 from packages.rag.retriever import RetrievedChunk
+from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk
 
 
 APP_ROOT = Path(__file__).resolve().parent
@@ -50,6 +50,7 @@ class ChunkResponse(BaseModel):
     excerpt: str
     keyword_score: float | None = None
     vector_score: float | None = None
+    dense_score: float | None = None
 
 
 class AskResponse(BaseModel):
@@ -72,16 +73,15 @@ class AnswerResponse(BaseModel):
 
 
 def chunk_to_response(chunk: RetrievedChunk | HybridRetrievedChunk) -> ChunkResponse:
-    keyword_score = getattr(chunk, "keyword_score", None)
-    vector_score = getattr(chunk, "vector_score", None)
     return ChunkResponse(
         chunk_id=chunk.chunk_id,
         source_id=chunk.source_id,
         score=chunk.score,
         citation=chunk.citation,
         excerpt=chunk.text[:500],
-        keyword_score=keyword_score,
-        vector_score=vector_score,
+        keyword_score=getattr(chunk, "keyword_score", None),
+        vector_score=getattr(chunk, "vector_score", None),
+        dense_score=getattr(chunk, "dense_score", None),
     )
 
 
@@ -97,7 +97,8 @@ def health() -> dict[str, object]:
         "status": "ok",
         "service": "aadi-yogi-agent-api",
         "llm_configured": llm_client.available,
-        "vector_index": retriever.index_path.exists(),
+        "tfidf_index": retriever.index_path.exists(),
+        "dense_index": retriever.dense_index_path.exists(),
     }
 
 

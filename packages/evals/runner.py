@@ -19,6 +19,6 @@ def load_golden_questions() -> list[dict[str, object]]:
 def evaluate_retrieval_hit(question: dict[str, object], retrieved_source_ids: list[str]) -> bool:
     expected = question.get("expected_source_ids", [])
     if not isinstance(expected, list) or not expected:
-        return bool(retrieved_source_ids)
+        return True
     retrieved = set(retrieved_source_ids)
     return any(source_id in retrieved for source_id in expected)

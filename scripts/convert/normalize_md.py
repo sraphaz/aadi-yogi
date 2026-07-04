@@ -17,6 +17,8 @@ SECTION_HEADERS = (
     "Tamil Primary Text",
     "Chapter Scope",
     "Sanskrit",
+    "Transliteration",
+    "English Translation",
     "Translation",
     "Source Text",
     "Source Provenance",
@@ -69,6 +71,7 @@ def build_normalized_markdown(source_path: Path, frontmatter: dict[str, object],
         "Public-Domain Translation",
         "Tamil Primary Text",
         "Translation",
+        "English Translation",
         "Source Text",
         "Chapter Scope",
     ]
@@ -77,6 +80,10 @@ def build_normalized_markdown(source_path: Path, frontmatter: dict[str, object],
         if sections.get(key):
             primary_text = sections[key]
             break
+    if not primary_text:
+        combined_keys = ("English Translation", "Sanskrit", "Transliteration")
+        parts = [sections[key] for key in combined_keys if sections.get(key)]
+        primary_text = "\n\n".join(parts)
 
     meta = dict(frontmatter)
     meta["normalized_from"] = source_path.as_posix()

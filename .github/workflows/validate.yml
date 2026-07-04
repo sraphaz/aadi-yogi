@@ -28,8 +28,13 @@ jobs:
       - name: Validate Markdown
         run: python scripts/validate/validate_markdown.py
 
-      - name: Build vector index
-        run: PYTHONPATH=. python scripts/index/build_vector_index.py
+      - name: Build vector indexes
+        run: |
+          PYTHONPATH=. python scripts/index/build_vector_index.py
+          PYTHONPATH=. python scripts/index/build_dense_index.py
 
       - name: Golden question retrieval eval
         run: PYTHONPATH=. python scripts/validate/run_golden_questions.py
+
+      - name: Response quality eval
+        run: PYTHONPATH=. python scripts/validate/run_response_eval.py

@@ -163,6 +163,12 @@ button:disabled {
   line-height: 1.55;
 }
 
+.source-card .meta {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
 .hidden { display: none; }
 
 @media (max-width: 640px) {

@@ -1134,6 +1134,12 @@
     "copyright_status": "public_domain"
   },
   {
+    "chunk_id": "puranas/garuda_purana/book_01_chapter_01#chunk_0000_2a0e34ce7107",
+    "source_id": "puranas/garuda_purana/book_01_chapter_01",
+    "source_path": "/workspace/content/processed/normalized_md/puranas/garuda_purana/book_01_chapter_01.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
     "chunk_id": "puranas/vishnu_purana/book_01_chapter_01#chunk_0000_6d62504f2dd4",
     "source_id": "puranas/vishnu_purana/book_01_chapter_01",
     "source_path": "/workspace/content/processed/normalized_md/puranas/vishnu_purana/book_01_chapter_01.public_domain.md",
@@ -1179,6 +1185,42 @@
     "chunk_id": "puranas/vishnu_purana/book_01_chapter_01#chunk_0007_4aa501b85928",
     "source_id": "puranas/vishnu_purana/book_01_chapter_01",
     "source_path": "/workspace/content/processed/normalized_md/puranas/vishnu_purana/book_01_chapter_01.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/agathiyar_gnana_padalgal/full_public_domain#chunk_0000_fd04e620ca01",
+    "source_id": "siddha_texts/agathiyar_gnana_padalgal/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/agathiyar_gnana_padalgal/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/idaikkattu_siddhar/full_public_domain#chunk_0000_054a98059a34",
+    "source_id": "siddha_texts/idaikkattu_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/idaikkattu_siddhar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/kudhambai_siddhar/full_public_domain#chunk_0000_ceb198f1d004",
+    "source_id": "siddha_texts/kudhambai_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/kudhambai_siddhar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/kudhambai_siddhar/full_public_domain#chunk_0001_89cb2fc40240",
+    "source_id": "siddha_texts/kudhambai_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/kudhambai_siddhar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/kudhambai_siddhar/full_public_domain#chunk_0002_1b6256dc4f94",
+    "source_id": "siddha_texts/kudhambai_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/kudhambai_siddhar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/kudhambai_siddhar/full_public_domain#chunk_0003_815e1df4f2d0",
+    "source_id": "siddha_texts/kudhambai_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/kudhambai_siddhar/full.public_domain.md",
     "copyright_status": "public_domain"
   },
   {
@@ -2337,6 +2379,168 @@
     "chunk_id": "vedas/rig_veda/mandala_01_hymn_010#chunk_0002_2931a62fd1ef",
     "source_id": "vedas/rig_veda/mandala_01_hymn_010",
     "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_010.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_011#chunk_0000_caced42d77c4",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_011",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_011.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_011#chunk_0001_1eead98db6d5",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_011",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_011.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_011#chunk_0002_ad8db10fb127",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_011",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_011.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_012#chunk_0000_f68eb6ee9a7b",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_012",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_012.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_012#chunk_0001_051958ea24f9",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_012",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_012.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_012#chunk_0002_a9298b4d60c5",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_012",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_012.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_013#chunk_0000_3a14f59f3db8",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_013",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_013.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_013#chunk_0001_da61b687fd8c",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_013",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_013.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_013#chunk_0002_b2cceef1f3f7",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_013",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_013.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_014#chunk_0000_721335aa8183",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_014",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_014.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_014#chunk_0001_d229bc75dabc",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_014",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_014.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_014#chunk_0002_4ba9e59d3943",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_014",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_014.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_015#chunk_0000_e909579e7156",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_015",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_015.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_015#chunk_0001_f477a576be10",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_015",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_015.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_015#chunk_0002_87aa9957fb3a",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_015",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_015.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_016#chunk_0000_3bebe2ceaff7",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_016",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_016.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_016#chunk_0001_c17682fe4b5e",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_016",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_016.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_016#chunk_0002_b02df0c4c5ab",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_016",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_016.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_017#chunk_0000_2bb0290a1de9",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_017",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_017.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_017#chunk_0001_b4f4a9f7eac6",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_017",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_017.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_018#chunk_0000_3775413575d7",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_018",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_018.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_018#chunk_0001_c58c0ee8abb6",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_018",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_018.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_019#chunk_0000_d39ecc1766d6",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_019",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_019.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_019#chunk_0001_874d55b16576",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_019",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_019.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_019#chunk_0002_a34c0538b1bf",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_019",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_019.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_020#chunk_0000_79ce5dead8f1",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_020",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_020.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "vedas/rig_veda/mandala_01_hymn_020#chunk_0001_19cebc5df2e8",
+    "source_id": "vedas/rig_veda/mandala_01_hymn_020",
+    "source_path": "/workspace/content/processed/normalized_md/vedas/rig_veda/mandala_01_hymn_020.public_domain.md",
     "copyright_status": "public_domain"
   }
 ]

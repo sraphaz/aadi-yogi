@@ -61,6 +61,7 @@ async function askQuestion() {
       card.innerHTML = `
         <h3>${chunk.source_id} · score ${chunk.score.toFixed(2)}</h3>
         <p>${chunk.excerpt}</p>
+        <p class="meta">keyword ${(chunk.keyword_score ?? 0).toFixed(2)} · tfidf ${(chunk.vector_score ?? 0).toFixed(2)} · dense ${(chunk.dense_score ?? 0).toFixed(2)}</p>
       `;
       sourcesList.appendChild(card);
     });
@@ -86,8 +87,9 @@ fetch("/health")
   .then((response) => response.json())
   .then((data) => {
     const llm = data.llm_configured ? "LLM ativo" : "modo fallback (sem LLM)";
-    const index = data.vector_index ? "índice vetorial ok" : "índice vetorial ausente";
-    statusEl.textContent = `API online · ${llm} · ${index}`;
+    const tfidf = data.tfidf_index ? "TF-IDF ok" : "TF-IDF ausente";
+    const dense = data.dense_index ? "dense ok" : "dense ausente";
+    statusEl.textContent = `API online · ${llm} · ${tfidf} · ${dense}`;
   })
   .catch(() => {
     statusEl.textContent = "API offline.";

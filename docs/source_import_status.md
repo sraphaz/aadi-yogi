@@ -117,18 +117,25 @@ This document records what has been imported into the repository, what has only 
 
 ### Rig Veda Expansion
 
-- Mandala 1 Hymns 1–10 imported from English Wikisource (Griffith translation).
+- Mandala 1 Hymns 1–20 imported from English Wikisource (Griffith translation).
+
+### Siddha Expansion (Phase 3)
+
+- Agathiyar Gnana Padalgal, Kudhambai Siddhar, and Idaikkattu Siddhar imported from Tamil Wikisource.
+- Garuda Purana Book 1 Chapter 1 sample imported (public-domain witness).
 
 ### Tirumandiram Expansion
 
-- Tantras 1–3 imported from Tamil Wikisource in addition to payiram.
+- Tantras 1–9 imported from Tamil Wikisource in addition to payiram.
 
 ### Pipeline and Agent Scaffold
 
-- Normalization, chunking, and embeddings-ready artifacts operational.
-- 376 chunks across 39 imported sources.
-- Agent API scaffold at `apps/agent-api/main.py` with retriever and prompt builder.
-- 5 synthesis notes and 8 golden questions with retrieval eval passing.
+- Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export operational.
+- 424 chunks across 63 imported sources.
+- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference boosting.
+- Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
+- 5 synthesis notes, consciousness core v1 approved, 8 golden questions (100% retrieval), 8/8 response quality checks (fallback mode).
+- Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
 
 ### Internal Content (Consciousness Core + Ontology + Synthesis)
 

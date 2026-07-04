@@ -49,7 +49,32 @@ normalized_sections:
 
 ## Normalized Primary Text
 
+1. I Laud Agni, the chosen Priest, God, minister of sacrifice,
+The hotar, lavishest of wealth.
 
+2. Worthy is Agni to be praised by living as by ancient seers.
+He shall bring hitherward the Gods.
+
+3. Through Agni man obtaineth wealth, yea, plenty waxing day by day,
+Most rich in heroes, glorious.
+
+4. Agni, the perfect sacrifice which thou encompassest about
+Verily goeth to the Gods.
+
+5. May Agni, sapient-minded Priest, truthful, most gloriously great,
+The God, come hither with the Gods.
+
+6. Whatever blessing, Agni, thou wilt grant unto thy worshipper,
+That, Angiras, is indeed thy truth.
+
+7. To thee, dispeller of the night, O Agni, day by day with prayer
+Bringing thee reverence, we come.
+
+8. Ruler of sacrifices, guard of Law eternal, radiant One,
+Increasing in thine own abode.
+
+9. Be to us easy of approach, even as a father to his son:
+Agni, be with us for our weal.
 
 ## Source Provenance
 

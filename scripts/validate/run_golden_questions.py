@@ -10,11 +10,11 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
 from packages.evals.runner import evaluate_retrieval_hit, load_golden_questions
-from packages.rag.retriever import SimpleRetriever
+from packages.rag.hybrid_retriever import HybridRetriever
 
 
 def main() -> int:
-    retriever = SimpleRetriever()
+    retriever = HybridRetriever()
     questions = load_golden_questions()
     passed = 0
     for question in questions:
