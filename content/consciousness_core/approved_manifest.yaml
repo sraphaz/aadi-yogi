@@ -1,0 +1,22 @@
+version: v1
+status: approved
+approved_date: "2026-07-04"
+reviewer: "repository editorial scaffold"
+scope: agent_prompt_builder
+notes:
+  - Approved for use in prompt construction and agent behavior scaffolding.
+  - This is not a claim of realization, authority, or infallible guidance.
+  - Human review should revisit before any public production deployment.
+files:
+  - essence.md
+  - voice.md
+  - inner_posture.md
+  - guidance_modes.md
+  - discernment_matrix.md
+  - synthesis_rules.md
+  - spiritual_ethics.md
+  - states_of_response.md
+  - silence_and_non_answering.md
+  - examples/good_answers.md
+  - examples/bad_answers.md
+  - examples/rewritten_answers.md

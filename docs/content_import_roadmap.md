@@ -267,7 +267,7 @@ Cada item importado segue este fluxo:
 | Métrica | Atual | Meta Onda 0 | Meta Onda 1 |
 | --- | --- | --- | --- |
 | Textos com índice canônico | ~140 | 160 | 200 |
-| Textos PD importados (completo) | 8 | 15 | 40 |
+| Textos PD importados (completo) | 8 | 15 | **49** |
 | Capítulos Gita importados | 0 | 2 | 18 |
 | Upanishads com texto PD | 4 | 6 | 14 |
 | Tantras Tirumandiram importados | 0 (payiram sim) | 1 | 3 |

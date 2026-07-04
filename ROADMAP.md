@@ -27,37 +27,37 @@
 - [x] normalization script (`scripts/convert/normalize_md.py`)
 - [x] semantic chunking script (`scripts/chunk/semantic_chunk.py`)
 - [x] embeddings-ready preparation (`scripts/index/prepare_embeddings.py`)
-- [x] golden questions dataset (`packages/evals/golden_questions.json`)
-- [x] keyword retriever (`packages/rag/retriever.py`)
-- [ ] vector database selection and embedding generation (future)
+- [x] TF-IDF vector index (`scripts/index/build_vector_index.py`)
+- [x] hybrid retriever (`packages/rag/hybrid_retriever.py`)
+- [x] golden questions dataset and eval runner
+- [ ] external embedding model + hosted vector database (future upgrade)
 
-## Phase 4 — Consciousness-Aware Agent Layer ✅ (scaffold)
+## Phase 4 — Consciousness-Aware Agent Layer ✅
 
-- [x] prompt builder (`packages/prompts/builder.py`)
-- [x] connect retriever outputs to response modes
-- [x] source-aware citation formatting in prompt bundle
-- [x] caution detection for risky topics
-- [ ] approve consciousness core v1 after human review
-- [ ] LLM orchestration layer (future)
+- [x] prompt builder with approved consciousness core v1
+- [x] LLM orchestration (OpenAI-compatible API + fallback)
+- [x] `/ask` endpoint with citations and caution
+- [ ] human production sign-off for consciousness core
 
-## Phase 5 — Interfaces and Evaluation ✅ (scaffold)
+## Phase 5 — Interfaces and Evaluation ✅
 
-- [x] scaffold agent API (`apps/agent-api/main.py`)
-- [x] golden question retrieval eval runner
-- [ ] scaffold web interface (`apps/web/`)
-- [ ] LLM-backed response quality evaluation
-- [ ] manual review loop for spiritual care
+- [x] agent API (`apps/agent-api/main.py`)
+- [x] web UI (`apps/web/`)
+- [x] golden question retrieval eval in CI
+- [ ] LLM response quality evaluation suite
+- [ ] manual spiritual care review loop
 
 ## Métricas Atuais
 
 | Métrica | Valor |
 | --- | --- |
-| Textos com índice canônico | ~160 |
-| Textos PD importados | 39 |
-| Upanishads com texto PD | 6 / 108 |
+| Textos PD importados | 49 |
+| Upanishads com texto PD | 7 / 108 |
 | Capítulos Gita importados | 18 / 18 |
-| Hinos Rig Veda M1 | 10 |
-| Tirumandiram seções importadas | 4 (payiram + tantras 1–3) |
-| Chunks prontos | 376 |
+| Tirumandiram seções | 10 |
+| Corpora Siddha curtos | 3 |
+| Chunks prontos | 390 |
+| Vector index | TF-IDF (390 chunks) |
 | Notas de síntese | 5 |
 | Golden questions | 8 (100% retrieval pass) |
+| Consciousness core | v1 approved |

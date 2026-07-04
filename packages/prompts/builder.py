@@ -44,9 +44,15 @@ def format_citations(chunks: list[RetrievedChunk]) -> list[str]:
     return citations
 
 
-def build_prompt(question: str, retriever: SimpleRetriever | None = None, top_k: int = 5) -> PromptBundle:
-    retriever = retriever or SimpleRetriever()
-    chunks = retriever.retrieve(question, top_k=top_k)
+def build_prompt(
+    question: str,
+    retriever: SimpleRetriever | None = None,
+    top_k: int = 5,
+    chunks: list[RetrievedChunk] | None = None,
+) -> PromptBundle:
+    if chunks is None:
+        retriever = retriever or SimpleRetriever()
+        chunks = retriever.retrieve(question, top_k=top_k)
     caution = detect_caution(question)
 
     essence = load_consciousness_snippet("essence.md")

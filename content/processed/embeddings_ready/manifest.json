@@ -1182,6 +1182,48 @@
     "copyright_status": "public_domain"
   },
   {
+    "chunk_id": "siddha_texts/pambatti_siddhar/full_public_domain#chunk_0000_133066d58eb0",
+    "source_id": "siddha_texts/pambatti_siddhar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/pambatti_siddhar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/pattinathar/full_public_domain#chunk_0000_8e56377c7ba9",
+    "source_id": "siddha_texts/pattinathar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/pattinathar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/pattinathar/full_public_domain#chunk_0001_397629ca43a5",
+    "source_id": "siddha_texts/pattinathar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/pattinathar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/pattinathar/full_public_domain#chunk_0002_0cc4303e0806",
+    "source_id": "siddha_texts/pattinathar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/pattinathar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/sivavakkiyar/full_public_domain#chunk_0000_e119e2f94167",
+    "source_id": "siddha_texts/sivavakkiyar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/sivavakkiyar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/sivavakkiyar/full_public_domain#chunk_0001_d485462ec124",
+    "source_id": "siddha_texts/sivavakkiyar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/sivavakkiyar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/sivavakkiyar/full_public_domain#chunk_0002_f613a5bc058c",
+    "source_id": "siddha_texts/sivavakkiyar/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/sivavakkiyar/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
     "chunk_id": "siddha_texts/tirumandiram/payiram/full_public_domain#chunk_0000_92fd4f5f56e6",
     "source_id": "siddha_texts/tirumandiram/payiram/full_public_domain",
     "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/payiram/full.public_domain.md",
@@ -1203,6 +1245,42 @@
     "chunk_id": "siddha_texts/tirumandiram/tantra_03/full_public_domain#chunk_0000_6910411511a0",
     "source_id": "siddha_texts/tirumandiram/tantra_03/full_public_domain",
     "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_03/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_04/full_public_domain#chunk_0000_25e5958752d9",
+    "source_id": "siddha_texts/tirumandiram/tantra_04/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_04/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_05/full_public_domain#chunk_0000_106feec6b9b6",
+    "source_id": "siddha_texts/tirumandiram/tantra_05/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_05/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_06/full_public_domain#chunk_0000_a95c9964f71a",
+    "source_id": "siddha_texts/tirumandiram/tantra_06/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_06/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_07/full_public_domain#chunk_0000_224b228b0564",
+    "source_id": "siddha_texts/tirumandiram/tantra_07/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_07/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_08/full_public_domain#chunk_0000_71cd99f9637f",
+    "source_id": "siddha_texts/tirumandiram/tantra_08/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_08/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "siddha_texts/tirumandiram/tantra_09/full_public_domain#chunk_0000_1fd155bdbf60",
+    "source_id": "siddha_texts/tirumandiram/tantra_09/full_public_domain",
+    "source_path": "/workspace/content/processed/normalized_md/siddha_texts/tirumandiram/tantra_09/full.public_domain.md",
     "copyright_status": "public_domain"
   },
   {
@@ -1407,6 +1485,12 @@
     "chunk_id": "upanishads/isha/full_public_domain_translation#chunk_0033_9bbd2eb7dfde",
     "source_id": "upanishads/isha/full_public_domain_translation",
     "source_path": "/workspace/content/processed/normalized_md/upanishads/isha/full.public_domain.md",
+    "copyright_status": "public_domain"
+  },
+  {
+    "chunk_id": "upanishads/kaivalya/full_public_domain_translation#chunk_0000_6c8c20e84384",
+    "source_id": "upanishads/kaivalya/full_public_domain_translation",
+    "source_path": "/workspace/content/processed/normalized_md/upanishads/kaivalya/full.public_domain.md",
     "copyright_status": "public_domain"
   },
   {

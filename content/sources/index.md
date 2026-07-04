@@ -33,11 +33,11 @@ Este índice centraliza todas as coleções de fontes do Aadi Yogi. Cada coleç�
 
 | Coleção | Escopo | Índice | Textos PD importados | Status geral |
 | --- | --- | --- | --- | --- |
-| Upanishads | 108 (cânon Muktika) | [`upanishads/index.md`](upanishads/index.md) | 4 | Catálogo completo; importação em curso |
-| Vedas | Rig, Sama, Yajur (×2), Atharva | [`vedas/index.md`](vedas/index.md) | 1 hino | Catálogo completo; amostra iniciada |
+| Upanishads | 108 (cânon Muktika) | [`upanishads/index.md`](upanishads/index.md) | 7 | Catálogo completo; importação em curso |
+| Vedas | Rig, Sama, Yajur (×2), Atharva | [`vedas/index.md`](vedas/index.md) | 10 hinos M1 | Catálogo completo; Mandala 1 parcial |
 | Puranas | 18 Mahapuranas | [`puranas/index.md`](puranas/index.md) | 1 capítulo | Catálogo completo; amostra iniciada |
-| Bhagavad Gita | 18 capítulos | [`bhagavad_gita/index.md`](bhagavad_gita/index.md) | 0 | Índice criado; importação pendente |
-| Textos Siddha | Corpus Tamil principal | [`siddha_texts/index.md`](siddha_texts/index.md) | 1 (payiram) | Catálogo + Tirumandiram em curso |
+| Bhagavad Gita | 18 capítulos | [`bhagavad_gita/index.md`](bhagavad_gita/index.md) | 18 | Completo (Edwin Arnold PD) |
+| Textos Siddha | Corpus Tamil principal | [`siddha_texts/index.md`](siddha_texts/index.md) | 13 | Tirumandiram + 3 Siddhars |
 | Sri Aurobindo | 37 volumes SABDA | [`sri_aurobindo/index.md`](sri_aurobindo/index.md) | 0 | Metadata only (copyright) |
 | A Mãe | 17 volumes SABDA | [`the_mother/index.md`](the_mother/index.md) | 0 | Metadata only (copyright) |
 

@@ -132,6 +132,18 @@ TEXTS["tirumandiram_tantra_02"] = _tirumandiram_config(
 TEXTS["tirumandiram_tantra_03"] = _tirumandiram_config(
     "tirumandiram_tantra_03", "tantra_03", 3, "மூன்றாம் தந்திரம்", "மூன்றாம் தந்திரம்"
 )
+for num, suffix in [
+    (4, "நான்காம் தந்திரம்"),
+    (5, "ஐந்தாம் தந்திரம்"),
+    (6, "ஆறாம் தந்திரம்"),
+    (7, "ஏழாம் தந்திரம்"),
+    (8, "எட்டாம் தந்திரம்"),
+    (9, "ஒன்பதாம் தந்திரம்"),
+]:
+    section = f"tantra_{num:02d}"
+    TEXTS[f"tirumandiram_{section}"] = _tirumandiram_config(
+        f"tirumandiram_{section}", section, num, suffix, suffix
+    )
 
 
 def fetch_raw_wikitext(config: TextConfig) -> str:

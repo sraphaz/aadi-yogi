@@ -1,16 +1,40 @@
-"""FastAPI scaffold for the Aadi Yogi consciousness-aware agent."""
+"""FastAPI service for the Aadi Yogi consciousness-aware agent."""
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from packages.prompts.builder import PromptBundle, build_prompt
-from packages.rag.retriever import RetrievedChunk, SimpleRetriever
+from packages.prompts.llm_client import LLMClient
+from packages.prompts.orchestrator import AgentAnswer, ask_question
+from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk
+from packages.rag.retriever import RetrievedChunk
 
 
-app = FastAPI(title="Aadi Yogi Agent API", version="0.1.0")
-retriever = SimpleRetriever()
+APP_ROOT = Path(__file__).resolve().parent
+WEB_ROOT = APP_ROOT.parent / "web"
+STATIC_ROOT = WEB_ROOT / "static"
+
+app = FastAPI(title="Aadi Yogi Agent API", version="0.2.0")
+retriever = HybridRetriever()
+llm_client = LLMClient()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+if STATIC_ROOT.exists():
+    app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
 
 
 class AskRequest(BaseModel):
@@ -24,6 +48,8 @@ class ChunkResponse(BaseModel):
     score: float
     citation: str | None
     excerpt: str
+    keyword_score: float | None = None
+    vector_score: float | None = None
 
 
 class AskResponse(BaseModel):
@@ -35,9 +61,44 @@ class AskResponse(BaseModel):
     retrieved_chunks: list[ChunkResponse]
 
 
+class AnswerResponse(BaseModel):
+    question: str
+    answer: str
+    citations: list[str]
+    caution: str | None
+    provider: str
+    model: str
+    retrieved_chunks: list[ChunkResponse]
+
+
+def chunk_to_response(chunk: RetrievedChunk | HybridRetrievedChunk) -> ChunkResponse:
+    keyword_score = getattr(chunk, "keyword_score", None)
+    vector_score = getattr(chunk, "vector_score", None)
+    return ChunkResponse(
+        chunk_id=chunk.chunk_id,
+        source_id=chunk.source_id,
+        score=chunk.score,
+        citation=chunk.citation,
+        excerpt=chunk.text[:500],
+        keyword_score=keyword_score,
+        vector_score=vector_score,
+    )
+
+
+@app.get("/")
+def root() -> FileResponse:
+    index_path = WEB_ROOT / "index.html"
+    return FileResponse(index_path)
+
+
 @app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok", "service": "aadi-yogi-agent-api"}
+def health() -> dict[str, object]:
+    return {
+        "status": "ok",
+        "service": "aadi-yogi-agent-api",
+        "llm_configured": llm_client.available,
+        "vector_index": retriever.index_path.exists(),
+    }
 
 
 @app.post("/retrieve")
@@ -45,37 +106,38 @@ def retrieve(request: AskRequest) -> dict[str, object]:
     chunks = retriever.retrieve(request.question, top_k=request.top_k)
     return {
         "question": request.question,
-        "chunks": [
-            {
-                "chunk_id": chunk.chunk_id,
-                "source_id": chunk.source_id,
-                "score": chunk.score,
-                "citation": chunk.citation,
-                "excerpt": chunk.text[:500],
-            }
-            for chunk in chunks
-        ],
+        "chunks": [chunk_to_response(chunk).model_dump() for chunk in chunks],
     }
 
 
 @app.post("/prompt", response_model=AskResponse)
 def prompt(request: AskRequest) -> AskResponse:
-    bundle: PromptBundle = build_prompt(request.question, retriever=retriever, top_k=request.top_k)
-    chunks: list[RetrievedChunk] = retriever.retrieve(request.question, top_k=request.top_k)
+    chunks = retriever.as_retrieved_chunks(request.question, top_k=request.top_k)
+    bundle: PromptBundle = build_prompt(request.question, chunks=chunks)
     return AskResponse(
         question=request.question,
         system_prompt=bundle.system_prompt,
         user_prompt=bundle.user_prompt,
         citations=bundle.citations,
         caution=bundle.caution,
-        retrieved_chunks=[
-            ChunkResponse(
-                chunk_id=chunk.chunk_id,
-                source_id=chunk.source_id,
-                score=chunk.score,
-                citation=chunk.citation,
-                excerpt=chunk.text[:500],
-            )
-            for chunk in chunks
-        ],
+        retrieved_chunks=[chunk_to_response(chunk) for chunk in chunks],
+    )
+
+
+@app.post("/ask", response_model=AnswerResponse)
+def ask(request: AskRequest) -> AnswerResponse:
+    result: AgentAnswer = ask_question(
+        request.question,
+        retriever=retriever,
+        llm_client=llm_client,
+        top_k=request.top_k,
+    )
+    return AnswerResponse(
+        question=result.question,
+        answer=result.answer,
+        citations=result.citations,
+        caution=result.caution,
+        provider=result.provider,
+        model=result.model,
+        retrieved_chunks=[chunk_to_response(chunk) for chunk in result.retrieved_chunks],
     )
