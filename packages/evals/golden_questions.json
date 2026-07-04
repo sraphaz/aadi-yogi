@@ -96,5 +96,12 @@
     "expected_source_ids": ["vedas/rig_veda/mandala_02_hymn_001"],
     "themes": ["agni", "invocation", "gritsamada"],
     "tradition": "vedic"
+  },
+  {
+    "id": "gq_015",
+    "question": "What does Rig Veda Mandala 3 Hymn 57 say about Indra and the waters?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_03_hymn_057"],
+    "themes": ["indra", "waters", "visvamitra"],
+    "tradition": "vedic"
   }
 ]
