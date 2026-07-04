@@ -1,0 +1,79 @@
+---
+id: puranas/vishnu_purana/book_01_chapter_01
+title: Vishnu Purana - Book 1 Chapter 1
+source_title: Vishnu Purana
+source_type: primary_text
+tradition:
+  - puranic
+  - vaishnava
+author: Horace Hayman Wilson
+section: book_01_chapter_01
+language_original: sanskrit
+language_current: english
+translator: Horace Hayman Wilson
+themes:
+  - cosmology
+  - teaching_dialogue
+  - vishnu
+  - origin_of_universe
+concepts:
+  - vishnu
+  - brahman
+  - creation
+  - dissolution
+use_for:
+  - puranic_cosmology
+  - dialogue_structure
+  - vaishnava_source_context
+avoid_for:
+  - doctrinal_flattening
+related_sources:
+  - puranas/vishnu_purana/index
+notes:
+  - Public-domain translation inspected at https://www.sacred-texts.com/hin/vp/vp035.htm
+  - Collection page inspected at https://www.sacred-texts.com/hin/vp/index.htm
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Horace Hayman Wilson, The Vishnu Purana, Book I, Chapter I (1840)"
+---
+
+# Vishnu Purana - Book 1 Chapter 1
+
+## Chapter Scope
+
+Invocation. Maitreya inquires of his teacher, Parasara, the origin and nature of the universe. Parasara recounts the background to his knowledge and begins the narration of the Vishnu Purana.
+
+## Public-Domain Translation
+
+Om! Glory to Vasudeva. Victory be to thee, Pundarikaksha; adoration be to thee, Viswabhavana; glory be to thee, Hrishikesha, Mahapurusha, and Purvaja.
+
+May that Vishnu, who is the existent, imperishable, Brahma, who is Iswara, who is spirit; who with the three qualities is the cause of creation, preservation, and destruction; who is the parent of nature, intellect, and the other ingredients of the universe; be to us the bestower of understanding, wealth, and final emancipation.
+
+Having adored Vishnu, the lord of all, and paid reverence to Brahma and the rest; having also saluted the spiritual preceptor; I will narrate a Purana equal in sanctity to the Vedas.
+
+Maitreya, having saluted him reverentially, thus addressed Parasara, the excellent sage, the grandson of Vasishtha, who was versed in traditional history, and the Puranas; who was acquainted with the Vedas, and the branches of science dependent upon them; and skilled in law and philosophy; and who had performed the morning rites of devotion.
+
+Maitreya said: Master! I have been instructed by you in the whole of the Vedas, and in the institutes of law and of sacred science. Through your favour, other men, even though they be my foes, cannot accuse me of having been remiss in the acquirement of knowledge.
+
+I am now desirous, O thou who art profound in piety, to hear from thee how this world was, and how in future it will be; what is its substance, O Brahman, and whence proceeded animate and inanimate things; into what has it been resolved, and into what will its dissolution again occur; how were the elements manifested; whence proceeded the gods and other beings; what are the situation and extent of the oceans and the mountains, the earth, the sun, and the planets; what are the families of the gods and others, the Manus, the periods called Manvantaras, those termed Kalpas, and their subdivisions, and the four ages; the events that happen at the close of a Kalpa, and the terminations of the several ages; the histories of the gods, the sages, and kings; and how the Vedas were divided into branches after they had been arranged by Vyasa; the duties of the Brahmans, and the other tribes, as well as of those who pass through the different orders of life. All these things I wish to hear from you, grandson of Vasishtha.
+
+Incline thy thoughts benevolently towards me, that I may, through thy favour, be informed of all I desire to know.
+
+Parasara replied: Well inquired, pious Maitreya. You recall to my recollection that which was of old narrated by my father's father, Vasishtha.
+
+I had heard that my father had been devoured by a Rakshasa employed by Viswamitra. Violent anger seized me, and I commenced a sacrifice for the destruction of the Rakshasas. Hundreds of them were reduced to ashes by the rite, when, as they were about to be entirely extirpated, my grandfather Vasishtha thus spoke to me: Enough, my child; let thy wrath be appeased. The Rakshasas are not culpable; thy father's death was the work of destiny. Anger is the passion of fools; it becometh not a wise man.
+
+By whom, it may be asked, is any one killed? Every man reaps the consequences of his own acts. Anger, my son, is the destruction of all that man obtains by arduous exertions, of fame, and of devout austerities; and prevents the attainment of heaven or of emancipation. The chief sages always shun wrath: be not thou, my child, subject to its influence. Let no more of these unoffending spirits of darkness be consumed. Mercy is the might of the righteous.
+
+Being thus admonished by my venerable grandsire, I immediately desisted from the rite, in obedience to his injunctions, and Vasishtha, the most excellent of sages, was content with me. Then arrived Pulastya, the son of Brahma, who was received by my grandfather with the customary marks of respect.
+
+The illustrious brother of Pulaha said to me: Since, in the violence of animosity, you have listened to the words of your progenitor, and have exercised clemency, therefore you shall become learned in every science. Since you have forborne, even though incensed, to destroy my posterity, I will bestow upon you another boon, and you shall become the author of a summary of the Puranas; you shall know the true nature of the deities, as it really is; and, whether engaged in religious rites, or abstaining from their performance, your understanding, through my favour, shall be perfect, and exempt from doubts.
+
+Then my grandsire Vasishtha added: Whatever has been said to thee by Pulastya, shall assuredly come to pass.
+
+Now truly all that was told me formerly by Vasishtha, and by the wise Pulastya, has been brought to my recollection by your questions, and I will relate to you the whole, even all you have asked. Listen to the complete compendium of the Puranas, according to its tenor. The world was produced from Vishnu: it exists in him: he is the cause of its continuance and cessation: he is the world.
+
+## Source Provenance
+
+- Historical translation by Horace Hayman Wilson, 1840.
+- Internet Sacred Text Archive chapter page inspected directly.
