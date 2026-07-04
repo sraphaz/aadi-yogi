@@ -10,8 +10,11 @@
 ## Phase 2 - Source Operations
 
 - add ingestion workflow documentation
+- import the Complete Works of Sri Aurobindo and the Collected Works of the Mother from the official Ashram libraries (done: manifest-driven download and PDF-to-Markdown conversion)
 - create OCR correction and normalization scripts
 - formalize review checkpoints for source quality
+- editorial review of machine-converted CWSA volumes (status: draft)
+- dedicated Bengali-script OCR pass for CWSA volume 9
 
 ## Phase 3 - Retrieval Foundations
 

@@ -37,7 +37,7 @@ Markdown sources
 
 ## Current Status
 
-The repository is in the foundation phase. The current scope covers:
+The repository has entered the source-operations phase. The current scope covers:
 
 - monorepo structure
 - editorial and architectural documentation
@@ -45,6 +45,9 @@ The repository is in the foundation phase. The current scope covers:
 - consciousness core guidelines
 - Markdown validation scaffolding
 - tests and CI validation
+- manifest-driven ingestion pipeline for the Sri Aurobindo Ashram PDF libraries
+- the Complete Works of Sri Aurobindo (CWSA, 37 volumes): full Markdown text for public-domain volumes, metadata records for volumes under active Trust copyright
+- the Collected Works of the Mother (CWM, 18 volumes): metadata records with a local-only full-text pipeline, per `docs/copyright_policy.md`
 
 ## Validate Markdown
 
