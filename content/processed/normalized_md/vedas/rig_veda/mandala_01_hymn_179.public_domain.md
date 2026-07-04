@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 179
-
-Hymn 180
-
-15572The Hymns of the Rigveda, Book 1 — Hymn 179Ralph T.H. Griffith
-
 (The following Hymn was originally only found in the Appendix, with certain lines translated in Latin.--JBH.)
 
 ## Source Provenance

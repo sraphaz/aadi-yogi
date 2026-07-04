@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_02_hymn_036
+title: Rig Veda - Mandala 2 Hymn 36
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_02_hymn_036
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_36
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 2, Hymn 36; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_02_hymn_036.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 2 Hymn 36
+
+## Normalized Primary Text
+
+1. WATER and milk hath he endued, sent forth to thee: the men have drained him with the filters and the stones. Drink, Indra, from the Hotar's bowl first right is thine-Soma hallowed and poured with Vasat and Svaha. 2. Busied with sacrifice, with spotted deer and spears, gleaming upon your way with ornaments, yea, our Friends, Sitting on sacred grass, ye Sons of Bharata, drink Soma from the Potar's bowl, O Men of heaven. 3. Come unto us, ye swift to listen: as at home upon the sacred grass sit and enjoy yourselves. And, Tvastar, well-content be joyful in the juice with Gods and Goddesses in gladsome company. 4. Bring the Gods hither, Sage, and offer sacrifice: at the three altars seat thee willingly, O Priest. Accept for thy delight the proffered Soma meath: drink from the Kindler's bowl and fill thee with thy share. 5. This is the strengthener of thy body's manly might: strength, victory for all time are placed within thine arms. Pressed for thee, Maghavan, it is offered unto thee: drink from the chalice of this Brahman, drink thy fill. 6. Accept the sacrifice; mark both of you, my call: the Priest hath seated him after the ancient texts. My prayer that bids them come goes forth to both the Kings: drink ye the Soma meath from the Director's bowl.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_36
+- Translator: Ralph T. H. Griffith (public domain).

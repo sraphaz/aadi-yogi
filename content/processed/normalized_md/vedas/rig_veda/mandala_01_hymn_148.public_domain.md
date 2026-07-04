@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 148
-
-Hymn 149
-
-15542The Hymns of the Rigveda, Book 1 — Hymn 148Ralph T.H. Griffith
-
 1. WHAT Matarisvan, piercing, formed by friction, Herald of all the Gods. in varied figure, Is he whom they have set mid human houses, gay-hued as light and shining forth for beauty. 2. They shall not harm the man who brings thee praises: such as I am, Agni my help approves me. All acts of mine shall they accept with pleasure, laudation from the singer who presents it. 3. Him in his constant seat men skilled in worship have taken and with praises have established. As, harnessed to a chariot fleet-foot horses, at his command let bearers lead him forward. 4. Wondrous, full many a thing he chews and crunches: he shines amid the wood with spreading brightness. Upon his glowing flames the wind blows daily, driving them like the keen shaft of an archer. 5. Him, whom while yet in embryo the hostile, both skilled and fain to harm, may never injure, Men blind and sightless through his splendour hurt not: his never-failing lovers have preserved him.
 
 ## Source Provenance

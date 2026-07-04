@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 126
-
-Hymn 127
-
-15520The Hymns of the Rigveda, Book 1 — Hymn 126Ralph T.H. Griffith
-
 1. WITH wisdom I present these lively praises of Bhavya dweller on the bank of Sindhu; For he, unconquered King, desiring glory, hath furnished me a thousand sacrifices. 2. A hundred necklets from the King, beseeching, a hundred gift-steeds I at once accepted; Of the lord's cows a thousand, I Kaksivan. His deathless glory hath he spread to heaven. 3. Horses of dusky colour stood beside me, ten chariots, Svanaya's gift, with mares to draw them. Kine numbering sixty thousand followed after. Kaksivan gained them when the days were closing. 4. Forty bay horses of the ten cars' master before a thousand lead the long procession. Reeling in joy Kaksivan's sons and Pajra's have grounded the coursers decked with pearly trappings. 5. An earlier gift for you have I accepted eight cows, good milkers, and three harnessed horses, Pajras, who with your wains with your great kinsman, like troops of subjects, have been fain for glory. 6. [Ille loquitur]. Adhaerens, arcte adhaerens, illa quae mustelae similis se abdidit, multum humorem effundens, dat mihi complexuum centum gaudia. 7. [Ille loquitur]. Prope, prope accede; molliter me tange. Ne putes pilos corporis mei-paucos esse: tota sum villosa sicut Gandharium ovis.
 
 ## Source Provenance

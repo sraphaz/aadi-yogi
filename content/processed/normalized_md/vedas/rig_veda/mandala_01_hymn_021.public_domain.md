@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 21
-
-Hymn 22
-
-15415The Hymns of the Rigveda, Book 1 — Hymn 21Ralph T.H. Griffith
-
 1. INDRA and Agni I invoke fain are we for their song of praise: Chief Soma-drinkers are they both. 2. Praise ye, O men, and glorify Indra-Agni in the holy rites: Sing praise to them in sacred songs. 3. Indra and Agni we invite, the Soma-drinkers, for the fame Of Mitra, to the Soma-draught. 4. Strong Gods, we bid them come to this libation that stands ready here: Indra and Agni, come to us. 5. Indra and Agni, mighty Lords of our assembly, crush the fiends: Childless be the devouring ones. 6. Watch ye, through this your truthfulness, there in the place of spacious view Indra and Agni, send us bliss.
 
 ## Source Provenance

@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 107
-
-Hymn 108
-
-15501The Hymns of the Rigveda, Book 1 — Hymn 107Ralph T.H. Griffith
-
 1. THE sacrifice obtains the Gods' acceptance: be graciously inclined to us, Adityas. Hitherward let your favour be directed, and be our best deliverer from trouble. 2. By praise-songs of Angirases exalted, may the Gods come to us with their protection. May Indra with his powers, Maruts with Maruts, Aditi with Adityas grant us shelter. 3. This laud of ours may Varuna and Indra, Aryaman Agni, Savitar find pleasant. This prayer' of ours may Varuna grant, and Mitra, and Aditi and Sindhu, Earth and Heaven.
 
 ## Source Provenance

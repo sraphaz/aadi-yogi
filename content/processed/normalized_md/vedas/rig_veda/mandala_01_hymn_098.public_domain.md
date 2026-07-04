@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 98
-
-Hymn 99
-
-15492The Hymns of the Rigveda, Book 1 — Hymn 98Ralph T.H. Griffith
-
 1. Still in Vaisvanara's grace may we continue: yea, he is King supreme o'er all things living. Sprung hence to life upon this All he looketh. Vaisvanara hath rivalry with Surya. 2. Present in heaven, in earth, all-present Agni,--all plants that grow on ground hath he pervaded. May Agni, may Vaisvanara with vigour, present, preserve us day and night from foemen. 3. Be this thy truth, Vaisvanara, to us-ward: let wealth in rich abundance gather round us. This prayer of ours may Varuna grant, and Mitra, and Aditi and Sindhu, Earth and Heaven.
 
 ## Source Provenance

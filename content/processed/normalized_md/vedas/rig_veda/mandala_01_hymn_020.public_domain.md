@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 20
-
-Hymn 21
-
-15414The Hymns of the Rigveda, Book 1 — Hymn 20Ralph T.H. Griffith
-
 1. FOR the Celestial Race this song of praise which gives wealth lavishly Was made by singers with their lips. 2. They who for Indra, with their mind, formed horses harnessed by a word, Attained by works to sacrifice. 3. They for the two Nasatyas wrought a light car moving every way: They formed a nectar-yielding cow. 4. The Rbhus with effectual prayers, honest, with constant labour, made Their Sire and Mother young again. 5. Together came your gladdening drops with Indra by the Maruts girt, With the Adityas, with the Kings. 6. The sacrificial ladle, wrought newly by the God Tvastar's hand-- Four ladles have ye made thereof. 7. Vouchsafe us wealth, to him who pours thrice seven libations, yea, to each Give wealth, pleased with our eulogies. 8. As ministering Priests they held, by pious acts they won themselves, A share in sacrifice with Gods.
 
 ## Source Provenance

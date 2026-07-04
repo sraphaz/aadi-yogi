@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 177
-
-Hymn 178
-
-15570The Hymns of the Rigveda, Book 1 — Hymn 177Ralph T.H. Griffith
-
 1. THE Bull of men, who cherishes all people, King of the Races, Indra, called of many, Fame-loving, praised, hither to me with succour turn having yoked both vigorous Bay Horses! 2. Thy mighty Stallions, yoked by prayer, O Indra, thy. Coursers to thy mighty chariot harnessed,-- Ascend thou these, and borne by them come hither: with Soma juice out. poured, Indra, we call thee. 3. Ascend thy mighty car: the mighty Soma is poured for thee and sweets are sprinkled round us. Come down to us-ward, Bull of human races, come, having harnessed them, with strong Bay Horses. 4. Here is God-reaching sacrifice, here the victim; here, Indra, are the prayers, here is the Soma. Strewn is the sacred grass: come hither, Sakra; seat thee and drink: unyoke thy two Bay Coursers. 5. Come to us, Indra, come thou highly lauded to the devotions of the singer Mana. Singing, may we find early through thy succour, may we find strengthening food in full abundance.
 
 ## Source Provenance

@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 15
-
-Hymn 16
-
-15409The Hymns of the Rigveda, Book 1 — Hymn 15Ralph T.H. Griffith
-
 1. O INDRA drink the Soma juice with Rtu; let the cheering drops Sink deep within, which settle there. 2. Drink from the Purifier's cup, Maruts, with Rtu; sanctify The rite, for ye give precious gifts. 3. O Nestar, with thy Dame accept our sacrifice; with Rtu drink, For thou art he who giveth wealth. 4. Bring the Gods, Agni; in the three appointed places set them down: Surround them, and with Rtu drink. 5. Drink Soma after the Rtus, from the Brahmana's bounty: undissolved, O Indra, is thy friendship's bond. 6. Mitra, Varuna, ye whose ways are firm--a Power that none deceives--, With Rtu ye have reached the rite. 7. The Soma-pressers, fain for wealth, praise the Wealth-giver in the rite, In sacrifices praise the God. 8. May the Wealth-giver grant to us riches that shall be far renowned. These things we gain, among the Gods. 9. He with the Rtu fain would drink, Wealth-giver, from the Nestar's bowl. Haste, give your offering, and depart. 10. As we this fourth time, Wealth-giver, honour thee with the Rtus, be A Giver bountiful to us. 11. Drink ye the meath, O Asvins bright with flames, whose acts are pure, who with Rtus accept the sacrifice. 12. With Rtu, through the house-fire, thou, kind Giver, guidest sacrifice: Worship the Gods for the pious man.
 
 ## Source Provenance

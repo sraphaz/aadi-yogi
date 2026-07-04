@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 111
-
-Hymn 112
-
-15505The Hymns of the Rigveda, Book 1 — Hymn 111Ralph T.H. Griffith
-
 1. WORKING with skill they wrought the lightly rolling car: they wrought the Bays who bear Indra and bring great gifts. The Rbhus for their Parents made life young again; and fashioned for the calf a mother by its side. 2. For sacrifice make for us active vital power for skill and wisdom food with noble progeny. Grant to our company this power most excellent, that with a family all-heroic we may dwell. 3. Do ye, O Rbhus, make prosperity for us, prosperity for car, ye Heroes, and for steed. Grant us prosperity victorious evermore, conquering foes in battle, strangers or akin. 4. Indra, the Rbhus' Lord, I invocate for aid, the Rbhus, Vajas, Maruts to the Soma draught. Varuna, Mitra, both, yea, and the Asvins Twain: let them speed us to wealth, wisdom, and victory. 5. May Rbhu send prosperity for battle, may Vaja conquering in the fight protect us. This prayer of ours may Varuna grant, and Mitra, and Aditi and Sindhu, Earth and Heaven.
 
 ## Source Provenance

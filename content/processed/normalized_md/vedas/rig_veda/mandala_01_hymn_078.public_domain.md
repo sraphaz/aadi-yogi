@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 78
-
-Hymn 79
-
-15472The Hymns of the Rigveda, Book 1 — Hymn 78Ralph T.H. Griffith
-
 1. O JATAVEDAS, keen and swift, we Gotamas with sacred song exalt thee for thy glories' sake. 2. Thee, as thou art, desiring wealth Gotama worships with his song: We laud thee for thy glories' sake. 3. As such, like Angiras we call on thee best winner of the spoil: We laud thee for thy glories' sake. 4. Thee, best of Vrtra-slayers, thee who shakest off our Dasyu foes: We laud thee for thy glories' sake. 5. A pleasant song to Agni we, sons of Rahugana, have sung: We laud thee for thy glories' sake.
 
 ## Source Provenance

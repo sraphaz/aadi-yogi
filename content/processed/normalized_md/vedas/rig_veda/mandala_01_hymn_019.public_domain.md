@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 19
-
-Hymn 20
-
-15413The Hymns of the Rigveda, Book 1 — Hymn 19Ralph T.H. Griffith
-
 1. To this fair sacrifice to drink the milky draught thou art invoked: O Agni, with the Maruts come. 2. No mortal man, no God exceeds thy mental power, O Mighty one: O Agni, with the Maruts come: 3. All Gods devoid of guile, who know the mighty region of mid-air: O Agni, with those Maruts come. 4. The terrible, who sing their song, not to be overcome by might: O Agni, with those Maruts come. 5. Brilliant, and awful in their form, mighty, devourers of their foes': O Agni, with those Maruts come. 6. Who sit as Deities in heaven, above the sky-vault's luminous sphere: O Agni, with those Maruts come. 7. Who scatter clouds about the sky, away over the billowy sea: O Agni, with those Maruts come. 8. Who with their bright beams spread them forth over the ocean in their might O Agni, with those Maruts come. 9. For thee, to be thine early draught, I pour the Soma-mingled meath: O Agni, with the Maruts come.
 
 ## Source Provenance

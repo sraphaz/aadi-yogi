@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 49
-
-Hymn 50
-
-15443The Hymns of the Rigveda, Book 1 — Hymn 49Ralph T.H. Griffith
-
 1. E'EN from above the sky's bright realm come, Usas, by auspicious ways: Let red steeds bear thee to the house of him who pours the Soma, juice. 2. The chariot which thou mountest, fair of shape, O Usas light to move,-- Therewith, O Daughter of the Sky, aid men of noble fame today. 3. Bright Usas, when thy times return, all quadrupeds and bipeds stir, And round about flock winged birds from all the boundaries of heaven. 4. Thou dawning with thy beams of light illumest all the radiant realm. Thee, as thou art, the Kanvas, fain for wealth, have called with sacred songs.
 
 ## Source Provenance

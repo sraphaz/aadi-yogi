@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 172
-
-Hymn 173
-
-18004The Hymns of the Rigveda, Book 1 — Hymn 172Ralph T.H. Griffith
-
 1. WONDERFUL let your coming be, wondrous with help, ye Bounteous Ones, Maruts, who gleam as serpents gleam. 2. Far be from us, O Maruts, ye free givers, your impetuous shaft; Far from us be the stone ye hurl. 3. O Bounteous Givers, touch ye not, O Maruts, Trnskanda's folk; Lift ye us up that we may live.
 
 ## Source Provenance

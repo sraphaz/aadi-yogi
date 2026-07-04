@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 16
-
-Hymn 17
-
-15410The Hymns of the Rigveda, Book 1 — Hymn 16Ralph T.H. Griffith
-
 1. LET thy Bay Steeds bring thee, the Strong, hither to drink the Soma draught-- Those, Indra, who are bright as suns. 2. Here are the grains bedewed with oil: hither let the Bay Coursers bring Indra upon his easiest car. 3. Indra at early morn we call, Indra in course of sacrifice, Indra to drink the Soma juice. 4. Come hither, with thy long-maned Steeds, O Indra, to the draught we pour We call thee when the juice is shed. 5. Come thou to this our song of praise, to the libation poured for thee Drink of it like a stag athirst. 6. Here are the drops of Soma juice expressed on sacred grass: thereof Drink, Indra, to increase thy might. 7. Welcome to thee be this our hymn, reaching thy heart, most excellent: Then drink the Soma juice expressed. 8. To every draught of pressed-out juice Indra, the Vrtra-slayer, comes, To drink the Soma for delight. 9. Fulfil, O Satakratu, all our wish with horses and with kine: With holy thoughts we sing thy praise.
 
 ## Source Provenance

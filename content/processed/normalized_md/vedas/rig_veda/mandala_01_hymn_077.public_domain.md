@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 77
-
-Hymn 78
-
-15471The Hymns of the Rigveda, Book 1 — Hymn 77Ralph T.H. Griffith
-
 1. How shall we pay oblation unto Agni? What hymn, Godloved, is said to him refulgent? Who, deathless, true to Law, mid men a herald, bringeth the Gods as best of sacrificers? 2. Bring him with reverence hither, most propitious in sacrifices, true to Law, the herald; For Agni, when he seeks the Gods for mortals, knows them full well and worships them in spirit. 3. For he is mental power, a man, and perfect; he is the bringer, friend-like, of the wondrous. The pious Aryan tribes at sacrifices address them first to him who doeth marvels. 4. May Agni, foe-destroyer, manliest Hero, accept with love our hymns and our devotion. So may the liberal lords whose strength is strongest, urged by their riches, stir our thoughts with vigour. 5. Thus Agni Jatavedas, true to Order, hath by the priestly Gotamas been lauded. May he augment in them splendour and vigour: observant, as he lists, he gathers increase.
 
 ## Source Provenance

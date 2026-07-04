@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 176
-
-Hymn 177
-
-15569The Hymns of the Rigveda, Book 1 — Hymn 176Ralph T.H. Griffith
-
 1. CHEER thee with draughts to win us bliss: Soma, pierce Indra in thy strength. Thou stormest trembling in thy rage, and findest not a foeman nigh. 2. Make our songs penetrate to him who is the Only One of men; For whom the sacred food is spread, as the steer ploughs the barley in. 3. Within whose hands deposited all the Five Peoples' treasures rest. Mark thou the man who injures us and kill him like the heavenly bolt. 4. Slay everyone who pours no gift, who, hard to reach, delights thee not. Bestow on us what wealth he hath: this even the worshipper awaits. 5. Thou helpest him the doubly strong whose hymns were sung unceasingly. When Indra fought, O Soma, thou helpest the mighty in the fray. 6. As thou, O Indra, to the ancient singers wast ever joy, like water to the thirsty, So unto thee I sing this invocation. May we find strengthening food in full abundance.
 
 ## Source Provenance

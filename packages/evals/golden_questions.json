@@ -89,5 +89,12 @@
     "expected_source_ids": ["upanishads/brihadaranyaka/full_public_domain_translation"],
     "themes": ["atman", "self_knowledge", "yajnavalkya"],
     "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_014",
+    "question": "What is Agni praised for in Rig Veda Mandala 2 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_02_hymn_001"],
+    "themes": ["agni", "invocation", "gritsamada"],
+    "tradition": "vedic"
   }
 ]

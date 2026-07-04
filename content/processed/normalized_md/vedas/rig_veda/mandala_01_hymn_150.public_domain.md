@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 150
-
-Hymn 151
-
-15544The Hymns of the Rigveda, Book 1 — Hymn 150Ralph T.H. Griffith
-
 1. AGNI, thy faithful servant I call upon thee with many a gift, As in the keeping of the great inciting God; 2. Thou who ne'er movest thee to aid the indolent, the godless man, Him who though wealthy never brings an offering. 3. Splendid, O Singer, is that man, mightiest of the great in heaven. Agni, may we be foremost, we thy worshippers.
 
 ## Source Provenance

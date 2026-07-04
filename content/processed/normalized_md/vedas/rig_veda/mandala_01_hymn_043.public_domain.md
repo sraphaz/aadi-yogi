@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 43
-
-Hymn 44
-
-15437The Hymns of the Rigveda, Book 1 — Hymn 43Ralph T.H. Griffith
-
 1. WHAT shall we sing to Rudra, strong, most bounteous, excellently wise, That shall be dearest to his heart? 2. That Aditi may grant the grace of Rudra to our folk, our kine, Our cattle and our progeny; 3. That Mitra and that Varuna, that Rudra may remember us, Yea, all the Gods with one accord. 4. To Rudra Lord of sacrifice, of hymns and balmy medicines, We pray for joy and health and strength. 5. He shines in splendour like the Sun, refulgent as bright gold is he, The good, the best among the Gods. 6. May he grant health into our steeds, wellbeing to our rams and ewes, To men, to women, and to kine. 7. O Soma, set thou upon us the glory of a hundred men, The great renown of mighty chiefs. 8. Let not malignities, nor those who trouble Soma, hinder us. Indu, give us a share of strength. 9. Soma! head, central point, love these; Soma! know these as serving thee, Children of thee Immortal, at the highest place of holy law.
 
 ## Source Provenance

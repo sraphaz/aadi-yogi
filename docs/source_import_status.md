@@ -110,7 +110,8 @@ This document records what has been imported into the repository, what has only 
 ### Rig Veda Expansion
 
 - Mandala 1 **all 191 hymns** imported from English Wikisource (Griffith translation).
-- Import script supports `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
+- Mandala 2 **all 43 hymns** imported from English Wikisource (Griffith translation).
+- Import script supports `--book`, `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
 
 ### Siddha Expansion (Phase 3)
 
@@ -124,11 +125,11 @@ This document records what has been imported into the repository, what has only 
 ### Pipeline and Agent Scaffold
 
 - Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
-- **1668 chunks** across **246** normalized source artifacts.
+- **1607 chunks** across **289** normalized source artifacts.
 - Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
 - Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
-- 5 synthesis notes, consciousness core v1 approved, **13 golden questions** (100% retrieval), **13/13** response quality checks (fallback mode).
+- 5 synthesis notes, consciousness core v1 approved, **14 golden questions** (100% retrieval), **14/14** response quality checks (fallback mode).
 - Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
 - Production setup: `docker-compose.yml`, `.env.example`, `docs/production_setup.md`, `scripts/run_production_pipeline.sh`.
 
@@ -141,7 +142,7 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Expand Rig Veda beyond Mandala 1 (Mandalas 2–10).
+1. Expand Rig Veda Mandalas 3–7 (family books) and beyond.
 2. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
 3. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
 4. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.

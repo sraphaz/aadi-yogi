@@ -66,6 +66,24 @@ def normalize_whitespace(text: str) -> str:
     return text.strip()
 
 
+RIGVEDA_NAV_LINE = re.compile(
+    r"^(?:Book \d+, Hymn \d+|The Hymns of the Rigveda|translated by Ralph T\.H\. Griffith"
+    r"|Hymn \d+$|\d+The Hymns of the Rigveda)",
+    re.IGNORECASE,
+)
+RIGVEDA_VERSE_START = re.compile(r"\d+\.\s+[A-Z]")
+
+
+def clean_rigveda_primary_text(text: str, source_id: str) -> str:
+    if "vedas/rig_veda/mandala_" not in source_id:
+        return text
+    verse_match = RIGVEDA_VERSE_START.search(text)
+    if verse_match:
+        return normalize_whitespace(text[verse_match.start() :])
+    lines = [line for line in text.splitlines() if line.strip() and not RIGVEDA_NAV_LINE.match(line.strip())]
+    return normalize_whitespace("\n".join(lines))
+
+
 def build_normalized_markdown(source_path: Path, frontmatter: dict[str, object], sections: dict[str, str]) -> str:
     primary_keys = [
         "Public-Domain Translation",
@@ -94,7 +112,7 @@ def build_normalized_markdown(source_path: Path, frontmatter: dict[str, object],
     lines.append("")
     lines.append("## Normalized Primary Text")
     lines.append("")
-    lines.append(normalize_whitespace(primary_text))
+    lines.append(clean_rigveda_primary_text(normalize_whitespace(primary_text), str(frontmatter.get("id", ""))))
     lines.append("")
 
     if sections.get("Source Provenance"):

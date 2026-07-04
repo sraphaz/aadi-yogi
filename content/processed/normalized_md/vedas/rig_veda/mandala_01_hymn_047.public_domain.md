@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 47
-
-Hymn 48
-
-15441The Hymns of the Rigveda, Book 1 — Hymn 47Ralph T.H. Griffith
-
 1. ASVINS, for you who strengthen Law this sweetest Soma hath been shed. Drink this expressed ere yesterday and give riches to him who offers it. 2. Come, O ye Asvins, mounted on your triple car three-seated, beautiful of form To you at sacrifice the Kanvas send the prayer: graciously listen to their call. 3. O Asvins, ye who strengthen Law, drink ye this sweetest Soma juice. Borne on your wealth-fraught car come ye this day to him who offers, ye of wondrous deeds. 4. Omniscient Asvins, on the thrice-heaped grass bedew with the sweet juice the sacrifice. The sons of Kanva, striving heavenward, call on you with draughts of Soma juice out-poured. 5. O Asvins, with those aids wherewith ye guarded Kanva carefully, Keep us, O Lords of Splendour: drink the Soma juice, ye strengtheners of holy law. 6. O Mighty Ones, ye gave Sudas abundant food, brought on your treasure-laden car; So now vouchsafe to us the wealth which many crave, either from heaven or from the sea. 7. Nasatyas, whether ye be far away or close to Turvasa, Borne on your lightly-rolling chariot come to us, together with the sunbeams come. 8. So let your coursers, ornaments of sacrifice, bring you to our libations here. Bestowing food on him who acts and gives aright, sit, Chiefs, upon the sacred grass. 9. Come, O Nasatyas, on your car decked with a sunbright canopy, Whereon ye ever bring wealth to the worshipper, to drink the Soma's pleasant juice. 10. With lauds and songs of praise we call them down to us, that they, most rich, may succour us; For ye have ever in the Kanvas' well-loved house, O Asvins, drunk the Soma juice.
 
 ## Source Provenance

@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 11
-
-Hymn 12
-
-15405The Hymns of the Rigveda, Book 1 — Hymn 11Ralph T.H. Griffith
-
 1. ALL sacred songs have magnified Indra expansive as the sea, The best of warriors borne on cars, the Lord, the very Lord of strength. 2. Strong in thy friendship, Indra, Lord of power and might, we have no fear. We glorify with praises thee, the never-conquered conqueror. 3. The gifts of Indra from of old, his saving succours, never fail, When to the praise-singers he gives the boon of substance rich in kine. 4. Crusher of forts, the young, the wise, of strength unmeasured, was he born Sustainer of each sacred rite, Indra, the Thunderer, much-extolled. 5. Lord of the thunder, thou didst burst the cave of Vala rich in cows. The Gods came pressing to thy side, and free from terror aided thee, 6. I, Hero, through thy bounties am come to the flood addressing thee. Song-lover, here the singers stand and testify to thee thereof. 7. The wily Susna, Indra! thou o'er-threwest with thy wondrous powers. The wise beheld this deed of thine: now go beyond their eulogies. 8. Our songs of praise have glorified Indra who ruleth by his might, Whose precious gifts in thousands come, yea, even more abundantly.
 
 ## Source Provenance

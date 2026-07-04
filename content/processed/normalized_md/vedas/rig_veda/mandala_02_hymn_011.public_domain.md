@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_02_hymn_011
+title: Rig Veda - Mandala 2 Hymn 11
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_02_hymn_011
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_11
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 2, Hymn 11; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_02_hymn_011.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 2 Hymn 11
+
+## Normalized Primary Text
+
+1. HEAR thou my call, O Indra; be not heedless: thine may we be for thee to give us treasures; For these presented viands, seeking riches, increase thy strength like streams of water flowing. 2. Floods great and many, compassed by the Dragon, thou badest swell and settest free, O Hero. Strengthened by songs of praise thou rentest piecemeal the Dasa, him who deemed himself immortal. 3. For, Hero, in the lauds wherein thou joyedst, in hymns of praise, O Indra, songs of Rudras, These streams in which is thy delight approach thee, even as the brilliant ones draw near to Vayu. 4. We who add strength to thine own splendid vigour, laying within thine arms the splendid thunder- With us mayst thou, O Indra, waxen splendid, with Surya overcome the Dasa races. 5. Hero, thou slewest in thy valour Ahi concealed in depths, mysterious, great enchanter, Dwelling enveloped deep within the waters, him who checked heaven and stayed the floods from flowing. 6. Indra, we laud thy great deeds wrought aforetime, we laud thine exploits later of achievement; We laud the bolt that in thine arms lies eager; we laud thy two Bay Steeds, heralds of Surya. 7. Indra, thy Bay Steeds showing forth their vigour have sent a loud cry out that droppeth fatness. The earth hath spread herself in all her fulness: the cloud that was about to move hath rested. 8. Down, never ceasing, hath the rain-cloud settled: bellowing, it hath wandered with the Mothers. Swelling the roar in the far distant limits, they have spread wide the blast sent forth by Indra. 9. Indra hath hurled down the magician Vrtra who lay beleaguering the mighty river. Then both the heaven and earth trembled in terror at the strong Hero's thunder when he bellowed. 10. Loud roared the mighty Hero's bolt of thunder, when he, the Friend of man, burnt up the monster, And, having drunk his fill of flowing Soma, baffled the guileful Danava's devices. 11. Drink thou, O Hero Indra, drink the Soma; let the joy-giving juices make thee joyful. They, filling both thy flanks, shall swell thy vigour. The juice that satisfies hath helped Indra. 12. Singers have we become with thee, O Indra: may we serve duly and prepare devotion. Seeking thy help we meditate thy praises: may we at once enjoy thy gift of riches. 13. May we be thine, such by thy help, O Indra, as swell thy vigour while they seek thy favour. Give us, thou God, the riches that we long for, most powerful, with stare of noble children. 14. Give us a friend, give us an habitation; Indra, give us the company of Maruts, And those whose minds accord with theirs, the Vayus, who drink the first libation of the Soma. 15. Let those enjoy in whom thou art delighted. Indra, drink Soma for thy strength and gladness. Thou hast exalted us to heaven, Preserver, in battles, through the lofty hymns that praise thee. 16. Great, verily, are they, O thou Protector, who by their songs of praise have won the blessing. They who strew sacred grass to be thy dwelling, helped by thee have got them strength, O Indra. 17. Upon the great Trikadruka days, Hero, rejoicing thee, O Indra, drink the Soma. Come with Bay Steeds to drink of libation, shaking the drops from out thy beard, contented. 18. Hero, assume the might wherewith thou clavest Vrtra piecemeal, the Danava Aurnavabha. Thou hast disclosed the light to light the Arya: on thy left hand, O Indra, sank the Dasyu. 19. May we gain wealth, subduing with thy succour and with the Arya, all our foes, the Dasyus. Our gain was that to Trta of our party thou gavest up Tvastar's son Visvarupa. 20. He cast down Arbuda what time his vigour was strengthened by libations poured by Trta. Indra sent forth his whirling wheel like Surya, and aided by the Angirases rent Vala. 21. Now let that wealthy Cow of thine, O Indra, yield in return a boon to him who lauds thee. Give to thy praisers: let not fortune fail us. Loud may we speak, with brave men, in the assembly.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_11
+- Translator: Ralph T. H. Griffith (public domain).

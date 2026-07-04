@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 158
-
-Hymn 159
-
-15552The Hymns of the Rigveda, Book 1 — Hymn 158Ralph T.H. Griffith
-
 1. YE Vasus Twain, ye Rudras full of counsel, grant us, Strong Strengtheners, when ye stand beside us, What wealth Aucathya craves of you, great Helpers when ye come forward with no niggard succour. 2. Who may give you aught, Vasus, for your favour, for what, at the Cow's place, ye grant through worship? Wake for us understanding full of riches, come with a heart that will fulfil our longing. 3. As erst for Tugra's son your car, sea-crossing, strong, was equipped and set amid the waters, So may I gain your shelter and protection as with winged course a hero seeks his army. 4. May this my praise preserve Ucathya's offspring: let not these Twain who fly with wings exhaust me. Let not the wood ten times up-piled consume me, when fixed for you it bites the ground it stands on. 5. The most maternal streams, wherein the Dasas cast me securely bound, have not devoured me. When Traitana would cleave my head asunder, the Dasa wounded his own breast and shoulders. 6. Dirghatamas the son of Mamata hath come to length of days in the tenth age of human kind. He is the Brahman of the waters as they strive to reach their end and aim: their charioteer is he.
 
 ## Source Provenance

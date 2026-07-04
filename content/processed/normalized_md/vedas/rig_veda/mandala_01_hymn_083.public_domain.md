@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 83
-
-Hymn 84
-
-15477The Hymns of the Rigveda, Book 1 — Hymn 83Ralph T.H. Griffith
-
 1. INDRA, the mortal man well guarded by thine aid goes foremost in the wealth of horses and of kine. With amplest wealth thou fillest him, as round about the waters clearly seen afar fill Sindhu full. 2. The heavenly Waters come not nigh the priestly bowl: they but look down and see how far mid-air is spread: The Deities conduct the pious man to them: like suitors they delight in him who loveth prayer. 3. Praiseworthy blessing hast thou laid upon the pair who with uplifted ladle serve thee, man and wife. Unchecked he dwells and prospers in thy law: thy power brings blessing to the sacrificer pouring gifts. 4. First the Angirases won themselves vital power, whose fires were kindled through good deeds and sacrifice. The men together found the Pani's hoarded wealth, the cattle, and the wealth in horses and in kine. 5. Atharvan first by sacrifices laid the paths then, guardian of the Law, sprang up the loving Sun. Usana Kavya straightway hither drove the kine. Let us with offerings honour Yama's deathless birth. 6. When sacred grass is trimmed to aid the auspicious work, or the hymn makes its voice of praise sound to the sky. Where the stone rings as 'twere a singer skilled in laud,--Indra in truth delights when these come near to him.
 
 ## Source Provenance

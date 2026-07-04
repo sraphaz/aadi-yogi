@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 74
-
-Hymn 75
-
-15468The Hymns of the Rigveda, Book 1 — Hymn 74Ralph T.H. Griffith
-
 1. As forth to sacrifice we go, a hymn to a hymn let us say, Who hears us even when afar; 2. Who, from of old, in carnage, when the people gathered, hath preserved His household for the worshipper. 3. And let men say, Agni is born, e'en he who slayeth Vrtra, he Who winneth wealth in every fight. 4. Him in whose house an envoy thou lovest to taste his offered gifts, And strengthenest his sacrifice, 5. Him, Angiras, thou Son of Strength, all men call happy in his God, His offerings, and his sacred grass. 6. Hitherward shalt thou bring these Gods to our laudation and to taste. These offered gifts, fair-shining One. 7. When, Agni, on thine embassage thou goest not a sound is heard of steed or straining of thy car. 8. Aided by thee uninjured, strong, one after other, goes he forth: Agni, the offerer forward steps. 9. And splendid strength, heroic, high, Agni, thou grantest from the Gods, Thou God, to him who offers gifts.
 
 ## Source Provenance

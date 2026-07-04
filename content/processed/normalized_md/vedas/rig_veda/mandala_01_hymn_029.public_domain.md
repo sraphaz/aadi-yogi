@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 29
-
-Hymn 30
-
-15423The Hymns of the Rigveda, Book 1 — Hymn 29Ralph T.H. Griffith
-
 1. O SOMA DRINKER, ever true, utterly hopeless though we be, Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 2. O Lord of Strength, whose jaws are strong, great deeds are thine, the powerful: Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 3. Lull thou asleep, to wake no more, the pair who on each other look Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 4. Hero, let hostile spirits sleep, and every gentler genius wake: Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 5. Destroy this ass, O Indra, who in tones discordant brays to thee: Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 6. Far distant on the forest fall the tempest in a circling course! Do thou, O Indra, give us hope of beauteous horses and of kine, In thousands, O most wealthy One. 7. Slay each reviler, and destroy him who in secret injures us: Do thou, O Indra, give us hope of beauteous horses and of kine In thousands, O most wealthy One.
 
 ## Source Provenance

@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 17
-
-Hymn 18
-
-15411The Hymns of the Rigveda, Book 1 — Hymn 17Ralph T.H. Griffith
-
 1. I CRAVE help from the Imperial Lords, from Indra-Varuna; may they Both favour one of us like me. 2. Guardians of men, ye ever come with ready succour at the call Of every singer such as I. 3. Sate you, according to your wish, O Indra-Varuna, with wealth: Fain would we have you nearest us. 4. May we be sharers of the powers, sharers of the benevolence Of you who give strength bounteously. 5. Indra and Varuna, among givers of thousands, meet for praise, Are Powers who merit highest laud. 6. Through their protection may we gain great store of wealth, and heap it up Enough and still to spare, be ours. 7. O Indra-Varuna, on you for wealth in many a form I call: Still keep ye us victorious. 8. O Indra-Varuna, through our songs that seek to win you to ourselves, Give us at once your sheltering help. 9. O Indra-Varuna, to you may fair praise which I offer come, Joint eulogy which ye dignify.
 
 ## Source Provenance

@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 42
-
-Hymn 43
-
-15436The Hymns of the Rigveda, Book 1 — Hymn 42Ralph T.H. Griffith
-
 1. SHORTEN our ways, O Pusan, move aside obstruction in the path: Go close before us, cloud-born God. 2. Drive, Pusan, from our road the wolf, the wicked inauspicious wolf, Who lies in wait to injure us. 3. Who lurks about the path we take, the robber with a guileful heart: Far from the road chase him away. 4. Tread with thy foot and trample out the firebrand of the wicked one, The double-tongued, whoe'er he be. 5. Wise Pusan, Wonder-Worker, we claim of thee now the aid wherewith Thou furtheredst our sires of old. 6. So, Lord of all prosperity, best wielder of the golden sword, Make riches easy to be won. 7. Past all pursuers lead us, make pleasant our path and fair to tread: O Pusan, find thou power for this. 8. Lead us to meadows rich in grass: send on our way no early heat: O Pusan, find thou power for this. 9. Be gracious to us, fill us full, give, feed us, and invigorate: O Pusan, find thou power for this. 10. No blame have we for Pusan; him we magnify with songs of praise: We seek the Mighty One for wealth.
 
 ## Source Provenance

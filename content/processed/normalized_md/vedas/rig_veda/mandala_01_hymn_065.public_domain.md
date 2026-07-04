@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 65
-
-Hymn 66
-
-15459The Hymns of the Rigveda, Book 1 — Hymn 65Ralph T.H. Griffith
-
 1. ONE-MINDED, wise, they tracked thee like a thief lurking in dark cave with a stolen cow: Thee claiming worship, bearing it to Gods: there nigh to thee sate all the Holy Ones. 2. The Gods approached the ways of holy Law; there was a gathering vast as heaven itself. The waters feed with praise the growing Babe, born nobly in the womb, the seat of Law. 3. Like grateful food, like some wide dwelling place, like a fruit-bearing hill, a wholesome stream. Like a steed urged to run in swift career, rushing like Sindhu, who may check his course? 4. Kin as a brother to his sister floods, he eats the woods as a King eats the rich. When through the forest, urged by wind, he spreads, verily Agni shears the hair of earth. 5. Like a swan sitting in the floods he pants wisest in mind mid men he wakes at morn. A Sage like Soma, sprung from Law, he grew like some young creature, mighty, shining far.
 
 ## Source Provenance

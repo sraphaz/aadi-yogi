@@ -102,6 +102,14 @@ def html_to_lines(html: str) -> list[str]:
     return [line for line in lines if line and not line.startswith("Retrieved from ")]
 
 
+RIGVEDA_VERSE_START = re.compile(r"^\d+\.\s+[A-Z]")
+RIGVEDA_NAV_LINE = re.compile(
+    r"^(?:Book \d+, Hymn \d+|The Hymns of the Rigveda|translated by Ralph T\.H\. Griffith"
+    r"|Hymn \d+$|\d+The Hymns of the Rigveda)",
+    re.IGNORECASE,
+)
+
+
 def extract_hymn_body(lines: list[str], config: HymnConfig) -> str:
     start_patterns = [
         f"Hymn {config.hymn}",
@@ -126,6 +134,14 @@ def extract_hymn_body(lines: list[str], config: HymnConfig) -> str:
         if line.startswith("←") or line.startswith("→"):
             continue
         rendered.append(line)
+
+    for index, line in enumerate(rendered):
+        if RIGVEDA_VERSE_START.match(line):
+            rendered = rendered[index:]
+            break
+    else:
+        rendered = [line for line in rendered if not RIGVEDA_NAV_LINE.match(line)]
+
     return "\n\n".join(rendered).strip()
 
 

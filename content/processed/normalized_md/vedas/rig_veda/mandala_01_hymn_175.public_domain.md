@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 175
-
-Hymn 176
-
-15568The Hymns of the Rigveda, Book 1 — Hymn 175Ralph T.H. Griffith
-
 1. GLAD thee: thy glory hath been quaffed, Lord of Bay Steeds, as 'twere the bowl's enlivening mead. For thee the Strong there is strong drink, mighty, omnipotent to win. 2. Let our strong drink, most excellent, exhilarating, come to thee, Victorious, Indra! bringing gain, immortal conquering in fight, 3. Thou, Hero, winner of the spoil, urgest to speed the car of man. Burn, like a vessel with the flame, the lawless Dasyu, Conqueror! 4. Empowered by thine own might, O Sage, thou stolest Surya's chariot wheel. Thou barest Kutsa with the steeds of Wind to Susna as his death. 5. Most mighty is thy rapturous joy, most splendid is thine active power, Wherewith, foe-slaying, sending bliss, thou art supreme in gaining steeds. 6. As thou, O Indra, to the ancient singers wast ever joy, as water to the thirsty, So unto thee I sing this invocation. May we find strengthening food in full abundance.
 
 ## Source Provenance

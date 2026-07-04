@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 75
-
-Hymn 76
-
-15469The Hymns of the Rigveda, Book 1 — Hymn 75Ralph T.H. Griffith
-
 1. ACCEPT our loudest-sounding hymn, food most delightful to the Gods, Pouring our offerings in thy mouth. 2. Now, Agni, will we say to thee, O wisest and best Angiras, Our precious, much-availing prayer. 3. Who, Agni, is thy kin, of men? who is thy worthy worshipper? On whom dependent? who art thou? 4. The kinsman, Agni, of mankind, their well beloved Friend art thou, A Friend whom friends may supplicate. 5. Bring to us Mitra, Varuna, bring the Gods to mighty sacrifice. Bring them, O Agni, to thine home.
 
 ## Source Provenance

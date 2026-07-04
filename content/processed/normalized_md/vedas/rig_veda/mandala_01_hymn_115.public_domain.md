@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 115
-
-Hymn 116
-
-15509The Hymns of the Rigveda, Book 1 — Hymn 115Ralph T.H. Griffith
-
 1. THE brilliant presence of the Gods hath risen, the eye of Mitra, Varuna and Agni. The soul of all that moveth not or moveth, the Sun hath filled the air and earth and heaven. 2. Like as a young man followeth a maiden, so doth the Sun the Dawn, refulgent Goddess: Where pious men extend their generations, before the Auspicious One for happy fortune. 3. Auspicious are the Sun's Bay-coloured Horses, bright, changing hues, meet for our shouts of triumph. Bearing our prayers, the sky's ridge have they mounted, and in a moment speed round earth and heaven. 4. This is the Godhead, this might of Surya: he hath withdrawn what spread o'er work unfinished. When he hath loosed his Horses from their station, straight over all Night spreadeth out her garment. 5. In the sky's lap the Sun this form assumeth that Varuna and Mitra may behold it. His Bay Steeds well maintain his power eternal, at one time bright and darksome at another. 6. This day, O Gods, while Surya is ascending, deliver us from trouble and dishonour. This prayer of ours may Varuna grant, and Mitra, and Aditi and Sindhu, Earth and Heaven.
 
 ## Source Provenance

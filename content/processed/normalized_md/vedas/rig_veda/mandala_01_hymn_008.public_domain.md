@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 8
-
-Hymn 9
-
-15585The Hymns of the Rigveda, Book 1 — Hymn 8Ralph T.H. Griffith
-
 1. INDRA, bring wealth that gives delight, the victor's ever-conquering wealth, Most excellent, to be our aid; 2. By means of which we may repel our foes in battle hand to hand, By thee assisted with the car. 3. Aided by thee, the thunder-armed, Indra, may we lift up the bolt, And conquer all our foes in fight. 4. With thee, O India, for ally with missile-darting heroes, may We conquer our embattled foes. 5. Mighty is Indra, yea supreme; greatness be his, the Thunderer: Wide as the heaven extends his power 6. Which aideth those to win them sons, who come as heroes to the fight, Or singers loving holy thoughts. 7. His belly, drinking deepest draughts of Soma, like an ocean swells, Like wide streams from the cope of heaven. 8. So also is his excellence, great, vigorous, rich in cattle, like A ripe branch to the worshipper. 9. For verily thy mighty powers, Indra, are saving helps at once Unto a worshipper like me. 10. So are his lovely gifts; let lauds and praises be to Indra sung, That he may drink the Soma juice.
 
 ## Source Provenance

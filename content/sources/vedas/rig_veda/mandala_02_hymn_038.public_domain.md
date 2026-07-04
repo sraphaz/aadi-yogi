@@ -1,0 +1,49 @@
+---
+id: vedas/rig_veda/mandala_02_hymn_038
+title: Rig Veda - Mandala 2 Hymn 38
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_02_hymn_038
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_38
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 2, Hymn 38; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 2 Hymn 38
+
+## Public-Domain Translation
+
+Hymn 38
+
+Hymn 39
+
+15648The Hymns of the Rigveda, Book 2 — Hymn 38Ralph T.H. Griffith
+
+1. UPRISEN is Savitar, this God, to quicken, Priest who neglects not this most constant duty. To the Gods, verily, he gives rich treasure, and blesses him who calls them to the banquet. 2. Having gone up on high, the God broadhanded spreads his arms widely forth that all may mark him. Even the waters bend them to his service: even this wind rests in the circling region. 3. Though borne by swift steeds he will yet unyoke them: e'en the fleet chariot hath he stayed from going. He hath checked e'en their haste who glide like serpents. Night closely followed Savitar's dominion. 4. What was spread out she weaves afresh, re-weaving: the skillful leaves his labour half-completed. He hath arisen from rest, and parted seasons: Savitar hath approached, God, holy-minded. 5. Through various dwellings, through entire existence, spreads, manifest, the household light of Agni. The Mother gives her Son the goodliest portion, and Savitar hath sped to meet his summons. 6. He comes again, unfolded, fain for conquest: at home was he, the love of all things moving. Each man hath come leaving his evil doings, after the Godlike Savitar's commandment. 7. The wild beasts spread through desert places seeking their watery share which thou hast set in waters. The woods are given to the birds. These statutes of the God Savitar none disobeyeth. 8. With utmost speed, in restless haste at sunset Varuna seeks his watery habitation. Then seeks each bird his nest, each beast his lodging. In due place Savitar hath set each creature. 9. Him whose high law not Varuna nor Indra, not Mitra, Aryaman, nor Rudra breaketh, Nor evil-hearted fiends, here for my welfare him I invoke, God Savitar, with worship. 10. May they who strengthen bliss, and thought and wisdom, and the Dames' Lord and Narasamsa aid us. That good may come to us and wealth be gathered, may we be Savitar the God's beloved. 11. So come to us our hearts' desire, the bounty bestowed by thee, from heaven and earth and waters, That it be well with friends and those who praise thee, and, Savitar, with the loud-lauding singer.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_38
+- Translator: Ralph T. H. Griffith (public domain).

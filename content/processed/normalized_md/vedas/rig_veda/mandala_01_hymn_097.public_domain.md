@@ -39,12 +39,6 @@ normalized_sections:
 
 ## Normalized Primary Text
 
-Hymn 97
-
-Hymn 98
-
-15491The Hymns of the Rigveda, Book 1 — Hymn 97Ralph T.H. Griffith
-
 1. Chasing with light our sin away, O Agni, shine thou wealth on us. May his light chase our sin away. 2. For goodly fields, for pleasant homes, for wealth we sacrifice to thee. May his light chase our sin away. 3. Best praiser of all these be he; foremost, our chiefs who sacrifice. May his light chase our sin away. 4. So that thy worshippers and we, thine, Agni, in our sons may live. May his light chase our sin away. 5. As ever-conquering Agni's beams of splendour go to every side, May his light chase our sin away. 6. To every side thy face is turned, thou art triumphant everywhere. May his light chase our sin away. 7. O thou whose face looks every way, bear us past foes as in a ship. May his light chase our sin away. 8. As in a ship, convey thou us for our advantage o'er the flood. May his light chase our sin away.
 
 ## Source Provenance
