@@ -1,0 +1,344 @@
+# Manifest: The Complete Works of Sri Aurobindo (CWSA), 37 volumes in 31 PDFs.
+# Source library: https://www.sriaurobindoashram.org/sriaurobindo/writings.php
+#
+# full_text policy:
+#   true  -> the volume consists predominantly of works published during
+#            Sri Aurobindo's lifetime (he passed in 1950); those works are in
+#            the public domain in India (life + 60 years) and most other
+#            jurisdictions, so the converted Markdown text is committed to
+#            content/sources/.
+#   false -> the volume consists predominantly of posthumously first-published
+#            manuscripts, letters, or editorial apparatus over which the
+#            Sri Aurobindo Ashram Trust may still hold active copyright.
+#            Only a metadata record is committed; the PDF can be downloaded
+#            and converted locally for personal study.
+collection: sri_aurobindo_cwsa
+collection_title: The Complete Works of Sri Aurobindo
+author: Sri Aurobindo
+publisher: Sri Aurobindo Ashram Publication Department, Pondicherry
+source_page: https://www.sriaurobindoashram.org/sriaurobindo/writings.php
+download_url_template: "https://www.sriaurobindoashram.org/sriaurobindo/downloadpdf.php?id={id}"
+raw_dir: data/raw/sri_aurobindo_cwsa
+content_dir: content/sources/sri_aurobindo/complete_works
+restricted_markdown_dir: data/markdown/sri_aurobindo_cwsa
+language: english
+tradition:
+  - integral_yoga
+volumes:
+  - id: 19
+    volume: "1"
+    slug: volume_01_early_cultural_writings
+    title: Early Cultural Writings
+    full_text: true
+    themes: [culture, education, art, literature, indian_renaissance]
+    description: >-
+      Early essays and other prose writings on literature, education, art and
+      other cultural subjects, written mostly between 1890 and 1910. Includes
+      The Harmony of Virtue, Bankim Chandra Chatterji, essays on Kalidasa and
+      the Mahabharata, and The National Value of Art.
+  - id: 20
+    volume: "2"
+    slug: volume_02_collected_poems
+    title: Collected Poems
+    full_text: true
+    poetry: true
+    themes: [poetry, mysticism, beauty, aspiration]
+    description: >-
+      All short poems and narrative poems in English: sonnets, lyrical poems,
+      narrative poems and metrical experiments, written over seven decades from
+      1883 to the late 1940s.
+  - id: 21
+    volume: "3-4"
+    slug: volume_03_04_collected_plays_and_stories
+    title: Collected Plays and Stories
+    full_text: true
+    poetry: true
+    themes: [drama, fiction, literature]
+    description: >-
+      All original dramatic works and works of prose fiction, including The
+      Viziers of Bassora, Rodogune, Perseus the Deliverer and Eric and
+      Vasavadutta.
+  - id: 22
+    volume: "5"
+    slug: volume_05_translations
+    title: Translations
+    full_text: true
+    poetry: true
+    themes: [translation, devotion, ramayana, mahabharata, kalidasa]
+    description: >-
+      Translations from Sanskrit, Bengali, Tamil, Greek and Latin into English,
+      including parts of the Ramayana and Mahabharata, works of Kalidasa and
+      Bhartrihari, Vaishnava devotional poetry, and poems of Andal, Nammalwar
+      and Tiruvalluvar.
+  - id: 23
+    volume: "6-7"
+    slug: volume_06_07_bande_mataram
+    title: Bande Mataram
+    full_text: true
+    themes: [politics, nationalism, karma_yoga, india]
+    description: >-
+      All surviving political writings and speeches from 1890 to 1908, chiefly
+      353 articles published in the nationalist newspaper Bande Mataram between
+      1906 and 1908.
+  - id: 24
+    volume: "8"
+    slug: volume_08_karmayogin
+    title: Karmayogin
+    full_text: true
+    themes: [politics, nationalism, dharma, india]
+    description: >-
+      All surviving political writings and speeches of 1909 and 1910, chiefly
+      articles published in the nationalist newspaper Karmayogin.
+  - id: 25
+    volume: "9"
+    slug: volume_09_writings_in_bengali_and_sanskrit
+    title: Writings in Bengali and Sanskrit
+    full_text: false
+    metadata_reason: >-
+      The official PDF is typeset with non-Unicode Bengali fonts, so machine
+      text extraction produces unusable glyph soup. A faithful digitization of
+      this volume needs a dedicated OCR pass with Bengali script support.
+    themes: [bengali_writings, sanskrit_writings, prison_life, culture]
+    description: >-
+      All writings in Bengali and Sanskrit, mostly written in 1909 and 1910 for
+      the Calcutta weekly Dharma, including Tales of Prison Life. The Sanskrit
+      writings and some Bengali material were first published posthumously.
+  - id: 26
+    volume: "10-11"
+    slug: volume_10_11_record_of_yoga
+    title: Record of Yoga
+    full_text: false
+    themes: [sadhana_diary, sapta_chatusthaya, yogic_experience]
+    description: >-
+      Sri Aurobindo's diary of his yogic practice between 1909 and 1927,
+      including descriptions of the seven chatusthayas. First published
+      1997-2001; still under active copyright of the Sri Aurobindo Ashram
+      Trust.
+  - id: 27
+    volume: "12"
+    slug: volume_12_essays_divine_and_human
+    title: Essays Divine and Human
+    full_text: false
+    themes: [yoga, aphorisms, philosophy, superman]
+    description: >-
+      Short prose pieces written between 1910 and 1950 but not published during
+      Sri Aurobindo's lifetime, including Thoughts and Aphorisms. Posthumously
+      published; still under active copyright of the Sri Aurobindo Ashram
+      Trust.
+  - id: 28
+    volume: "13"
+    slug: volume_13_essays_in_philosophy_and_yoga
+    title: Essays in Philosophy and Yoga
+    full_text: true
+    themes: [yoga, evolution, supermind, rebirth, philosophy]
+    description: >-
+      Short works in prose written between 1909 and 1950 and published during
+      Sri Aurobindo's lifetime, including The Yoga and Its Objects, The Problem
+      of Rebirth and The Supramental Manifestation upon Earth.
+  - id: 29
+    volume: "14"
+    slug: volume_14_vedic_and_philological_studies
+    title: Vedic and Philological Studies
+    full_text: false
+    themes: [veda, philology, mantra]
+    description: >-
+      Writings on the Veda and philology and translations of Vedic hymns, not
+      published during Sri Aurobindo's lifetime. Posthumously published; still
+      under active copyright of the Sri Aurobindo Ashram Trust.
+  - id: 30
+    volume: "15"
+    slug: volume_15_the_secret_of_the_veda
+    title: The Secret of the Veda
+    full_text: true
+    themes: [veda, symbolism, mantra, mysticism]
+    description: >-
+      Essays on the Rig Veda and its mystic symbolism, with translations of
+      selected hymns, published in the monthly review Arya between 1914 and
+      1920.
+  - id: 31
+    volume: "16"
+    slug: volume_16_hymns_to_the_mystic_fire
+    title: Hymns to the Mystic Fire
+    full_text: true
+    poetry: true
+    themes: [veda, agni, mantra, sacrifice]
+    description: >-
+      All translations of Vedic hymns to Agni from the Rig Veda, with a
+      Foreword by Sri Aurobindo.
+  - id: 32
+    volume: "17"
+    slug: volume_17_isha_upanishad
+    title: "Upanishads I: Isha Upanishad"
+    full_text: true
+    themes: [upanishads, vedanta, isha_upanishad, self_knowledge]
+    description: >-
+      Sri Aurobindo's final translation and analysis of the Isha Upanishad
+      (published in his lifetime), together with ten manuscript commentaries
+      written between about 1900 and 1914.
+  - id: 33
+    volume: "18"
+    slug: volume_18_kena_and_other_upanishads
+    title: "Upanishads II: Kena and Other Upanishads"
+    full_text: true
+    themes: [upanishads, vedanta, kena_upanishad, katha_upanishad, mundaka_upanishad]
+    description: >-
+      Translations of and commentaries on the Kena, Katha, Mundaka, Prashna,
+      Mandukya, Aitareya and Taittiriya Upanishads and other Vedantic texts.
+  - id: 34
+    volume: "19"
+    slug: volume_19_essays_on_the_gita
+    title: Essays on the Gita
+    full_text: true
+    themes: [bhagavad_gita, karma_yoga, bhakti_yoga, jnana_yoga]
+    description: >-
+      Essays on the philosophy and method of self-discipline presented in the
+      Bhagavad Gita, first published in the monthly review Arya between 1916
+      and 1920.
+  - id: 35
+    volume: "20"
+    slug: volume_20_the_renaissance_in_india
+    title: The Renaissance in India with A Defence of Indian Culture
+    full_text: true
+    themes: [indian_culture, civilisation, spirituality_and_society]
+    description: >-
+      Essays on the value of Indian civilisation and culture, first published
+      in the monthly review Arya between 1918 and 1921, later known as The
+      Foundations of Indian Culture.
+  - id: 36
+    volume: "21-22"
+    slug: volume_21_22_the_life_divine
+    title: The Life Divine
+    full_text: true
+    themes: [consciousness, evolution, divine_life, metaphysics, supermind]
+    description: >-
+      Sri Aurobindo's principal work of philosophy, presenting a theory of
+      spiritual evolution and the advent of a divine life upon earth. First
+      published in the Arya 1914-1919, revised 1939-1940.
+  - id: 37
+    volume: "23-24"
+    slug: volume_23_24_the_synthesis_of_yoga
+    title: The Synthesis of Yoga
+    full_text: true
+    themes: [integral_yoga, karma_yoga, jnana_yoga, bhakti_yoga, self_perfection]
+    description: >-
+      Sri Aurobindo's principal work on yoga, examining traditional systems and
+      explaining his own system of integral yoga: works, knowledge, love and
+      self-perfection.
+  - id: 38
+    volume: "25"
+    slug: volume_25_the_human_cycle
+    title: The Human Cycle - The Ideal of Human Unity - War and Self-Determination
+    full_text: true
+    themes: [society, human_unity, evolution_of_society, politics]
+    description: >-
+      Three works of social and political philosophy tracing the evolution of
+      human society and the possibility of the unification of the human race.
+  - id: 39
+    volume: "26"
+    slug: volume_26_the_future_poetry
+    title: The Future Poetry with On Quantitative Metre
+    full_text: true
+    themes: [poetry, aesthetics, literary_criticism]
+    description: >-
+      Sri Aurobindo's principal work of literary criticism, outlining the
+      history of English poetry and the possibility of a spiritual poetry of
+      the future.
+  - id: 40
+    volume: "27"
+    slug: volume_27_letters_on_poetry_and_art
+    title: Letters on Poetry and Art
+    full_text: false
+    themes: [letters, poetry, art, aesthetics, yoga]
+    description: >-
+      Letters on poetry, literature, painting, beauty and aesthetics written in
+      the 1930s and 1940s; most transcribed from manuscripts after his passing.
+      Still under active copyright of the Sri Aurobindo Ashram Trust.
+  - id: 41
+    volume: "28"
+    slug: volume_28_letters_on_yoga_i
+    title: Letters on Yoga - I
+    full_text: false
+    themes: [letters, integral_yoga, sadhana, guidance]
+    description: >-
+      Letters on the foundations of the integral yoga, its experiences and
+      realisations and its method of practice. Posthumously compiled; still
+      under active copyright of the Sri Aurobindo Ashram Trust.
+  - id: 68
+    volume: "29"
+    slug: volume_29_letters_on_yoga_ii
+    title: Letters on Yoga - II
+    full_text: false
+    themes: [letters, integral_yoga, sadhana, guidance]
+    description: >-
+      Letters on the integral yoga. Posthumously compiled; still under active
+      copyright of the Sri Aurobindo Ashram Trust.
+  - id: 69
+    volume: "30"
+    slug: volume_30_letters_on_yoga_iii
+    title: Letters on Yoga - III
+    full_text: false
+    themes: [letters, integral_yoga, sadhana, guidance]
+    description: >-
+      Letters on the integral yoga. Posthumously compiled; still under active
+      copyright of the Sri Aurobindo Ashram Trust.
+  - id: 70
+    volume: "31"
+    slug: volume_31_letters_on_yoga_iv
+    title: Letters on Yoga - IV
+    full_text: false
+    themes: [letters, integral_yoga, sadhana, guidance]
+    description: >-
+      Letters on the integral yoga. Posthumously compiled; still under active
+      copyright of the Sri Aurobindo Ashram Trust.
+  - id: 42
+    volume: "32"
+    slug: volume_32_the_mother_with_letters_on_the_mother
+    title: The Mother with Letters on the Mother
+    full_text: false
+    themes: [divine_mother, shakti, surrender, grace]
+    description: >-
+      Sri Aurobindo's book The Mother (1928, itself public domain) together
+      with letters on the Mother written in the 1930s and posthumously
+      compiled. The letters remain under active copyright of the Sri Aurobindo
+      Ashram Trust, so only this metadata record is committed.
+  - id: 43
+    volume: "33-34"
+    slug: volume_33_34_savitri
+    title: Savitri - A Legend and a Symbol
+    full_text: true
+    poetry: true
+    themes: [epic_poetry, transformation, death_and_immortality, savitri, aspiration]
+    description: >-
+      Sri Aurobindo's major poetic work, an epic in blank verse in which a
+      legend from the Mahabharata becomes the symbol of the human soul's
+      spiritual destiny.
+  - id: 44
+    volume: "35"
+    slug: volume_35_letters_on_himself_and_the_ashram
+    title: Letters on Himself and the Ashram
+    full_text: false
+    themes: [letters, autobiography, ashram_life]
+    description: >-
+      Letters written between 1927 and 1950 on his life and the practice of
+      yoga in his ashram. Posthumously compiled; still under active copyright
+      of the Sri Aurobindo Ashram Trust.
+  - id: 45
+    volume: "36"
+    slug: volume_36_autobiographical_notes
+    title: Autobiographical Notes and Other Writings of Historical Interest
+    full_text: false
+    themes: [autobiography, history, letters]
+    description: >-
+      Autobiographical notes, letters of historical interest and public
+      statements, much of it first published in this volume. Still under
+      active copyright of the Sri Aurobindo Ashram Trust.
+  - id: 46
+    volume: "37"
+    slug: volume_37_index_and_glossaries
+    title: Index and Glossaries
+    full_text: false
+    themes: [reference, glossary, bibliography]
+    description: >-
+      Index to the Complete Works, glossaries, chronology of Sri Aurobindo's
+      life and bibliography. Editorial work of the Sri Aurobindo Ashram Trust;
+      metadata record only.

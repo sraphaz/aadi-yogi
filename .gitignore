@@ -11,8 +11,10 @@ build/
 .next/
 data/raw/*
 data/ocr/*
+data/markdown/*
 data/indexes/*
 !data/raw/.gitkeep
 !data/ocr/.gitkeep
+!data/markdown/.gitkeep
 !data/indexes/.gitkeep
 .DS_Store
