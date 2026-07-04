@@ -1,0 +1,114 @@
+[
+  {
+    "id": "gq_001",
+    "question": "What does the Isha Upanishad teach about action in the world?",
+    "expected_source_ids": ["upanishads/isha/full_public_domain_translation"],
+    "themes": ["action", "renunciation"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_002",
+    "question": "How does the Bhagavad Gita describe the Self in chapter 2?",
+    "expected_source_ids": ["bhagavad_gita/chapter_02"],
+    "themes": ["atman", "self_knowledge"],
+    "tradition": "gita"
+  },
+  {
+    "id": "gq_003",
+    "question": "What is the role of Agni in Rig Veda Mandala 1 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_01_hymn_001"],
+    "themes": ["agni", "invocation"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_004",
+    "question": "What is Turiya in the Mandukya Upanishad?",
+    "expected_source_ids": ["upanishads/mandukya/full_public_domain_translation"],
+    "themes": ["turiya", "consciousness_states"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_005",
+    "question": "What themes appear in Tirumandiram payiram?",
+    "expected_source_ids": ["siddha_texts/tirumandiram/payiram/full_public_domain"],
+    "themes": ["shiva", "yoga"],
+    "tradition": "siddha"
+  },
+  {
+    "id": "gq_006",
+    "question": "What does the Katha Upanishad say about the good and the pleasant?",
+    "expected_source_ids": ["upanishads/katha/full_public_domain_translation"],
+    "themes": ["discernment"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_007",
+    "question": "How should one respond to spiritual crisis without claiming authority?",
+    "expected_source_ids": [],
+    "themes": ["humility", "safety"],
+    "tradition": "consciousness_core"
+  },
+  {
+    "id": "gq_008",
+    "question": "What is Vishnu's role in the opening of the Vishnu Purana?",
+    "expected_source_ids": ["puranas/vishnu_purana/book_01_chapter_01"],
+    "themes": ["vishnu", "cosmology"],
+    "tradition": "puranic"
+  },
+  {
+    "id": "gq_009",
+    "question": "What does the Taittiriya Upanishad teach about Brahman and bliss?",
+    "expected_source_ids": ["upanishads/taittiriya/full_public_domain_translation"],
+    "themes": ["brahman", "bliss", "self_knowledge"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_010",
+    "question": "What is the role of Om in the first prapathaka of the Chandogya Upanishad?",
+    "expected_source_ids": ["upanishads/chandogya/prapathaka_01_public_domain_translation"],
+    "themes": ["om", "udgitha", "meditation"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_011",
+    "question": "What does Uddalaka teach Svetaketu in the Sixth Prapathaka of the Chandogya Upanishad?",
+    "expected_source_ids": ["upanishads/chandogya/prapathaka_06_public_domain_translation"],
+    "themes": ["atman", "self_knowledge", "teacher_student_dialogue"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_012",
+    "question": "What does the Shvetashvatara Upanishad teach about Rudra and the Lord?",
+    "expected_source_ids": ["upanishads/shvetashvatara/full_public_domain_translation"],
+    "themes": ["rudra", "lord", "devotion"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_013",
+    "question": "What does Yajnavalkya teach Maitreyi about the Self in the Brihadaranyaka Upanishad?",
+    "expected_source_ids": ["upanishads/brihadaranyaka/full_public_domain_translation"],
+    "themes": ["atman", "self_knowledge", "yajnavalkya"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_014",
+    "question": "What is Agni praised for in Rig Veda Mandala 2 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_02_hymn_001"],
+    "themes": ["agni", "invocation", "gritsamada"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_015",
+    "question": "What does Rig Veda Mandala 3 Hymn 57 say about Indra and the waters?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_03_hymn_057"],
+    "themes": ["indra", "waters", "visvamitra"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_016",
+    "question": "What does Rig Veda Mandala 4 Hymn 1 say about Agni and Varuna?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_04_hymn_001"],
+    "themes": ["agni", "varuna", "vamadeva"],
+    "tradition": "vedic"
+  }
+]

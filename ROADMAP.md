@@ -1,34 +1,63 @@
-# Roadmap
+# Roadmap — Aadi Yogi
 
-## Phase 1 - Foundation
+> Plano detalhado de importação: [`docs/content_import_roadmap.md`](docs/content_import_roadmap.md)
+> Status de importação: [`docs/source_import_status.md`](docs/source_import_status.md)
 
-- establish monorepo structure
-- define repository policies and editorial standards
-- create source templates and ontology starters
-- add Markdown validation, tests, and CI
+## Phase 1 — Foundation ✅
 
-## Phase 2 - Source Operations
+- [x] establish monorepo structure
+- [x] define repository policies and editorial standards
+- [x] create source templates and ontology starters
+- [x] add Markdown validation, tests, and CI
+- [x] define consciousness core guidelines (v1 draft)
 
-- add ingestion workflow documentation
-- create OCR correction and normalization scripts
-- formalize review checkpoints for source quality
+## Phase 2 — Source Operations ✅
 
-## Phase 3 - Retrieval Foundations
+- [x] catalogar 108 Upanishads, 18 Mahapuranas, 5 Vedas, corpus Siddha, Bhagavad Gita
+- [x] importar corpus PD principal (39 textos normalizados)
+- [x] Bhagavad Gita — 18 capítulos (Edwin Arnold, Gutenberg PD)
+- [x] Upanishads PD: Isha, Kena, Katha, Mundaka, Prashna, Mandukya
+- [x] Rig Veda Mandala 1 — hinos 1–10
+- [x] Tirumandiram: payiram + tantras 1–3
+- [x] scripts de ingestão: Wikisource SBE, Tamil Wikisource, Gutenberg Gita, Rig Veda WS
+- [x] índice mestre + índice Bhagavad Gita
 
-- design chunk schemas and metadata enrichment
-- prepare embeddings-ready artifacts
-- evaluate candidate vector storage strategies
+## Phase 3 — Retrieval Foundations ✅
 
-## Phase 4 - Consciousness-Aware Agent Layer
+- [x] normalization script (`scripts/convert/normalize_md.py`)
+- [x] semantic chunking script (`scripts/chunk/semantic_chunk.py`)
+- [x] embeddings-ready preparation (`scripts/index/prepare_embeddings.py`)
+- [x] TF-IDF vector index (`scripts/index/build_vector_index.py`)
+- [x] hybrid retriever (`packages/rag/hybrid_retriever.py`)
+- [x] golden questions dataset and eval runner
+- [ ] external embedding model + hosted vector database (future upgrade)
 
-- formalize prompt builder inputs
-- connect retriever outputs to response modes
-- add source-aware citation formatting
-- expand safety and caution mechanisms
+## Phase 4 — Consciousness-Aware Agent Layer ✅
 
-## Phase 5 - Interfaces and Evaluation
+- [x] prompt builder with approved consciousness core v1
+- [x] LLM orchestration (OpenAI-compatible API + fallback)
+- [x] `/ask` endpoint with citations and caution
+- [ ] human production sign-off for consciousness core
 
-- scaffold agent API
-- scaffold web interface
-- build golden questions and evaluation suites
-- compare response quality across traditions and question types
+## Phase 5 — Interfaces and Evaluation ✅
+
+- [x] agent API (`apps/agent-api/main.py`)
+- [x] web UI (`apps/web/`)
+- [x] golden question retrieval eval in CI
+- [ ] LLM response quality evaluation suite
+- [ ] manual spiritual care review loop
+
+## Métricas Atuais
+
+| Métrica | Valor |
+| --- | --- |
+| Textos PD importados | 49 |
+| Upanishads com texto PD | 7 / 108 |
+| Capítulos Gita importados | 18 / 18 |
+| Tirumandiram seções | 10 |
+| Corpora Siddha curtos | 3 |
+| Chunks prontos | 390 |
+| Vector index | TF-IDF (390 chunks) |
+| Notas de síntese | 5 |
+| Golden questions | 8 (100% retrieval pass) |
+| Consciousness core | v1 approved |

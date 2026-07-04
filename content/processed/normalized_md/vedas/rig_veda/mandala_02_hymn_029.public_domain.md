@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_02_hymn_029
+title: Rig Veda - Mandala 2 Hymn 29
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_02_hymn_029
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_29
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 2, Hymn 29; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_02_hymn_029.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 2 Hymn 29
+
+## Normalized Primary Text
+
+1. UPHOLDERS of the Law, ye strong Adityas, remove my sin like her who bears in secret. You, Varuna, Mitra and all Gods who listen, I call to help me, I who know your goodness. 2. Ye, Gods, are providence and ye are power: remove ye utterly all those who hate us. As givers of good things deal with us kindly: this day be gracious to us and hereafter. 3. What service may we do you with our future, what service, Vasus, with our ancient friendship? O Aditi, and VaruVa and Mitra, Indra and Maruts, make us well and happy. 4. Ye, O ye Gods, are verily our kinsmen as such be kind to me who now implore you. Let not your car come slowly to our worship: of kinsmen such as you ne'er let us weary. 5. I singly have sinned many a sin against you, and ye chastised me as a sire the gambler. Far be your nets, far, Gods, be mine offences: seize me not like a bird upon her offspring. 6. Turn yourselves hitherward this day, ye Holy, that fearing in my heart I may approach you. Protect us, God; let not the wolf destroy us. Save us, ye Holy, from the pit and falling. 7. May I not live, O Varuna, to witness my wealthy, liberal, dear friend's destitution. King, may I never lack well-ordered riches. Loud may we speak, with heroes, in assembly.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_2/Hymn_29
+- Translator: Ralph T. H. Griffith (public domain).

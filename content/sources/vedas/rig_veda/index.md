@@ -21,6 +21,13 @@ notes:
 
 - `mandala_01_hymn_001.public_domain.md`
 
+## Imported In Phase 3–4
+
+- **Mandala 1**: hymns 1–191 (complete family book coverage via Griffith / Wikisource)
+- **Mandala 2**: hymns 1–43 (complete; chiefly Agni and Indra, Rishi Gritsamada)
+- **Mandala 3**: hymns 1–62 (complete; chiefly Agni and Indra, Rishi Visvamitra)
+- **Mandala 4**: hymns 1–58 (complete; chiefly Agni and Indra, Rishi Vamadeva)
+
 ## Provenance
 
 - Sanskrit pages inspected from the Internet Sacred Text Archive Rig Veda Unicode collection.

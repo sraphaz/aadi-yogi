@@ -3,7 +3,16 @@
   "private": true,
   "scripts": {
     "validate:content": "python scripts/validate/validate_markdown.py",
-    "test": "pytest",
-    "lint:python": "ruff check ."
+    "test": "PYTHONPATH=. pytest",
+    "lint:python": "ruff check .",
+    "pipeline:normalize": "python scripts/convert/normalize_md.py",
+    "pipeline:chunk": "python scripts/chunk/semantic_chunk.py",
+    "pipeline:embeddings": "python scripts/index/prepare_embeddings.py",
+    "pipeline:index": "PYTHONPATH=. python scripts/index/build_vector_index.py",
+    "pipeline:dense-index": "PYTHONPATH=. python scripts/index/build_dense_index.py",
+    "pipeline:production": "bash scripts/run_production_pipeline.sh",
+    "eval:golden": "PYTHONPATH=. python scripts/validate/run_golden_questions.py",
+    "eval:response": "PYTHONPATH=. python scripts/validate/run_response_eval.py",
+    "api:dev": "PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000"
   }
 }

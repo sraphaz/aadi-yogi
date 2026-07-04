@@ -14,20 +14,12 @@ This document records what has been imported into the repository, what has only 
 
 - Canon coverage now catalogued for all 108 Upanishads in the Muktika list.
 - Public-domain translations located in the Sacred Books of the East editions hosted on English Wikisource, with the Internet Sacred Text Archive retained as a parallel witness pool.
-- Verified collection pages:
-  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_1`
-  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15`
-  - `https://www.sacred-texts.com/hin/sbe01/index.htm`
-  - `https://www.sacred-texts.com/hin/sbe15/index.htm`
-  - `https://www.sacred-texts.com/hin/tmu/index.htm`
-- Phase 1 import:
-  - Isha Upanishad public-domain English translation by Max Muller.
-- Phase 2 expansion:
-  - root canon index for the full 108-text corpus
-  - intake stub indexes established across the remaining 107 Upanishads before full-text import began
-  - Kena Upanishad public-domain English translation by Max Muller from the Talavakara-upanishad witness in SBE 1
-  - Katha Upanishad public-domain English translation by Max Muller from SBE 15
-  - Mundaka Upanishad public-domain English translation by Max Muller from SBE 15
+- Phase 2 expansion includes Kena, Katha, Mundaka, Prashna, Mandukya, Isha, Kaivalya.
+- Phase 3 expansion:
+  - **Taittiriya Upanishad** full public-domain translation from English Wikisource standalone witness.
+  - **Chandogya Upanishad** all eight prapathakas imported from SBE Volume 1 (partial corpus, complete prapathaka coverage).
+  - **Shvetashvatara Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
+  - **Brihadaranyaka Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
 
 ### Vedas
 
@@ -102,10 +94,59 @@ This document records what has been imported into the repository, what has only 
   - metadata-only catalog
   - no full-text import
 
+### Bhagavad Gita
+
+- All 18 chapters imported from Edwin Arnold's public-domain translation (Project Gutenberg #2388).
+- Index at `content/sources/bhagavad_gita/index.md`.
+
+### Mandukya Upanishad
+
+- Public-domain Max Muller lineage translation imported at `content/sources/upanishads/mandukya/full.public_domain.md`.
+
+### Prashna Upanishad
+
+- Phase 2 import complete via Wikisource SBE Volume 15.
+
+### Rig Veda Expansion
+
+- Mandala 1 **all 191 hymns** imported from English Wikisource (Griffith translation).
+- Mandala 2 **all 43 hymns** imported from English Wikisource (Griffith translation).
+- Mandala 3 **all 62 hymns** imported from English Wikisource (Griffith translation).
+- Mandala 4 **all 58 hymns** imported from English Wikisource (Griffith translation).
+- Import script supports `--book`, `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
+
+### Siddha Expansion (Phase 3)
+
+- Agathiyar Gnana Padalgal, Kudhambai Siddhar, Idaikkattu Siddhar, and **Agappey Siddhar** imported from Tamil Wikisource.
+- Garuda Purana Book 1 Chapter 1 sample imported (public-domain witness).
+
+### Tirumandiram Expansion
+
+- Tantras 1–9 imported from Tamil Wikisource in addition to payiram.
+
+### Pipeline and Agent Scaffold
+
+- Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
+- **1917 chunks** across **409** normalized source artifacts.
+- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
+- Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
+- Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
+- 5 synthesis notes, consciousness core v1 approved, **16 golden questions** (100% retrieval), **16/16** response quality checks (fallback mode).
+- Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
+- Production setup: `docker-compose.yml`, `.env.example`, `docs/production_setup.md`, `scripts/run_production_pipeline.sh`.
+
+### Internal Content (Consciousness Core + Ontology + Synthesis)
+
+- Consciousness Core: 9 guidance files at v1 draft (`content/consciousness_core/`).
+- Ontology: concepts, deities, practices, sanskrit terms, states, 4 living maps.
+- Synthesis: 5 initial notes in `content/synthesis/`.
+- These are not source imports but are required for agent behavior; see `docs/content_import_roadmap.md` section B.
+
 ## Next Safe Expansion
 
-1. Import more public-domain Upanishad text from the catalogued 108-text corpus, continuing with principal texts that already have stable public-domain witnesses such as Prashna, Taittiriya, Shvetashvatara, Aitareya, and Kaushitaki.
-2. Import additional Vedic material from Sama, Yajur, and Atharva collections using the same provenance style used for Rig Veda.
-3. Add more public-domain Purana witnesses beyond Vishnu Purana, with Garuda Purana as the next obvious candidate.
-4. Continue Siddha intake from the Tamil primary-text side, starting with additional Tirumandiram tantras and shorter Siddhar poem corpora before any translation-layer expansion.
-5. Keep Sri Aurobindo and the Mother at metadata-only or short quoted excerpts unless a clearly reusable edition is confirmed.
+1. Expand Rig Veda Mandalas 5–7 (family books) and beyond.
+2. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
+3. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
+4. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
+5. Complete human production review via `docs/production_review_checklist.md`.
+6. Improve OCR cleanup for Brihadaranyaka Archive.org witness where needed.

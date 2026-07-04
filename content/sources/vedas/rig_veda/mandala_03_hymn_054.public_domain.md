@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_03_hymn_054
+title: Rig Veda - Mandala 3 Hymn 54
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_03_hymn_054
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_3/Hymn_54
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 3, Hymn 54; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 3 Hymn 54
+
+## Public-Domain Translation
+
+1. To him adorable, mighty, meet for synods, this strengthening hymn, unceasing, have they offered. May Agni hear us with his homely splendours, hear us, Eternal One, with heavenly lustre. 2. To mighty Heaven and Earth I sing forth loudly: my wish goes out desirous and well knowing Both, at whose laud in synods, showing favour, the Gods rejoice them with the living mortal. 3. O Heaven and Earth, may your great law he faithful: he ye our leaders for our high advantage. To Heaven and Earth I offer this my homage, with food, O Agni, as I pray for riches. 4. Yea, holy Heaven and Earth, the ancient sages whose word was ever true had power to find you; And brave men in the fight where heroes conquer, O Earth, have known you well and paid you honour. 5. What pathway leadeth to the Gods? Who knoweth this of a truth, and who will now declare it? Seen are their lowest dwelling-places only, but they are in remote and secret regions. 6. The Sage who looketh on mankind hath viewed them bedewed, rejoicing in the seat of Order. They make a home as for a bird, though parted, with one same will finding themselves together. 7. Partners though parted, with far-distant limits, on one firm place both stand for ever watchful, And, being young for evermore, as sisters, speak to each other names that are united. 8. All living things they part and keep asunder; though bearing up the mighty Gods they reel not. One All is Lord of what is fixed and moving, that walks, that flies, this multiform creation. 9. Afar the Ancient from of old I ponder, our kinship with our mighty Sire and Father,- Singing the praise whereof the Gods by custom stand on the spacious far-extended pathway. 10. This laud, O Heaven and Earth, to you I utter: let the kind-hearted hear, whose tongue is Agni, Young, Sovran Rulers, Varuna and Mitra, the wise and very glorious Adityas. 11. The fair-tongued Savitar, the golden-handed, comes thrice from heaven as Lord in our assembly. Bear to the Gods this song of praise, and send us, then, Savitar, complete and perfect safety. 12. Deft worker, skiful-handed, helpful, holy, may Tvastar, God, give us these things to aid us, Take your delight, Ye Rbhus joined with Pusan: ye have prepared the rite with stones adjusted. 13. Borne on their flashing car, the spear-armed Maruts, the nimble Youths of Heaven, the Sons of Order, The Holy, and Sarasvati, shall hear us: ye Mighty, give us wealth with noble offspring. 14. To Visnu rich in marvels, songs And praises shall go as singers on the road of Bhaga,- The Chieftain of the Mighty Stride, whose Mothers, the many young Dames, never disregard him. 15. Indra, who rules through all his powers heroic, hath with his majesty filled earth and heaven. Lord of brave hosts, Fort-crusher, Vrtra-slayer, gather thou up and bring us store of cattle. 16. My Sires are the Nasatyas, kind tokensmen: the Asvins' kinship is a glorious title. For ye are they who give us store of riches: ye guard your gift uncheated by the bounteous. 17. This is, ye Wise, your great and glorious title, that all ye Deities abide in Indra. Friend, Much-invoked! art thou with thy dear Rbhus: fashion ye this our hymn for our advantage. 18. Aryaman, Aditi deserve our worship: the laws of Varuna remain unbroken. The lot of childlessness remove ye from us, and let our course be rich in kine and offspring. 19. May the Gods' envoy, sent to many a quarter, proclaim us sinless for our perfect safety. May Earth and Heaven, the Sun, the waters, hear us, and the wide firmament and constellations. 20. Hear us the mountains which distil the rain-drops, and, resting firm, rejoice in freshening moisture. May Aditi with the Adityas hear us, and Maruts grant us their auspicious shelter. 21. Soft be our path for ever, well-provisioned: with pleasant meath, O Gods, the herbs besprinkle. Safe be my bliss, O Agni, in thy friendship: may I attain the seat of foodful riches, 22. Enjoy the offering: beam thou strength upon us; combine thou for our good all kinds of glory. Conquer in battle, Agni, all those foemen, and light us every day with loving kindness.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_3/Hymn_54
+- Translator: Ralph T. H. Griffith (public domain).

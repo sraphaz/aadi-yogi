@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "aadi-yogi"
 version = "0.1.0"
@@ -5,15 +9,24 @@ description = "Source-grounded spiritual knowledge repository and AI consciousne
 requires-python = ">=3.11"
 dependencies = [
     "pyyaml>=6.0.0",
+    "fastapi>=0.115.0",
+    "pydantic>=2.8.0",
+    "uvicorn>=0.30.0",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
     "ruff>=0.5.0",
+    "fastapi>=0.115.0",
+    "httpx>=0.27.0",
 ]
 
+[tool.setuptools.packages.find]
+include = ["packages*"]
+
 [tool.pytest.ini_options]
+pythonpath = ["."]
 testpaths = ["tests"]
 addopts = "--basetemp=.tmp_pytest -p no:cacheprovider"
 
