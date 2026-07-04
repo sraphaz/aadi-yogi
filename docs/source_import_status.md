@@ -14,20 +14,10 @@ This document records what has been imported into the repository, what has only 
 
 - Canon coverage now catalogued for all 108 Upanishads in the Muktika list.
 - Public-domain translations located in the Sacred Books of the East editions hosted on English Wikisource, with the Internet Sacred Text Archive retained as a parallel witness pool.
-- Verified collection pages:
-  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_1`
-  - `https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15`
-  - `https://www.sacred-texts.com/hin/sbe01/index.htm`
-  - `https://www.sacred-texts.com/hin/sbe15/index.htm`
-  - `https://www.sacred-texts.com/hin/tmu/index.htm`
-- Phase 1 import:
-  - Isha Upanishad public-domain English translation by Max Muller.
-- Phase 2 expansion:
-  - root canon index for the full 108-text corpus
-  - intake stub indexes established across the remaining 107 Upanishads before full-text import began
-  - Kena Upanishad public-domain English translation by Max Muller from the Talavakara-upanishad witness in SBE 1
-  - Katha Upanishad public-domain English translation by Max Muller from SBE 15
-  - Mundaka Upanishad public-domain English translation by Max Muller from SBE 15
+- Phase 2 expansion includes Kena, Katha, Mundaka, Prashna, Mandukya, Isha, Kaivalya.
+- Phase 3 expansion:
+  - **Taittiriya Upanishad** full public-domain translation from English Wikisource standalone witness.
+  - **Chandogya Upanishad** First Prapathaka partial import from SBE Volume 1.
 
 ### Vedas
 
@@ -117,11 +107,11 @@ This document records what has been imported into the repository, what has only 
 
 ### Rig Veda Expansion
 
-- Mandala 1 Hymns 1–20 imported from English Wikisource (Griffith translation).
+- Mandala 1 Hymns 1–50 imported from English Wikisource (Griffith translation).
 
 ### Siddha Expansion (Phase 3)
 
-- Agathiyar Gnana Padalgal, Kudhambai Siddhar, and Idaikkattu Siddhar imported from Tamil Wikisource.
+- Agathiyar Gnana Padalgal, Kudhambai Siddhar, Idaikkattu Siddhar, and **Agappey Siddhar** imported from Tamil Wikisource.
 - Garuda Purana Book 1 Chapter 1 sample imported (public-domain witness).
 
 ### Tirumandiram Expansion
@@ -131,10 +121,10 @@ This document records what has been imported into the repository, what has only 
 ### Pipeline and Agent Scaffold
 
 - Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export operational.
-- 424 chunks across 63 imported sources.
-- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference boosting.
+- **610 chunks** across **96** imported sources.
+- Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection and boosting.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
-- 5 synthesis notes, consciousness core v1 approved, 8 golden questions (100% retrieval), 8/8 response quality checks (fallback mode).
+- 5 synthesis notes, consciousness core v1 approved, **10 golden questions** (100% retrieval), **10/10** response quality checks (fallback mode).
 - Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
 
 ### Internal Content (Consciousness Core + Ontology + Synthesis)
@@ -146,10 +136,10 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Import additional principal Upanishads when stable Wikisource witnesses become available (Taittiriya, Shvetashvatara, Brihadaranyaka, Chandogya, Kaushitaki).
-2. Expand Rig Veda Mandala 1 beyond hymn 10 and begin Mandala 2 intake.
-3. Continue Tirumandiram tantras 4–9 and shorter Siddha corpora.
-4. Add more public-domain Purana witnesses beyond Vishnu Purana chapter 1.
-5. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
-6. Connect embedding generation and vector database to the prepared JSONL corpus.
-7. Add LLM orchestration atop the agent API prompt scaffold.
+1. Import additional principal Upanishads when stable Wikisource witnesses become available (Shvetashvatara, Brihadaranyaka, remaining Chandogya prapathakas, Kaushitaki).
+2. Expand Rig Veda Mandala 1 beyond hymn 50 toward the full mandala (191 hymns) and begin Mandala 2 intake.
+3. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
+4. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
+5. Enable OpenAI embeddings and Qdrant sync in production deployments.
+6. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
+7. Complete human production review via `docs/production_review_checklist.md`.

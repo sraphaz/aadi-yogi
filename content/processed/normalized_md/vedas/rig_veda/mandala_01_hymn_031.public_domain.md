@@ -1,0 +1,53 @@
+---
+id: vedas/rig_veda/mandala_01_hymn_031
+title: Rig Veda - Mandala 1 Hymn 31
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_01_hymn_031
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_1/Hymn_31
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 1, Hymn 31; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_01_hymn_031.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 1 Hymn 31
+
+## Normalized Primary Text
+
+Hymn 31
+
+Hymn 32
+
+15425The Hymns of the Rigveda, Book 1 — Hymn 31Ralph T.H. Griffith
+
+1. Thou, Agni, wast the earliest Angiras, a Seer; thou wast, a God thyself, the Gods' auspicious Friend. After thy holy ordinance the Maruts, sage, active through wisdom, with their glittering spears, were born. 2. O Agni, thou, the best and earliest Angiras, fulfillest as a Sage the holy law of Gods. Sprung from two mothers, wise, through all existence spread, resting in many a place for sake of living man. 3. To Matarisvan first thou, Agni, wast disclosed, and to Vivasvan through thy noble inward power. Heaven and Earth, Vasu! shook at the choosing of the Priest: the burthen thou didst bear, didst worship mighty Gods. 4. Agni thou madest heaven to thunder for mankind; thou, yet more pious, for pious Pururavas. When thou art rapidly freed from thy parents, first eastward they bear thee round, and, after, to the west. 5. Thou, Agni, art a Bull who makes our store increase, to be invoked by him who lifts the ladle up. Well knowing the oblation with the hallowing word, uniting all who live, thou lightenest first our folk 6. Agni, thou savest in the synod when pursued e'en him, farseeing One! who walks in evil ways. Thou, when the heroes fight for spoil which men rush, round, slayest in war the many by the hands of few. 7. For glory, Agni, day by day, thou liftest up the mortal man to highest immortality, Even thou who yearning for both races givest them great bliss, and to the prince grantest abundant food. 8. O Agni, highly lauded, make our singer famous that he may win us store of riches: May we improve the rite with new performance. O Earth and Heaven, with all the Gods, protect us. 9. O blameless Agni lying in thy Parents' lap, a God among the Gods, be watchful for our good. Former of bodies, be the singer's Providence: all good things hast thou sown for him, auspicious One! 10. Agni, thou art our Providence, our Father thou: we are thy brethren and thou art our spring of life. In thee, rich in good heroes, guard of high decrees, meet hundred, thousand treasures, O infallible! 11. Thee, Agni, have the Gods made the first living One for living man, Lord of the house of Nahusa. Ila they made the teacher of the sons of men, what time a Son was born to the father of my race. 12. Worthy to be revered, O Agni, God, preserve our wealthy patrons with thy succours, and ourselves. Guard of our seed art thou, aiding our cows to bear, incessantly protecting in thy holy way. 13. Agni, thou art a guard close to the pious man; kindled art thou, four-eyed! for him who is unarmed. With fond heart thou acceptest e'en the poor man's prayer, when he hath brought his gift to gain security. 14. Thou, Agni gainest for the loudly-praising priest the highest wealth, the object of a man's desire. Thou art called Father, caring even for the weak, and wisest, to the simple one thou teachest lore. 15. Agni, the man who giveth guerdon to the priests, like well-sewn armour thou guardest on every side. He who with grateful food shows kindness in his house, an offerer to the living, is the type of heaven. 16. Pardon, we pray, this sin of ours, O Agni,--the path which we have trodden, widely straying, Dear Friend and Father, caring for the pious, who speedest nigh and who inspirest mortals. 17. As erst to Manus, to Yayati, Angiras, so Angiras! pure Agni! come thou to our hall Bring hither the celestial host and seat them here upon the sacred grass, and offer what they love. 18. By this our prayer be thou, O Agni, strengthened, prayer made by us after our power and knowledge. Lead thou us, therefore, to increasing riches; endow us with thy strength-bestowing favour.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_1/Hymn_31
+- Translator: Ralph T. H. Griffith (public domain).

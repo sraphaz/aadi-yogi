@@ -4,6 +4,7 @@ import argparse
 import json
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -176,6 +177,15 @@ def import_hymn(config: HymnConfig) -> Path:
     return config.output_path
 
 
+def import_hymns(book: int, hymns: list[int], delay_seconds: float = 0.5) -> list[Path]:
+    written: list[Path] = []
+    for index, hymn in enumerate(hymns):
+        if index:
+            time.sleep(delay_seconds)
+        written.append(import_hymn(HymnConfig(book=book, hymn=hymn)))
+    return written
+
+
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import Rig Veda hymns from English Wikisource.")
     parser.add_argument("--book", type=int, default=1)
@@ -186,8 +196,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
     hymns = args.hymns or list(range(1, 11))
-    for hymn in hymns:
-        path = import_hymn(HymnConfig(book=args.book, hymn=hymn))
+    for path in import_hymns(args.book, hymns):
         print(path.relative_to(REPO_ROOT).as_posix())
     return 0
 

@@ -149,6 +149,23 @@ TEXTS: dict[str, TextConfig] = {
         related_sources=("siddha_texts/index", "siddha_texts/idaikkattu_siddhar/index"),
         notes=("Imported from Tamil Wikisource primary-text witness.",),
     ),
+    "agappey_siddhar": TextConfig(
+        slug="agappey_siddhar",
+        source_id="siddha_texts/agappey_siddhar/full_public_domain",
+        source_title="Agappey Siddhar",
+        title="Agappey Siddhar - Tamil Public-Domain Witness",
+        page_title="அகப்பேய்ச் சித்தர்",
+        start_heading="அகப்பேய்",
+        output_path=SIDDHA_ROOT / "agappey_siddhar" / "full.public_domain.md",
+        author="Agappey Siddhar",
+        section="full_text",
+        tradition=("siddha", "shaiva", "tamil"),
+        themes=("devotion", "symbolism", "inner_life"),
+        concepts=("shiva", "grace", "yoga"),
+        use_for=("siddha_source_grounding", "tamil_primary_text"),
+        related_sources=("siddha_texts/index", "siddha_texts/agappey_siddhar/index"),
+        notes=("Imported from Tamil Wikisource primary-text witness.",),
+    ),
 }
 
 

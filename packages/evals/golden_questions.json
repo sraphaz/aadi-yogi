@@ -54,5 +54,19 @@
     "expected_source_ids": ["puranas/vishnu_purana/book_01_chapter_01"],
     "themes": ["vishnu", "cosmology"],
     "tradition": "puranic"
+  },
+  {
+    "id": "gq_009",
+    "question": "What does the Taittiriya Upanishad teach about Brahman and bliss?",
+    "expected_source_ids": ["upanishads/taittiriya/full_public_domain_translation"],
+    "themes": ["brahman", "bliss", "self_knowledge"],
+    "tradition": "upanishadic"
+  },
+  {
+    "id": "gq_010",
+    "question": "What is the role of Om in the first prapathaka of the Chandogya Upanishad?",
+    "expected_source_ids": ["upanishads/chandogya/prapathaka_01_public_domain_translation"],
+    "themes": ["om", "udgitha", "meditation"],
+    "tradition": "upanishadic"
   }
 ]

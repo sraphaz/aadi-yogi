@@ -88,3 +88,27 @@ class SimpleRetriever:
 
         scored.sort(key=lambda item: item.score, reverse=True)
         return scored[:top_k]
+
+    def find_by_source_hints(self, hints: list[str]) -> list[RetrievedChunk]:
+        if not hints:
+            return []
+        matches: list[RetrievedChunk] = []
+        for record in self._load_records():
+            source_id = str(record.get("source_id", ""))
+            if not any(hint in source_id for hint in hints):
+                continue
+            metadata = record.get("metadata", {})
+            if not isinstance(metadata, dict):
+                metadata = {}
+            text = str(record.get("text", ""))
+            matches.append(
+                RetrievedChunk(
+                    chunk_id=str(record.get("chunk_id", "")),
+                    source_id=source_id,
+                    text=text,
+                    score=1.0,
+                    citation=str(metadata.get("citation")) if metadata.get("citation") else None,
+                    metadata=metadata,
+                )
+            )
+        return matches

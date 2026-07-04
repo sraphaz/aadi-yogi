@@ -121,6 +121,10 @@ class HybridRetriever:
                     )
 
         source_hints = extract_source_id_hints(query)
+        for hinted in self.keyword_retriever.find_by_source_hints(source_hints):
+            keyword_map[hinted.chunk_id] = hinted
+            chunk_lookup[hinted.chunk_id] = hinted
+
         combined: list[HybridRetrievedChunk] = []
         for chunk_id, base in chunk_lookup.items():
             keyword_score = keyword_map[chunk_id].score if chunk_id in keyword_map else 0.0
