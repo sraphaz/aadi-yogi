@@ -49,6 +49,22 @@ def test_extract_body_lines_uses_title_and_stops_before_footnotes() -> None:
     assert body == ["TALAVAKÂRA-UPANISHAD.", "First Khanda.", "1. Verse."]
 
 
+def test_extract_body_lines_stops_before_scholar_footnotes() -> None:
+    config = import_wikisource_sbe.TEXTS["mundaka"]
+    lines = [
+        "preamble",
+        "MUNDAKA-UPANISHAD.",
+        "First Mundaka.",
+        "1. Verse.",
+        "↑ A scholar footnote.",
+        "ignored",
+    ]
+
+    body = import_wikisource_sbe.extract_body_lines(lines, config)
+
+    assert body == ["MUNDAKA-UPANISHAD.", "First Mundaka.", "1. Verse."]
+
+
 def test_render_translation_body_formats_section_headings() -> None:
     config = import_wikisource_sbe.TEXTS["katha"]
     body_lines = [

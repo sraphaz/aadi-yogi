@@ -16,6 +16,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 UPANISHAD_ROOT = REPO_ROOT / "content" / "sources" / "upanishads"
 USER_AGENT = "Codex AadiYogi Wikisource Importer/1.0"
 FOOTNOTE_MARKER = "Footnotes"
+SCHOLAR_FOOTNOTE_MARKER = "↑"
 HEADING_PATTERN = re.compile(
     r"^(?:first|second|third|fourth|fifth|sixth|seventh)\s+"
     r"(?:khanda|vallî|valli|adhyâya|adhyaya|mundaka)\.?$",
@@ -215,7 +216,11 @@ def extract_body_lines(lines: list[str], config: TextConfig) -> list[str]:
 
     body: list[str] = []
     for line in lines[start_index:]:
-        if line.startswith(FOOTNOTE_MARKER) or line.startswith("Retrieved from "):
+        if (
+            line.startswith(FOOTNOTE_MARKER)
+            or line.startswith(SCHOLAR_FOOTNOTE_MARKER)
+            or line.startswith("Retrieved from ")
+        ):
             break
         body.append(line)
 
