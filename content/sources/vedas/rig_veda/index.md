@@ -27,6 +27,11 @@ notes:
 - **Mandala 2**: hymns 1–43 (complete; chiefly Agni and Indra, Rishi Gritsamada)
 - **Mandala 3**: hymns 1–62 (complete; chiefly Agni and Indra, Rishi Visvamitra)
 - **Mandala 4**: hymns 1–58 (complete; chiefly Agni and Indra, Rishi Vamadeva)
+- **Mandala 5**: hymns 1–87 (complete; chiefly Agni and Indra, Rishi Atri)
+- **Mandala 6**: hymns 1–75 (complete; chiefly Agni and Indra, Rishi Bharadvaja)
+- **Mandala 7**: hymns 1–104 (complete; chiefly Agni and Indra, Rishi Vasishta)
+
+**Family books (Mandalas 2–7): complete — 429 hymns.**
 
 ## Provenance
 

@@ -110,5 +110,26 @@
     "expected_source_ids": ["vedas/rig_veda/mandala_04_hymn_001"],
     "themes": ["agni", "varuna", "vamadeva"],
     "tradition": "vedic"
+  },
+  {
+    "id": "gq_017",
+    "question": "What does Rig Veda Mandala 5 Hymn 40 say about Atri and Surya?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_05_hymn_040"],
+    "themes": ["atri", "surya", "eclipse"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_018",
+    "question": "What do Indra and Soma accomplish in Rig Veda Mandala 6 Hymn 72?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_06_hymn_072"],
+    "themes": ["indra", "soma", "vrtra", "bharadvaja"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_019",
+    "question": "What does Rig Veda Mandala 7 Hymn 1 teach about Agni?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_07_hymn_001"],
+    "themes": ["agni", "vasishta", "invocation"],
+    "tradition": "vedic"
   }
 ]

@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_05_hymn_031
+title: Rig Veda - Mandala 5 Hymn 31
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_05_hymn_031
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_5/Hymn_31
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 5, Hymn 31; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 5 Hymn 31
+
+## Public-Domain Translation
+
+1. MAGHAVAN Indra turns his chariot downward, the strength-displaying car which he hath mounted. Even as a herdsman driveth forth his cattle, he goeth, first, uninjured, fain for treasure. 2. Haste to us, Lord of Bays; be not ungracious: visit us, lover of gold-hued oblation. There is naught else better than thou art, Indra: e'en to the wifeless hast thou given spouses. 3. When out of strength arose the strength that conquers, Indra displayed all powers that he possesses. Forth from the cave he drove the milky mothers, and with the light laid bare investing darkness. 4. Anus have wrought a chariot for thy Courser, and Tvastar, Much-invoked! thy bolt that glitters. The Brahmans with their songs exalting Indra increased his strength that he might slaughter Ahi. 5. When heroes sang their laud to thee the Hero, Indra! and stones and Aditi accordant, Without or steed or chariot were the fellies which, sped by Indra, rolled upon the Dasytis. 6. I will declare thine exploits wrought aforetime, and, Maghavan, thy deeds of late achievement, When, Lord of Might, thou sunderedst earth and heaven, winning for man the moistly-gleaming waters. 7. This is thy deed, e'en this, Wonderful! Singer! that, slaying Ahi, here thy strength thou showedst, Didst check and stay e'en Susna's wiles and magic, and, drawing nigh, didst chase away the Dasytis. 8. Thou, Indra, on the farther bank for Yadu and Turvaga didst stay the gushing waters. Ye both assailed the fierce: thou barest Kutsa: when Gods and Usana came to you together. 9. Let the steeds bring you both, Indra and Kutsa, borne on the chariot within hearing-distance. Ye blew him from the waters, from his dwelling, and chased the darkness from the noble's spirit. 10. Even this sage hath come looking for succour even to Vata's docile harnessed horses. Here are the Maruts, all, thy dear companions: prayers have increased thy power and might, O Indra. 11. When night was near its close he carried forward e'en the Sun's chariot backward in its running. Etaga brought his wheel and firmly stays it: setting it eastward he shall give us courage. 12. This Indra, O ye men, hath come to see you, seeking a friend who hath expressed the Soma. The creaking stone is laid upon the altar, and the Adhvaryus come to turn it quickly. 13. Let mortals who were happy still be happy; let them not come to sorrow, O Immortal. Love thou the pious, and to these thy people-with whom may we be numbered-give thou vigour.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_5/Hymn_31
+- Translator: Ralph T. H. Griffith (public domain).

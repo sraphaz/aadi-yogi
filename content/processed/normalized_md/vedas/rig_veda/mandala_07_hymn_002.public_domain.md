@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_07_hymn_002
+title: Rig Veda - Mandala 7 Hymn 2
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_07_hymn_002
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_2
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 7, Hymn 2; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_07_hymn_002.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 7 Hymn 2
+
+## Normalized Primary Text
+
+1. GLADLY accept, this day, our fuel, Agni: send up thy sacred smoke and shine sublimely. Touch the celestial summits with thy columns, and overspread thee with the rays of Surya. 2. With sacrifice to these we men will honour the majesty of holy Narasamsa- To these the pure, most wise, the thought. inspirers, Gods who enjoy both sorts of our oblations. 3. We will extol at sacrifice for ever, as men may do, Agni whom Manu kindled, Your very skilful Asura, meet for worship, envoy between both worlds, the truthful speaker. 4. Bearing the sacred grass, the men who serve him strew it with reverence, on their knees, by Agni. Calling him to the spotted grass, oil-sprinkled, adorn him, ye Adhvaryus, with oblation. 5. With holy thoughts the pious have thrown open Doors fain for chariots in the Gods' assembly. Like two full mother cows who lick their youngling, like maidens for the gathering, they adorn them. 6. And let the two exalted Heavenly Ladies, Morning and Night, like a cow good at milking, Come, much-invoked, and on our grass be seated ' wealthy, deserving worship, for our welfare. 7. You, Bards and Singers at men's sacrifices, both filled with wisdom, I incline to worship. Send up our offerings when we call upon you, and so among the Gods obtain us treasures. 8. May Bharati with all her Sisters, Ila accordant with the Gods, with mortals Agni, Sarasvati with all her kindred Rivers, come to this grass, Three Goddesses, and seat them. 9. Well pleased with us do thou, O God, O Tvastar, give ready issue to our procreant vigour, Whence springs the hero, powerful, skilled in action, lover of Gods, adjuster of the press-stones. 10. Send to the Gods the oblation, Lord of Forests, and let the Immolator, Agni, dress it. He as the truer Priest shall offer worship, for the God's generations well he knoweth. 11. Come thou to us, O Agni, duly kindled, together with the potent Gods and Indra. On this our grass sit Aditi, happy Mother, and let our Hail! delight the Gods Immortal.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_7/Hymn_2
+- Translator: Ralph T. H. Griffith (public domain).

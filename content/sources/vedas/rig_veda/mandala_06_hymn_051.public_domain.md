@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_06_hymn_051
+title: Rig Veda - Mandala 6 Hymn 51
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_06_hymn_051
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_51
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 6, Hymn 51; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 6 Hymn 51
+
+## Public-Domain Translation
+
+1. THAT mighty eye of Varuna and Mitra, infallible and dear, is moving upward. The pure and lovely face of holy Order hath shone like gold of heaven in its arising. 2. The Sage who knows these Gods' three ranks and orders, and all their generations near and distant, Beholding good and evil acts of mortals, Sura marks well the doing of the pious. 3. I praise you Guards of mighty Law eternal, Aditi, Mitra, Varuna, the noble, Aryaman, Bhaga, all whose thoughts are faithful: hither I call the Bright who share in common. 4. Lords of the brave, infallible, foe-destroyers, great Kings, bestowers of fair homes to dwell in, Young, Heroes, ruling heaven with strong dominion, Adityas, Aditi I seek with worship. 5. O Heaven our Father, Earth our guileless Mother, O Brother Agni, and ye Vasus, bless us. Grant us, O Aditi and ye Adityas, all of one mind, your manifold protection. 6. Give us not up to any evil creature, as spoil to wolf or she-wolf, O ye Holy. For ye are they who guide aright our bodies, ye are the rulers of our speech and vigour. 7. Let us not suffer for the sin of others, nor do the deed which ye, O Vasus, punish. Ye, Universal Gods! are all-controllers: may he do harm unto himself who hates Me. 8. Mighty is homage: I adopt and use it. Homage hath held in place the earth and heaven. Homage to Gods! Homage commands and rules them. I banish even committed sin by homage 9. You Furtherers of Law, pure in your spirit, infallible, dwellers in the home of Order, To you all Heroes mighty and far-seeing I bow me down, O Holy Ones, with homage. 10. For these are they who shine with noblest splendour; through all our troubles these conduct us safely- Varuna, Mitra, Agni, mighty Rulers, trueminded, faithful to the hymn's controllers. 11. May they, Earth, Aditi, Indra, Bhaga, Pusan increase our laud, increase the Fivefold people. Giving good help, good refuge, goodly guidance, be they our good deliverers, good protectors. 12. Come now, O Gods, to your celestial station: the Bharadvajas' priest entreats your favour. He, sacrificing, fain for wealth, hath honoured the Gods vath those who sit and share oblations. 13. Agni, drive thou the wicked foe, the evil-hearted thief away, Far, far, Lord of the brave I and give us easy paths. 14. Soma, these pressing-stones have called aloud to win thee for our Friend. Destroy the greedy Pani, for a wolf is he. 15. Ye, O most bountiful, are they who, led by Indra, seek the sky. Give us good paths for travel: guard us ivell at home. 16. Now have we entered on the road that leads to bliss, without a foe, The road whereon a man escapes all enemies and gathers wealth.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_6/Hymn_51
+- Translator: Ralph T. H. Griffith (public domain).
