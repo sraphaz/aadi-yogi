@@ -2,10 +2,11 @@ version: "1.1"
 spec_version: "1.1"
 slug: darshan
 # Round 2 recomputed honestly from the weighted formula (70.2 -> 70).
-# Round 3 (sky map + house of nature): GAP 62->64 (CH-HEALTH connection now
-# carried by designed features with a responsibility fence), CWB 70->72
-# (self-care commons, anti-mood-tracker inner sky). New composite:
-# 0.25*58 + 0.20*88 + 0.20*64 + 0.20*72 + 0.15*78 = 71.0.
+# Round 3 (sky map + house of nature): GAP 62->64, CWB 70->72 -> 71.0.
+# Round 4: SPI 58->60 (dana model decided: contemplative surfaces free
+# forever, ADR 0001/RF-039 - access commitment now a hard requirement, not
+# an intention). Composite: 0.25*60 + 0.20*88 + 0.20*64 + 0.20*72 +
+# 0.15*78 = 71.5, floored conservatively to 71 (score_kind: intent).
 sky_score: 71
 score_kind: intent
 elevation_level: horizon
@@ -24,17 +25,22 @@ weights:
 
 indices:
   SPI:
-    score: 58
-    confidence: low
-    band: 14
+    score: 60
+    confidence: medium
+    band: 12
     rationale: |
       Free access to a wisdom corpus otherwise gated by scholarship or
       commercial wellness products; anonymous-first removes economic and
-      identity barriers. Material prosperity impact is indirect (clarity,
-      steadiness, discernment in life and work).
+      identity barriers. Round 4 hardened access from intention to
+      requirement: the dana-first model (ADR 0001, RF-039) makes all
+      contemplative surfaces free forever, with only marginal LLM cost
+      priced and patronage funding others' access. Material prosperity
+      impact remains indirect.
     evidence:
       - type: artifact
         ref: "brief-draft.yaml -> tier: mvp-free, anonymous-first auth (INT-003)"
+      - type: artifact
+        ref: "docs/decisions/0001-sustaining-model-dana.md + RF-039 acceptance criteria"
   HCE:
     score: 88
     confidence: medium

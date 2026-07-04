@@ -31,3 +31,9 @@ The narrative behind these artifacts lives in
 `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`,
 `docs/darshan_library_design.md`, `docs/darshan_becoming_path.md`,
 `docs/darshan_sky_map_design.md` and `docs/darshan_nature_health_design.md`.
+
+Decisions taken from the consciousness core are recorded in
+`docs/decisions/` (sustaining model, natal boundary, health gate, editorial
+policy, passage-id scheme). The passage-id design is
+`docs/passage_id_scheme.md`; the implemented eval harness is
+`packages/evals/`.

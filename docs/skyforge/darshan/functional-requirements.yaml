@@ -485,6 +485,21 @@ requirements:
       - safety review logged in frontmatter (reviewer, date, tier decisions)
       - CI blocks rendering-tier promotion of unreviewed health-sensitive passages
 
+  # ---------- sustaining boundary ----------
+  - id: RF-039
+    title: Monetization boundary (dana-first)
+    description: Contemplative surfaces free forever; only marginal LLM cost priced; dana as primary current.
+    source: docs/decisions/0001-sustaining-model-dana.md
+    priority: must
+    mvp: true
+    ai_suggested: false
+    user_confirmed: true
+    acceptance_criteria:
+      - Library, daily Word, Silence Room, Practice Field, Living Maps, Sky Map, Diary and Anthology are free, offline-capable and account-optional forever
+      - Inquiry has a free daily measure for everyone; beyond it, credits at transparent cost-anchored price
+      - dana surface is one quiet page; never a popup, never inside contemplative flows
+      - no ads, no data monetization, no content-locking subscription anywhere, verified in release review
+
   # ---------- living corpus ----------
   - id: RF-038
     title: Living corpus growth protocol

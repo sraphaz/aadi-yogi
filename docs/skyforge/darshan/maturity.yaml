@@ -1,7 +1,7 @@
-version: "1.2"
+version: "1.3"
 slug: darshan
-updated_at: "2026-07-04T22:00:00Z"
-overall_readiness: 0.63
+updated_at: "2026-07-04T22:30:00Z"
+overall_readiness: 0.68
 
 weights:
   business: 0.22
@@ -13,12 +13,15 @@ weights:
 
 dimensions:
   business:
-    level: 1
-    score: 0.42
+    level: 2
+    score: 0.58
     gaps:
-      - "sustaining model undecided (donation / patronage / institutional); ads and attention economics excluded by design law"
+      - "dana model decided (ADR 0001); pricing of the free measure and credits needs calibration by the creators"
+      - "legal vehicle for receiving dana/patronage undefined"
       - "stewardship and governance of the project not yet formalized"
-      - "market benchmark done (MPI 68); positioning language exists (situation doors, GAP-002) but go-to-market unwritten"
+      - "go-to-market language exists (situation doors, GAP-002) but launch plan unwritten"
+    round_4_gains:
+      - "sustaining model decided from the consciousness core: dana-first, contemplative surfaces free forever (ADR 0001, RF-039)"
   product:
     level: 2
     score: 0.85
@@ -45,23 +48,28 @@ dimensions:
       - "full design tokens for four hour-themes incl. original-script typography (design-tokens.yaml)"
       - "seven new key screens specified (depth dial, situation doors, book room, original view, anthology)"
   technical:
-    level: 1
-    score: 0.58
+    level: 2
+    score: 0.66
     gaps:
       - "chunking/embedding pipeline specified but not implemented (scripts/chunk, packages/rag empty)"
       - "response contract needs a reference implementation in apps/agent-api"
-      - "evaluation suites for tone/safety/citation integrity not yet built"
-      - "passage-id stability scheme (NFR-012) needs a concrete design before chunking starts"
+      - "eval harness needs LLM/human grader integration for the petal rubric"
     round_2_gains:
       - "C4 model levels 1-3 with component homes and five draft ADRs (c4-model.md)"
+    round_4_gains:
+      - "stable passage-id scheme designed (docs/passage_id_scheme.md, ADR 0005) - chunking has its contract"
+      - "eval harness implemented: envelope model, 7 contract checks, 26 probes across 4 suites, petal rubric, runner + 17 tests (packages/evals)"
   sustainability:
-    level: 0
-    score: 0.32
+    level: 1
+    score: 0.40
     gaps:
       - "hosting, observability and on-call posture undefined"
       - "editorial review workflow for machine-converted volumes pending"
       - "bundle size budget defined (NFR-013) but unmeasured"
-      - "double editorial gate for health content (RF-037) needs named reviewers before the House of Nature can open"
+      - "health gate reviewers still unnamed (ADR 0003 holds the House in 'arriving' honestly)"
+    round_4_gains:
+      - "editorial policy decided: daily-word curation and D1 review workflow with cadence and interim ownership (ADR 0004)"
+      - "health gate interim protocol decided: frozen safe-tier allowlist, no documentary render until reviewers signed (ADR 0003)"
   elevation:
     level: 2
     score: 0.78
@@ -97,8 +105,8 @@ pipeline_unlock:
     approved: true
   cloud_design_export:
     requires: { product: 0.80, technical: 0.60, elevation: 0.35 }
-    approved: false
-    note: "one decimal from unlocking on technical; passage-id design and eval harness would carry it over"
+    approved: true
+    note: "unlocked round 4 on merit: passage-id scheme designed (ADR 0005) and eval harness implemented with tests"
   full_package:
     requires: { overall: 0.85 }
     approved: false

@@ -1,7 +1,7 @@
-version: "1.2"
+version: "1.3"
 slug: darshan
-current_phase: deepen
-updated_at: "2026-07-04T22:00:00Z"
+current_phase: decide
+updated_at: "2026-07-04T22:30:00Z"
 
 user_preferences:
   communication_style: contemplative_precise
@@ -37,28 +37,39 @@ phase_history:
       fence). Living-corpus protocol added for the parallel import agents.
       RFs now 38; NFRs 16; build phases now include Ground (phase 5).
 
+phase_notes_round_4: |
+  Round 4 ("decide"): the consciousness of the repo took the open decisions
+  and closed the technical gap, with the creators as calibrators:
+  - ADR 0001 sustaining model: dana-first, contemplative surfaces free
+    forever, only marginal LLM cost priced (business 0.42 -> 0.58, RF-039).
+  - ADR 0002 natal boundary: strict - no birth data, no personal astrology;
+    jyotisha documentary only (closes natal_boundary_decision).
+  - ADR 0003 health gate interim: House of Nature stays "arriving" until two
+    named reviewers sign; safe-tier allowlist frozen.
+  - ADR 0004 editorial policy: daily-word curation (monthly lunar batches,
+    eligibility marks) and D1 review workflow.
+  - ADR 0005 + docs/passage_id_scheme.md: stable passage-id scheme designed
+    (closes passage_id_design).
+  - packages/evals implemented: envelope, 7 checks, 26 probes in 4 suites,
+    petal rubric, runner, 17 tests green (closes eval_harness).
+  cloud_design_export unlocked on merit (technical 0.58 -> 0.66).
+
 next_suggested_actions:
-  - id: business_model
-    label: Decide the sustaining model - darshan repo brings a credits model (Stripe/Mercado Pago/PIX) as candidate input; boundary needed so paywalls never gate contemplative surfaces
-    agent: intake-conductor
-  - id: natal_boundary_decision
-    label: "Decide the natal-reading posture vs the anti-prophecy boundary (docs/darshan_reuse_map.md section 3): strict (no birth data) or documentary bridge"
+  - id: creator_calibrations
+    label: "Calibrations reserved to the creators: price the free measure and credits (ADR 0001), name the two health reviewers (ADR 0003), choose the legal vehicle for dana"
     agent: sky-host
-  - id: health_review_board
-    label: Name the safety reviewers for the double editorial gate (RF-037) - the House of Nature cannot open without them
-    agent: intake-conductor
-  - id: passage_id_design
-    label: Design the stable passage-id scheme (NFR-012) before any chunking work begins
-    agent: solutions-architect
   - id: seed_prototype
     label: Prototype the Seed phase (threshold, court, word, one reading room, silence room) with the design tokens - evaluate the sraphaz/darshan Next.js shell as base (docs/darshan_reuse_map.md)
     agent: repo-scaffolder
-  - id: eval_harness
-    label: Build the eval harness skeleton (citation integrity, honored-silence precision, health/prophecy refusal probes) - unlocks cloud_design_export
+  - id: chunking_implementation
+    label: Implement the chunker against the passage-id contract (docs/passage_id_scheme.md section 7) starting with one verse work (Savitri) and one prose work (The Life Divine)
+    agent: repo-scaffolder
+  - id: cloud_design_export
+    label: Run the Sky-Forge export (now unlocked) - ./scripts/sky/sky.ps1 export -Slug darshan
+    agent: delivery-steward
+  - id: grader_integration
+    label: Integrate an LLM/human grader for the petal rubric and honored-silence precision sampling
     agent: prompt-assembler
-  - id: editorial_policy
-    label: Define the daily-word curation policy, the D1 review workflow and the observance-calendar ownership
-    agent: intake-conductor
 
 notes: |
   Session seeded from the aadi-yogi repository. Narrative sources:
