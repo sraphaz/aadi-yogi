@@ -50,7 +50,7 @@
   },
   {
     "id": "gq_008",
-    "question": "What is Vishnu's role in the opening of the Vishnu Purana?",
+    "question": "What is Vishnu's role in Book 1 Chapter 1 of the Vishnu Purana?",
     "expected_source_ids": ["puranas/vishnu_purana/book_01_chapter_01"],
     "themes": ["vishnu", "cosmology"],
     "tradition": "puranic"
@@ -152,5 +152,26 @@
     "expected_source_ids": ["vedas/rig_veda/mandala_10_hymn_001"],
     "themes": ["agni", "birth", "cosmology"],
     "tradition": "vedic"
+  },
+  {
+    "id": "gq_023",
+    "question": "What does the Devi Mahatmya teach about Madhu and Kaitabha?",
+    "expected_source_ids": ["puranas/markandeya_purana/devi_mahatmya"],
+    "themes": ["devi", "madhu_kaitabha", "illusion"],
+    "tradition": "puranic"
+  },
+  {
+    "id": "gq_024",
+    "question": "What does Vishnu Purana Book 1 Chapter 2 describe about creation?",
+    "expected_source_ids": ["puranas/vishnu_purana/book_01_chapter_02"],
+    "themes": ["vishnu", "creation", "cosmology"],
+    "tradition": "puranic"
+  },
+  {
+    "id": "gq_025",
+    "question": "How does the Garuda Purana tradition describe Vyasa narrating the text?",
+    "expected_source_ids": ["puranas/garuda_purana/book_01_chapter_02"],
+    "themes": ["garuda", "vyasa", "tradition"],
+    "tradition": "puranic"
   }
 ]

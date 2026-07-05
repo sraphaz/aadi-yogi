@@ -9,6 +9,9 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO_ROOT))
+
+from packages.text.ocr_cleanup import clean_ocr_lines
 UPANISHAD_ROOT = REPO_ROOT / "content" / "sources" / "upanishads"
 CACHE_DIR = REPO_ROOT / "data" / "cache"
 USER_AGENT = "AadiYogi Archive SBE Upanishad Importer/1.0"
@@ -103,26 +106,7 @@ def fetch_sbe15_text(cache_path: Path = SBE15_CACHE) -> str:
 
 
 def clean_ocr_body(body: str) -> str:
-    lines: list[str] = []
-    skip_patterns = (
-        re.compile(r"^Digitized by Google$", re.I),
-        re.compile(r"^\d+\s+[A-Z\- ]+UPANISHAD\.?$"),
-        re.compile(r"^[IVXLC]+\s+ADHYAYA", re.I),
-        re.compile(r"^PAGE\s*$", re.I),
-    )
-    for raw_line in body.splitlines():
-        line = raw_line.strip()
-        if not line:
-            if lines and lines[-1]:
-                lines.append("")
-            continue
-        if any(pattern.search(line) for pattern in skip_patterns):
-            continue
-        line = re.sub(r"\s+", " ", line)
-        lines.append(line)
-    while lines and not lines[-1]:
-        lines.pop()
-    return "\n\n".join(lines).strip()
+    return clean_ocr_lines(body, fix_hyphenation=True)
 
 
 def render_line(line: str) -> str | None:
