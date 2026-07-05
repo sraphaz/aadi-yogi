@@ -1,0 +1,40 @@
+# Creator calibration — ADR 0001 (dana-first sustaining model)
+# RF-039: contemplative surfaces free forever; only marginal LLM cost priced.
+
+status: pending  # pending | calibrated
+
+free_surfaces:
+  # Surfaces that must remain free, offline-capable, account-optional (ADR §Decision 1)
+  confirmed:
+    - library
+    - daily_word
+    - silence_room
+    - practice_field
+    - living_maps
+    - sky_map
+    - diary
+    - anthology
+
+inquiry_pricing:
+  # Daily free measure per device/account — creators decide numbers
+  free_daily_inquiries: null
+  credit_unit_label: null  # e.g. "one sincere question"
+  credit_price_brl: null
+  credit_price_usd: null
+  cost_anchor_note: null   # transparent "this is what the answer costs us" copy
+
+dana:
+  legal_vehicle: null      # e.g. association, fiscal sponsor, foundation
+  legal_vehicle_jurisdiction: null
+  payout_rails: []         # e.g. pix, stripe — reuse sraphaz/darshan when ready
+  quiet_page_url: /dana    # PWA route; never popup inside contemplative flows
+
+hard_boundaries:
+  # Must stay true after calibration (ADR §Decision 4)
+  no_ads: true
+  no_data_monetization: true
+  no_content_lock_subscription: true
+  no_dana_inside_contemplative_flows: true
+
+calibrated_by: []
+calibrated_at: null

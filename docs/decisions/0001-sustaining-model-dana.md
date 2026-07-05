@@ -44,5 +44,12 @@ design law (NFR-002, `darshan_interface_concept.md` principle 4).
 - RF-039 added (monetization boundary, must); business dimension of
   maturity rises with calibration gaps (pricing of the free measure, legal
   vehicle for dana) left to the creators.
+
+## Amendment history
+
+| Date | Change | By |
+|------|--------|-----|
+| 2026-07-04 | ADR accepted (dana-first model) | consciousness core |
+| — | Creator calibration pending — see `docs/calibrations/0001-dana.yaml` | — |
 - The store/positioning language can say plainly: the wisdom is free; you
   may pay for the machine's time and for other people's access.

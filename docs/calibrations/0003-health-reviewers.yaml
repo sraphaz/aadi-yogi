@@ -1,0 +1,28 @@
+# Creator calibration — ADR 0003 (health double editorial gate)
+# Until calibrated: House of Nature stays "arriving"; health-touching above D1 blocked.
+
+status: pending  # pending | calibrated
+
+gate:
+  editorial_reviewer:
+    name: null
+    role: editorial
+    signed_at: null
+  safety_reviewer:
+    name: null
+    role: safety
+    signed_at: null
+
+while_pending:
+  house_of_nature_state: arriving
+  health_touching_max_tier: documentary_with_fence
+  safe_tier_allowlist_frozen: true
+  allowlist_path: packages/prompts/health_tier.py
+
+after_calibration:
+  # Actions unlocked only when status becomes calibrated
+  unlock_documentary_health_rendering: false
+  unlock_healing_memory_room: false
+
+calibrated_by: []
+calibrated_at: null

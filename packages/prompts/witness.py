@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from packages.prompts.llm_client import LLMClient, LLMResponse
 from packages.prompts.restraint import detect_restraint
-from packages.rag.citations import derive_passage_id
+from packages.rag.citations import derive_passage_id, primary_tradition
 from packages.rag.hybrid_retriever import HybridRetriever
 from packages.rag.retriever import RetrievedChunk, SimpleRetriever
 
@@ -49,7 +49,7 @@ def _fallback_witness(text: str, chunk: RetrievedChunk | None) -> WitnessResult:
         citation = WitnessCitation(
             passage_id=derive_passage_id(chunk),
             quote=quote,
-            tradition=chunk.metadata.get("tradition", "") if chunk.metadata else "",
+            tradition=primary_tradition(chunk),
         )
         body += f"\n\nOne source may echo this: {quote}"
     return WitnessResult(body=body, citation=citation, provider="fallback", model="witness_compose_v1", restraint=False)
@@ -108,7 +108,7 @@ def witness_reflect(
             citation = WitnessCitation(
                 passage_id=derive_passage_id(chunk),
                 quote=quote,
-                tradition=chunk.metadata.get("tradition", "") if chunk.metadata else "",
+                tradition=primary_tradition(chunk),
             )
         return WitnessResult(
             body=response.content.strip(),

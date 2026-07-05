@@ -31,6 +31,7 @@ export const STRINGS = {
       { id: 'sky', name: 'the sky map', desc: 'the real sky, read as rhythm', state: 'open' },
       { id: 'diary', name: 'the inner diary', desc: 'written for no one — the engine is blind to it', state: 'open' },
       { id: 'nature', name: 'the house of nature', desc: 'elements, land, the body as temple', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'shared silence and study — only without social-media dynamics', state: 'open' },
     ],
     shelves: [
       { id: 'gita', name: 'the Bhagavad Gita', line: 'the battlefield as the inner field.' },
@@ -177,6 +178,17 @@ export const STRINGS = {
     natSafeMovement: 'optional movement',
     natFromSky: 'season link',
     natSkyRegimen: 'the season turns — what the traditions keep in this ritu is offered at the safe layer only.',
+    sanghaLabel: 'sangha',
+    sanghaIntro: 'exploratory — not built until the charter holds.',
+    sanghaForbiddenLine: 'what will never appear here',
+    sanghaFormsLine: 'forms under consideration',
+    sanghaOpenSilence: 'enter the silence room',
+    danaLink: 'dana',
+    danaLabel: 'dana',
+    danaIntro: 'the wisdom is free. you may offer to keep the well open for others.',
+    danaMachine: 'inquiry uses real machine time beyond a daily measure — priced at cost when calibration is complete.',
+    danaNever: 'no urgency, no guilt, no popups inside contemplative flows.',
+    danaPending: 'pricing and legal vehicle await creator calibration (ADR 0001).',
   },
   pt: {
     hourLines: {
@@ -209,6 +221,7 @@ export const STRINGS = {
       { id: 'sky', name: 'mapa do céu', desc: 'o céu real, lido como ritmo', state: 'open' },
       { id: 'diary', name: 'o diário interior', desc: 'escrito para ninguém — o motor é cego a ele', state: 'open' },
       { id: 'nature', name: 'a casa da natureza', desc: 'elementos, terra, o corpo como templo', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'silêncio compartilhado e estudo — só sem dinâmicas de rede social', state: 'open' },
     ],
     shelves: [
       { id: 'gita', name: 'Bhagavad Gita', line: 'o campo de batalha como campo interior.' },
@@ -336,6 +349,17 @@ export const STRINGS = {
     natSafeMovement: 'movimento opcional',
     natFromSky: 'ligação sazonal',
     natSkyRegimen: 'a estação vira — o que as tradições guardam neste ritu é oferecido só na camada segura.',
+    sanghaLabel: 'sangha',
+    sanghaIntro: 'exploratório — não será construído até a carta se sustentar.',
+    sanghaForbiddenLine: 'o que nunca aparecerá aqui',
+    sanghaFormsLine: 'formas em consideração',
+    sanghaOpenSilence: 'entrar na sala do silêncio',
+    danaLink: 'dana',
+    danaLabel: 'dana',
+    danaIntro: 'a sabedoria é livre. você pode oferecer para manter o poço aberto para outros.',
+    danaMachine: 'a indagação usa tempo real de máquina além de uma medida diária — preço de custo quando a calibração estiver completa.',
+    danaNever: 'sem urgência, sem culpa, sem popups dentro dos fluxos contemplativos.',
+    danaPending: 'preço e veículo legal aguardam calibração dos criadores (ADR 0001).',
   },
   hi: {
     hourLines: {

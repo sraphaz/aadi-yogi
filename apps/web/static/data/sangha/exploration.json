@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "en": "Sangha is exploratory — shared silence and study, only if it can be done without social-media dynamics.",
+    "pt": "Sangha é exploratório — silêncio compartilhado e estudo, só se puder ser feito sem dinâmicas de rede social."
+  },
+  "forbidden": [
+    {
+      "en": "no feeds, timelines or infinite scroll",
+      "pt": "sem feeds, linhas do tempo ou rolagem infinita"
+    },
+    {
+      "en": "no profiles, followers, likes or public counts",
+      "pt": "sem perfis, seguidores, curtidas ou contagens públicas"
+    },
+    {
+      "en": "no ranking, streaks or comparison between seekers",
+      "pt": "sem ranking, sequências ou comparação entre buscadores"
+    },
+    {
+      "en": "no unsolicited contact or broadcast messaging",
+      "pt": "sem contato não solicitado ou mensagens em massa"
+    }
+  ],
+  "forms": [
+    {
+      "id": "silence-sitting",
+      "name": { "en": "shared silence sitting", "pt": "sentar em silêncio compartilhado" },
+      "line": {
+        "en": "the silence room is already here — a local sitting, no server, no audience.",
+        "pt": "a sala do silêncio já está aqui — um sentar local, sem servidor, sem plateia."
+      },
+      "state": "open",
+      "action": "silence"
+    },
+    {
+      "id": "study-circle",
+      "name": { "en": "study circle", "pt": "círculo de estudo" },
+      "line": {
+        "en": "one passage, one room, no chat — scheduled only when the charter passes review.",
+        "pt": "uma passagem, uma sala, sem chat — agendado só quando a carta passar revisão."
+      },
+      "state": "arriving"
+    }
+  ]
+}

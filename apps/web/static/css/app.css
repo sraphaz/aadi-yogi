@@ -218,6 +218,19 @@ a:focus-visible,
   max-width: var(--measure-reading);
 }
 
+.dana-link {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: var(--type-meta);
+  color: var(--ink-soft);
+  opacity: 0.65;
+}
+
+.dana-link:hover {
+  opacity: 1;
+  color: var(--ink);
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -539,6 +552,19 @@ a:focus-visible,
 
 .path-note--muted {
   opacity: 0.75;
+}
+
+.sangha-forbidden {
+  margin: var(--space-paragraph) 0 0;
+  padding-left: 1.25rem;
+  max-width: var(--measure-reading);
+  color: var(--ink-soft);
+  font-size: var(--type-meta);
+  line-height: 1.65;
+}
+
+.sangha-forbidden li {
+  margin-bottom: 0.35rem;
 }
 
 .path-meta {

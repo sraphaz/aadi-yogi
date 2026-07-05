@@ -40,3 +40,10 @@ creators can do; the journey flagged it (`health_review_board`).
 - No health content can leak into guidance before the gate is human-signed.
 - The Ground build phase (spec section 9) proceeds without waiting: its
   first deliverables are the non-health element rooms.
+
+## Amendment history
+
+| Date | Change | By |
+|------|--------|-----|
+| 2026-07-04 | ADR accepted (arriving until reviewers named) | consciousness core |
+| — | Reviewer names pending — see `docs/calibrations/0003-health-reviewers.yaml` | — |

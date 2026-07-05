@@ -38,12 +38,17 @@ def derive_passage_id(chunk: RetrievedChunk) -> str:
     return normalized
 
 
+def normalize_tradition(value: object) -> str:
+    if isinstance(value, list):
+        return str(value[0]) if value else ""
+    if value is None:
+        return ""
+    return str(value)
+
+
 def primary_tradition(chunk: RetrievedChunk) -> str:
     meta = chunk.metadata or {}
-    traditions = meta.get("tradition") or []
-    if isinstance(traditions, list) and traditions:
-        return str(traditions[0])
-    return ""
+    return normalize_tradition(meta.get("tradition"))
 
 
 def excerpt_quote(text: str, max_len: int = 100) -> str:
