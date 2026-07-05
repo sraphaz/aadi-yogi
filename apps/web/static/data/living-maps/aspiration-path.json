@@ -1,0 +1,31 @@
+{
+  "id": "aspiration-path",
+  "name": { "en": "aspiration path", "pt": "caminho da aspiração" },
+  "start": {
+    "en": "the need for truth or inner change is felt, but steadiness is missing.",
+    "pt": "a necessidade de verdade ou mudança interior se sente, mas falta firmeza."
+  },
+  "caution": {
+    "en": "aspiration is not converted into ambition. intensity is never forced.",
+    "pt": "a aspiração não se converte em ambição. a intensidade nunca é forçada."
+  },
+  "sources": "Upanishads · the Gita · Sri Aurobindo · the Mother",
+  "stations": [
+    {
+      "en": "name the aspiration simply",
+      "pt": "nomear a aspiração com simplicidade"
+    },
+    {
+      "en": "establish a brief daily moment of recollection",
+      "pt": "estabelecer um breve momento diário de recolhimento"
+    },
+    {
+      "en": "read one small source-grounded passage, regularly",
+      "pt": "ler uma passagem pequena, com fonte, regularmente"
+    },
+    {
+      "en": "observe what strengthens sincerity",
+      "pt": "observar o que fortalece a sinceridade"
+    }
+  ]
+}

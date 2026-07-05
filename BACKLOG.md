@@ -20,7 +20,7 @@ powershell -File $env:USERPROFILE/arah-harness/cli/arah.ps1 export-graph -Target
 
 ---
 
-## Fase 01 — Seed (open) ← **ATUAL**
+## Fase 01 — Seed ✅
 
 **Goal:** PWA instalável que já encarna silêncio, one-pointedness e closure, servindo corpus offline.
 
@@ -38,7 +38,7 @@ powershell -File $env:USERPROFILE/arah-harness/cli/arah.ps1 export-graph -Target
 
 ---
 
-## Fase 02 — Voice (arriving)
+## Fase 02 — Voice ✅
 
 **Goal:** Oracle sob response contract — retrieval com citations, contemplation pages, honored silence.
 
@@ -54,17 +54,25 @@ powershell -File $env:USERPROFILE/arah-harness/cli/arah.ps1 export-graph -Target
 
 ---
 
-## Fase 03 — Path (future)
+## Fase 03 — Path ← **ATUAL**
 
-Living maps · practice field · concept lens · outer sky (local ephemeris) · rhythm composer.
+Living maps · practice field · outer sky (local ephemeris) · rhythm composer · inner weather marks (local).
 
-**Gate:** sem progress percentages; location never leaves device.
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| P-01 | Living maps — aspiration path, posture, stations | frontend | `apps/web/` | RF-009 |
+| P-02 | Practice field — offering, look-back, silence link | frontend | `apps/web/` | RF-010 |
+| P-03 | Sky map — moon phase, tithi, ritu, sun times (local) | frontend | `apps/web/static/js/ephemeris.js` | RF-030, RF-031 |
+| P-04 | Rhythm composer — opt-in joints, sky bind | frontend | `apps/web/` | RF-026, RF-034 |
+| P-05 | Inner weather marks on sky map (local-only) | frontend | `apps/web/` | RF-032 (parcial) |
+
+**Gate:** sem progress percentages; location never leaves device; sem dados natais (ADR-0002).
 
 ---
 
 ## Fase 04 — Witness (future)
 
-Inner diary (local-first, encrypted) · witness mode · inner sky · presence metrics · opt-in bells.
+Inner diary (local-first, encrypted) · witness mode · presence metrics · opt-in bells.
 
 **Gate:** diary provably engine-blind; zero third-party analytics.
 

@@ -1,4 +1,4 @@
-const CACHE = 'darshan-seed-v1';
+const CACHE = 'darshan-path-v1';
 const PRECACHE = [
   '/',
   '/manifest.webmanifest',
@@ -11,8 +11,11 @@ const PRECACHE = [
   '/static/js/app.js',
   '/static/js/strings.js',
   '/static/js/theme.js',
+  '/static/js/ephemeris.js',
+  '/static/js/path-store.js',
   '/static/data/daily-words.json',
   '/static/data/library/gita-ii-47.json',
+  '/static/data/living-maps/aspiration-path.json',
   '/static/icons/icon-192.svg',
   '/static/icons/icon-512.svg',
 ];
@@ -36,7 +39,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  if (url.pathname.startsWith('/ask') || url.pathname.startsWith('/retrieve')) return;
+  if (url.pathname.startsWith('/ask') || url.pathname.startsWith('/inquire') || url.pathname.startsWith('/retrieve')) return;
 
   event.respondWith(
     caches.match(request).then((cached) => {
