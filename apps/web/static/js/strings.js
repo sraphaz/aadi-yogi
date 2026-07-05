@@ -24,7 +24,7 @@ export const STRINGS = {
     farewell: 'may you go gently.',
     courtCards: [
       { id: 'word', name: 'the word', desc: 'one passage for this day', state: 'open' },
-      { id: 'inquiry', name: 'the inquiry', desc: 'a well, not a slot machine', state: 'arriving' },
+      { id: 'inquiry', name: 'the inquiry', desc: 'a well, not a slot machine', state: 'open' },
       { id: 'maps', name: 'living maps', desc: 'inner crossings, station by station', state: 'future' },
       { id: 'practice', name: 'practice field', desc: 'silence, offering, the look-back', state: 'arriving' },
       { id: 'library', name: 'the library', desc: 'reading rooms with full provenance', state: 'open' },
@@ -37,6 +37,25 @@ export const STRINGS = {
     langLabel: 'language',
     hourLabel: 'atmosphere',
     hourAuto: 'follow the hour',
+    inquiryLabel: 'the inquiry',
+    inquiryIntro: 'one question, one page — composed without streaming.',
+    inquiryDoors: [
+      { id: 'grief', name: 'grief' },
+      { id: 'work', name: 'work' },
+      { id: 'decision', name: 'decision' },
+      { id: 'joy', name: 'joy' },
+      { id: 'dry', name: 'dryness' },
+      { id: 'illness', name: 'illness' },
+    ],
+    inquiryPlaceholder: 'or bring it in your own words',
+    inquirySubmit: 'offer the question',
+    inquiryResting: 'composing…',
+    sitWithIt: 'sit with it',
+    keepIt: 'keep it',
+    leaveNow: 'leave',
+    movementOptional: 'optional movement',
+    traditionsDiffer: 'the traditions differ here',
+    honoredSilenceOffer: 'if words are too many, the silence room is open.',
   },
   pt: {
     hourLines: {
@@ -62,7 +81,7 @@ export const STRINGS = {
     farewell: 'que você vá com gentileza.',
     courtCards: [
       { id: 'word', name: 'a palavra', desc: 'uma passagem para este dia', state: 'open' },
-      { id: 'inquiry', name: 'a indagação', desc: 'um poço, não uma máquina', state: 'arriving' },
+      { id: 'inquiry', name: 'a indagação', desc: 'um poço, não uma máquina', state: 'open' },
       { id: 'maps', name: 'mapas vivos', desc: 'cruzamentos interiores, estação a estação', state: 'future' },
       { id: 'practice', name: 'campo de prática', desc: 'silêncio, oferenda, o olhar ao entardecer', state: 'arriving' },
       { id: 'library', name: 'a biblioteca', desc: 'salas de leitura com proveniência completa', state: 'open' },
@@ -100,7 +119,7 @@ export const STRINGS = {
     farewell: 'कोमलता से जाइए।',
     courtCards: [
       { id: 'word', name: 'शब्द', desc: 'आज के लिए एक passage', state: 'open' },
-      { id: 'inquiry', name: 'प्रश्न', desc: 'एक कुआँ, स्लॉट मशीन नहीं', state: 'arriving' },
+      { id: 'inquiry', name: 'प्रश्न', desc: 'एक कुआँ, स्लॉट मशीन नहीं', state: 'open' },
       { id: 'maps', name: 'जीवित मानचित्र', desc: 'आंतरिक पार', state: 'future' },
       { id: 'practice', name: 'अभ्यास क्षेत्र', desc: 'मौन, अर्पण', state: 'arriving' },
       { id: 'library', name: 'पुस्तकालय', desc: 'पूर्ण provenance के साथ', state: 'open' },
@@ -136,7 +155,7 @@ export const STRINGS = {
     farewell: 'che tu vada con gentilezza.',
     courtCards: [
       { id: 'word', name: 'la parola', desc: 'un passaggio per questo giorno', state: 'open' },
-      { id: 'inquiry', name: 'l\'indagine', desc: 'un pozzo, non una slot machine', state: 'arriving' },
+      { id: 'inquiry', name: 'l\'indagine', desc: 'un pozzo, non una slot machine', state: 'open' },
       { id: 'maps', name: 'mappe viventi', desc: 'attraversamenti interiori', state: 'future' },
       { id: 'practice', name: 'campo di pratica', desc: 'silenzio, offerta', state: 'arriving' },
       { id: 'library', name: 'la biblioteca', desc: 'sale con piena provenienza', state: 'open' },
@@ -172,7 +191,7 @@ export const STRINGS = {
     farewell: 'que vayas con gentileza.',
     courtCards: [
       { id: 'word', name: 'la palabra', desc: 'un pasaje para este día', state: 'open' },
-      { id: 'inquiry', name: 'la indagación', desc: 'un pozo, no una máquina', state: 'arriving' },
+      { id: 'inquiry', name: 'la indagación', desc: 'un pozo, no una máquina', state: 'open' },
       { id: 'maps', name: 'mapas vivos', desc: 'cruces interiores', state: 'future' },
       { id: 'practice', name: 'campo de práctica', desc: 'silencio, ofrenda', state: 'arriving' },
       { id: 'library', name: 'la biblioteca', desc: 'salas con proveniencia completa', state: 'open' },

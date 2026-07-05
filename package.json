@@ -14,6 +14,7 @@
     "eval:golden": "PYTHONPATH=. python scripts/validate/run_golden_questions.py",
     "eval:response": "PYTHONPATH=. python scripts/validate/run_response_eval.py",
     "api:dev": "PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000",
-    "content:daily-words": "python scripts/content/build_daily_words.py"
+    "content:daily-words": "python scripts/content/build_daily_words.py",
+    "eval:contract-probes": "python scripts/validate/run_contract_probes.py"
   }
 }

@@ -12,7 +12,8 @@ from pydantic import BaseModel, Field
 
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
-from packages.prompts.orchestrator import AgentAnswer, ask_question
+from packages.prompts.contract import envelope_to_dict
+from packages.prompts.orchestrator import AgentAnswer, InquireResult, ask_question, inquire
 from packages.rag.embeddings import get_embedding_provider
 from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk, USE_QDRANT
 from packages.rag.qdrant_retriever import QdrantRetriever
@@ -74,6 +75,37 @@ class AnswerResponse(BaseModel):
     retrieved_chunks: list[ChunkResponse]
 
 
+class CitationModel(BaseModel):
+    passage_id: str
+    quote: str = ""
+    tradition: str = ""
+
+
+class OfferedMovementModel(BaseModel):
+    text: str
+    safety_class: str = "safe"
+
+
+class EnvelopeModel(BaseModel):
+    state_detected: str
+    guidance_mode: str
+    body: str
+    citations: list[CitationModel] = Field(default_factory=list)
+    offered_movement: OfferedMovementModel | None = None
+    closing: str = "plain"
+
+
+class InquireResponse(BaseModel):
+    question: str
+    envelope: EnvelopeModel
+    contract_valid: bool
+    validation_details: list[str]
+    provider: str
+    model: str
+    restraint_short_circuit: bool
+    retrieved_chunks: list[ChunkResponse]
+
+
 def chunk_to_response(chunk: RetrievedChunk | HybridRetrievedChunk) -> ChunkResponse:
     return ChunkResponse(
         chunk_id=chunk.chunk_id,
@@ -84,6 +116,28 @@ def chunk_to_response(chunk: RetrievedChunk | HybridRetrievedChunk) -> ChunkResp
         keyword_score=getattr(chunk, "keyword_score", None),
         vector_score=getattr(chunk, "vector_score", None),
         dense_score=getattr(chunk, "dense_score", None),
+    )
+
+
+def inquire_to_response(result: InquireResult) -> InquireResponse:
+    env = envelope_to_dict(result.envelope)
+    movement = env.get("offered_movement")
+    return InquireResponse(
+        question=result.question,
+        envelope=EnvelopeModel(
+            state_detected=env["state_detected"],
+            guidance_mode=env["guidance_mode"],
+            body=env["body"],
+            citations=[CitationModel(**c) for c in env["citations"]],
+            offered_movement=OfferedMovementModel(**movement) if movement else None,
+            closing=env["closing"],
+        ),
+        contract_valid=result.contract_valid,
+        validation_details=result.validation_details,
+        provider=result.provider,
+        model=result.model,
+        restraint_short_circuit=result.restraint_short_circuit,
+        retrieved_chunks=[chunk_to_response(c) for c in result.retrieved_chunks],
     )
 
 
@@ -164,3 +218,15 @@ def ask(request: AskRequest) -> AnswerResponse:
         model=result.model,
         retrieved_chunks=[chunk_to_response(chunk) for chunk in result.retrieved_chunks],
     )
+
+
+@app.post("/inquire", response_model=InquireResponse)
+def inquire_endpoint(request: AskRequest) -> InquireResponse:
+    """Darshan inquiry — response contract envelope, no streaming (RF-004, RF-005)."""
+    result = inquire(
+        request.question,
+        retriever=retriever,
+        llm_client=llm_client,
+        top_k=request.top_k,
+    )
+    return inquire_to_response(result)

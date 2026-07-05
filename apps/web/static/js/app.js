@@ -1,5 +1,5 @@
 /**
- * Darshan PWA — Seed phase (threshold, court, word, library D0–D2, silence, i18n)
+ * Darshan PWA — Seed + Voice (threshold, court, word, library, inquiry, silence, i18n)
  */
 import { STRINGS, LANGS, HOUR_THEMES } from './strings.js';
 import {
@@ -20,12 +20,15 @@ const state = {
   dailyBatch: null,
   silenceReturn: 'court',
   closing: false,
+  inquiryDoor: null,
+  inquiryQuestion: '',
+  contemplation: null,
 };
 
 const root = document.getElementById('app');
 
 function t() {
-  return STRINGS[state.lang] || STRINGS.en;
+  return { ...STRINGS.en, ...(STRINGS[state.lang] || {}) };
 }
 
 function detectLang() {
@@ -287,14 +290,138 @@ function goCourt() {
   renderCourt();
 }
 
+function loadShelf() {
+  try {
+    return JSON.parse(localStorage.getItem('darshan.contemplationShelf') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveToShelf(page) {
+  const shelf = loadShelf();
+  shelf.unshift({ ...page, saved_at: new Date().toISOString() });
+  localStorage.setItem('darshan.contemplationShelf', JSON.stringify(shelf.slice(0, 24)));
+}
+
+function renderInquiry() {
+  const s = t();
+  const doors = s.inquiryDoors
+    .map(
+      (d) =>
+        `<button type="button" class="door-chip ${state.inquiryDoor === d.id ? 'is-active' : ''}" data-door="${d.id}">${d.name}</button>`,
+    )
+    .join('');
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.inquiryLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.inquiryLabel}</div>
+        <p class="inquiry-intro">${s.inquiryIntro}</p>
+        <div class="door-grid" role="group" aria-label="situation">${doors}</div>
+        <form class="inquiry-form" data-action="inquiry-submit">
+          <label class="sr-only" for="inquiry-field">${s.inquiryPlaceholder}</label>
+          <textarea id="inquiry-field" class="inquiry-field" rows="4" maxlength="4000" placeholder="${s.inquiryPlaceholder}">${state.inquiryQuestion || ''}</textarea>
+          <button type="submit" class="btn-quiet inquiry-submit">${s.inquirySubmit}</button>
+        </form>
+      </div>
+    </section>`;
+}
+
+function renderInquiryResting() {
+  const s = t();
+  root.innerHTML = `
+    <section class="screen inquiry-resting" aria-label="${s.inquiryResting}">
+      <div class="breath-glyph" aria-hidden="true"></div>
+      <p class="threshold__line">${s.inquiryResting}</p>
+    </section>`;
+}
+
+function renderContemplation() {
+  const s = t();
+  const page = state.contemplation;
+  if (!page) return navigate('inquiry');
+
+  const citations = (page.envelope.citations || [])
+    .map(
+      (c) =>
+        `<blockquote class="contemplation-quote"><span class="contemplation-quote__bar"></span>${c.quote || c.passage_id}<footer>${c.passage_id}${c.tradition ? ` · ${c.tradition}` : ''}</footer></blockquote>`,
+    )
+    .join('');
+
+  const movement = page.envelope.offered_movement
+    ? `<p class="contemplation-movement"><span class="contemplation-movement__mark">◦</span> ${page.envelope.offered_movement.text} <span class="contemplation-movement__tag">(${s.movementOptional})</span></p>`
+    : '';
+
+  const silenceOffer =
+    page.envelope.closing === 'honored_silence'
+      ? `<button type="button" class="silence-link" data-action="silence">${s.honoredSilenceOffer}</button>`
+      : '';
+
+  root.innerHTML = `
+    <section class="screen" aria-label="contemplation">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${page.envelope.guidance_mode.replace(/_/g, ' ')}</div>
+        <div class="contemplation-body">${page.envelope.body}</div>
+        ${citations}
+        ${movement}
+        ${silenceOffer}
+        <div class="contemplation-exits">
+          <button type="button" class="btn-quiet" data-action="sit">${s.sitWithIt}</button>
+          <button type="button" class="btn-quiet" data-action="keep">${s.keepIt}</button>
+          <button type="button" class="btn-quiet" data-action="leave">${s.leaveNow}</button>
+        </div>
+      </div>
+    </section>`;
+}
+
+async function submitInquiry(question) {
+  const trimmed = question.trim();
+  if (trimmed.length < 3) return;
+
+  state.inquiryQuestion = trimmed;
+  navigate('inquiry-resting');
+
+  const restingMs = breathDurationMs() > 0 ? 2600 : 400;
+
+  try {
+    const res = await fetch('/inquire', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: trimmed, top_k: 5 }),
+    });
+    if (!res.ok) throw new Error('inquire failed');
+    const data = await res.json();
+    await new Promise((r) => setTimeout(r, restingMs));
+    state.contemplation = data;
+    navigate('contemplation');
+  } catch {
+    await new Promise((r) => setTimeout(r, restingMs));
+    state.contemplation = {
+      envelope: {
+        guidance_mode: 'source_commentary',
+        body: 'The well is quiet right now. You may return to the court, or sit in the silence room.',
+        citations: [],
+        closing: 'plain',
+      },
+    };
+    navigate('contemplation');
+  }
+}
+
 function navigate(screen) {
   state.screen = screen;
-  state.depth = 0;
+  if (screen !== 'word' && screen !== 'library-read') state.depth = 0;
   if (screen === 'threshold') renderThreshold();
   else if (screen === 'court') renderCourt();
   else if (screen === 'word') renderWord();
   else if (screen === 'library') renderLibraryShelf();
   else if (screen === 'library-read') renderLibraryReading();
+  else if (screen === 'inquiry') renderInquiry();
+  else if (screen === 'inquiry-resting') renderInquiryResting();
+  else if (screen === 'contemplation') renderContemplation();
   else if (screen === 'silence') renderSilence();
   else if (screen === 'farewell') renderFarewell();
 }
@@ -317,7 +444,7 @@ function closeSession() {
 }
 
 root.addEventListener('click', async (e) => {
-  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth]');
+  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door]');
   if (!el) return;
 
   if (el.dataset.action === 'enter') {
@@ -330,7 +457,9 @@ root.addEventListener('click', async (e) => {
     return;
   }
   if (el.dataset.action === 'silence' || el.dataset.action === 'silence-exit') {
-    state.silenceReturn = state.screen === 'court' ? 'court' : state.screen;
+    if (el.dataset.action === 'silence' && !['contemplation'].includes(state.screen)) {
+      state.silenceReturn = state.screen === 'court' ? 'court' : state.screen;
+    }
     navigate('silence');
     if (el.dataset.action === 'silence-exit') navigate(state.silenceReturn);
     return;
@@ -341,12 +470,34 @@ root.addEventListener('click', async (e) => {
   }
   if (el.dataset.gesture === 'word') navigate('word');
   if (el.dataset.gesture === 'library') navigate('library');
+  if (el.dataset.gesture === 'inquiry') navigate('inquiry');
+  if (el.dataset.door) {
+    state.inquiryDoor = el.dataset.door;
+    renderInquiry();
+  }
+  if (el.dataset.action === 'sit') {
+    state.silenceReturn = 'contemplation';
+    navigate('silence');
+  }
+  if (el.dataset.action === 'keep' && state.contemplation) {
+    saveToShelf(state.contemplation);
+    closeSession();
+  }
+  if (el.dataset.action === 'leave') closeSession();
   if (el.dataset.shelf) openLibraryPassage(el.dataset.shelf === 'gita' ? 'gita-ii-47' : el.dataset.shelf);
   if (el.dataset.depth !== undefined) {
     state.depth = Number(el.dataset.depth);
     if (state.screen === 'word') renderWord();
     if (state.screen === 'library-read') renderLibraryReading();
   }
+});
+
+root.addEventListener('submit', (e) => {
+  const form = e.target.closest('[data-action="inquiry-submit"]');
+  if (!form) return;
+  e.preventDefault();
+  const field = form.querySelector('#inquiry-field');
+  submitInquiry(field?.value || '');
 });
 
 root.addEventListener('keydown', (e) => {
