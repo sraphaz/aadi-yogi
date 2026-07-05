@@ -1,0 +1,12 @@
+﻿id: pwa-frontend
+name: PWA / Contemplative UI
+type: specialist
+description: Especialista técnico — frontend
+scope:
+  paths:
+    - apps/web/**
+    - spec/design/claude-design/**
+  may_code: false
+guardrails:
+  no_merge: true
+  consult_only: true

@@ -1,0 +1,64 @@
+﻿# Coreografia de domínio — gerada por domain-sync.ps1 (não editar à mão)
+version: 1
+updated: 2026-07-04
+rules:
+  - id: domain-darshan-ui
+    paths:
+      - apps/web/**
+      - spec/design/claude-design/**
+      - spec/ux-spec.yaml
+      - spec/design-tokens.yaml
+    agents:
+      - id: darshan-ui
+        type: domain
+        autonomy: [consult_post]
+  - id: domain-consciousness-core
+    paths:
+      - content/consciousness_core/**
+      - packages/prompts/**
+      - spec/decisions/**
+      - docs/decisions/**
+    agents:
+      - id: consciousness-core
+        type: domain
+        autonomy: [consult_post]
+  - id: domain-rag-corpus
+    paths:
+      - content/sources/**
+      - content/processed/**
+      - packages/rag/**
+      - scripts/chunk/**
+      - scripts/index/**
+      - docs/passage_id_scheme.md
+    agents:
+      - id: rag-corpus
+        type: domain
+        autonomy: [consult_post]
+  - id: domain-agent-api
+    paths:
+      - apps/agent-api/**
+      - packages/prompts/**
+    agents:
+      - id: agent-api
+        type: domain
+        autonomy: [consult_post]
+  - id: domain-evals-quality
+    paths:
+      - packages/evals/**
+      - scripts/validate/**
+      - tests/**
+    agents:
+      - id: evals-quality
+        type: domain
+        autonomy: [consult_post]
+  - id: domain-compliance
+    paths:
+      - spec/nfr.yaml
+      - spec/decisions/**
+      - docs/copyright_policy.md
+      - content/consciousness_core/silence_and_non_answering.md
+    agents:
+      - id: compliance
+        type: domain
+        autonomy: [consult_post]
+

@@ -1,0 +1,9 @@
+/* Darshan design system — global entry point.
+   Source of truth: uploads/darshan-package/session/design-tokens.yaml (v1.0).
+   Tokens-only styling: hardcoded values are forbidden in application code. */
+
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/motion.css";

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darshan — App (PWA) — Handoff Cloud Design</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 960px; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.25rem; margin-top: 2rem; }
+section { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+.meta { color: #666; font-size: 0.9rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+td, th { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+pre { white-space: pre-wrap; font-size: 0.85rem; background: #f7f7f4; padding: 8px; border-radius: 6px; }
+.law { font-style: italic; border-left: 3px solid #a35f2d; padding-left: 12px; }
+</style>
+</helmet>
+
+<h1>Darshan — Aplicativo (PWA)</h1>
+<p class="meta">Gerado por Sky-Forge · sessão: darshan · trilha: mobile (primária) · espec SKY v1.2 · SKY_SCORE 72 (Horizon) · MPI 68 · 2026-07-05</p>
+<p class="meta">Fonte de verdade: repositório aadi-yogi — docs/skyforge/darshan/ (sessão) + docs/darshan_*.md (narrativa)</p>
+
+<section id="essencia">
+<h2>Essência (o que o design deve encarnar)</h2>
+<p class="law">A interface é o primeiro ensinamento. Seus silêncios, ritmos, recusas e desaparecimentos são compostos com o mesmo cuidado que suas respostas. O céu é ritmo, não destino. Nenhuma citação é órfã. Herança, não prescrição.</p>
+<p>Darshan é a interface contemplativa do motor Aadi Yogi: sabedoria dos Vedas, Upanishads, Gita, Puranas, Tantras, Siddhas, Sri Aurobindo e da Mãe, servida com fidelidade de fonte (toda afirmação citada e navegável até o livro completo) e métricas de presença no lugar de métricas de engajamento. Não é um chatbot com pele espiritual; é uma coreografia de gestos.</p>
+</section>
+
+<section id="principios">
+<h2>Dez princípios de design (dharma do design)</h2>
+<ol>
+<li><b>Silêncio antes da fala</b> — abertura com uma respiração (~8s); zero spinners; carregamento absorvido em pausa contemplativa.</li>
+<li><b>Unipontualidade</b> — uma coisa por tela; sem feed, sem sugestões laterais, sem scroll infinito.</li>
+<li><b>O estado de quem chega vem primeiro</b> — tom e ritmo adaptam (dor, confusão, aspiração, crise, luto).</li>
+<li><b>Renúncia por design</b> — sucesso é a qualidade da partida; sem streaks, badges, notificações por padrão.</li>
+<li><b>A palavra recebe darshan</b> — texto sagrado sozinho na tela, tipografia reverente, revelação no ritmo de leitura.</li>
+<li><b>Não-coerção</b> — tudo é oferecido, nunca atribuído; máx. 1 movimento sugerido por resposta.</li>
+<li><b>O direito ao silêncio</b> — o sistema pode responder com pergunta devolvida ou silêncio honrado.</li>
+<li><b>Ritmo, não sessões</b> — atmosfera segue a hora local (madrugada/dia/crepúsculo/noite).</li>
+<li><b>O trabalho é o campo</b> — o app aponta para fora de si; a vida é o ashram.</li>
+<li><b>Humildade do instrumento</b> — nunca simula guru, nunca performa autoridade mística.</li>
+</ol>
+</section>
+
+<section id="gestos">
+<h2>Inventário de superfícies (os 9 gestos + a sala)</h2>
+<table>
+<tr><th>Superfície</th><th>Função</th><th>Notas de design</th></tr>
+<tr><td>Limiar (Dvara)</td><td>entrada ritual</td><td>uma respiração visual; pulável em 1 toque; variante estática p/ reduced-motion</td></tr>
+<tr><td>Pátio (Court)</td><td>hub único, 1 gesto por cartão</td><td>máx. 1 nível de navegação; gesto de encerramento sempre visível; ênfase muda com a hora</td></tr>
+<tr><td>Darshan da Palavra</td><td>1 passagem por dia</td><td>D0 sozinho na tela; sem "próximo"; citação como linhagem; dial de profundidade acessível</td></tr>
+<tr><td>Indagação (oráculo)</td><td>1 pergunta → 1 página de contemplação</td><td>sem bolhas de chat; campo único; citações inline abrem o dial; 3 saídas (sentar/guardar/partir)</td></tr>
+<tr><td>Mapas Vivos</td><td>jornadas interiores por estações</td><td>avanço manual; sem % de progresso; regressão digna</td></tr>
+<tr><td>Campo de Prática</td><td>silêncio, oferenda, retrospecto, japa</td><td>sem estatísticas; "recebido" como único pós-estado; japa com tela apagada/háptico</td></tr>
+<tr><td>Biblioteca</td><td>estantes → salas de leitura (D3/D4)</td><td>medida de leitura máx. 62ch; lente de conceitos na margem; offline; posição lembrada</td></tr>
+<tr><td>Dial de Profundidade</td><td>D0→D6 num gesto contínuo</td><td>D0 palavra · D1 significado · D2 passagem · D3 seção · D4 livro · D5 original (devanágari/tâmil/IAST) · D6 constelação; profundidade atual sempre nomeada</td></tr>
+<tr><td>Portas de Situação</td><td>chegar pela vida (luto, medo, trabalho, alegria…)</td><td>substantivos humanos, minúsculas; máx. 2 colunas; portas de contenção seguem protocolo de crise</td></tr>
+<tr><td>Mapa do Céu (Akasha)</td><td>céu externo (sol/lua/tithi/estação) + céu interno (5 planos)</td><td>céu desenhado, números só a pedido; a pessoa marca o clima, o app espelha; sem horóscopo, sem previsão, sem escore</td></tr>
+<tr><td>Casa da Natureza (Prakriti)</td><td>elementos, corpo, herança de saúde/longevidade</td><td>aviso de herança estrutural (não modal); 3 camadas (segura/documental/fechada); salas abrem/chegando/futuras honestamente</td></tr>
+<tr><td>Diário Interior</td><td>escrita privada; testemunha sob convite</td><td>local-first cifrado; motor cego por padrão (declarado na UI)</td></tr>
+<tr><td>Sala de Silêncio (Mauna)</td><td>nada</td><td>quase-preto (--veil), um pulso --halo no ciclo da respiração; zero telemetria; mesmo gesto entra/sai</td></tr>
+</table>
+</section>
+
+<section id="tokens">
+<h2>Design tokens (fonte: design-tokens.yaml)</h2>
+<pre>
+Fontes: passagem "Source Serif 4" · corpo "Manrope" · devanágari "Noto Serif Devanagari"
+        tâmil "Noto Serif Tamil" · transliteração "Gentium Plus" · mono "JetBrains Mono"
+Escala (rem): palavra D0 2.25 · passagem 1.375 · leitura 1.125 · corpo 1.0 · meta 0.875 · mín 0.75
+Espaço (rem): respiração 4.0 · estrofe 2.0 · parágrafo 1.25 · medida máx 62ch
+Movimento: respiração 8000ms · revelação de passagem 1800ms · dial 600ms · hover 150ms
+           easing cubic-bezier(0.4,0,0.2,1) · reduced-motion: fades instantâneos, pulso vira glifo estático
+Contraste: WCAG 2.1 AA (mín 4.5:1 corpo)
+
+Tokens semânticos (por tema de hora):
+            pre_dawn   day        dusk       night
+--surface   #12141f    #f7f4ec    #2a222b    #0c0d12
+--surface-raised #1a1d2c #fffdf7   #342a34    #13141b
+--ink       #e8e4da    #2b2a33    #eee6df    #d8d4cc
+--ink-soft  #9a97a8    #6d6a75    #a99ca4    #807d8a
+--accent-flame #e2a15c #a35f2d    #d98e66    #c78f5a
+--accent-gold #c9a86a  #8a6f3c    #c2a071    #a98f5e
+--halo      #7a86c2    #5b67a8    #8f7fae    #5f6a9e
+--veil      #0a0b12    #e9e5da    #1c161d    #060709
+--warn      #b98a5e    #8a5a33    #b3805c    #9c7350
+Regra: tokens-only; cores hardcoded proibidas.
+</pre>
+</section>
+
+<section id="requisitos">
+<h2>Requisitos funcionais MUST (de 41 RFs com critérios de aceite)</h2>
+<ul>
+<li>RF-001 Limiar ritual · RF-002 Pátio com encerramento explícito · RF-003 Palavra diária (curada, citada, offline)</li>
+<li>RF-004 Oráculo com páginas de contemplação · RF-005 Contrato de resposta (citações resolvíveis, diferenças nomeadas, 1 movimento máx.)</li>
+<li>RF-006 Silêncio honrado + protocolo de crise · RF-016 Dial de profundidade D0–D6 · RF-017 Nenhuma citação órfã</li>
+<li>RF-018 Camada D1 revisada editorialmente · RF-021 Navegação por facetas (máx. 2 ativas) · RF-022 Portas de situação</li>
+<li>RF-023 Busca (exata offline + semântica online) · RF-007 Salas de leitura com proveniência · RF-008 Sala de Silêncio (zero telemetria)</li>
+<li>RF-015 Métricas de presença (jamais engajamento) · RF-029 Bundles offline versionados · RF-031 Fronteira anti-profecia</li>
+<li>RF-033 Privacidade do céu interno (grau-diário) · RF-036 Cerca de saúde em 3 camadas · RF-037 Portão editorial duplo · RF-039 Fronteira de monetização (dana; superfícies contemplativas livres para sempre)</li>
+</ul>
+</section>
+
+<section id="antipadroes">
+<h2>Anti-padrões proibidos (lei, não preferência)</h2>
+<pre>feeds e scroll infinito · streaks/badges/gamificação · notificações por padrão ·
+otimização de tempo de sessão · autoplay e teasers · dark patterns ·
+horóscopos/previsões/vereditos de auspiciosidade · diagnóstico/prescrição/dosagem de saúde ·
+escore de humor no céu interno</pre>
+</section>
+
+<section id="jornadas">
+<h2>Jornadas de referência</h2>
+<ol>
+<li><b>Buscador em dor</b>: limiar → 1 pergunta → reconhecimento antes de filosofia → silêncio honrado ou movimento suave → sala de silêncio.</li>
+<li><b>Praticante diário</b>: sino da aurora (opt-in) → palavra → oferenda → retrospecto ao crepúsculo. Arco todo &lt; 10 min de tela/dia.</li>
+<li><b>Quem nunca leu escritura</b> (postura Tocado): porta "luto" → D0+D1 → dias depois D2 → uma noite, D3 — sem nunca ser empurrado.</li>
+<li><b>Consulta do céu no ponto de ônibus</b>: céu externo já desenhado → marca 2 bandas do céu interno → espelho + 1 linha do Gita → fecha em 1 min.</li>
+<li><b>Estudante</b>: sala de leitura → lente de conceito na margem → constelação D6 → guarda 2 passagens na antologia.</li>
+</ol>
+</section>
+
+<section id="metricas">
+<h2>Métricas de presença (invertidas)</h2>
+<pre>closure_rate ↑ · rhythm_steadiness estável · depth_ratio ↑ · movement_adoption ↑ (auto-relato)
+honored_silence_precision ↑ · citation_integrity = 1.0 · petal_filter_pass ↑ (12 Pétalas)
+PROIBIDO como alvo: tempo de sessão, DAU/retenção, perguntas por usuário, opt-in de notificação</pre>
+</section>
+
+<section id="next">
+<h2>Próximos passos</h2>
+<ol>
+<li>Cloud Design: compor as telas das superfícies acima com os tokens dos 4 temas de hora</li>
+<li>Protótipo Semente: limiar, pátio, palavra, 1 sala de leitura, sala de silêncio (sem LLM)</li>
+<li>Implementar por task graph sobre o repo aadi-yogi (spec em docs/darshan_interface_spec.md)</li>
+</ol>
+</section>
+
+</x-dc>
+</body>
+</html>

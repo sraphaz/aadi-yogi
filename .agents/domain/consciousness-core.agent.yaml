@@ -1,0 +1,23 @@
+﻿id: consciousness-core
+name: Consciousness & Editorial Law
+mode: consult
+enrich: |
+    ADR-0003 health gate: House of Nature "arriving" até dois revisores nomeados.
+    ADR-0004: daily word em batches lunares, D1 só após revisão humana.
+    Honored silence short-circuits antes do retrieval (RF-006).
+    Response contract: citações resolvíveis, max one movement, diferenças explícitas.
+validate: |
+    RF-005, RF-006: contract checker, honored-silence precision nos evals.
+    Nenhum path natal (ADR-0002); jyotisha documental apenas.
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - content/consciousness_core/**
+    - packages/prompts/**
+    - spec/decisions/**
+    - docs/decisions/**
+
+guardrails:
+  no_merge: true
+  consult_only: true

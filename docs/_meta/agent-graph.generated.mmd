@@ -1,0 +1,83 @@
+flowchart LR
+  %% Gerado por scripts/agents/export-agent-graph.ps1 — não editar à mão
+  subgraph CHOREOGRAPHY["Coreografia (paths -> rules)"]
+    rule_aadiyogi_agent_api["aadiyogi-agent-api"]
+    rule_aadiyogi_content["aadiyogi-content"]
+    rule_aadiyogi_darshan_ui["aadiyogi-darshan-ui"]
+    rule_aadiyogi_evals["aadiyogi-evals"]
+    rule_aadiyogi_infra["aadiyogi-infra"]
+    rule_aadiyogi_rag["aadiyogi-rag"]
+    rule_aadiyogi_spec["aadiyogi-spec"]
+    rule_architecture_docs["architecture-docs"]
+    rule_craft_backend["craft-backend"]
+    rule_craft_frontend["craft-frontend"]
+    rule_domain_agent_api["domain-agent-api"]
+    rule_domain_compliance["domain-compliance"]
+    rule_domain_consciousness_core["domain-consciousness-core"]
+    rule_domain_darshan_ui["domain-darshan-ui"]
+    rule_domain_evals_quality["domain-evals-quality"]
+    rule_domain_rag_corpus["domain-rag-corpus"]
+    rule_infra_deploy["infra-deploy"]
+    rule_pr_always["pr-always"]
+    rule_specs_sdd["specs-sdd"]
+  end
+  subgraph OPERATIONAL["Agentes operacionais"]
+    agent_backend(["backend"])
+    agent_docs_steward(["docs-steward"])
+    agent_frontend(["frontend"])
+    agent_planner(["planner"])
+    agent_pr_steward(["pr-steward"])
+    agent_qa(["qa"])
+    agent_release(["release"])
+    agent_solutions_architect(["solutions-architect"])
+    agent_spec_steward(["spec-steward"])
+  end
+  subgraph DOMAIN["Agentes de domínio (consultivos)"]
+    agent_agent_api{{"agent-api"}}
+    agent_compliance{{"compliance"}}
+    agent_consciousness_core{{"consciousness-core"}}
+    agent_darshan_ui{{"darshan-ui"}}
+    agent_evals_quality{{"evals-quality"}}
+    agent_rag_corpus{{"rag-corpus"}}
+  end
+  rule_aadiyogi_agent_api --> agent_agent_api
+  rule_aadiyogi_agent_api --> agent_backend
+  rule_aadiyogi_agent_api --> agent_consciousness_core
+  rule_aadiyogi_content --> agent_compliance
+  rule_aadiyogi_content --> agent_consciousness_core
+  rule_aadiyogi_content --> agent_docs_steward
+  rule_aadiyogi_darshan_ui --> agent_darshan_ui
+  rule_aadiyogi_darshan_ui --> agent_frontend
+  rule_aadiyogi_evals --> agent_evals_quality
+  rule_aadiyogi_evals --> agent_qa
+  rule_aadiyogi_infra --> agent_release
+  rule_aadiyogi_rag --> agent_backend
+  rule_aadiyogi_rag --> agent_rag_corpus
+  rule_aadiyogi_spec --> agent_docs_steward
+  rule_aadiyogi_spec --> agent_planner
+  rule_aadiyogi_spec --> agent_spec_steward
+  rule_architecture_docs --> agent_solutions_architect
+  rule_craft_backend --> agent_backend
+  rule_craft_backend --> agent_solutions_architect
+  rule_craft_frontend --> agent_frontend
+  rule_domain_agent_api --> agent_agent_api
+  rule_domain_compliance --> agent_compliance
+  rule_domain_consciousness_core --> agent_consciousness_core
+  rule_domain_darshan_ui --> agent_darshan_ui
+  rule_domain_evals_quality --> agent_evals_quality
+  rule_domain_rag_corpus --> agent_rag_corpus
+  rule_infra_deploy --> agent_release
+  rule_pr_always --> agent_pr_steward
+  rule_pr_always --> agent_qa
+  rule_specs_sdd --> agent_spec_steward
+  subgraph REVIEW["Pipeline de revisão (termina em humano)"]
+    gate_ci["ci"]
+    gate_qa["qa"]
+    gate_bot_review["bot-review"]
+    gate_pr_steward["pr-steward"]
+    gate_human_review[["human-review"]]
+  end
+  gate_bot_review --> gate_pr_steward
+  gate_ci --> gate_pr_steward
+  gate_pr_steward --> gate_human_review
+  gate_qa --> gate_pr_steward

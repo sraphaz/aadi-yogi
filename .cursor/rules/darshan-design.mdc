@@ -1,0 +1,22 @@
+---
+description: Design Darshan — tokens, anti-patterns e protótipo Claude ao tocar apps/web ou spec/design
+globs:
+  - apps/web/**
+  - spec/design/**
+  - spec/ux-spec.yaml
+  - spec/design-tokens.yaml
+alwaysApply: false
+---
+
+Antes de implementar UI Darshan:
+
+1. Ler `spec/design/claude-design/readme.md` (lei comportamental)
+2. Consultar `spec/ux-spec.yaml` e `spec/design-tokens.yaml`
+3. Abrir protótipo: `spec/design/claude-design/Darshan App.dc.html`
+4. Tokens CSS de referência: `spec/design/claude-design/tokens/`
+
+**Proibido:** feeds, streaks, spinners, emoji, exclamações, dark patterns, gamificação, shadows, glassmorphism.
+
+**Obrigatório:** hour themes (`data-hour`), closure gesture em toda surface, touch ≥ 44px, reduced-motion, Source Serif 4 só para palavra sagrada.
+
+Referência: [BACKLOG.md](../../BACKLOG.md) · [AGENTS.md](../../AGENTS.md)

@@ -1,0 +1,112 @@
+# Design tokens - Darshan
+# Produced following journey.yaml next action "ux_tokens" (ux-design-specialist).
+# Tokens-only styling: hardcoded values are forbidden in application code.
+version: "1.0"
+slug: darshan
+source_of_truth: this_file_until_css_variables_exist
+target: css_custom_properties
+
+meta:
+  themes_follow_local_hour: true
+  manual_override_allowed: true
+  reduced_motion: every_motion_token_has_a_static_equivalent
+  contrast_target: wcag_2_1_aa_minimum_4_5_1_body_text
+
+fonts:
+  passage_display: "Source Serif 4"       # sacred text; high readability serif
+  body: "Manrope"                          # calm humanist sans
+  original_devanagari: "Noto Serif Devanagari"
+  original_tamil: "Noto Serif Tamil"
+  transliteration: "Gentium Plus"          # full IAST diacritics coverage
+  mono: "JetBrains Mono"
+
+type_scale_rem:
+  word_d0: 2.25          # the daily word, one line alone
+  passage_d2: 1.375
+  reading_d3_d4: 1.125
+  body: 1.0
+  meta_citation: 0.875
+  minimum: 0.75          # never below 12px at default root
+
+spacing_rem:
+  breath: 4.0            # vertical space around a D0 word
+  stanza: 2.0
+  paragraph: 1.25
+  margin_inline_max_ch: 62   # reading measure, characters per line
+
+motion:
+  breath_cycle: 8000ms         # threshold and silence room pulse
+  passage_reveal: 1800ms       # fade-in of a sacred passage
+  depth_dial_transition: 600ms
+  ui_hover: 150ms
+  easing: cubic-bezier(0.4, 0.0, 0.2, 1)
+  reduced_motion_behavior: all fades become instant; breath pulse becomes a static glyph
+
+semantic_tokens:
+  # every theme must define all of these; names are the API, values differ per hour
+  - --surface            # page ground
+  - --surface-raised     # cards in the Court
+  - --ink                # primary text
+  - --ink-soft           # secondary text, citations
+  - --accent-flame       # aspiration accent (links, active depth)
+  - --accent-gold        # reverence accent (passage ornaments, closing marks)
+  - --halo               # focus rings, breath pulse
+  - --veil               # scrims, silence room ground
+  - --warn               # cautionary guidance surfaces (never red-alarm)
+
+themes:
+  pre_dawn:              # ~04:00-07:00 — brahmamuhurta; deep indigo, ember warmth
+    --surface: "#12141f"
+    --surface-raised: "#1a1d2c"
+    --ink: "#e8e4da"
+    --ink-soft: "#9a97a8"
+    --accent-flame: "#e2a15c"
+    --accent-gold: "#c9a86a"
+    --halo: "#7a86c2"
+    --veil: "#0a0b12"
+    --warn: "#b98a5e"
+  day:                   # working hours; warm paper, unobtrusive
+    --surface: "#f7f4ec"
+    --surface-raised: "#fffdf7"
+    --ink: "#2b2a33"
+    --ink-soft: "#6d6a75"
+    --accent-flame: "#a35f2d"
+    --accent-gold: "#8a6f3c"
+    --halo: "#5b67a8"
+    --veil: "#e9e5da"
+    --warn: "#8a5a33"
+  dusk:                  # look-back hour; rose ash, settling
+    --surface: "#2a222b"
+    --surface-raised: "#342a34"
+    --ink: "#eee6df"
+    --ink-soft: "#a99ca4"
+    --accent-flame: "#d98e66"
+    --accent-gold: "#c2a071"
+    --halo: "#8f7fae"
+    --veil: "#1c161d"
+    --warn: "#b3805c"
+  night:                 # near-silence; almost black, one warm point
+    --surface: "#0c0d12"
+    --surface-raised: "#13141b"
+    --ink: "#d8d4cc"
+    --ink-soft: "#807d8a"
+    --accent-flame: "#c78f5a"
+    --accent-gold: "#a98f5e"
+    --halo: "#5f6a9e"
+    --veil: "#060709"
+    --warn: "#9c7350"
+
+component_notes:
+  depth_dial:
+    depth_labels_always_visible: true
+    active_depth_uses: --accent-flame
+    transition_token: depth_dial_transition
+  situation_doors:
+    tone: warm nouns, lowercase, no icons of despair
+    grid: max 2 columns, generous --spacing.breath
+  silence_room:
+    surface: --veil
+    pulse: --halo at 12% opacity, breath_cycle
+    zero_other_tokens_rendered: true
+  cautionary_surfaces:
+    use --warn borders, never blinking, never modal-trapping

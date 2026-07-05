@@ -1,0 +1,217 @@
+version: "1.2"
+spec_version: "1.2"   # restamped: MPI rubric anchored in spec v1.2 (out of composite); scores measured against v1.2
+slug: darshan
+# Round 2 recomputed honestly from the weighted formula (70.2 -> 70).
+# Round 3 (sky map + house of nature): GAP 62->64, CWB 70->72 -> 71.0.
+# Round 4: SPI 58->60 (dana model decided, ADR 0001/RF-039) -> 71.5 -> 71.
+# Round 6 (spec v1.2 regeneration): the confirmed elevations completed the
+# ai_suggested -> user_confirmed -> evidenced trail (specified as RF-040,
+# RF-029+NFR-013, RF-041 with acceptance criteria), so their impact lands:
+# SPI 60->62, GAP 64->66. Composite: 0.25*62 + 0.20*88 + 0.20*66 +
+# 0.20*72 + 0.15*78 = 72.4, floored conservatively to 72 (score_kind:
+# intent - "evidenced" here means specified with acceptance criteria;
+# verified impact still requires post-launch checkpoints).
+sky_score: 72
+score_kind: intent
+elevation_level: horizon
+
+policies:
+  open_to_elevation: true
+  open_to_humanity_connections: true
+  open_to_ux_dignity_review: true
+
+weights:
+  SPI: 0.25
+  HCE: 0.20
+  GAP: 0.20
+  CWB: 0.20
+  UXD: 0.15
+
+indices:
+  SPI:
+    score: 62
+    confidence: medium
+    band: 12
+    rationale: |
+      Free access to a wisdom corpus otherwise gated by scholarship or
+      commercial wellness products; anonymous-first removes economic and
+      identity barriers. Round 4 hardened access from intention to
+      requirement: the dana-first model (ADR 0001, RF-039) makes all
+      contemplative surfaces free forever, with only marginal LLM cost
+      priced and patronage funding others' access. Material prosperity
+      impact remains indirect. Round 6: access elevations evidenced as
+      tracked requirements (RF-040 open corpus API, RF-029/NFR-013 offline
+      distribution).
+    evidence:
+      - type: artifact
+        ref: "brief-draft.yaml -> tier: mvp-free, anonymous-first auth (INT-003)"
+      - type: artifact
+        ref: "docs/decisions/0001-sustaining-model-dana.md + RF-039 acceptance criteria"
+      - type: artifact
+        ref: "functional-requirements.yaml RF-040, RF-029 - evidenced elevation trail"
+  HCE:
+    score: 88
+    confidence: medium
+    band: 8
+    rationale: |
+      Consciousness expansion is the product's explicit axis: source-grounded
+      study across eight traditions, states-of-consciousness ontology, living
+      maps of inner growth, practices of attention and self-observation -
+      with a hard no-manipulation design law (no engagement mechanics).
+    evidence:
+      - type: artifact
+        ref: "content/consciousness_core/ - behavioral law, v1 approved (approved_manifest.yaml)"
+      - type: artifact
+        ref: "darshan_interface_concept.md -> ten principles, inverted metrics"
+      - type: artifact
+        ref: "content/sources/ - imported canonical corpus with citation discipline (Vedas, Upanishads, Gita, Puranas, Siddha, CWSA)"
+  GAP:
+    score: 66
+    confidence: medium
+    band: 10
+    rationale: |
+      Strong alignment with CH-OPEN-KNOWLEDGE (open, cited access to a
+      preserved corpus) and CH-HEALTH - now carried by designed features:
+      the House of Nature preserves traditional health/longevity heritage
+      inside a three-tier responsibility fence, and the inner sky supports
+      self-observation without diagnosis. Indirect alignment with CH-PEACE
+      through comparative study that names differences without flattening
+      traditions. Round 6: CH-OPEN-KNOWLEDGE and CH-INEQUALITY elevations
+      evidenced as tracked requirements (RF-040, RF-029).
+    evidence:
+      - type: artifact
+        ref: "docs/copyright_policy.md + source manifests - preservation with provenance"
+      - type: artifact
+        ref: "darshan_interface_spec.md section 4.3 - crisis protocol"
+      - type: artifact
+        ref: "docs/darshan_nature_health_design.md - responsibility fence, healing memory"
+  CWB:
+    score: 72
+    confidence: medium
+    band: 10
+    rationale: |
+      Anti-addiction architecture (presence metrics, closure as success,
+      no notifications by default) directly counters attention-economy harms;
+      contemplative practice support contributes to collective mental health.
+      Round 3 adds embodied wellbeing: rhythm attunement (sky map), safe-tier
+      regimen wisdom, and an inner-sky instrument explicitly designed against
+      mood-tracker scoring dynamics. Community features deliberately deferred
+      until they can avoid social-media dynamics.
+    evidence:
+      - type: artifact
+        ref: "darshan_interface_spec.md section 6 - forbidden engagement targets"
+      - type: artifact
+        ref: "docs/darshan_sky_map_design.md section 3 - mirror without diagnosis, no scoring"
+      - type: artifact
+        ref: "functional-requirements.yaml RF-036 - three-tier enforcement"
+  UXD:
+    score: 78
+    confidence: medium
+    band: 8
+    rationale: |
+      UX spec mandates WCAG 2.1 AA, reduced-motion equivalents for every
+      ritual, skippable ceremonies, tokens-only styling, low excitation and
+      explicit anti-pattern list. Round 2 added the full token set (four
+      hour-themes, original-script typography, contrast targets) and detailed
+      accessibility acceptance criteria per RF; still unverified until
+      implementation audit.
+    evidence:
+      - type: artifact
+        ref: "docs/skyforge/darshan/ux-spec.yaml -> anti_patterns_forbidden, accessibility"
+      - type: artifact
+        ref: "docs/skyforge/darshan/design-tokens.yaml -> themes, fonts, motion, contrast_target"
+      - type: artifact
+        ref: "functional-requirements.yaml -> acceptance_criteria (RF-001, RF-016, RF-019)"
+  MPI:
+    score: 68
+    confidence: medium
+    band: 10
+    rationale: |
+      Positioning consciousness established by market-benchmark.yaml across
+      four segments: parity on per-tradition corpus depth and contemplative
+      seriousness; better on reading dignity, privacy and persona honesty;
+      new on anti-engagement design law, citation-integrity contract,
+      state-aware restraint and cross-tradition constellation. Not part of
+      the composite score.
+    evidence:
+      - type: artifact
+        ref: "docs/skyforge/darshan/market-benchmark.yaml"
+
+elevation_suggestions:
+  - id: ELV-001
+    title: Public domain corpus API
+    description: |
+      Expose the public-domain portion of the corpus (chunks + ontology +
+      citations) as an open API/dataset so other calm applications and
+      researchers can build on it - raises GAP (CH-OPEN-KNOWLEDGE) without
+      touching the contemplative surfaces.
+    challenge_id: CH-OPEN-KNOWLEDGE
+    impact_indices: [GAP, SPI]
+    ai_suggested: true
+    user_confirmed: true   # confirmed round 2 by the creators
+    evidenced: true        # v1.2 trail: specified as RF-040 with acceptance criteria
+    requirement_id: RF-040
+    scope: post_mvp
+  - id: ELV-002
+    title: Low-bandwidth and offline distribution
+    description: |
+      Package the Seed phase (library + daily word + silence room) as a fully
+      offline PWA bundle distributable in low-connectivity regions - inclusion
+      dimension of SPI.
+    challenge_id: CH-INEQUALITY
+    impact_indices: [SPI, GAP]
+    ai_suggested: true
+    user_confirmed: true   # confirmed round 2; NFR-013 (bundle budget) and RF-029 carry it into spec
+    evidenced: true        # v1.2 trail: specified via RF-029 + NFR-013 acceptance criteria
+    requirement_id: RF-029
+    scope: post_mvp
+  - id: ELV-003
+    title: Educator mode for contemplative studies
+    description: |
+      Curated reading paths and comparative views packaged for teachers of
+      philosophy/religious studies, with classroom-safe defaults.
+    challenge_id: CH-EDUCATION
+    impact_indices: [HCE, CWB]
+    ai_suggested: true
+    user_confirmed: true   # confirmed round 2; reading journeys (RF-027) are its seed
+    evidenced: true        # v1.2 trail: specified as RF-041 with acceptance criteria
+    requirement_id: RF-041
+    scope: optional
+
+humanity_connections:
+  - challenge_id: CH-OPEN-KNOWLEDGE
+    product_feature: Library reading rooms with full provenance and public-domain corpus
+    connection_rationale: |
+      Preserves and opens canonical spiritual literature with citation
+      integrity, against both paywalled scholarship and decontextualized
+      content farms.
+    ai_suggested: true
+    user_confirmed: true
+  - challenge_id: CH-HEALTH
+    product_feature: Presence metrics, honored silence, crisis protocol
+    connection_rationale: |
+      Calm technology stance and crisis-aware restraint address the mental
+      health externalities of attention-economy design.
+    ai_suggested: true
+    user_confirmed: true
+  - challenge_id: CH-PEACE
+    product_feature: Comparative philosophy views that name differences
+    connection_rationale: |
+      Teaching how to hold plural truths without flattening or forced
+      syncretism is a capacity for dialogue across worldviews.
+    ai_suggested: true
+    user_confirmed: true
+
+ux_design:
+  principles:
+    - mobile_first
+    - wcag_aa
+    - low_excitation
+    - design_tokens_only
+    - renunciation_by_design
+  accessibility_target: WCAG 2.1 AA
+  excitation_level: minimal
+  design_tokens_required: true
+
+cycles: []
+impact_checkpoints: []

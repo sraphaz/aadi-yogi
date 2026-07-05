@@ -1,0 +1,42 @@
+id: darshan
+title: Darshan - interface of the Aadi Yogi wisdom engine
+problem: |
+  Humanity's deepest wisdom corpus (Vedas, Upanishads, Gita, Puranas, Tantras,
+  Siddha texts, Sri Aurobindo, the Mother) is either locked in scholarship or
+  flattened into wellness content. Existing AI interfaces deliver it through
+  engagement-optimized chat patterns whose very grammar (feeds, streaks,
+  infinite scroll) contradicts the teachings they transmit.
+motivation: |
+  Build the first interface whose behavior embodies the wisdom instead of
+  talking about it: an application designed from silence, one-pointedness,
+  non-coercion and reverence - a digital darshan rather than a chatbot.
+primary_users:
+  - seeker asking a real inner question
+  - practitioner of integral yoga or related paths
+  - student of the source traditions
+value_proposition: |
+  Source-grounded guidance with visible lineage (every claim cited into the
+  canonical corpus), delivered through seven contemplative gestures - daily
+  word, oracle inquiry, living maps, practice field, library, inner diary,
+  silence room - measured by presence, never by engagement.
+mvp_scope: |
+  Phase "Seed" + "Voice" of docs/darshan_interface_spec.md: threshold ritual,
+  court hub, daily Darshan of the Word, offline library reading rooms,
+  silence room, and the Inquiry oracle with the full response contract
+  (state detection, guidance modes, citations, honored silence, crisis
+  protocol) backed by evaluation suites.
+out_of_scope:
+  - social features, feeds, comments, sharing loops
+  - monetization mechanics inside the contemplative surfaces
+  - guru avatars or personified teacher simulation
+  - medical, psychiatric or predictive/astrological services
+tier: mvp-free
+app_types:
+  - contemplative
+  - knowledge
+  - companion
+institutional_site: true
+constraints:
+  budget: minimal; corpus and consciousness core already built in aadi-yogi
+  timeline: phased (Seed ships without any LLM dependency)
+  team_size: 2 founders + AI agents

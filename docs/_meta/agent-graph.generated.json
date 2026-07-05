@@ -1,0 +1,3151 @@
+{
+    "schema":  ".agents/agent-graph.schema.yaml",
+    "version":  1,
+    "generator":  "scripts/agents/export-agent-graph.ps1",
+    "generated_at":  "2026-07-05T02:12:17Z",
+    "sources":  [
+                    ".agents/choreography.yaml",
+                    ".agents/**/*.agent.yaml",
+                    ".skills/*.skill.yaml",
+                    "docs/specs/**/*.spec.yaml",
+                    ".github/workflows/*.yml"
+                ],
+    "stats":  {
+                  "agents":  19,
+                  "skills":  18,
+                  "rules":  19,
+                  "paths":  48,
+                  "domains":  0,
+                  "specs":  0,
+                  "harnesses":  0,
+                  "tests":  0,
+                  "guardrails":  10,
+                  "workflows":  2,
+                  "review_gates":  5,
+                  "edges":  255
+              },
+    "nodes":  {
+                  "agents":  [
+                                 {
+                                     "id":  "backend",
+                                     "name":  "Backend Agent",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/backend.agent.yaml",
+                                     "skills":  [
+                                                    "run-tests",
+                                                    "craft-review",
+                                                    "sync-docs",
+                                                    "open-pr"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "backend/**",
+                                                   "src/**/api/**",
+                                                   "services/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "docs-steward",
+                                     "name":  "Docs Steward",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/docs-steward.agent.yaml",
+                                     "skills":  [
+                                                    "sync-docs",
+                                                    "doc-taxonomy"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "docs/**",
+                                                   "AGENTS.md",
+                                                   "README.md"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "agent-api",
+                                     "name":  "Agent API \u0026 Orchestration",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/agent-api.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "apps/agent-api/**",
+                                                   "packages/prompts/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "compliance",
+                                     "name":  "Compliance \u0026 Boundaries",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/compliance.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "spec/nfr.yaml",
+                                                   "spec/decisions/**",
+                                                   "docs/copyright_policy.md",
+                                                   "content/consciousness_core/silence_and_non_answering.md"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "consciousness-core",
+                                     "name":  "Consciousness \u0026 Editorial Law",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/consciousness-core.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "content/consciousness_core/**",
+                                                   "packages/prompts/**",
+                                                   "spec/decisions/**",
+                                                   "docs/decisions/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "darshan-ui",
+                                     "name":  "Darshan Interface",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/darshan-ui.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "apps/web/**",
+                                                   "spec/design/claude-design/**",
+                                                   "spec/ux-spec.yaml",
+                                                   "spec/design-tokens.yaml"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "evals-quality",
+                                     "name":  "Evaluation \u0026 Quality Gates",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/evals-quality.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "packages/evals/**",
+                                                   "scripts/validate/**",
+                                                   "tests/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "rag-corpus",
+                                     "name":  "Corpus \u0026 Retrieval",
+                                     "kind":  "domain",
+                                     "manifest":  ".agents/domain/rag-corpus.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "content/sources/**",
+                                                   "content/processed/**",
+                                                   "packages/rag/**",
+                                                   "scripts/chunk/**",
+                                                   "scripts/index/**",
+                                                   "docs/passage_id_scheme.md"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "frontend",
+                                     "name":  "Frontend Agent",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/frontend.agent.yaml",
+                                     "skills":  [
+                                                    "run-tests",
+                                                    "craft-review",
+                                                    "sync-docs",
+                                                    "open-pr"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "frontend/**",
+                                                   "apps/web/**",
+                                                   "apps/mobile/**",
+                                                   "src/**/ui/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "orchestrator",
+                                     "name":  "Orquestrador",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/orchestrator.agent.yaml",
+                                     "skills":  [
+                                                    "backlog-to-issue",
+                                                    "open-pr",
+                                                    "harness-run"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "planner",
+                                     "name":  "Planner",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/planner.agent.yaml",
+                                     "skills":  [
+                                                    "backlog-to-issue",
+                                                    "spec-author"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "docs/backlog/**",
+                                                   "docs/_meta/PHASE_QUEUE.yaml",
+                                                   "docs/specs/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "pr-steward",
+                                     "name":  "PR Steward",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/pr-steward.agent.yaml",
+                                     "skills":  [
+                                                    "address-bot-review",
+                                                    "respond-bot-review",
+                                                    "next-phase"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   ".github/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "qa",
+                                     "name":  "Review / QA Agent",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/qa.agent.yaml",
+                                     "skills":  [
+                                                    "code-review",
+                                                    "craft-review",
+                                                    "run-tests",
+                                                    "spec-validate",
+                                                    "harness-run"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true",
+                                                        "comment_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "release",
+                                     "name":  "Release / DevOps",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/release.agent.yaml",
+                                     "skills":  [
+                                                    "release-cut",
+                                                    "iac-plan",
+                                                    "run-tests"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   ".github/workflows/**",
+                                                   "infrastructure/**",
+                                                   "docker-compose*.yml",
+                                                   "Dockerfile"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "security",
+                                     "name":  "Security Agent",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/security.agent.yaml",
+                                     "skills":  [
+                                                    "dep-audit",
+                                                    "code-review"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true",
+                                                        "comment_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "solutions-architect",
+                                     "name":  "Solutions Architect",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/solutions-architect.agent.yaml",
+                                     "skills":  [
+                                                    "architecture-review",
+                                                    "register-adr",
+                                                    "craft-review"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "docs/architecture/**",
+                                                   "docs/design/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "fastapi",
+                                     "name":  "FastAPI / Python API",
+                                     "kind":  "specialist",
+                                     "manifest":  ".agents/specialists/fastapi.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "pwa-frontend",
+                                     "name":  "PWA / Contemplative UI",
+                                     "kind":  "specialist",
+                                     "manifest":  ".agents/specialists/pwa-frontend.agent.yaml",
+                                     "skills":  [
+
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "apps/web/**",
+                                                   "spec/design/claude-design/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "consult_only":  "true"
+                                                    }
+                                 },
+                                 {
+                                     "id":  "spec-steward",
+                                     "name":  "Spec Steward",
+                                     "kind":  "operational",
+                                     "manifest":  ".agents/spec-steward.agent.yaml",
+                                     "skills":  [
+                                                    "spec-author",
+                                                    "spec-validate",
+                                                    "harness-run"
+                                                ],
+                                     "consults":  {
+                                                      "domain":  [
+
+                                                                 ],
+                                                      "specialists":  [
+
+                                                                      ]
+                                                  },
+                                     "paths":  [
+                                                   "docs/specs/**",
+                                                   "scripts/harness/**"
+                                               ],
+                                     "guardrails":  {
+                                                        "no_merge":  "true",
+                                                        "require_ci":  "true"
+                                                    }
+                                 }
+                             ],
+                  "skills":  [
+                                 {
+                                     "id":  "address-bot-review",
+                                     "description":  "Endereça apontamentos de bots no PR.",
+                                     "manifest":  ".skills/address-bot-review.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "architecture-review",
+                                     "description":  "Revisão arquitetural de mudanças estruturais.",
+                                     "manifest":  ".skills/architecture-review.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "backlog-to-issue",
+                                     "description":  "Converte item de backlog em issue GitHub.",
+                                     "manifest":  ".skills/backlog-to-issue.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "code-review",
+                                     "description":  "Revisão estrutural de PR (checklist QA).",
+                                     "manifest":  ".skills/code-review.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "craft-review",
+                                     "description":  "Revisão de craft — coesão, escopo, convenções.",
+                                     "manifest":  ".skills/craft-review.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "dep-audit",
+                                     "description":  "Auditoria de dependências (npm/dotnet/etc.).",
+                                     "manifest":  ".skills/dep-audit.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "doc-taxonomy",
+                                     "description":  "Valida taxonomia e organização documental.",
+                                     "manifest":  ".skills/doc-taxonomy.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "harness-run",
+                                     "description":  "Executa harness SDD ligado à spec/fase.",
+                                     "manifest":  ".skills/harness-run.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "iac-plan",
+                                     "description":  "Plano de infraestrutura (dry-run).",
+                                     "manifest":  ".skills/iac-plan.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "next-phase",
+                                     "description":  "Avança fila de fases após merge.",
+                                     "manifest":  ".skills/next-phase.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "open-pr",
+                                     "description":  "Abre pull request com template e metadados ARAH.",
+                                     "manifest":  ".skills/open-pr.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "register-adr",
+                                     "description":  "Registra Architecture Decision Record.",
+                                     "manifest":  ".skills/register-adr.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "release-cut",
+                                     "description":  "Prepara corte de release (tag, changelog).",
+                                     "manifest":  ".skills/release-cut.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "respond-bot-review",
+                                     "description":  "Responde comentários de bots no PR.",
+                                     "manifest":  ".skills/respond-bot-review.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "run-tests",
+                                     "description":  "Roda a suíte de testes da área alterada (comandos em arah.config.yaml).",
+                                     "manifest":  ".skills/run-tests.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "spec-author",
+                                     "description":  "Autoria de spec SDD a partir de template.",
+                                     "manifest":  ".skills/spec-author.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "spec-validate",
+                                     "description":  "Valida specs YAML contra schema e gates DOD.",
+                                     "manifest":  ".skills/spec-validate.skill.yaml"
+                                 },
+                                 {
+                                     "id":  "sync-docs",
+                                     "description":  "Verifica e sincroniza documentação obrigatória.",
+                                     "manifest":  ".skills/sync-docs.skill.yaml"
+                                 }
+                             ],
+                  "rules":  [
+                                {
+                                    "paths":  [
+                                                  "spec/**",
+                                                  "BACKLOG.md",
+                                                  "ROADMAP.md"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "spec-steward",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "planner",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "docs-steward",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-spec"
+                                },
+                                {
+                                    "paths":  [
+                                                  "apps/web/**",
+                                                  "spec/design/claude-design/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review",
+                                                                      "run-tests"
+                                                                  ],
+                                                       "id":  "frontend",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "darshan-ui",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-darshan-ui"
+                                },
+                                {
+                                    "paths":  [
+                                                  "apps/agent-api/**",
+                                                  "packages/prompts/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review",
+                                                                      "run-tests"
+                                                                  ],
+                                                       "id":  "backend",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "agent-api",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "consciousness-core",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-agent-api"
+                                },
+                                {
+                                    "paths":  [
+                                                  "packages/rag/**",
+                                                  "scripts/chunk/**",
+                                                  "scripts/index/**",
+                                                  "content/sources/**",
+                                                  "content/processed/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review",
+                                                                      "run-tests"
+                                                                  ],
+                                                       "id":  "backend",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "rag-corpus",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-rag"
+                                },
+                                {
+                                    "paths":  [
+                                                  "packages/evals/**",
+                                                  "scripts/validate/**",
+                                                  "tests/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "run-tests",
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "qa",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "evals-quality",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-evals"
+                                },
+                                {
+                                    "paths":  [
+                                                  "content/consciousness_core/**",
+                                                  "content/ontology/**",
+                                                  "docs/decisions/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "docs-steward",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "consciousness-core",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "compliance",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-content"
+                                },
+                                {
+                                    "paths":  [
+                                                  ".github/workflows/**",
+                                                  "docker-compose*.yml",
+                                                  "scripts/ingest/**",
+                                                  "scripts/export/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "release",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "aadiyogi-infra"
+                                },
+                                {
+                                    "paths":  [
+                                                  "apps/web/**",
+                                                  "spec/design/claude-design/**",
+                                                  "spec/ux-spec.yaml",
+                                                  "spec/design-tokens.yaml"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "darshan-ui",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-darshan-ui"
+                                },
+                                {
+                                    "paths":  [
+                                                  "content/consciousness_core/**",
+                                                  "packages/prompts/**",
+                                                  "spec/decisions/**",
+                                                  "docs/decisions/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "consciousness-core",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-consciousness-core"
+                                },
+                                {
+                                    "paths":  [
+                                                  "content/sources/**",
+                                                  "content/processed/**",
+                                                  "packages/rag/**",
+                                                  "scripts/chunk/**",
+                                                  "scripts/index/**",
+                                                  "docs/passage_id_scheme.md"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "rag-corpus",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-rag-corpus"
+                                },
+                                {
+                                    "paths":  [
+                                                  "apps/agent-api/**",
+                                                  "packages/prompts/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "agent-api",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-agent-api"
+                                },
+                                {
+                                    "paths":  [
+                                                  "packages/evals/**",
+                                                  "scripts/validate/**",
+                                                  "tests/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "evals-quality",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-evals-quality"
+                                },
+                                {
+                                    "paths":  [
+                                                  "spec/nfr.yaml",
+                                                  "spec/decisions/**",
+                                                  "docs/copyright_policy.md",
+                                                  "content/consciousness_core/silence_and_non_answering.md"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "compliance",
+                                                       "type":  "domain",
+                                                       "autonomy":  [
+                                                                        "consult_post"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "domain-compliance"
+                                },
+                                {
+                                    "paths":  [
+                                                  "docs/specs/**",
+                                                  "scripts/harness/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "spec-validate",
+                                                                      "harness-run"
+                                                                  ],
+                                                       "id":  "spec-steward",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "specs-sdd"
+                                },
+                                {
+                                    "paths":  [
+                                                  "docs/architecture/**",
+                                                  "docs/design/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "architecture-review",
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "solutions-architect",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "architecture-docs"
+                                },
+                                {
+                                    "paths":  [
+                                                  "backend/**",
+                                                  "src/**/api/**",
+                                                  "services/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "backend",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "solutions-architect",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "consult_post",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "craft-backend"
+                                },
+                                {
+                                    "paths":  [
+                                                  "frontend/**",
+                                                  "apps/web/**",
+                                                  "apps/mobile/**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "frontend",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "craft-frontend"
+                                },
+                                {
+                                    "paths":  [
+                                                  ".github/workflows/**",
+                                                  "infrastructure/**",
+                                                  "docker-compose*.yml",
+                                                  "Dockerfile"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "release",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  null,
+                                    "id":  "infra-deploy"
+                                },
+                                {
+                                    "paths":  [
+                                                  "**"
+                                              ],
+                                    "agents":  [
+                                                   {
+                                                       "skills":  [
+                                                                      "craft-review"
+                                                                  ],
+                                                       "id":  "qa",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate",
+                                                                        "invoke_skill"
+                                                                    ]
+                                                   },
+                                                   {
+                                                       "skills":  [
+
+                                                                  ],
+                                                       "id":  "pr-steward",
+                                                       "type":  "operational",
+                                                       "autonomy":  [
+                                                                        "activate"
+                                                                    ]
+                                                   }
+                                               ],
+                                    "when":  "pull_request",
+                                    "id":  "pr-always"
+                                }
+                            ],
+                  "paths":  [
+                                {
+                                    "pattern":  "**",
+                                    "rules":  [
+                                                  "pr-always"
+                                              ],
+                                    "agents":  [
+                                                   "qa",
+                                                   "security"
+                                               ]
+                                },
+                                {
+                                    "pattern":  ".github/**",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "pr-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  ".github/workflows/**",
+                                    "rules":  [
+                                                  "aadiyogi-infra",
+                                                  "infra-deploy"
+                                              ],
+                                    "agents":  [
+                                                   "release"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "AGENTS.md",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "docs-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "apps/agent-api/**",
+                                    "rules":  [
+                                                  "aadiyogi-agent-api",
+                                                  "domain-agent-api"
+                                              ],
+                                    "agents":  [
+                                                   "agent-api"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "apps/mobile/**",
+                                    "rules":  [
+                                                  "craft-frontend"
+                                              ],
+                                    "agents":  [
+                                                   "frontend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "apps/web/**",
+                                    "rules":  [
+                                                  "aadiyogi-darshan-ui",
+                                                  "domain-darshan-ui",
+                                                  "craft-frontend"
+                                              ],
+                                    "agents":  [
+                                                   "darshan-ui",
+                                                   "frontend",
+                                                   "pwa-frontend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "backend/**",
+                                    "rules":  [
+                                                  "craft-backend"
+                                              ],
+                                    "agents":  [
+                                                   "backend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "BACKLOG.md",
+                                    "rules":  [
+                                                  "aadiyogi-spec"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "content/consciousness_core/**",
+                                    "rules":  [
+                                                  "aadiyogi-content",
+                                                  "domain-consciousness-core"
+                                              ],
+                                    "agents":  [
+                                                   "consciousness-core"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "content/consciousness_core/silence_and_non_answering.md",
+                                    "rules":  [
+                                                  "domain-compliance"
+                                              ],
+                                    "agents":  [
+                                                   "compliance"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "content/ontology/**",
+                                    "rules":  [
+                                                  "aadiyogi-content"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "content/processed/**",
+                                    "rules":  [
+                                                  "aadiyogi-rag",
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "content/sources/**",
+                                    "rules":  [
+                                                  "aadiyogi-rag",
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docker-compose*.yml",
+                                    "rules":  [
+                                                  "aadiyogi-infra",
+                                                  "infra-deploy"
+                                              ],
+                                    "agents":  [
+                                                   "release"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "Dockerfile",
+                                    "rules":  [
+                                                  "infra-deploy"
+                                              ],
+                                    "agents":  [
+                                                   "release"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/**",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "docs-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/_meta/PHASE_QUEUE.yaml",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "planner"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/architecture/**",
+                                    "rules":  [
+                                                  "architecture-docs"
+                                              ],
+                                    "agents":  [
+                                                   "solutions-architect"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/backlog/**",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "planner"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/copyright_policy.md",
+                                    "rules":  [
+                                                  "domain-compliance"
+                                              ],
+                                    "agents":  [
+                                                   "compliance"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/decisions/**",
+                                    "rules":  [
+                                                  "aadiyogi-content",
+                                                  "domain-consciousness-core"
+                                              ],
+                                    "agents":  [
+                                                   "consciousness-core"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/design/**",
+                                    "rules":  [
+                                                  "architecture-docs"
+                                              ],
+                                    "agents":  [
+                                                   "solutions-architect"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/passage_id_scheme.md",
+                                    "rules":  [
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "docs/specs/**",
+                                    "rules":  [
+                                                  "specs-sdd"
+                                              ],
+                                    "agents":  [
+                                                   "planner",
+                                                   "spec-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "frontend/**",
+                                    "rules":  [
+                                                  "craft-frontend"
+                                              ],
+                                    "agents":  [
+                                                   "frontend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "infrastructure/**",
+                                    "rules":  [
+                                                  "infra-deploy"
+                                              ],
+                                    "agents":  [
+                                                   "release"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "packages/evals/**",
+                                    "rules":  [
+                                                  "aadiyogi-evals",
+                                                  "domain-evals-quality"
+                                              ],
+                                    "agents":  [
+                                                   "evals-quality"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "packages/prompts/**",
+                                    "rules":  [
+                                                  "aadiyogi-agent-api",
+                                                  "domain-consciousness-core",
+                                                  "domain-agent-api"
+                                              ],
+                                    "agents":  [
+                                                   "agent-api",
+                                                   "consciousness-core"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "packages/rag/**",
+                                    "rules":  [
+                                                  "aadiyogi-rag",
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "README.md",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "docs-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "ROADMAP.md",
+                                    "rules":  [
+                                                  "aadiyogi-spec"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/chunk/**",
+                                    "rules":  [
+                                                  "aadiyogi-rag",
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/export/**",
+                                    "rules":  [
+                                                  "aadiyogi-infra"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/harness/**",
+                                    "rules":  [
+                                                  "specs-sdd"
+                                              ],
+                                    "agents":  [
+                                                   "spec-steward"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/index/**",
+                                    "rules":  [
+                                                  "aadiyogi-rag",
+                                                  "domain-rag-corpus"
+                                              ],
+                                    "agents":  [
+                                                   "rag-corpus"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/ingest/**",
+                                    "rules":  [
+                                                  "aadiyogi-infra"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "scripts/validate/**",
+                                    "rules":  [
+                                                  "aadiyogi-evals",
+                                                  "domain-evals-quality"
+                                              ],
+                                    "agents":  [
+                                                   "evals-quality"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "services/**",
+                                    "rules":  [
+                                                  "craft-backend"
+                                              ],
+                                    "agents":  [
+                                                   "backend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/**",
+                                    "rules":  [
+                                                  "aadiyogi-spec"
+                                              ],
+                                    "agents":  [
+
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/decisions/**",
+                                    "rules":  [
+                                                  "domain-consciousness-core",
+                                                  "domain-compliance"
+                                              ],
+                                    "agents":  [
+                                                   "compliance",
+                                                   "consciousness-core"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/design/claude-design/**",
+                                    "rules":  [
+                                                  "aadiyogi-darshan-ui",
+                                                  "domain-darshan-ui"
+                                              ],
+                                    "agents":  [
+                                                   "darshan-ui",
+                                                   "pwa-frontend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/design-tokens.yaml",
+                                    "rules":  [
+                                                  "domain-darshan-ui"
+                                              ],
+                                    "agents":  [
+                                                   "darshan-ui"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/nfr.yaml",
+                                    "rules":  [
+                                                  "domain-compliance"
+                                              ],
+                                    "agents":  [
+                                                   "compliance"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "spec/ux-spec.yaml",
+                                    "rules":  [
+                                                  "domain-darshan-ui"
+                                              ],
+                                    "agents":  [
+                                                   "darshan-ui"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "src/**/api/**",
+                                    "rules":  [
+                                                  "craft-backend"
+                                              ],
+                                    "agents":  [
+                                                   "backend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "src/**/ui/**",
+                                    "rules":  [
+
+                                              ],
+                                    "agents":  [
+                                                   "frontend"
+                                               ]
+                                },
+                                {
+                                    "pattern":  "tests/**",
+                                    "rules":  [
+                                                  "aadiyogi-evals",
+                                                  "domain-evals-quality"
+                                              ],
+                                    "agents":  [
+                                                   "evals-quality"
+                                               ]
+                                }
+                            ],
+                  "domains":  [
+
+                              ],
+                  "specs":  [
+
+                            ],
+                  "harnesses":  [
+
+                                ],
+                  "tests":  [
+
+                            ],
+                  "guardrails":  [
+                                     {
+                                         "id":  "clean-architecture",
+                                         "executable":  true
+                                     },
+                                     {
+                                         "id":  "comment_only",
+                                         "executable":  false
+                                     },
+                                     {
+                                         "id":  "consult_only",
+                                         "executable":  false
+                                     },
+                                     {
+                                         "id":  "no_merge",
+                                         "executable":  false
+                                     },
+                                     {
+                                         "id":  "no-merge-automatic",
+                                         "executable":  true
+                                     },
+                                     {
+                                         "id":  "no-secrets-in-repo",
+                                         "executable":  true
+                                     },
+                                     {
+                                         "id":  "production-gate-human",
+                                         "executable":  true
+                                     },
+                                     {
+                                         "id":  "require_ci",
+                                         "executable":  false
+                                     },
+                                     {
+                                         "id":  "sync-docs-on-behavior-change",
+                                         "executable":  true
+                                     },
+                                     {
+                                         "id":  "territory-data-stays-on-instance",
+                                         "executable":  true
+                                     }
+                                 ],
+                  "workflows":  [
+                                    {
+                                        "id":  "agents-validate.yml",
+                                        "path":  ".github/workflows/agents-validate.yml",
+                                        "role":  "Valida manifests de agentes/skills"
+                                    },
+                                    {
+                                        "id":  "validate.yml",
+                                        "path":  ".github/workflows/validate.yml",
+                                        "role":  null
+                                    }
+                                ],
+                  "review_gates":  [
+                                       {
+                                           "id":  "ci",
+                                           "kind":  "automated",
+                                           "description":  "CI verde obrigatório (ci.yml + agents-gates.yml)"
+                                       },
+                                       {
+                                           "id":  "qa",
+                                           "kind":  "automated",
+                                           "description":  "QA ativado pela rule pr-always"
+                                       },
+                                       {
+                                           "id":  "bot-review",
+                                           "kind":  "bot",
+                                           "description":  "Apontamentos de bots resolvidos (CodeRabbit, CodeQL, ...)"
+                                       },
+                                       {
+                                           "id":  "pr-steward",
+                                           "kind":  "automated",
+                                           "description":  "Aplica ready-for-merge só com gates OK"
+                                       },
+                                       {
+                                           "id":  "human-review",
+                                           "kind":  "human",
+                                           "description":  "Merge humano obrigatório (guardrail no_merge)"
+                                       }
+                                   ]
+              },
+    "edges":  [
+                  {
+                      "from":  "rule:aadiyogi-agent-api",
+                      "to":  "agent:agent-api",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-agent-api",
+                      "to":  "agent:backend",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-agent-api",
+                      "to":  "agent:consciousness-core",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-content",
+                      "to":  "agent:compliance",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-content",
+                      "to":  "agent:consciousness-core",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-content",
+                      "to":  "agent:docs-steward",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-darshan-ui",
+                      "to":  "agent:darshan-ui",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-darshan-ui",
+                      "to":  "agent:frontend",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-evals",
+                      "to":  "agent:evals-quality",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-evals",
+                      "to":  "agent:qa",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-infra",
+                      "to":  "agent:release",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-rag",
+                      "to":  "agent:backend",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-rag",
+                      "to":  "agent:rag-corpus",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-spec",
+                      "to":  "agent:docs-steward",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-spec",
+                      "to":  "agent:planner",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-spec",
+                      "to":  "agent:spec-steward",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:architecture-docs",
+                      "to":  "agent:solutions-architect",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:craft-backend",
+                      "to":  "agent:backend",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:craft-backend",
+                      "to":  "agent:solutions-architect",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:craft-frontend",
+                      "to":  "agent:frontend",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-agent-api",
+                      "to":  "agent:agent-api",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-compliance",
+                      "to":  "agent:compliance",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-consciousness-core",
+                      "to":  "agent:consciousness-core",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-darshan-ui",
+                      "to":  "agent:darshan-ui",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-evals-quality",
+                      "to":  "agent:evals-quality",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:domain-rag-corpus",
+                      "to":  "agent:rag-corpus",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:infra-deploy",
+                      "to":  "agent:release",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:pr-always",
+                      "to":  "agent:pr-steward",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:pr-always",
+                      "to":  "agent:qa",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "rule:specs-sdd",
+                      "to":  "agent:spec-steward",
+                      "type":  "activates_agent"
+                  },
+                  {
+                      "from":  "agent:agent-api",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:agent-api",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:compliance",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:compliance",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:consciousness-core",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:consciousness-core",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:darshan-ui",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:darshan-ui",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:docs-steward",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:docs-steward",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:evals-quality",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:evals-quality",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:fastapi",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:fastapi",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:orchestrator",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:orchestrator",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:planner",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:planner",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pr-steward",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pr-steward",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pwa-frontend",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pwa-frontend",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "guardrail:comment_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:rag-corpus",
+                      "to":  "guardrail:consult_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:rag-corpus",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:release",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:release",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:security",
+                      "to":  "guardrail:comment_only",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:security",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:security",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "guardrail:no_merge",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "guardrail:require_ci",
+                      "type":  "blocked_by_guardrail",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "guardrail:clean-architecture",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "guardrail:no-merge-automatic",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "guardrail:no-secrets-in-repo",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "guardrail:production-gate-human",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "guardrail:sync-docs-on-behavior-change",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "guardrail:territory-data-stays-on-instance",
+                      "to":  "workflow:agents-validate.yml",
+                      "type":  "enforced_by_workflow"
+                  },
+                  {
+                      "from":  "path:**",
+                      "to":  "rule:pr-always",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:.github/workflows/**",
+                      "to":  "rule:aadiyogi-infra",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:.github/workflows/**",
+                      "to":  "rule:infra-deploy",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/agent-api/**",
+                      "to":  "rule:aadiyogi-agent-api",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/agent-api/**",
+                      "to":  "rule:domain-agent-api",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/mobile/**",
+                      "to":  "rule:craft-frontend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "rule:aadiyogi-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "rule:craft-frontend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "rule:domain-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:backend/**",
+                      "to":  "rule:craft-backend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:BACKLOG.md",
+                      "to":  "rule:aadiyogi-spec",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/consciousness_core/**",
+                      "to":  "rule:aadiyogi-content",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/consciousness_core/**",
+                      "to":  "rule:domain-consciousness-core",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/consciousness_core/silence_and_non_answering.md",
+                      "to":  "rule:domain-compliance",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/ontology/**",
+                      "to":  "rule:aadiyogi-content",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/processed/**",
+                      "to":  "rule:aadiyogi-rag",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/processed/**",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/sources/**",
+                      "to":  "rule:aadiyogi-rag",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:content/sources/**",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docker-compose*.yml",
+                      "to":  "rule:aadiyogi-infra",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docker-compose*.yml",
+                      "to":  "rule:infra-deploy",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:Dockerfile",
+                      "to":  "rule:infra-deploy",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/architecture/**",
+                      "to":  "rule:architecture-docs",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/copyright_policy.md",
+                      "to":  "rule:domain-compliance",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/decisions/**",
+                      "to":  "rule:aadiyogi-content",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/decisions/**",
+                      "to":  "rule:domain-consciousness-core",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/design/**",
+                      "to":  "rule:architecture-docs",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/passage_id_scheme.md",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:docs/specs/**",
+                      "to":  "rule:specs-sdd",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:frontend/**",
+                      "to":  "rule:craft-frontend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:infrastructure/**",
+                      "to":  "rule:infra-deploy",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/evals/**",
+                      "to":  "rule:aadiyogi-evals",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/evals/**",
+                      "to":  "rule:domain-evals-quality",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/prompts/**",
+                      "to":  "rule:aadiyogi-agent-api",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/prompts/**",
+                      "to":  "rule:domain-agent-api",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/prompts/**",
+                      "to":  "rule:domain-consciousness-core",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/rag/**",
+                      "to":  "rule:aadiyogi-rag",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:packages/rag/**",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:ROADMAP.md",
+                      "to":  "rule:aadiyogi-spec",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/chunk/**",
+                      "to":  "rule:aadiyogi-rag",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/chunk/**",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/export/**",
+                      "to":  "rule:aadiyogi-infra",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/harness/**",
+                      "to":  "rule:specs-sdd",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/index/**",
+                      "to":  "rule:aadiyogi-rag",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/index/**",
+                      "to":  "rule:domain-rag-corpus",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/ingest/**",
+                      "to":  "rule:aadiyogi-infra",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/validate/**",
+                      "to":  "rule:aadiyogi-evals",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:scripts/validate/**",
+                      "to":  "rule:domain-evals-quality",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:services/**",
+                      "to":  "rule:craft-backend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/**",
+                      "to":  "rule:aadiyogi-spec",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/decisions/**",
+                      "to":  "rule:domain-compliance",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/decisions/**",
+                      "to":  "rule:domain-consciousness-core",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/design/claude-design/**",
+                      "to":  "rule:aadiyogi-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/design/claude-design/**",
+                      "to":  "rule:domain-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/design-tokens.yaml",
+                      "to":  "rule:domain-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/nfr.yaml",
+                      "to":  "rule:domain-compliance",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:spec/ux-spec.yaml",
+                      "to":  "rule:domain-darshan-ui",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:src/**/api/**",
+                      "to":  "rule:craft-backend",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:tests/**",
+                      "to":  "rule:aadiyogi-evals",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "path:tests/**",
+                      "to":  "rule:domain-evals-quality",
+                      "type":  "matches_rule"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-rag"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "craft-backend"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-agent-api"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:open-pr",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-rag"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-agent-api"
+                  },
+                  {
+                      "from":  "agent:backend",
+                      "to":  "skill:sync-docs",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:docs-steward",
+                      "to":  "skill:doc-taxonomy",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:docs-steward",
+                      "to":  "skill:sync-docs",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-darshan-ui"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "craft-frontend"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:open-pr",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-darshan-ui"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:frontend",
+                      "to":  "skill:sync-docs",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:orchestrator",
+                      "to":  "skill:backlog-to-issue",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:orchestrator",
+                      "to":  "skill:harness-run",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:orchestrator",
+                      "to":  "skill:open-pr",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:planner",
+                      "to":  "skill:backlog-to-issue",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:planner",
+                      "to":  "skill:spec-author",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pr-steward",
+                      "to":  "skill:address-bot-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pr-steward",
+                      "to":  "skill:next-phase",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:pr-steward",
+                      "to":  "skill:respond-bot-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:code-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "pr-always"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-evals"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:harness-run",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "aadiyogi-evals"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:qa",
+                      "to":  "skill:spec-validate",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:release",
+                      "to":  "skill:iac-plan",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:release",
+                      "to":  "skill:release-cut",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:release",
+                      "to":  "skill:run-tests",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:security",
+                      "to":  "skill:code-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:security",
+                      "to":  "skill:dep-audit",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:architecture-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:architecture-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "architecture-docs"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "craft-backend"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:craft-review",
+                      "type":  "may_invoke_skill",
+                      "via":  "architecture-docs"
+                  },
+                  {
+                      "from":  "agent:solutions-architect",
+                      "to":  "skill:register-adr",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "skill:harness-run",
+                      "type":  "may_invoke_skill",
+                      "via":  "specs-sdd"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "skill:harness-run",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "skill:spec-author",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "skill:spec-validate",
+                      "type":  "may_invoke_skill",
+                      "via":  "specs-sdd"
+                  },
+                  {
+                      "from":  "agent:spec-steward",
+                      "to":  "skill:spec-validate",
+                      "type":  "may_invoke_skill",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "gate:bot-review",
+                      "to":  "gate:pr-steward",
+                      "type":  "requires_human_review"
+                  },
+                  {
+                      "from":  "gate:ci",
+                      "to":  "gate:pr-steward",
+                      "type":  "requires_human_review"
+                  },
+                  {
+                      "from":  "gate:pr-steward",
+                      "to":  "gate:human-review",
+                      "type":  "requires_human_review"
+                  },
+                  {
+                      "from":  "gate:qa",
+                      "to":  "gate:pr-steward",
+                      "type":  "requires_human_review"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-agent-api",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-agent-api"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-agent-api",
+                      "to":  "skill:run-tests",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-agent-api"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-darshan-ui",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-darshan-ui"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-darshan-ui",
+                      "to":  "skill:run-tests",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-darshan-ui"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-evals",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-evals"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-evals",
+                      "to":  "skill:run-tests",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-evals"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-rag",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-rag"
+                  },
+                  {
+                      "from":  "rule:aadiyogi-rag",
+                      "to":  "skill:run-tests",
+                      "type":  "requires_skill",
+                      "via":  "aadiyogi-rag"
+                  },
+                  {
+                      "from":  "rule:architecture-docs",
+                      "to":  "skill:architecture-review",
+                      "type":  "requires_skill",
+                      "via":  "architecture-docs"
+                  },
+                  {
+                      "from":  "rule:architecture-docs",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "architecture-docs"
+                  },
+                  {
+                      "from":  "rule:craft-backend",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "craft-backend"
+                  },
+                  {
+                      "from":  "rule:craft-backend",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "craft-backend"
+                  },
+                  {
+                      "from":  "rule:craft-frontend",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "craft-frontend"
+                  },
+                  {
+                      "from":  "rule:pr-always",
+                      "to":  "skill:craft-review",
+                      "type":  "requires_skill",
+                      "via":  "pr-always"
+                  },
+                  {
+                      "from":  "rule:specs-sdd",
+                      "to":  "skill:harness-run",
+                      "type":  "requires_skill",
+                      "via":  "specs-sdd"
+                  },
+                  {
+                      "from":  "rule:specs-sdd",
+                      "to":  "skill:spec-validate",
+                      "type":  "requires_skill",
+                      "via":  "specs-sdd"
+                  },
+                  {
+                      "from":  "path:**",
+                      "to":  "agent:qa",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:**",
+                      "to":  "agent:security",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:.github/**",
+                      "to":  "agent:pr-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:.github/workflows/**",
+                      "to":  "agent:release",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:AGENTS.md",
+                      "to":  "agent:docs-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:apps/agent-api/**",
+                      "to":  "agent:agent-api",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:apps/mobile/**",
+                      "to":  "agent:frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "agent:darshan-ui",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "agent:frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:apps/web/**",
+                      "to":  "agent:pwa-frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:backend/**",
+                      "to":  "agent:backend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:content/consciousness_core/**",
+                      "to":  "agent:consciousness-core",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:content/consciousness_core/silence_and_non_answering.md",
+                      "to":  "agent:compliance",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:content/processed/**",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:content/sources/**",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docker-compose*.yml",
+                      "to":  "agent:release",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:Dockerfile",
+                      "to":  "agent:release",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/**",
+                      "to":  "agent:docs-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/_meta/PHASE_QUEUE.yaml",
+                      "to":  "agent:planner",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/architecture/**",
+                      "to":  "agent:solutions-architect",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/backlog/**",
+                      "to":  "agent:planner",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/copyright_policy.md",
+                      "to":  "agent:compliance",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/decisions/**",
+                      "to":  "agent:consciousness-core",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/design/**",
+                      "to":  "agent:solutions-architect",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/passage_id_scheme.md",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/specs/**",
+                      "to":  "agent:planner",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:docs/specs/**",
+                      "to":  "agent:spec-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:frontend/**",
+                      "to":  "agent:frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:infrastructure/**",
+                      "to":  "agent:release",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:packages/evals/**",
+                      "to":  "agent:evals-quality",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:packages/prompts/**",
+                      "to":  "agent:agent-api",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:packages/prompts/**",
+                      "to":  "agent:consciousness-core",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:packages/rag/**",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:README.md",
+                      "to":  "agent:docs-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:scripts/chunk/**",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:scripts/harness/**",
+                      "to":  "agent:spec-steward",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:scripts/index/**",
+                      "to":  "agent:rag-corpus",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:scripts/validate/**",
+                      "to":  "agent:evals-quality",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:services/**",
+                      "to":  "agent:backend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/decisions/**",
+                      "to":  "agent:compliance",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/decisions/**",
+                      "to":  "agent:consciousness-core",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/design/claude-design/**",
+                      "to":  "agent:darshan-ui",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/design/claude-design/**",
+                      "to":  "agent:pwa-frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/design-tokens.yaml",
+                      "to":  "agent:darshan-ui",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/nfr.yaml",
+                      "to":  "agent:compliance",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:spec/ux-spec.yaml",
+                      "to":  "agent:darshan-ui",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:src/**/api/**",
+                      "to":  "agent:backend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:src/**/ui/**",
+                      "to":  "agent:frontend",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  },
+                  {
+                      "from":  "path:tests/**",
+                      "to":  "agent:evals-quality",
+                      "type":  "scopes_agent",
+                      "via":  "manifest"
+                  }
+              ]
+}

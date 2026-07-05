@@ -1,0 +1,35 @@
+/* Darshan — typography tokens (design-tokens.yaml §fonts, §type_scale_rem)
+   The serif belongs to the sacred word; the sans belongs to the interface. */
+
+:root {
+  /* families */
+  --font-passage: "Source Serif 4", Georgia, serif;        /* sacred text */
+  --font-body: "Manrope", system-ui, sans-serif;           /* calm humanist sans */
+  --font-devanagari: "Noto Serif Devanagari", serif;       /* Sanskrit originals */
+  --font-tamil: "Noto Serif Tamil", serif;                 /* Tirumandiram originals */
+  --font-translit: "Gentium Plus", Georgia, serif;         /* IAST diacritics */
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;  /* passage ids, provenance */
+
+  /* scale (rem) — minimum never below 12px at default root */
+  --type-word-d0: 2.25rem;        /* the daily word, one line alone */
+  --type-passage-d2: 1.375rem;    /* passages in context */
+  --type-reading: 1.125rem;       /* D3/D4 long-form reading */
+  --type-body: 1rem;
+  --type-meta: 0.875rem;          /* citations, secondary lines */
+  --type-minimum: 0.75rem;
+
+  /* leading */
+  --leading-word: 1.4;
+  --leading-passage: 1.6;
+  --leading-reading: 1.8;
+  --leading-body: 1.6;
+
+  /* weights */
+  --weight-passage: 400;
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-strong: 600;
+
+  /* letterspacing for quiet labels (interface whispers, never shouts) */
+  --tracking-label: 0.14em;
+}
