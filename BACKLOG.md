@@ -54,7 +54,7 @@ powershell -File $env:USERPROFILE/arah-harness/cli/arah.ps1 export-graph -Target
 
 ---
 
-## Fase 03 — Path ← **ATUAL**
+## Fase 03 — Path ✅
 
 Living maps · practice field · outer sky (local ephemeris) · rhythm composer · inner weather marks (local).
 
@@ -70,9 +70,17 @@ Living maps · practice field · outer sky (local ephemeris) · rhythm composer 
 
 ---
 
-## Fase 04 — Witness (future)
+## Fase 04 — Witness ← **ATUAL**
 
 Inner diary (local-first, encrypted) · witness mode · presence metrics · opt-in bells.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| W-01 | Inner diary — AES-GCM, chave derivada do usuário | frontend | `apps/web/static/js/diary-*.js` | RF-012 |
+| W-02 | Witness mode — POST `/witness` transiente, sem persistência | backend | `packages/prompts/witness.py`, `apps/agent-api/` | RF-012 |
+| W-03 | Look-back/offering espelham no diário | frontend | `apps/web/` | RF-010 |
+| W-04 | Presence metrics on-device | frontend | `presence-metrics.js` | RF-015 |
+| W-05 | Opt-in dawn/dusk bells (máx. 2/dia) | frontend | `bells.js` | RF-013 |
 
 **Gate:** diary provably engine-blind; zero third-party analytics.
 

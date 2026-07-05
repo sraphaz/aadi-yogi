@@ -1,4 +1,4 @@
-const CACHE = 'darshan-path-v1';
+const CACHE = 'darshan-witness-v1';
 const PRECACHE = [
   '/',
   '/manifest.webmanifest',
@@ -13,6 +13,10 @@ const PRECACHE = [
   '/static/js/theme.js',
   '/static/js/ephemeris.js',
   '/static/js/path-store.js',
+  '/static/js/diary-crypto.js',
+  '/static/js/diary-store.js',
+  '/static/js/presence-metrics.js',
+  '/static/js/bells.js',
   '/static/data/daily-words.json',
   '/static/data/library/gita-ii-47.json',
   '/static/data/living-maps/aspiration-path.json',
@@ -39,7 +43,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  if (url.pathname.startsWith('/ask') || url.pathname.startsWith('/inquire') || url.pathname.startsWith('/retrieve')) return;
+  if (url.pathname.startsWith('/ask') || url.pathname.startsWith('/inquire') || url.pathname.startsWith('/witness') || url.pathname.startsWith('/retrieve')) return;
 
   event.respondWith(
     caches.match(request).then((cached) => {
