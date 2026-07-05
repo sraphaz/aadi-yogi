@@ -1,6 +1,6 @@
 {
   "bundle_version": "2026-07-05",
-  "generated_at": "2026-07-05T04:18:02.942792+00:00",
+  "generated_at": "2026-07-05T04:54:35.465055+00:00",
   "shelves": [
     {
       "id": "gita",
@@ -16,26 +16,66 @@
       "passages": [
         "gita-ii-47"
       ]
+    },
+    {
+      "id": "integral_yoga",
+      "name": {
+        "en": "Sri Aurobindo",
+        "pt": "Sri Aurobindo"
+      },
+      "line": {
+        "en": "integral yoga in prose and verse — arriving room by room.",
+        "pt": "yoga integral em prosa e verso — sala a sala, enquanto chega."
+      },
+      "state": "arriving",
+      "passages": [],
+      "source_files": 31
+    },
+    {
+      "id": "upanishads",
+      "name": {
+        "en": "the Upanishads",
+        "pt": "as Upanishads"
+      },
+      "line": {
+        "en": "seer texts on the Self — arriving as witnesses land.",
+        "pt": "textos dos videntes sobre o Self — chegando conforme entram testemunhas."
+      },
+      "state": "arriving",
+      "passages": [],
+      "source_files": 19
+    }
+  ],
+  "facets": [
+    {
+      "id": "integral_yoga",
+      "count": 2
     }
   ],
   "collections": [
     {
       "id": "sri_aurobindo_cwsa",
       "title": "The Complete Works of Sri Aurobindo",
-      "state": "arriving",
-      "source_files": 0,
+      "state": "open",
+      "source_files": 31,
       "volumes_full_text": 18,
       "volumes_total": 31,
-      "health_sensitive": false
+      "health_sensitive": false,
+      "traditions": [
+        "integral_yoga"
+      ]
     },
     {
       "id": "the_mother_cwm",
       "title": "Collected Works of the Mother",
-      "state": "arriving",
-      "source_files": 0,
+      "state": "open",
+      "source_files": 18,
       "volumes_full_text": 0,
       "volumes_total": 18,
-      "health_sensitive": false
+      "health_sensitive": false,
+      "traditions": [
+        "integral_yoga"
+      ]
     }
   ],
   "passage_count": 1

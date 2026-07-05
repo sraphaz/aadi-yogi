@@ -1,44 +1,34 @@
-/** Local daily inquiry measure — device-only, no account (ADR-0001). */
+/** Device identity for anonymous inquiry measure — local only (ADR-0001). */
 
-const USAGE_KEY = 'darshan.inquiryUsage';
+const DEVICE_KEY = 'darshan.deviceId';
 
-export function localDateKey() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function loadUsage() {
-  try {
-    const raw = localStorage.getItem(USAGE_KEY);
-    if (!raw) return { date: localDateKey(), count: 0 };
-    const parsed = JSON.parse(raw);
-    if (parsed.date !== localDateKey()) return { date: localDateKey(), count: 0 };
-    return { date: parsed.date, count: Number(parsed.count) || 0 };
-  } catch {
-    return { date: localDateKey(), count: 0 };
+export function getDeviceId() {
+  let id = localStorage.getItem(DEVICE_KEY);
+  if (!id) {
+    id = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `dev-${Date.now()}`;
+    localStorage.setItem(DEVICE_KEY, id);
   }
+  return id;
 }
 
-function saveUsage(usage) {
-  localStorage.setItem(USAGE_KEY, JSON.stringify(usage));
+export function deviceHeaders() {
+  return { 'X-Darshan-Device': getDeviceId() };
 }
 
-export function inquiriesUsedToday() {
-  return loadUsage().count;
+export function inquiryFetchInit(body) {
+  return {
+    method: 'POST',
+    headers: { ...deviceHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  };
 }
 
-export function inquiriesRemaining(freeDaily) {
-  if (freeDaily == null) return null;
-  return Math.max(0, freeDaily - loadUsage().count);
-}
-
-export function canUseFreeInquiry(freeDaily) {
-  if (freeDaily == null) return true;
-  return loadUsage().count < freeDaily;
-}
-
-export function recordFreeInquiry() {
-  const usage = loadUsage();
-  usage.count += 1;
-  saveUsage(usage);
-  return usage.count;
+export async function fetchInquiryQuota() {
+  try {
+    const res = await fetch('/inquiry/quota', { headers: deviceHeaders() });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
 }

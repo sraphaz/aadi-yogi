@@ -116,7 +116,7 @@ Exploração apenas — sem feeds, profiles ou counts.
 
 ---
 
-## Fase 07 — Living Corpus ← **ATUAL**
+## Fase 07 — Living Corpus ✅
 
 Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 
@@ -128,6 +128,20 @@ Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 | LC-04 | Health gate CI — health_sensitive exige safety_review | qa | `scripts/validate/check_health_gate.py` | RF-037 |
 
 **Gate:** catalog.json gerado em CI; nenhum conteúdo closed-tier na UI.
+
+---
+
+## Fase 08 — Integrate ← **ATUAL**
+
+Quota server-side · facets no catalog · shelves arriving honestos.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| I-01 | Server inquiry quota (`X-Darshan-Device`, 429) | backend | `packages/prompts/inquiry_quota.py` | RF-039 |
+| I-02 | GET `/inquiry/quota` + PWA sync | frontend + backend | `inquiry-quota.js`, `apps/agent-api/` | RF-039 |
+| I-03 | Catalog facets + shelves upanishads/CWSA arriving | backend | `build_library_catalog.py` | RF-038 |
+
+**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired.
 
 ---
 

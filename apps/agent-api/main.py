@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -14,6 +14,11 @@ from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.contract import envelope_to_dict
 from packages.prompts.inquiry_policy import inquiry_policy
+from packages.prompts.inquiry_quota import (
+    can_use_free_inquiry,
+    record_free_inquiry,
+    remaining_free_inquiries,
+)
 from packages.prompts.orchestrator import AgentAnswer, InquireResult, ask_question, inquire
 from packages.prompts.witness import WitnessResult, witness_reflect
 from packages.rag.embeddings import get_embedding_provider
@@ -241,15 +246,41 @@ def ask(request: AskRequest) -> AnswerResponse:
 
 
 @app.post("/inquire", response_model=InquireResponse)
-def inquire_endpoint(request: AskRequest) -> InquireResponse:
+def inquire_endpoint(request: AskRequest, http_request: Request) -> InquireResponse:
     """Darshan inquiry — response contract envelope, no streaming (RF-004, RF-005)."""
+    device_id = http_request.headers.get("x-darshan-device", "").strip() or None
+    policy = inquiry_policy()
+    if policy.get("calibrated") and not can_use_free_inquiry(device_id):
+        raise HTTPException(
+            status_code=429,
+            detail={
+                "reason": "free_measure_rested",
+                "remaining": 0,
+                "policy": policy,
+            },
+        )
+
     result = inquire(
         request.question,
         retriever=retriever,
         llm_client=llm_client,
         top_k=request.top_k,
     )
+    if policy.get("calibrated"):
+        record_free_inquiry(device_id)
     return inquire_to_response(result)
+
+
+@app.get("/inquiry/quota")
+def inquiry_quota_endpoint(http_request: Request) -> dict[str, object]:
+    """Remaining free inquiries for this device (server mirror)."""
+    device_id = http_request.headers.get("x-darshan-device", "").strip() or None
+    policy = inquiry_policy()
+    return {
+        "calibrated": policy.get("calibrated", False),
+        "remaining": remaining_free_inquiries(device_id),
+        "free_daily_inquiries": policy.get("free_daily_inquiries"),
+    }
 
 
 @app.get("/inquiry/policy")
