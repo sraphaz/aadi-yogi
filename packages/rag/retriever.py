@@ -71,6 +71,8 @@ class SimpleRetriever:
             metadata = record.get("metadata", {})
             if not isinstance(metadata, dict):
                 metadata = {}
+            if "chunk_index" in record and "chunk_index" not in metadata:
+                metadata = {**metadata, "chunk_index": record["chunk_index"]}
             text = str(record.get("text", ""))
             score = self.score(query, text, metadata)
             if score <= 0:
@@ -100,6 +102,8 @@ class SimpleRetriever:
             metadata = record.get("metadata", {})
             if not isinstance(metadata, dict):
                 metadata = {}
+            if "chunk_index" in record and "chunk_index" not in metadata:
+                metadata = {**metadata, "chunk_index": record["chunk_index"]}
             text = str(record.get("text", ""))
             matches.append(
                 RetrievedChunk(
