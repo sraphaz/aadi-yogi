@@ -664,3 +664,41 @@ a:focus-visible,
   color: var(--ink);
   margin: 0;
 }
+
+.diary-field {
+  margin-top: var(--space-paragraph);
+  font-family: var(--font-passage);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.witness-link {
+  margin-top: var(--space-stanza);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--type-minimum);
+  color: var(--accent-gold);
+  text-align: left;
+  min-height: var(--touch-target);
+}
+
+.witness-response {
+  margin-top: var(--space-stanza);
+  max-width: var(--measure-reading);
+  animation: darshan-reveal var(--motion-depth-dial) var(--ease-calm);
+}
+
+.witness-response__body {
+  font-size: var(--type-reading);
+  line-height: var(--leading-reading);
+  border-left: 2px solid var(--accent-gold);
+  padding-left: 1rem;
+}
+
+.presence-panel {
+  margin-top: var(--space-breath);
+  padding-top: var(--space-stanza);
+  border-top: var(--hairline) solid color-mix(in srgb, var(--ink) 8%, transparent);
+}

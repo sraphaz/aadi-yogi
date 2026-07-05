@@ -14,6 +14,7 @@ from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.contract import envelope_to_dict
 from packages.prompts.orchestrator import AgentAnswer, InquireResult, ask_question, inquire
+from packages.prompts.witness import WitnessResult, witness_reflect
 from packages.rag.embeddings import get_embedding_provider
 from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk, USE_QDRANT
 from packages.rag.qdrant_retriever import QdrantRetriever
@@ -104,6 +105,24 @@ class InquireResponse(BaseModel):
     model: str
     restraint_short_circuit: bool
     retrieved_chunks: list[ChunkResponse]
+
+
+class WitnessRequest(BaseModel):
+    text: str = Field(min_length=3, max_length=8000)
+
+
+class WitnessCitationModel(BaseModel):
+    passage_id: str
+    quote: str
+    tradition: str = ""
+
+
+class WitnessResponse(BaseModel):
+    body: str
+    citation: WitnessCitationModel | None = None
+    provider: str
+    model: str
+    restraint: bool
 
 
 def chunk_to_response(chunk: RetrievedChunk | HybridRetrievedChunk) -> ChunkResponse:
@@ -230,3 +249,27 @@ def inquire_endpoint(request: AskRequest) -> InquireResponse:
         top_k=request.top_k,
     )
     return inquire_to_response(result)
+
+
+@app.post("/witness", response_model=WitnessResponse)
+def witness_endpoint(request: WitnessRequest) -> WitnessResponse:
+    """Diary witness — transient read, no storage (RF-012)."""
+    result: WitnessResult = witness_reflect(
+        request.text,
+        retriever=retriever,
+        llm_client=llm_client,
+    )
+    citation = None
+    if result.citation:
+        citation = WitnessCitationModel(
+            passage_id=result.citation.passage_id,
+            quote=result.citation.quote,
+            tradition=result.citation.tradition,
+        )
+    return WitnessResponse(
+        body=result.body,
+        citation=citation,
+        provider=result.provider,
+        model=result.model,
+        restraint=result.restraint,
+    )

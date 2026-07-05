@@ -1,5 +1,5 @@
 /**
- * Darshan PWA — Seed + Voice + Path (threshold, court, word, library, inquiry, maps, practice, sky)
+ * Darshan PWA — Seed + Voice + Path + Witness
  */
 import { STRINGS, LANGS, HOUR_THEMES } from './strings.js';
 import {
@@ -31,6 +31,21 @@ import {
   loadLookback,
   saveLookback,
 } from './path-store.js';
+import {
+  diaryConfigured,
+  diaryUnlocked,
+  setupDiaryKey,
+  unlockDiary,
+  lockDiary,
+} from './diary-crypto.js';
+import { appendEntry } from './diary-store.js';
+import { recordPresence, presenceSummary } from './presence-metrics.js';
+import {
+  loadBellSettings,
+  saveBellSettings,
+  requestBellPermission,
+  scheduleBellChecks,
+} from './bells.js';
 
 const state = {
   screen: 'threshold',
@@ -46,6 +61,11 @@ const state = {
   contemplation: null,
   livingMap: null,
   mapData: null,
+  diaryText: '',
+  diaryKept: false,
+  witnessOn: false,
+  witnessResponse: null,
+  diaryError: '',
 };
 
 const root = document.getElementById('app');
@@ -522,6 +542,167 @@ async function openLivingMap(id) {
   navigate('map-journey');
 }
 
+function renderDiaryGate(isSetup) {
+  const s = t();
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.diaryLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${isSetup ? s.diarySetupTitle : s.diaryUnlockTitle}</div>
+        <p class="path-intro">${isSetup ? s.diarySetupIntro : s.diaryUnlockIntro}</p>
+        <form class="inquiry-form" data-action="diary-unlock">
+          <label class="lookback-field">
+            <span class="lookback-field__q">${s.diaryPassphrase}</span>
+            <input id="diary-pass" class="inquiry-field" type="password" minlength="8" autocomplete="off" required />
+          </label>
+          ${isSetup ? `<label class="lookback-field">
+            <span class="lookback-field__q">${s.diaryPassphraseConfirm}</span>
+            <input id="diary-pass-confirm" class="inquiry-field" type="password" minlength="8" autocomplete="off" required />
+          </label>` : ''}
+          ${state.diaryError ? `<p class="path-note" role="alert">${state.diaryError}</p>` : ''}
+          <button type="submit" class="btn-quiet inquiry-submit">${isSetup ? s.diarySetupBtn : s.diaryUnlockBtn}</button>
+        </form>
+      </div>
+    </section>`;
+}
+
+function renderDiary() {
+  const s = t();
+  const chips = (s.diaryChips || ['local', 'encrypted', 'no cloud'])
+    .map((c) => `<span class="door-chip is-active">${c}</span>`)
+    .join('');
+  const witnessBlock = state.witnessOn && state.witnessResponse
+    ? `<div class="witness-response">
+        <div class="witness-response__body">${state.witnessResponse.body}</div>
+        ${state.witnessResponse.citation ? `<blockquote class="contemplation-quote"><span class="contemplation-quote__bar"></span>${state.witnessResponse.citation.quote}<footer>${state.witnessResponse.citation.passage_id}</footer></blockquote>` : ''}
+      </div>`
+    : '';
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.diaryLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.diaryLabel}</div>
+        <div class="door-grid" aria-hidden="true">${chips}</div>
+        <p class="path-intro">${s.diaryBlind}</p>
+        <label class="sr-only" for="diary-field">${s.diaryPrompt}</label>
+        <textarea id="diary-field" class="inquiry-field diary-field" rows="8" maxlength="8000" placeholder="${s.diaryPrompt}">${state.diaryText || ''}</textarea>
+        <div class="path-actions">
+          ${!state.diaryKept && state.diaryText.trim().length > 0 ? `<button type="button" class="btn-quiet" data-action="diary-keep">${s.diaryKeepBtn}</button>` : ''}
+          ${state.diaryKept ? `<span class="path-note"><span style="color:var(--accent-gold)">◦</span> ${s.diaryKeptLine}</span>` : ''}
+          ${state.diaryKept ? `<button type="button" class="btn-quiet" data-action="diary-new">${s.diaryNewBtn}</button>` : ''}
+          <button type="button" class="btn-quiet" data-action="diary-lock">${s.diaryLockBtn}</button>
+        </div>
+        <button type="button" class="witness-link" data-action="witness-toggle">${state.witnessOn ? s.witnessRevoke : s.witnessInvite}</button>
+        ${witnessBlock}
+        <div class="path-actions" style="margin-top:var(--space-stanza)">
+          <button type="button" class="btn-quiet" data-gesture="bells">${s.bellsLabel}</button>
+        </div>
+        ${renderPresencePanel()}
+      </div>
+    </section>`;
+}
+
+function renderPresencePanel() {
+  const s = t();
+  const p = presenceSummary();
+  return `
+    <div class="presence-panel">
+      <div class="label label--soft">${s.presenceLabel}</div>
+      <p class="path-note path-note--muted">${s.presenceIntro}</p>
+      <dl class="sky-facts">
+        <div><dt>${s.presenceClosures}</dt><dd>${p.closures}</dd></div>
+        <div><dt>${s.presenceDepth}</dt><dd>${p.depthOpens}</dd></div>
+        <div><dt>${s.presenceSilences}</dt><dd>${p.silences}</dd></div>
+        <div><dt>${s.presenceWitness}</dt><dd>${p.witnessInvites}</dd></div>
+        <div><dt>${s.presenceBells}</dt><dd>${p.bellsShown}</dd></div>
+      </dl>
+    </div>`;
+}
+
+function renderBells() {
+  const s = t();
+  const settings = loadBellSettings();
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.bellsLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.bellsLabel}</div>
+        <p class="path-intro">${s.bellsIntro}</p>
+        <div class="rhythm-panel">
+          <label class="rhythm-row"><input type="checkbox" data-bell="enabled" ${settings.enabled ? 'checked' : ''} /><span>${s.bellsEnable}</span></label>
+          <label class="rhythm-row"><input type="checkbox" data-bell="dawn" ${settings.dawn ? 'checked' : ''} /><span>${s.bellsDawn} · "${s.bellsDawnLine}"</span></label>
+          <label class="rhythm-row"><input type="checkbox" data-bell="dusk" ${settings.dusk ? 'checked' : ''} /><span>${s.bellsDusk} · "${s.bellsDuskLine}"</span></label>
+        </div>
+        <button type="button" class="btn-quiet" data-action="bells-permission">${s.bellsPermission}</button>
+        <button type="button" class="btn-quiet" data-action="bells-save">${s.bellsSaved}</button>
+        ${renderPresencePanel()}
+      </div>
+    </section>`;
+}
+
+function renderDiaryResting() {
+  const s = t();
+  root.innerHTML = `
+    <section class="screen inquiry-resting" aria-label="${s.witnessResting}">
+      <div class="breath-glyph" aria-hidden="true"></div>
+      <p class="threshold__line">${s.witnessResting}</p>
+    </section>`;
+}
+
+async function openDiary() {
+  state.diaryError = '';
+  if (!diaryConfigured()) {
+    navigate('diary-setup');
+    return;
+  }
+  if (!diaryUnlocked()) {
+    navigate('diary-unlock');
+    return;
+  }
+  navigate('diary');
+}
+
+async function keepDiaryPage() {
+  const text = state.diaryText.trim();
+  if (!text || !diaryUnlocked()) return;
+  await appendEntry({ body: text, kind: 'free', dateKey: localDateKey() });
+  state.diaryKept = true;
+  renderDiary();
+}
+
+async function inviteWitness() {
+  const text = state.diaryText.trim();
+  if (text.length < 3) return;
+  recordPresence('witness');
+  navigate('diary-witness-rest');
+  const restingMs = breathDurationMs() > 0 ? 2200 : 400;
+  try {
+    const res = await fetch('/witness', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+    if (!res.ok) throw new Error('witness failed');
+    const data = await res.json();
+    await new Promise((r) => setTimeout(r, restingMs));
+    state.witnessOn = true;
+    state.witnessResponse = data;
+    navigate('diary');
+  } catch {
+    await new Promise((r) => setTimeout(r, restingMs));
+    state.witnessOn = true;
+    state.witnessResponse = { body: t().witnessLineFallback, citation: null };
+    navigate('diary');
+  }
+}
+
+async function mirrorToDiary(body, kind) {
+  if (!diaryUnlocked() || !body.trim()) return;
+  await appendEntry({ body, kind, dateKey: localDateKey() });
+}
+
+
 function renderSilence() {
   const s = t();
   root.innerHTML = `
@@ -682,6 +863,11 @@ function navigate(screen) {
   else if (screen === 'lookback') renderLookback();
   else if (screen === 'rhythm') renderRhythm();
   else if (screen === 'sky') renderSky();
+  else if (screen === 'diary-setup') renderDiaryGate(true);
+  else if (screen === 'diary-unlock') renderDiaryGate(false);
+  else if (screen === 'diary') renderDiary();
+  else if (screen === 'diary-witness-rest') renderDiaryResting();
+  else if (screen === 'bells') renderBells();
   else if (screen === 'silence') renderSilence();
   else if (screen === 'farewell') renderFarewell();
 }
@@ -696,6 +882,7 @@ async function openLibraryPassage(id) {
 
 function closeSession() {
   state.closing = true;
+  recordPresence('closure');
   navigate('farewell');
   setTimeout(() => {
     state.closing = false;
@@ -719,6 +906,7 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.action === 'silence' || el.dataset.action === 'silence-exit') {
     if (el.dataset.action === 'silence' && !['contemplation'].includes(state.screen)) {
       state.silenceReturn = state.screen === 'court' ? 'court' : state.screen;
+      recordPresence('silence');
     }
     navigate('silence');
     if (el.dataset.action === 'silence-exit') navigate(state.silenceReturn);
@@ -734,6 +922,8 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.gesture === 'maps') navigate('maps');
   if (el.dataset.gesture === 'practice') navigate('practice');
   if (el.dataset.gesture === 'sky') navigate('sky');
+  if (el.dataset.gesture === 'diary') openDiary();
+  if (el.dataset.gesture === 'bells') navigate('bells');
   if (el.dataset.gesture === 'offering') navigate('offering');
   if (el.dataset.gesture === 'lookback') navigate('lookback');
   if (el.dataset.gesture === 'rhythm') navigate('rhythm');
@@ -776,6 +966,39 @@ root.addEventListener('click', async (e) => {
     saveInnerSky(inner);
     renderSky();
   }
+  if (el.dataset.action === 'diary-keep') keepDiaryPage();
+  if (el.dataset.action === 'diary-new') {
+    state.diaryText = '';
+    state.diaryKept = false;
+    state.witnessOn = false;
+    state.witnessResponse = null;
+    renderDiary();
+  }
+  if (el.dataset.action === 'diary-lock') {
+    lockDiary();
+    navigate('diary-unlock');
+  }
+  if (el.dataset.action === 'witness-toggle') {
+    if (state.witnessOn) {
+      state.witnessOn = false;
+      state.witnessResponse = null;
+      renderDiary();
+    } else {
+      inviteWitness();
+    }
+  }
+  if (el.dataset.action === 'bells-permission') {
+    requestBellPermission().then(() => navigate('bells'));
+  }
+  if (el.dataset.action === 'bells-save') {
+    const panel = root.querySelector('.rhythm-panel');
+    const settings = loadBellSettings();
+    panel?.querySelectorAll('[data-bell]').forEach((input) => {
+      settings[input.dataset.bell] = input.checked;
+    });
+    saveBellSettings(settings);
+    navigate('bells');
+  }
   if (el.dataset.door) {
     state.inquiryDoor = el.dataset.door;
     renderInquiry();
@@ -792,13 +1015,14 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.shelf) openLibraryPassage(el.dataset.shelf === 'gita' ? 'gita-ii-47' : el.dataset.shelf);
   if (el.dataset.depth !== undefined) {
     state.depth = Number(el.dataset.depth);
+    recordPresence('depth');
     if (state.screen === 'word') renderWord();
     if (state.screen === 'library-read') renderLibraryReading();
   }
 });
 
-root.addEventListener('submit', (e) => {
-  const form = e.target.closest('[data-action="inquiry-submit"], [data-action="offering-save"], [data-action="lookback-save"]');
+root.addEventListener('submit', async (e) => {
+  const form = e.target.closest('[data-action="inquiry-submit"], [data-action="offering-save"], [data-action="lookback-save"], [data-action="diary-unlock"]');
   if (!form) return;
   e.preventDefault();
   if (form.dataset.action === 'inquiry-submit') {
@@ -807,7 +1031,9 @@ root.addEventListener('submit', (e) => {
     return;
   }
   if (form.dataset.action === 'offering-save') {
-    saveOffering(localDateKey(), form.querySelector('#offering-field')?.value || '');
+    const text = form.querySelector('#offering-field')?.value || '';
+    saveOffering(localDateKey(), text);
+    await mirrorToDiary(text, 'offering');
     navigate('practice');
     return;
   }
@@ -816,7 +1042,36 @@ root.addEventListener('submit', (e) => {
       .sort((a, b) => Number(a.dataset.lookbackIdx) - Number(b.dataset.lookbackIdx))
       .map((node) => node.value || '');
     saveLookback(localDateKey(), answers);
+    const s = t();
+    const body = s.lookbackQuestions.map((q, i) => `${q}\n${answers[i] || ''}`).join('\n\n');
+    await mirrorToDiary(body, 'lookback');
     navigate('practice');
+    return;
+  }
+  if (form.dataset.action === 'diary-unlock') {
+    const pass = form.querySelector('#diary-pass')?.value || '';
+    const confirm = form.querySelector('#diary-pass-confirm')?.value || '';
+    state.diaryError = '';
+    try {
+      if (state.screen === 'diary-setup') {
+        if (pass.length < 8) throw new Error('short');
+        if (pass !== confirm) throw new Error('mismatch');
+        await setupDiaryKey(pass);
+      } else {
+        await unlockDiary(pass);
+      }
+      navigate('diary');
+    } catch {
+      state.diaryError = state.screen === 'diary-setup' ? 'keys must match (8+ characters)' : 'key not recognized';
+      navigate(state.screen);
+    }
+  }
+});
+
+root.addEventListener('input', (e) => {
+  if (e.target.id === 'diary-field') {
+    state.diaryText = e.target.value;
+    state.diaryKept = false;
   }
 });
 
@@ -855,6 +1110,9 @@ async function init() {
   }
 
   await loadDailyWords();
+
+  const s = t();
+  scheduleBellChecks({ dawn: s.bellsDawnLine, dusk: s.bellsDuskLine });
 
   if (shouldSkipThreshold()) goCourt();
   else renderThreshold();
