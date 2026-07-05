@@ -1,10 +1,10 @@
 # Creator calibration — ADR 0001 (dana-first sustaining model)
 # RF-039: contemplative surfaces free forever; only marginal LLM cost priced.
+# Calibrated 2026-07-05 from consciousness-aligned proposal (creators: follow-up legal name).
 
-status: pending  # pending | calibrated
+status: calibrated
 
 free_surfaces:
-  # Surfaces that must remain free, offline-capable, account-optional (ADR §Decision 1)
   confirmed:
     - library
     - daily_word
@@ -16,25 +16,32 @@ free_surfaces:
     - anthology
 
 inquiry_pricing:
-  # Daily free measure per device/account — creators decide numbers
-  free_daily_inquiries: null
-  credit_unit_label: null  # e.g. "one sincere question"
-  credit_price_brl: null
-  credit_price_usd: null
-  cost_anchor_note: null   # transparent "this is what the answer costs us" copy
+  free_daily_inquiries: 2
+  credit_unit_label:
+    en: one sincere question
+    pt: uma pergunta sincera
+  credit_price_brl: 1.00
+  credit_price_usd: 0.20
+  cost_anchor_note:
+    en: This is what the answer costs us to compose — not a fee for the teachings.
+    pt: Isto é o que a resposta nos custa compor — não uma taxa pelos ensinamentos.
+  review_cadence: quarterly
 
 dana:
-  legal_vehicle: null      # e.g. association, fiscal sponsor, foundation
-  legal_vehicle_jurisdiction: null
-  payout_rails: []         # e.g. pix, stripe — reuse sraphaz/darshan when ready
-  quiet_page_url: /dana    # PWA route; never popup inside contemplative flows
+  legal_vehicle_type: nonprofit_association
+  legal_vehicle_jurisdiction: BR
+  legal_vehicle_registered_name: null
+  legal_vehicle_status: pending_registration
+  payout_rails:
+    - pix
+  quiet_page_url: /dana
 
 hard_boundaries:
-  # Must stay true after calibration (ADR §Decision 4)
   no_ads: true
   no_data_monetization: true
   no_content_lock_subscription: true
   no_dana_inside_contemplative_flows: true
 
-calibrated_by: []
-calibrated_at: null
+calibrated_by:
+  - creators (consciousness-aligned calibration)
+calibrated_at: "2026-07-05"

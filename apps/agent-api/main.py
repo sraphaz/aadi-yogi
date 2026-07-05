@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.contract import envelope_to_dict
+from packages.prompts.inquiry_policy import inquiry_policy
 from packages.prompts.orchestrator import AgentAnswer, InquireResult, ask_question, inquire
 from packages.prompts.witness import WitnessResult, witness_reflect
 from packages.rag.embeddings import get_embedding_provider
@@ -249,6 +250,12 @@ def inquire_endpoint(request: AskRequest) -> InquireResponse:
         top_k=request.top_k,
     )
     return inquire_to_response(result)
+
+
+@app.get("/inquiry/policy")
+def inquiry_policy_endpoint() -> dict[str, object]:
+    """Public inquiry pricing from creator calibration (ADR-0001)."""
+    return inquiry_policy()
 
 
 @app.post("/witness", response_model=WitnessResponse)
