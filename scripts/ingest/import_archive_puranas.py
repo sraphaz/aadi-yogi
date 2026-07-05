@@ -60,6 +60,20 @@ TEXTS: dict[str, PuranaConfig] = {
         themes=("devi", "durga", "illusion", "cosmic_battle"),
         concepts=("devi", "mahamaya", "madhu_kaitabha", "chandika"),
     ),
+    "garuda_chapter_01": PuranaConfig(
+        import_key="garuda_chapter_01",
+        slug="garuda_purana",
+        output_name="book_01_chapter_01",
+        source_id="puranas/garuda_purana/book_01_chapter_01",
+        title="Garuda Purana - Book 1 Chapter 1 (Incarnations of Vishnu)",
+        source_title="Garuda Purana",
+        translator="J.L. Shastri (Motilal Banarsidass edition, public domain)",
+        citation="Garuda Purana, Chapter 1: Incarnations of Vishnu (public domain translation)",
+        start_pattern=r"CHAPTER ONE\s*\n\s*Incarnations of Vi(?:sh|s|f)nu",
+        end_pattern=r"CHAPTER TWO\s*\n\s*Tradition of Garuda P(?:ur|ar)ana",
+        themes=("garuda", "vishnu", "incarnation", "cosmology"),
+        concepts=("vishnu", "garuda", "avatar", "narayana"),
+    ),
     "garuda_chapter_02": PuranaConfig(
         import_key="garuda_chapter_02",
         slug="garuda_purana",
@@ -188,6 +202,7 @@ def import_text(config: PuranaConfig) -> Path:
     source_text = source_for_key(config.import_key)
     source_url = {
         "markandeya_devi_mahatmya": MARKANDEYA_URL,
+        "garuda_chapter_01": GARUDA_URL,
         "garuda_chapter_02": GARUDA_URL,
     }.get(config.import_key, VISHNU_URL)
     body = extract_section(source_text, config)

@@ -48,7 +48,7 @@ This document records what has been imported into the repository, what has only 
 - Phase 3 expansion:
   - **Markandeya Purana — Devi Mahatmya** (Pargiter translation, Archive.org witness).
   - **Vishnu Purana Book 1 Chapters 2–3** (Wilson translation, Archive.org witness).
-  - **Garuda Purana Book 1 Chapter 2** (Motilal Banarsidass / Shastri translation, Archive.org witness).
+  - **Garuda Purana Book 1 Chapters 1–2** (Motilal Banarsidass / Shastri translation, Archive.org witness).
   - Import script: `scripts/ingest/import_archive_puranas.py` with OCR cleanup via `packages/text/ocr_cleanup.py`.
 - Phase 2 expansion:
   - root Mahapurana canon index
@@ -130,8 +130,7 @@ This document records what has been imported into the repository, what has only 
 ### Siddha Expansion (Phase 3)
 
 - Agathiyar Gnana Padalgal, Kudhambai Siddhar, Idaikkattu Siddhar, and **Agappey Siddhar** imported from Tamil Wikisource.
-- Garuda Purana Book 1 Chapter 1 sample imported (public-domain witness).
-- Garuda Purana Book 1 Chapter 2 full chapter imported (Motilal Archive.org witness).
+- Garuda Purana Book 1 Chapters 1–2 imported (Motilal Archive.org witness).
 
 ### Tirumandiram Expansion
 
@@ -140,7 +139,7 @@ This document records what has been imported into the repository, what has only 
 ### Pipeline and Agent Scaffold
 
 - Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
-- **3742 chunks** across **1076** normalized source artifacts.
+- **3755 chunks** across **1076** normalized source artifacts.
 - Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
 - Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
@@ -162,4 +161,4 @@ This document records what has been imported into the repository, what has only 
 2. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
 3. Run LLM-backed response quality eval with `scripts/validate/run_response_eval.py --llm` and `AADI_YOGI_LLM_API_KEY`.
 4. Complete human production review via `docs/production_review_checklist.md` (machine checks in `scripts/validate/run_production_checklist.py`).
-5. Replace Garuda Purana Book 1 Chapter 1 sample with a full Archive.org chapter witness.
+5. Expand Garuda Purana beyond Book 1 Chapters 1–2 with additional Archive.org chapters.

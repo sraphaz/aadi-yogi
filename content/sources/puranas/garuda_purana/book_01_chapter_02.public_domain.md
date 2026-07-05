@@ -42,7 +42,7 @@ CHAPTER TWO
 
 
 
-Tradition of Garuda Parana
+Tradition of Garuda Purana
 
 
 
@@ -54,7 +54,7 @@ The sages said :
 
 Please elucidate this in full, for it is essentially based on the
 
-anecdotes of Vi$nu.
+anecdotes of Vishnu.
 
 
 
@@ -626,7 +626,7 @@ Puri oss, Mtmiihsi, Nyiya and Dharma.
 
 
 
-Garufa PtirSna
+Garuda PtirSna
 
 
 
@@ -788,7 +788,7 @@ greatest fame among the Purapas.
 
 57. You too shall be glorified like me, O Garu^a. O
 
-chief of birds, contemplating upon me propound this Garufa
+chief of birds, contemplating upon me propound this Garuda
 
 Purapa.
 
@@ -798,7 +798,7 @@ Purapa.
 
 Purana to Kajyapa who sought it from him. By the power he
 
-received on hearing Garufa Purana, he resuscitated a burnt
+received on hearing Garuda Purana, he resuscitated a burnt
 
 tree. With his mind fixed on another, he revived others by
 
