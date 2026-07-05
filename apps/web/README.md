@@ -1,47 +1,54 @@
-# Web App
+# Darshan PWA — Seed phase
 
-Interface web mínima para consultar o agente Aadi Yogi.
+Contemplative interface served by the agent API at `http://localhost:8000/`.
 
-## Como usar
+## Run
 
-1. Suba a API:
-
-```bash
+```powershell
 pnpm api:dev
-# ou
-PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000
+# open http://localhost:8000/
 ```
 
-2. Abra `http://localhost:8000/` no navegador.
+## Seed deliverables (S-01–S-07)
 
-## Endpoints
+| ID | Feature |
+|----|---------|
+| S-01 | PWA shell + 4 hour themes (`data-hour`) |
+| S-02 | Threshold entry ritual (8s breath, skip, reduced-motion) |
+| S-03 | Court hub — one gesture per card |
+| S-04 | Daily word (batch JSON, offline via service worker) |
+| S-05 | Library reading room (D0–D2 depth dial) |
+| S-06 | Silence room |
+| S-07 | i18n — en · pt · hi · it · es |
 
-- `GET /` — interface web
-- `POST /ask` — resposta completa (LLM se configurado, fallback caso contrário)
-- `POST /retrieve` — apenas trechos recuperados
-- `POST /prompt` — prompt montado para inspeção
+## Structure
 
-## LLM opcional
-
-Configure uma API compatível com OpenAI:
-
-```bash
-export AADI_YOGI_LLM_API_KEY=...
-export AADI_YOGI_LLM_BASE_URL=https://api.openai.com/v1
-export AADI_YOGI_LLM_MODEL=gpt-4o-mini
+```
+apps/web/
+├── index.html
+├── manifest.webmanifest
+├── sw.js
+└── static/
+    ├── css/          # design tokens (from spec/design-tokens.yaml)
+    ├── js/           # app, strings, theme
+    ├── data/         # daily-words.json, library passages
+    └── icons/
 ```
 
-Sem chave, o sistema responde em modo fallback compondo trechos recuperados.
+## Daily word batch
 
-## Interface Darshan (design)
+Editorial batches per ADR-0004 — never generated live:
 
-Esta interface mínima é um utilitário de consulta; a interface definitiva é o **Darshan**, cujo conceito e especificação estão em:
+```powershell
+python scripts/content/build_daily_words.py
+```
 
-- `docs/darshan_interface_concept.md`: o conceito Darshan - princípios de design e os gestos.
-- `docs/darshan_interface_spec.md`: telas, fluxos, contrato de resposta, métricas de presença, fases de construção.
-- `docs/darshan_library_design.md`: a Biblioteca em camadas de profundidade (D0-D6, dial de profundidade, facetas, seis portas, salas de leitura).
-- `docs/darshan_becoming_path.md`: o caminho de tornar-se - posturas, o dia como ashram, portas de situação, jornadas de leitura.
-- `docs/darshan_sky_map_design.md`: gesto 8 - o Mapa do Céu (ritmo cósmico externo + céu interno dos cinco planos).
-- `docs/darshan_nature_health_design.md`: gesto 9 - a Casa da Natureza (elementos, corpo, herança de saúde com cerca de responsabilidade).
-- `docs/darshan_reuse_map.md`: mapa de reuso do oráculo implementado em github.com/sraphaz/darshan.
-- `docs/skyforge/darshan/`: pacote de sessão Sky-Forge (brief, 39 RFs com critérios de aceitação, NFRs, UX spec, tokens de design, benchmark de mercado/MPI, modelo C4, índices SKY, maturidade).
+## Design reference
+
+- Tokens: `spec/design-tokens.yaml`
+- Prototype: `spec/design/claude-design/Darshan App.dc.html`
+- Spec: `spec/ux-spec.yaml`
+
+## Install as PWA
+
+Use browser “Install app” after first visit. Service worker caches static assets and daily word data for offline use.

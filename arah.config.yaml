@@ -13,7 +13,7 @@ project:
 
 tests:
   backend: "pytest && python scripts/validate/validate_markdown.py"
-  frontend: "echo 'Configure frontend tests when apps/web PWA ships'"
+  frontend: "node --check apps/web/static/js/app.js && node --check apps/web/static/js/strings.js && node --check apps/web/static/js/theme.js"
   all: "pytest && python scripts/validate/validate_markdown.py && ruff check ."
 
 domains:

@@ -1,0 +1,10 @@
+:root {
+  --space-breath: 4rem;
+  --space-stanza: 2rem;
+  --space-paragraph: 1.25rem;
+  --measure-reading: 62ch;
+  --radius-soft: 12px;
+  --radius-pill: 999px;
+  --touch-target: 44px;
+  --hairline: 1px;
+}
