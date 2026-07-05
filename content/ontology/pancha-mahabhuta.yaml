@@ -1,0 +1,24 @@
+# Pancha Mahabhuta — element facet for Library browse (RF-035 seed)
+# Grows as corpus imports land element-tagged passages.
+
+facet: pancha_mahabhuta
+label:
+  en: five elements
+  pt: cinco elementos
+
+elements:
+  - id: earth
+    names: { en: earth · prithvi, pt: terra · prithvi }
+    state: arriving
+  - id: water
+    names: { en: water · apas, pt: água · apas }
+    state: arriving
+  - id: fire
+    names: { en: fire · agni, pt: fogo · agni }
+    state: open
+  - id: air
+    names: { en: air · vayu, pt: ar · vayu }
+    state: arriving
+  - id: ether
+    names: { en: ether · akasha, pt: éter · akasha }
+    state: future

@@ -702,3 +702,100 @@ a:focus-visible,
   padding-top: var(--space-stanza);
   border-top: var(--hairline) solid color-mix(in srgb, var(--ink) 8%, transparent);
 }
+
+.heritage-notice {
+  margin-top: var(--space-stanza);
+  padding: 0.85rem 1rem;
+  border: var(--hairline) solid color-mix(in srgb, var(--warn, #b8860b) 45%, transparent);
+  border-radius: var(--radius-soft);
+  font-size: var(--type-meta);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: var(--measure-reading);
+}
+
+.element-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-paragraph);
+}
+
+.element-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--touch-target);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: var(--hairline) solid color-mix(in srgb, var(--ink) 14%, transparent);
+  font-size: var(--type-meta);
+  color: var(--ink);
+  transition: border-color var(--motion-ui-hover) var(--ease-calm);
+}
+
+.element-chip:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--accent-gold) 40%, transparent);
+}
+
+.element-chip--muted,
+.element-chip:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.element-chip__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border: var(--hairline) solid var(--accent-gold);
+  border-radius: 50%;
+}
+
+.element-chip__state {
+  font-family: var(--font-mono);
+  font-size: var(--type-minimum);
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+
+.nature-tier-list {
+  margin-top: var(--space-stanza);
+  border-top: var(--hairline) solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.nature-tier {
+  padding: var(--space-paragraph) 0;
+  border-bottom: var(--hairline) solid color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+.nature-tier__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.nature-tier__name {
+  font-family: var(--font-passage);
+  font-size: 1.02rem;
+}
+
+.nature-tier__line {
+  font-size: var(--type-meta);
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-top: 0.35rem;
+  max-width: var(--measure-reading);
+}
+
+.nature-tier__state {
+  font-family: var(--font-mono);
+  font-size: var(--type-minimum);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.nature-tier__state--open { color: var(--accent-flame); }
+.nature-tier__state--arriving { color: var(--accent-gold); }
+.nature-tier__state--closed { color: var(--warn, #b8860b); }

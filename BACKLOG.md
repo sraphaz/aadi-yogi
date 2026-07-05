@@ -70,7 +70,7 @@ Living maps · practice field · outer sky (local ephemeris) · rhythm composer 
 
 ---
 
-## Fase 04 — Witness ← **ATUAL**
+## Fase 04 — Witness ✅
 
 Inner diary (local-first, encrypted) · witness mode · presence metrics · opt-in bells.
 
@@ -86,9 +86,17 @@ Inner diary (local-first, encrypted) · witness mode · presence metrics · opt-
 
 ---
 
-## Fase 05 — Ground (future)
+## Fase 05 — Ground ← **ATUAL**
 
 House of Nature — element rooms first; heritage fence; double editorial gate.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| G-01 | House hub — heritage notice, tiers, room states | frontend | `apps/web/` | RF-035, RF-036 |
+| G-02 | Fire element room (safe movement + documentary passage) | frontend | `apps/web/static/data/nature/` | RF-035 |
+| G-03 | Pancha mahabhuta ontology seed | rag-corpus | `content/ontology/` | RF-035 |
+| G-04 | Health tier helpers | backend | `packages/prompts/health_tier.py` | RF-036 |
+| G-05 | Sky season link into safe regimen | frontend | `apps/web/` | RF-035 |
 
 **Gate:** ADR-0003 — dois revisores nomeados antes de health-touching acima D2.
 

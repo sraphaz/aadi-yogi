@@ -1,5 +1,5 @@
 /**
- * Darshan PWA — Seed + Voice + Path + Witness
+ * Darshan PWA — Seed + Voice + Path + Witness + Ground
  */
 import { STRINGS, LANGS, HOUR_THEMES } from './strings.js';
 import {
@@ -66,6 +66,9 @@ const state = {
   witnessOn: false,
   witnessResponse: null,
   diaryError: '',
+  natureHouse: null,
+  natureDetail: null,
+  natureRoom: null,
 };
 
 const root = document.getElementById('app');
@@ -325,6 +328,144 @@ async function loadLivingMap(id) {
   const res = await fetch(`/static/data/living-maps/${id}.json`);
   return res.json();
 }
+
+async function loadNatureHouse() {
+  if (state.natureHouse) return state.natureHouse;
+  const res = await fetch('/static/data/nature/house.json');
+  state.natureHouse = await res.json();
+  return state.natureHouse;
+}
+
+async function loadNatureElement(id) {
+  const res = await fetch(`/static/data/nature/${id === 'fire' ? 'fire-agni' : id}.json`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+function renderHeritageNotice() {
+  const s = t();
+  return `<aside class="heritage-notice" role="note">${s.natNotice}</aside>`;
+}
+
+function tierStateLabel(stateName) {
+  const s = t();
+  return s.natStates?.[stateName] || s.states?.[stateName] || stateName;
+}
+
+async function renderNature() {
+  const s = t();
+  const house = await loadNatureHouse();
+  const lang = state.lang;
+  const snap = skySnapshot();
+
+  const elements = house.elements
+    .map((el) => {
+      const open = el.state === 'open';
+      return `<button type="button" class="element-chip ${open ? '' : 'element-chip--muted'}" data-element="${el.id}" ${open ? '' : 'disabled'} aria-disabled="${!open}">
+        <span class="element-chip__dot" aria-hidden="true"></span>
+        ${el.name[lang] || el.name.en}
+        ${el.state !== 'open' ? `<span class="element-chip__state">${tierStateLabel(el.state)}</span>` : ''}
+      </button>`;
+    })
+    .join('');
+
+  const tiers = (s.natTiers || [])
+    .map(
+      (tier) => `<div class="nature-tier">
+        <div class="nature-tier__head">
+          <div class="nature-tier__name">${tier.name}</div>
+          <span class="nature-tier__state nature-tier__state--${tier.state}">${tierStateLabel(tier.state)}</span>
+        </div>
+        <p class="nature-tier__line">${tier.line}</p>
+      </div>`,
+    )
+    .join('');
+
+  const rooms = house.rooms
+    .map(
+      (room) =>
+        `<button type="button" class="shelf-item" data-nature-room="${room.id}">
+          <div class="shelf-item__name">${room.name[lang] || room.name.en}</div>
+          <div class="shelf-item__line">${room.line[lang] || room.line.en} · ${tierStateLabel(room.state)}</div>
+        </button>`,
+    )
+    .join('');
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.natLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.natLabel}</div>
+        ${renderHeritageNotice()}
+        <p class="path-intro">${s.natElementsLine}</p>
+        <div class="element-grid" role="group">${elements}</div>
+        <p class="path-note path-note--muted">${s.natSkyRegimen} · ${s.rituNames?.[snap.ritu] || snap.ritu}</p>
+        <button type="button" class="btn-quiet" data-action="nature-from-sky">${s.natFromSky}</button>
+        <div class="label label--soft">${s.natRoomsLine}</div>
+        <div class="shelf-list">${rooms}</div>
+        <div class="nature-tier-list">${tiers}</div>
+      </div>
+    </section>`;
+}
+
+async function renderNatureElement() {
+  const s = t();
+  const detail = state.natureDetail;
+  if (!detail) return navigate('nature');
+
+  const lang = state.lang;
+  const passages = (detail.passages || [])
+    .map((p) => {
+      const mark = p.tier === 'documentary' ? `<p class="path-note path-note--muted">${s.natUnderGuidance}</p>` : '';
+      return `<blockquote class="contemplation-quote">
+        <span class="contemplation-quote__bar"></span>
+        ${p[lang] || p.en}
+        <footer>${p.citation?.[lang] || p.citation?.en || ''} · ${p.passage_id || ''}</footer>
+      </blockquote>${mark}`;
+    })
+    .join('');
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${pickLang(detail.name)}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${pickLang(detail.name)}</div>
+        ${renderHeritageNotice()}
+        <p class="path-intro">${pickLang(detail.intro)}</p>
+        ${passages}
+        <p class="contemplation-movement"><span class="contemplation-movement__mark">◦</span> ${pickLang(detail.safeMovement)} <span class="contemplation-movement__tag">(${s.natSafeMovement})</span></p>
+      </div>
+    </section>`;
+}
+
+async function renderNatureRoom() {
+  const s = t();
+  const house = await loadNatureHouse();
+  const room = house.rooms.find((r) => r.id === state.natureRoom);
+  if (!room) return navigate('nature');
+  const lang = state.lang;
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${room.name[lang] || room.name.en}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${room.name[lang] || room.name.en}</div>
+        ${renderHeritageNotice()}
+        <p class="path-intro">${room.line[lang] || room.line.en}</p>
+        <p class="path-note">${tierStateLabel(room.state)}</p>
+      </div>
+    </section>`;
+}
+
+async function openNatureElement(id) {
+  const house = await loadNatureHouse();
+  const el = house.elements.find((e) => e.id === id);
+  if (!el || el.state !== 'open') return;
+  state.natureDetail = await loadNatureElement(id);
+  if (!state.natureDetail) return;
+  navigate('nature-element');
+}
+
 
 function renderPostureChips(active) {
   const s = t();
@@ -868,6 +1009,9 @@ function navigate(screen) {
   else if (screen === 'diary') renderDiary();
   else if (screen === 'diary-witness-rest') renderDiaryResting();
   else if (screen === 'bells') renderBells();
+  else if (screen === 'nature') renderNature();
+  else if (screen === 'nature-element') renderNatureElement();
+  else if (screen === 'nature-room') renderNatureRoom();
   else if (screen === 'silence') renderSilence();
   else if (screen === 'farewell') renderFarewell();
 }
@@ -891,7 +1035,7 @@ function closeSession() {
 }
 
 root.addEventListener('click', async (e) => {
-  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door], [data-map], [data-posture], [data-inner-sky]');
+  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door], [data-map], [data-posture], [data-inner-sky], [data-element], [data-nature-room]');
   if (!el) return;
 
   if (el.dataset.action === 'enter') {
@@ -923,6 +1067,7 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.gesture === 'practice') navigate('practice');
   if (el.dataset.gesture === 'sky') navigate('sky');
   if (el.dataset.gesture === 'diary') openDiary();
+  if (el.dataset.gesture === 'nature') navigate('nature');
   if (el.dataset.gesture === 'bells') navigate('bells');
   if (el.dataset.gesture === 'offering') navigate('offering');
   if (el.dataset.gesture === 'lookback') navigate('lookback');
@@ -998,6 +1143,14 @@ root.addEventListener('click', async (e) => {
     });
     saveBellSettings(settings);
     navigate('bells');
+  }
+  if (el.dataset.element) openNatureElement(el.dataset.element);
+  if (el.dataset.natureRoom) {
+    state.natureRoom = el.dataset.natureRoom;
+    navigate('nature-room');
+  }
+  if (el.dataset.action === 'nature-from-sky') {
+    openNatureElement('fire');
   }
   if (el.dataset.door) {
     state.inquiryDoor = el.dataset.door;

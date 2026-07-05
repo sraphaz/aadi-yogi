@@ -1,0 +1,35 @@
+{
+  "elements": [
+    { "id": "earth", "name": { "en": "earth", "pt": "terra" }, "state": "arriving" },
+    { "id": "water", "name": { "en": "water", "pt": "água" }, "state": "arriving" },
+    { "id": "fire", "name": { "en": "fire", "pt": "fogo" }, "state": "open" },
+    { "id": "air", "name": { "en": "air", "pt": "ar" }, "state": "arriving" },
+    { "id": "ether", "name": { "en": "ether", "pt": "éter" }, "state": "future" }
+  ],
+  "rooms": [
+    {
+      "id": "land",
+      "name": { "en": "the land", "pt": "a terra" },
+      "line": { "en": "earth as teacher and sacred place", "pt": "a terra como mestra e lugar sagrado" },
+      "state": "arriving"
+    },
+    {
+      "id": "body",
+      "name": { "en": "the body as temple", "pt": "o corpo como templo" },
+      "line": { "en": "dinacharya, ritucharya, mitahara — cited regimen wisdom", "pt": "dinacharya, ritucharya, mitahara — sabedoria de regimen citada" },
+      "state": "arriving"
+    },
+    {
+      "id": "long-life",
+      "name": { "en": "long life", "pt": "longa vida" },
+      "line": { "en": "kaya kalpa heritage — documentary tier only", "pt": "herança kaya kalpa — só camada documentária" },
+      "state": "future"
+    },
+    {
+      "id": "healing-memory",
+      "name": { "en": "healing memory", "pt": "memória de cura" },
+      "line": { "en": "ayurveda and siddha as cited library, not instruction", "pt": "ayurveda e siddha como biblioteca citada, não instrução" },
+      "state": "future"
+    }
+  ]
+}
