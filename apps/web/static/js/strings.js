@@ -31,6 +31,7 @@ export const STRINGS = {
       { id: 'sky', name: 'the sky map', desc: 'the real sky, read as rhythm', state: 'open' },
       { id: 'diary', name: 'the inner diary', desc: 'written for no one — the engine is blind to it', state: 'open' },
       { id: 'nature', name: 'the house of nature', desc: 'elements, land, the body as temple', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'shared silence and study — only without social-media dynamics', state: 'open' },
     ],
     shelves: [
       { id: 'gita', name: 'the Bhagavad Gita', line: 'the battlefield as the inner field.' },
@@ -177,6 +178,11 @@ export const STRINGS = {
     natSafeMovement: 'optional movement',
     natFromSky: 'season link',
     natSkyRegimen: 'the season turns — what the traditions keep in this ritu is offered at the safe layer only.',
+    sanghaLabel: 'sangha',
+    sanghaIntro: 'exploratory — not built until the charter holds.',
+    sanghaForbiddenLine: 'what will never appear here',
+    sanghaFormsLine: 'forms under consideration',
+    sanghaOpenSilence: 'enter the silence room',
   },
   pt: {
     hourLines: {
@@ -209,6 +215,7 @@ export const STRINGS = {
       { id: 'sky', name: 'mapa do céu', desc: 'o céu real, lido como ritmo', state: 'open' },
       { id: 'diary', name: 'o diário interior', desc: 'escrito para ninguém — o motor é cego a ele', state: 'open' },
       { id: 'nature', name: 'a casa da natureza', desc: 'elementos, terra, o corpo como templo', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'silêncio compartilhado e estudo — só sem dinâmicas de rede social', state: 'open' },
     ],
     shelves: [
       { id: 'gita', name: 'Bhagavad Gita', line: 'o campo de batalha como campo interior.' },
@@ -336,6 +343,11 @@ export const STRINGS = {
     natSafeMovement: 'movimento opcional',
     natFromSky: 'ligação sazonal',
     natSkyRegimen: 'a estação vira — o que as tradições guardam neste ritu é oferecido só na camada segura.',
+    sanghaLabel: 'sangha',
+    sanghaIntro: 'exploratório — não será construído até a carta se sustentar.',
+    sanghaForbiddenLine: 'o que nunca aparecerá aqui',
+    sanghaFormsLine: 'formas em consideração',
+    sanghaOpenSilence: 'entrar na sala do silêncio',
   },
   hi: {
     hourLines: {

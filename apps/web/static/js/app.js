@@ -1,5 +1,5 @@
 /**
- * Darshan PWA — Seed + Voice + Path + Witness + Ground
+ * Darshan PWA — Seed + Voice + Path + Witness + Ground + Sangha (exploration)
  */
 import { STRINGS, LANGS, HOUR_THEMES } from './strings.js';
 import {
@@ -69,6 +69,7 @@ const state = {
   natureHouse: null,
   natureDetail: null,
   natureRoom: null,
+  sanghaCharter: null,
 };
 
 const root = document.getElementById('app');
@@ -464,6 +465,48 @@ async function openNatureElement(id) {
   state.natureDetail = await loadNatureElement(id);
   if (!state.natureDetail) return;
   navigate('nature-element');
+}
+
+async function loadSanghaCharter() {
+  if (state.sanghaCharter) return state.sanghaCharter;
+  const res = await fetch('/static/data/sangha/exploration.json');
+  state.sanghaCharter = await res.json();
+  return state.sanghaCharter;
+}
+
+async function renderSangha() {
+  const s = t();
+  const charter = await loadSanghaCharter();
+  const lang = state.lang;
+
+  const forbidden = (charter.forbidden || [])
+    .map((line) => `<li>${line[lang] || line.en}</li>`)
+    .join('');
+
+  const forms = (charter.forms || [])
+    .map((form) => {
+      const open = form.state === 'open';
+      const actionAttr = open && form.action === 'silence' ? ' data-action="silence"' : '';
+      return `<button type="button" class="shelf-item" ${open ? actionAttr : 'disabled'} aria-disabled="${!open}">
+        <div class="shelf-item__name">${form.name[lang] || form.name.en}</div>
+        <div class="shelf-item__line">${form.line[lang] || form.line.en} · ${tierStateLabel(form.state)}</div>
+      </button>`;
+    })
+    .join('');
+
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.sanghaLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.sanghaLabel}</div>
+        <p class="path-intro">${charter.intro[lang] || charter.intro.en}</p>
+        <p class="path-note path-note--muted">${s.sanghaIntro}</p>
+        <div class="label label--soft">${s.sanghaForbiddenLine}</div>
+        <ul class="sangha-forbidden">${forbidden}</ul>
+        <div class="label label--soft">${s.sanghaFormsLine}</div>
+        <div class="shelf-list">${forms}</div>
+      </div>
+    </section>`;
 }
 
 
@@ -1012,6 +1055,7 @@ function navigate(screen) {
   else if (screen === 'nature') renderNature();
   else if (screen === 'nature-element') renderNatureElement();
   else if (screen === 'nature-room') renderNatureRoom();
+  else if (screen === 'sangha') renderSangha();
   else if (screen === 'silence') renderSilence();
   else if (screen === 'farewell') renderFarewell();
 }
@@ -1068,6 +1112,7 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.gesture === 'sky') navigate('sky');
   if (el.dataset.gesture === 'diary') openDiary();
   if (el.dataset.gesture === 'nature') navigate('nature');
+  if (el.dataset.gesture === 'sangha') navigate('sangha');
   if (el.dataset.gesture === 'bells') navigate('bells');
   if (el.dataset.gesture === 'offering') navigate('offering');
   if (el.dataset.gesture === 'lookback') navigate('lookback');

@@ -32,8 +32,8 @@ Config: [`arah.config.yaml`](arah.config.yaml) · Coreografia: [`.agents/choreog
 | 02 | Voice (oracle + contract + inquiry) | ✅ |
 | 03 | Path (maps, sky, practice) | ✅ |
 | 04 | Witness (diary, bells, presence) | ✅ |
-| 05 | Ground (house of nature) | 🎯 **atual** |
-| 06 | Sangha | unscheduled |
+| 05 | Ground (house of nature) | ✅ |
+| 06 | Sangha (exploration charter) | 🎯 **atual** |
 
 Backlog detalhado: [`BACKLOG.md`](BACKLOG.md)
 

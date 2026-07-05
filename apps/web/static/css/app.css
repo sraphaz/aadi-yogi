@@ -541,6 +541,19 @@ a:focus-visible,
   opacity: 0.75;
 }
 
+.sangha-forbidden {
+  margin: var(--space-paragraph) 0 0;
+  padding-left: 1.25rem;
+  max-width: var(--measure-reading);
+  color: var(--ink-soft);
+  font-size: var(--type-meta);
+  line-height: 1.65;
+}
+
+.sangha-forbidden li {
+  margin-bottom: 0.35rem;
+}
+
 .path-meta {
   font-family: var(--font-mono);
   font-size: var(--type-minimum);

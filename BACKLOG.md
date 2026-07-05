@@ -86,7 +86,7 @@ Inner diary (local-first, encrypted) · witness mode · presence metrics · opt-
 
 ---
 
-## Fase 05 — Ground ← **ATUAL**
+## Fase 05 — Ground ✅
 
 House of Nature — element rooms first; heritage fence; double editorial gate.
 
@@ -102,9 +102,17 @@ House of Nature — element rooms first; heritage fence; double editorial gate.
 
 ---
 
-## Fase 06 — Sangha (unscheduled)
+## Fase 06 — Sangha ← **ATUAL**
 
 Exploração apenas — sem feeds, profiles ou counts.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| SG-01 | Court card + charter screen (forbidden list, forms) | frontend | `apps/web/` | spec §9.6 |
+| SG-02 | Shared silence sitting → silence room (local only) | frontend | `apps/web/static/data/sangha/` | RF-006 |
+| SG-03 | Study circle placeholder (`arriving`) | frontend | `apps/web/` | — |
+
+**Gate:** nenhum endpoint social; nenhum analytics de terceiros; carta revisada pelos criadores antes de qualquer sync.
 
 ---
 
