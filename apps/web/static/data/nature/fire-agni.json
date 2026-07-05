@@ -1,0 +1,22 @@
+{
+  "id": "fire",
+  "name": { "en": "fire · agni", "pt": "fogo · agni" },
+  "state": "open",
+  "intro": {
+    "en": "the element of transformation — heat, digestion, the lamp that steadies attention.",
+    "pt": "o elemento da transformação — calor, digestão, a lâmpada que firma a atenção."
+  },
+  "safeMovement": {
+    "en": "optional: sit with a steady flame for one breath cycle — watching without fixing.",
+    "pt": "opcional: sentar-se com uma chama estável por um ciclo de respiração — olhar sem fixar."
+  },
+  "passages": [
+    {
+      "tier": "documentary",
+      "en": "As fire transforms the offering, so the inner fire transforms what is offered in consciousness — the Gita names this as the fire of knowledge.",
+      "pt": "Como o fogo transforma a oferenda, o fogo interior transforma o que é oferecido na consciência — o Gita nomeia isto como fogo do conhecimento.",
+      "citation": { "en": "Bhagavad Gita, IV.24 · tr. Sri Aurobindo", "pt": "Bhagavad Gita, IV.24 · tr. Sri Aurobindo" },
+      "passage_id": "gita.iv.24"
+    }
+  ]
+}

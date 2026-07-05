@@ -1,4 +1,4 @@
-const CACHE = 'darshan-witness-v1';
+const CACHE = 'darshan-ground-v1';
 const PRECACHE = [
   '/',
   '/manifest.webmanifest',
@@ -20,6 +20,8 @@ const PRECACHE = [
   '/static/data/daily-words.json',
   '/static/data/library/gita-ii-47.json',
   '/static/data/living-maps/aspiration-path.json',
+  '/static/data/nature/house.json',
+  '/static/data/nature/fire-agni.json',
   '/static/icons/icon-192.svg',
   '/static/icons/icon-512.svg',
 ];
