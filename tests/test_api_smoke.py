@@ -71,6 +71,15 @@ def test_inquiry_policy_smoke() -> None:
     assert body["free_daily_inquiries"] == 2
 
 
+def test_inquiry_quota_smoke() -> None:
+    api = client()
+    device = "smoke-test-device"
+    headers = {"X-Darshan-Device": device}
+    quota = api.get("/inquiry/quota", headers=headers)
+    assert quota.status_code == 200
+    assert quota.json()["remaining"] == 2
+
+
 def test_retrieve_smoke() -> None:
     response = client().post("/retrieve", json={"question": "What is dharma?", "top_k": 3})
     assert response.status_code == 200

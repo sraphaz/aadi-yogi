@@ -34,7 +34,8 @@ Config: [`arah.config.yaml`](arah.config.yaml) · Coreografia: [`.agents/choreog
 | 04 | Witness (diary, bells, presence) | ✅ |
 | 05 | Ground (house of nature) | ✅ |
 | 06 | Sangha (exploration charter) | ✅ |
-| 07 | Living corpus (RF-038 + health gate) | 🎯 **atual** |
+| 07 | Living corpus (RF-038 + health gate) | ✅ |
+| 08 | Integrate (server quota, catalog facets) | 🎯 **atual** |
 
 Backlog detalhado: [`BACKLOG.md`](BACKLOG.md)
 

@@ -10,9 +10,11 @@ def test_build_catalog_has_gita_shelf() -> None:
     assert catalog["passage_count"] >= 1
     ids = {s["id"] for s in catalog["shelves"]}
     assert "gita" in ids
+    assert "upanishads" in ids
     gita = next(s for s in catalog["shelves"] if s["id"] == "gita")
     assert gita["state"] == "open"
     assert "gita-ii-47" in gita["passages"]
+    assert catalog.get("facets")
 
 
 def test_shelf_id_from_passage_id() -> None:

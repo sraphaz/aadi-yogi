@@ -51,11 +51,7 @@ import {
   dismissGrowthNotice,
   acknowledgeCorpusVersion,
 } from './corpus-store.js';
-import {
-  canUseFreeInquiry,
-  recordFreeInquiry,
-  inquiriesRemaining,
-} from './inquiry-quota.js';
+import { getDeviceId, inquiryFetchInit, fetchInquiryQuota } from './inquiry-quota.js';
 
 const state = {
   screen: 'threshold',
@@ -1007,7 +1003,8 @@ function saveToShelf(page) {
 async function renderInquiry() {
   const s = t();
   const policy = await loadInquiryPolicy();
-  const remaining = inquiriesRemaining(policy.free_daily_inquiries);
+  const quota = await fetchInquiryQuota();
+  const remaining = quota?.remaining;
   const measureNote =
     policy.calibrated && remaining != null
       ? `<p class="path-note path-note--muted">${s.inquiryMeasureNote.replace('{remaining}', String(remaining))}</p>`
@@ -1089,20 +1086,7 @@ async function submitInquiry(question) {
   const trimmed = question.trim();
   if (trimmed.length < 3) return;
 
-  const policy = await loadInquiryPolicy();
   const s = t();
-  if (policy.calibrated && !canUseFreeInquiry(policy.free_daily_inquiries)) {
-    state.contemplation = {
-      envelope: {
-        guidance_mode: 'silence_contemplation',
-        body: s.inquiryQuotaExhausted,
-        citations: [],
-        closing: 'honored_silence',
-      },
-    };
-    navigate('contemplation');
-    return;
-  }
 
   state.inquiryQuestion = trimmed;
   navigate('inquiry-resting');
@@ -1110,14 +1094,22 @@ async function submitInquiry(question) {
   const restingMs = breathDurationMs() > 0 ? 2600 : 400;
 
   try {
-    const res = await fetch('/inquire', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: trimmed, top_k: 5 }),
-    });
+    const res = await fetch('/inquire', inquiryFetchInit({ question: trimmed, top_k: 5 }));
+    if (res.status === 429) {
+      await new Promise((r) => setTimeout(r, restingMs));
+      state.contemplation = {
+        envelope: {
+          guidance_mode: 'silence_contemplation',
+          body: s.inquiryQuotaExhausted,
+          citations: [],
+          closing: 'honored_silence',
+        },
+      };
+      navigate('contemplation');
+      return;
+    }
     if (!res.ok) throw new Error('inquire failed');
     const data = await res.json();
-    if (policy.calibrated) recordFreeInquiry();
     await new Promise((r) => setTimeout(r, restingMs));
     state.contemplation = data;
     navigate('contemplation');
