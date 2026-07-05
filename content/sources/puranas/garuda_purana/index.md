@@ -8,21 +8,24 @@ tradition:
 themes:
   - source_navigation
   - collection_intake
-status: catalogued
+status: partial_import
 notes:
   - "Catalogued as one of the 18 Mahapuranas."
-  - "A public-domain English translation lead exists at https://www.sacred-texts.com/hin/index.htm."
-  - "Full-text ingestion is pending a verified public-domain or permission-safe witness."
+  - "Public-domain English translation: Motilal Banarsidass / J.L. Shastri edition on Archive.org."
+  - "Book 1 Chapters 1-2 imported from Archive.org witness."
 ---
 
 # Garuda Purana
 
-## Phase 2 Status
+## Phase 3 Status
 
-Catalogued for structured intake.
+Partial import — Book 1 Chapters 1–2:
+- `book_01_chapter_01.public_domain.md` (Incarnations of Vishnu)
+- `book_01_chapter_02.public_domain.md` (Tradition of Garuda Purana)
 
 ## Import Strategy
 
 - verify the specific witness or translation to be used
 - record recension and translator before any full-text import
 - preserve all provenance and copyright notes inside imported Markdown files
+- use `scripts/ingest/import_archive_puranas.py garuda_chapter_01` (or `garuda_chapter_02`) for re-import

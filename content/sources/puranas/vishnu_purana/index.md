@@ -21,6 +21,11 @@ notes:
 
 - `book_01_chapter_01.public_domain.md`
 
+## Imported In Phase 3
+
+- `book_01_chapter_02.public_domain.md` (Archive.org Wilson witness)
+- `book_01_chapter_03.public_domain.md` (Archive.org Wilson witness)
+
 ## Provenance
 
 - Public-domain English translation by Horace Hayman Wilson, 1840.

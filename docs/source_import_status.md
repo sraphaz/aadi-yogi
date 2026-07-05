@@ -19,7 +19,7 @@ This document records what has been imported into the repository, what has only 
   - **Taittiriya Upanishad** full public-domain translation from English Wikisource standalone witness.
   - **Chandogya Upanishad** all eight prapathakas imported from SBE Volume 1 (partial corpus, complete prapathaka coverage).
   - **Shvetashvatara Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
-  - **Brihadaranyaka Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15).
+  - **Brihadaranyaka Upanishad** full public-domain translation from Archive.org OCR witness (SBE Volume 15), with shared OCR cleanup in `packages/text/ocr_cleanup.py`.
 
 ### Vedas
 
@@ -42,8 +42,14 @@ This document records what has been imported into the repository, what has only 
 - Canon coverage now catalogued for all 18 Mahapuranas.
 - Public-domain English translation located for the Vishnu Purana:
   - `https://www.sacred-texts.com/hin/vp/index.htm`
+  - Archive.org Wilson djvu witness (Book I chapters II–III)
 - Phase 1 import:
   - Vishnu Purana Book 1 Chapter 1 from the 1840 H. H. Wilson translation.
+- Phase 3 expansion:
+  - **Markandeya Purana — Devi Mahatmya** (Pargiter translation, Archive.org witness).
+  - **Vishnu Purana Book 1 Chapters 2–3** (Wilson translation, Archive.org witness).
+  - **Garuda Purana Book 1 Chapters 1–2** (Motilal Banarsidass / Shastri translation, Archive.org witness).
+  - Import script: `scripts/ingest/import_archive_puranas.py` with OCR cleanup via `packages/text/ocr_cleanup.py`.
 - Phase 2 expansion:
   - root Mahapurana canon index
   - intake stub indexes for the remaining 17 Mahapuranas
@@ -112,12 +118,14 @@ This document records what has been imported into the repository, what has only 
 - Mandala 6 **all 75 hymns** imported from English Wikisource (Griffith translation).
 - Mandala 7 **all 104 hymns** imported from English Wikisource (Griffith translation).
 - **Family books (Mandalas 2–7) complete**: 429 hymns total.
+- Mandala 8 **all 92 hymns**, Mandala 9 **all 114 hymns**, Mandala 10 **all 191 hymns** imported.
+- **Full Rig Veda Samhita (Mandalas 1–10): 1017 hymns complete.**
 - Import script supports `--book`, `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
 
 ### Siddha Expansion (Phase 3)
 
 - Agathiyar Gnana Padalgal, Kudhambai Siddhar, Idaikkattu Siddhar, and **Agappey Siddhar** imported from Tamil Wikisource.
-- Garuda Purana Book 1 Chapter 1 sample imported (public-domain witness).
+- Garuda Purana Book 1 Chapters 1–2 imported (Motilal Archive.org witness).
 
 ### Tirumandiram Expansion
 
@@ -126,13 +134,14 @@ This document records what has been imported into the repository, what has only 
 ### Pipeline and Agent Scaffold
 
 - Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
-- **2522 chunks** across **675** normalized source artifacts.
+- **3755 chunks** across **1076** normalized source artifacts.
 - Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
 - Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
-- 5 synthesis notes, consciousness core v1 approved, **19 golden questions** (100% retrieval), **19/19** response quality checks (fallback mode).
-- Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
+- 5 synthesis notes, consciousness core v1 approved, **25 golden questions** (100% retrieval), **25/25** response quality checks (fallback mode).
+- Optional LLM eval via `scripts/validate/run_response_eval.py --llm` (requires `AADI_YOGI_LLM_API_KEY`); optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
 - Production setup: `docker-compose.yml`, `.env.example`, `docs/production_setup.md`, `scripts/run_production_pipeline.sh`.
+- Automated production checklist: `scripts/validate/run_production_checklist.py` (10/10 machine-verifiable checks passing).
 
 ### Internal Content (Consciousness Core + Ontology + Synthesis)
 
@@ -143,9 +152,8 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Expand Rig Veda Mandalas 8–10 (later books).
-2. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
-3. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
-4. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
-5. Complete human production review via `docs/production_review_checklist.md`.
-6. Improve OCR cleanup for Brihadaranyaka Archive.org witness where needed.
+1. Add more public-domain Purana witnesses beyond the current Vishnu, Garuda, and Markandeya chapters.
+2. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
+3. Run LLM-backed response quality eval with `scripts/validate/run_response_eval.py --llm` and `AADI_YOGI_LLM_API_KEY`.
+4. Complete human production review via `docs/production_review_checklist.md` (machine checks in `scripts/validate/run_production_checklist.py`).
+5. Expand Garuda Purana beyond Book 1 Chapters 1–2 with additional Archive.org chapters.

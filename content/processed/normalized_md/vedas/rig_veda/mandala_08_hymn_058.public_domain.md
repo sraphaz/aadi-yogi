@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_08_hymn_058
+title: Rig Veda - Mandala 8 Hymn 58
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_08_hymn_058
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_58
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 8, Hymn 58; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_08_hymn_058.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 8 Hymn 58
+
+## Normalized Primary Text
+
+1. I SEND you forth the song of praise for Indu, hero-gladdener. With hymn and plenty he invites you to complete the sacrifice. 2. Thou wishest for thy kine a bull, for those who long for his approach, For those who turn away from him, lord of thy cows whom none may kill. 3. The dappled kine who stream with milk prepare his draught of Soma juice: Clans in the birth-place of the Gods, in the three luminous realms of heaven. 4. Praise, even as he is known, with song Indra the guardian of the kine, The Son of Truth, Lord of the brave. 5. Hither his Bay Steeds have been sent, red Steeds are on the sacred grass,, Where we in concert sing our songs. 6. For Indra Thunder-armed the kine have yielded mingled milk and meath, What time he found them in the vault. 7. When I and Indra mount on high up to the Bright One's place and home, We, having drunk of meath, will reach his seat whose Friends are three times seven. 8. Sing, sing ye forth your songs of praise, ye Briyamedhas, sing your songs: Yea, let young children sing their lauds as a strong castle praise ye him. 9. Now loudly let the viol sound, the lute send out its voice with might, Shrill be, the music of the string. To Indra. is the hymn up-raised. 10. When hither speed the dappled cows, unflinching, easy to be milked, Seize quickly, as it bursts away, the Soma juice for Indra's drink. 11. Indra hath drunk, Agni hath drunk. all Deities have drunk their fill. Here Varuna shall have his home, to whom the floods have sung aloud as mother kine unto their calves. 12. Thou, Varuna, to whom belong Seven Rivers, art a glorious God. The waters flow into thy throat as 'twere a pipe with ample mouth. 13. He who hath made the fleet steeds spring, well-harnessed, to the worshipper, He, the swift Guide, is that fair form that loosed the horses near at hand. 14. Indra, the very Mighty, holds his enemies in utter scorn. He, far away, and yet a child, cleft the cloud smitten by his voice. 15. He, yet a boy exceeding small, mounted his newly-fashioned car. He for his Mother and his Sire cooked the wild mighty buffalo. 16. Lord of the home, fair-helmeted, ascend thy chariot wrought of gold. We will attend the Heavenly One, the thousand-footed, red of hue, matchless, who blesses where he goes. 17. With reverence they come hitherward to him as to. a Sovran lord, That they may bring him near for this man's good success, to prosper and bestow his gifts. 18. The Priyamedhas have observed the offering of the men of old, Of ancient custom, while they strewed the sacred grass, and spread their sacrificial food.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_58
+- Translator: Ralph T. H. Griffith (public domain).

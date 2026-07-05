@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_08_hymn_034
+title: Rig Veda - Mandala 8 Hymn 34
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_08_hymn_034
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_34
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 8, Hymn 34; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 8 Hymn 34
+
+## Public-Domain Translation
+
+1. Come hither, Indra, with thy Bays, come thou to Kanva's eulogy. Ye by command of yonder Dyaus, God bright by day! have gone to heaven. 2. May the stone draw thee as it speaks, the Soma-stone with ringing voice. Ye by command of yonder Dyaus, God bright by day! have gone to heaven. 3. The stones' rim shakes the Soma here like a wolf worrying a sheep. Ye by command of yonder Dyaus, God bright by day! have gone to heaven. 4. The Kanvas call thee hitherward for succour and to win the spoil. Ye by command of yonder Dyaus, God bright by day! have gone to heaven. 5. I set for thee, as for the Strong, the first draught of the juices shed. 6. Come with abundant blessings, come with perfect care to succour us. 7. Come, Lord of lofty thought, who hast infinite wealth and countless aids. 8. Adorable mid Gods, the Priest good to mankind shall bring thee near. 9. As wings the falcon, so thy Bays rushing in joy shall carry thee. 10. Come from the enemy to us, to svaha and the Soma-draught. 11. Come hither with thine car inclined to hear, take pleasure in our lauds. 12. Lord of well-nourished Horses, come with well-fed Steeds alike in hue. 13. Come hither from the mountains, come from regions of the sea of air. 14. Disclose to us O Hero, wealth in thousands both of kine and steeds. 15. Bring riches hitherward to us in hundreds, thousands, myriads. Ye by command of yonder Dyaus, God bright by day! have gone to heaven. 16. The thousand steeds, the mightiest troop, which we and Indra have received From Vasurocis as a gift, 17. The brown that match the wind in speed, and bright bay coursers fleet of foot, Like Suns, resplendent are they all. 18. Mid the Pargvata's rich gifts, swift steeds whose wheels run rapidly, I seemed to stand amid a wood.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_34
+- Translator: Ralph T. H. Griffith (public domain).

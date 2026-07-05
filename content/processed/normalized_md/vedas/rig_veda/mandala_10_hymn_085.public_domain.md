@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_085
+title: Rig Veda - Mandala 10 Hymn 85
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_085
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_85
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 10, Hymn 85; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_10_hymn_085.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 10 Hymn 85
+
+## Normalized Primary Text
+
+1. TRUTH is the base that bears the earth; by Surya are the heavens sustained. By Law the Adityas stand secure, and Soma holds his place in heaven. 2. By Soma are the Adityas strong, by Soma mighty is the earth. Thus Soma in the midst of all these constellations hath his place. 3. One thinks, when they have brayed the plant, that he hath drunk the Soma's juice; Of him whom Brahmans truly know as Soma no one ever tastes. 4. Soma, secured by sheltering rules, guarded by hymns in Brhati, Thou standest listening to the stones none tastes of thee who dwells on earth. 5. When they begin to drink thee then, O God, thou swellest out again. Vayu is Soma's guardian God. The Moon is that which shapes the years. 6. Raibhi was her dear bridal friend, and Narasamsi led her home. Lovely was Surya's robe: she came to that which Gatha had adorned. 7. Thought was the pillow of her couch, sight was the unguent for her eyes: Her treasury was earth and heaven when Surya went unto her Lord. 8. Hymns were the cross-bars of the pole, Kurira-metre decked the car: The bridesmen were the Asvin Pair Agni was leader of the train. 9. Soma was he who wooed the maid: the groomsmen were both Asvins, when The Sun-God Savitar bestowed his willing Surya on her Lord. 10. Her spirit was the bridal car; the covering thereof was heaven: Bright were both Steers that drew it when Surya approached her husband's, home. 11. Thy Steers were steady, kept in place by holy verse and Sama-hymn: All car were thy two chariot wheels: thy path was tremulous in the sky, 12. Clean, as thou wentest, were thy wheels wind, was the axle fastened there. Surya, proceeding to her Lord, mounted a spirit-fashioned car. 13. The bridal pomp of Surya, which Savitar started, moved along. In Magha days are oxen slain, in Arjuris they wed the bride. 14. When on your three-wheeled chariot, O Asvins, ye came as wooers unto Surya's bridal, Then all the Gods agreed to your proposal Pusan as Son elected you as Fathers. 15. O ye Two Lords of lustre, then when ye to Surya's wooing came, Where was one chariot wheel of yours? Where stood ye for die Sire's command? 16. The Brahmans, by their seasons, know, O Surya, those two wheels of thine: One kept concealed, those only who are skilled in highest truths have learned. 17. To Surya and the Deities, to Mitra and to Varuna. Who know aright the thing that is, this adoration have I paid. 18. By their own power these Twain in close succession move; They go as playing children round the sacrifice. One of the Pair beholdeth all existing things; the other ordereth seasons and is born again. 19. He, born afresh, is new and new for ever ensign of days he goes before the Mornings Coming, he orders f6r the Gods their portion. The Moon prolongs the days of our existence. 20. Mount this, all-shaped, gold-hued, with strong wheels, fashioned of Kimsuka and Salmali, light-rolling, Bound for the world of life immortal, Surya: make for thy lord a happy bridal journey. 21. Rise up from hence: this maiden hath a husband. I laud Visvavasu with hymns and homage. Seek in her father's home another fair one, and find the portion from of old assigned thee. 22. Rise up from hence, Visvavasu: with reverence we worship thee. Seek thou another willing maid, and with her husband leave the bride. 23. Straight in direction be the paths, and thornless, whereon our fellows travel to the wooing. Let Aryaman and Bhaga lead us: perfect, O Gods, the union of the wife and husband. 24. Now from the noose of Varuna I free thee, wherewith Most Blessed Savitar hath bound thee. In Law's seat, to the world of virtuous action, I give thee up uninjured with thy consort. 25. Hence, and not thence, I send these free. I make thee softly fettered there. That, Bounteous Indra, she may live blest in her fortune and her sons. 26. Let Pusan take thy hand and hence conduct thee; may the two Asvins on their car transport thee. Go to the house to be the household's mistress and speak as lady ito thy gathered people. 27. Happy be thou and prosper with thy children here: be vigilant to rule thy household in this home. Closely unite thy body with this; man, thy lord. So shall ye, full of years, address your company. 28. Her hue is blue and red: the fiend who clingeth close is driven off. Well thrive the kinsmen of this bride the husband is bound fast in bonds. 29. Give thou the woollen robe away: deal treasure to the Brahman priests. This female fiend hath got her feet, and as a wife attends her lord. 30. Unlovely is his body when it glistens with this wicked fiend, What time the husband wraps about his limbs the garment of his wife. 31. Consumptions, from her people, which follow the bride's resplendent train,- These let the Holy Gods again bear to the place from which they came. 32. Let not the highway thieves who lie in ambush find the wedded pair. By pleasant ways let them escape the danger, and let foes depart. 33. Signs of good fortune mark the bride come all of you and look at her. Wish her prosperity, and then return unto your homes again. 34. Pungent is this, and bitter this, filled, as it were, with arrow-barbs, Empoisoned and not fit for use. The Brahman who knows Surya well deserves the garment of the bride. 35. The fringe, the cloth that decks her head, and then the triply parted robe,- Behold the hues which Surya wears these doth the Brahman purify. 36. I take thy hand in mine for happy fortune that thou mayst reach old age with me thy husband. Gods, Aryaman, Bhaga, Savitar, Purandhi, have given thee to be my household's mistress. 37. O Pusan, send her on as most auspicious, her who shall be the sharer of my pleasures; Her who shall twine her loving arms about me, and welcome all my love and mine embraces. 38. For thee, with bridal train, they, first, escorted Surya to her home. Give to the husband in return, Agni, the wife with progeny. 39. Agni hath given the bride again with splendour and with ample life. Long lived be he who is her lord; a hundred autumns let him live. 40. Soma obtained her first of all; next the Gandharva was her lord. Agni was thy third husband: now one born of woman is thy fourth. 41. Soma to the Gandharva, and to Agni the Gandharva gave: And Agni hath bestowed on me riches and sons and this my spouse. 42. Be ye not parted; dwell ye here reach the full time of human life. With sons and grandsons sport and play, rejoicing in your own abode. 43. So may Prajapati bring children forth to us; may Aryaman adorn us till old age come nigh. Not inauspicious enter thou thy husband's house: bring blessing to our bipeds and our quadrupeds. 44. Not evil-eyed, no slayer of thy husband, bring weal to cattle, radiant, gentlehearted; Loving the Gods, delightful, bearing heroes, bring blessing to our quadrupeds and bipeds. 45. O Bounteous Indra, make this bride blest in her sons and fortunate. Vouchsafe to her ten sons, and make her husband the eleventh man. 46. Over thy husband's father and thy husband's mother bear full sway. Over the sister of thy lord, over his brothers rule supreme. 47. So may the Universal Gods, so may the Waters join our hearts. May Matarisvan, Dhatar, and Destri together bind us close.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_85
+- Translator: Ralph T. H. Griffith (public domain).

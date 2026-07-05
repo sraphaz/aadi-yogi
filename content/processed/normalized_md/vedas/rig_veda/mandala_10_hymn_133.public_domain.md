@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_133
+title: Rig Veda - Mandala 10 Hymn 133
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_133
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_133
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 10, Hymn 133; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_10_hymn_133.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 10 Hymn 133
+
+## Normalized Primary Text
+
+1. SING strength to Indra that shall set his chariot in the foremost place. Giver of room in closest fight, slayer of foes in shock of war, be thou our great encourager. Let the weak bowstrings break upon the bows of feeble enemies. 2. Thou didst destroy the Dragon: thou sentest the rivers down to earth. Foeless, O Indra, wast thou born. Thou tendest well each choicest thing. Therefore we draw us close to thee. Let the weak bowstrings break upon the bows of feeble enemies. 3. Destroyed be all malignities and all our enemy's designs. Thy bolt thou castest, at the foe, O Indra, who would smite us dead: thy liberal bounty gives us wealth. 4. The robber people round about, Indra, who watch and aim at us,- Trample them down beneath thy foot; a conquering scatterer art thou. 5. Whoso assails us, Indra, be the man a stranger or akin, Bring down, thyself, his strength although it be as vast as are the heavens. 6. Close to thy friendship do we cling, O Indra, and depend, or, thee. Lead us beyond all pain and grief along the path of holy Law. 7. Do thou bestow upon us her, O Indra, who yields according to the singer's longing, That the great Cow may, with exhaustless udder, pouring a thousand streams, give milk to feed us.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_133
+- Translator: Ralph T. H. Griffith (public domain).

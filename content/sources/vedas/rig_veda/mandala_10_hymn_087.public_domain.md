@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_087
+title: Rig Veda - Mandala 10 Hymn 87
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_087
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_87
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 10, Hymn 87; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 10 Hymn 87
+
+## Public-Domain Translation
+
+1. I BALM with oil the mighty Raksas-slayer; to the most famous Friend I come for shelter Enkindled, sharpened by our rites, may Agni protect us in the day and night from evil. 2. O Jatavedas with the teeth of iron, enkindled with thy flame attack the demons. Seize with thy longue the foolish gods' adorers: rend, put within thy mouth the raw-flesh caters. 3. Apply thy teeth, the upper and the lower, thou who hast both, enkindled and destroying. Roam also in the air, O King, around us, and with thy jaws assail the wicked spirits. 4. Bending thy shafts through sacrifices, Agni, whetting their points with song as if with whetstones, Pierce to the heart therewith the Yatudhanas, and break their arms uplifted to attack thee. 5. Pierce through the Yatudhana's skin, O Agni; let the destroying dart with fire consume him. Rend his joints, Jatavedas, let the cater of flesh, flesh-seeking, track his mangled body. 6. Where now thou seest Agni Jatavedas, one of these demons standing still or roaming, Or flying on those paths in air's mid region, sharpen the shaft and as an archer pierce him. 7. Tear from the evil spirit, Jatavedas, what he hath seized and with his spears hath captured. Blazing before him strike him down, O Agni; let spotted carrion-eating kites devour him. 8. Here tell this forth, O Agni: whosoever is, he himself, or acteth as, a demon, Him grasp, O thou Most Youthful, with thy fuel. to the Mati-seer's eye give him as booty. 9. With keen glance guard the sacrifice, O Agni: thou Sage, conduct it onward to the Vasus. Let not the fiends, O Man-beholder, harm thee burning against the Raksasas to slay them. 10. Look on the fiend mid men, as Man-beholder: rend thou his three extremities in pieces. Demolish with thy flame his ribs, O Agni, the Yatudhana's root destroy thou triply. 11. Thrice, Agni, let thy noose surround the demon who with his falsehood injures Holy Order. Loud roaring with thy flame, O Jatavedas, crush him and cast him down before the singer. 12. Lead thou the worshipper that eye, O Agni, wherewith thou lookest on the hoof-armed demon. With light celestial in Atharvan's manner burn up the foot who ruins truth with falsehood. 13. Agni, what curse the pair this day have uttered, what heated word the worshippers have spoken, Each arrowy taunt sped from the angry spirit,-pierce to the heart therewith the Yatudhanas. 14. With fervent heat exterminate the demons; destroy the fiends with burning flame, O Agni. Destroy with fire the foolish gods' adorers; blaze and destroy the insatiable monsters. 15. May Gods destroy this day the evil-doer may each hot curse of his return and blast him. Let arrows pierce the liar in his vitals, and Visva's net enclose the Yatudhana. 16. The fiend who smears himself with flesh of cattle, with flesh of horses and of human bodies, Who steals the milch-cow's milk away, O Agni,-tear off the heads of such with fiery fury. 17. The cow gives milk each year, O Man-regarder: let not the Yatudhana ever taste it. If one would glut him with the biesting, Agni, pierce with thy flame his vitals as he meets thee. 18. Let the fiends drink the poison of the cattle; may Aditi cast off the evildoers. May the God Savitar give them up to ruin, and be their share of plants and herbs denied them. 19. Agni, from days of old thou slayest demons: never shall Raksasas in fight o'ercome thee. Burn up the foolish ones, the flesh-devourers: let none of them escape thine heavenly arrow. 20. Guard us, O Agni, from above and under, protect us from behind us and before us; And may thy flames, most fierce and never wasting, glowing with fervent heat, consume the sinner. 21. From rear, from front, from under, from above us, O King, protect us as a Sage with wisdom. Guard to old age thy friend, O Friend, Eternal: O Agni, as Immortal, guard us mortals. 22. We set thee round us as a fort, victorious Agni, thee a Sage, Of hero lineage, day by day, destroyer of our treacherous foes. 23. Burn with thy poison turned against the treacherous brood of Raksasas, O Agni, with thy sharpened glow, with lances armed with points of flame. 24. Burn thou the paired Kimidins, burn, Agni, the Yatudhana pairs. I sharpen thee, Infallible, with hymns. O Sage, be vigilant. 25. Shoot forth, O Agni, with thy flame demolish them on every side. Break thou the Yatudhana's strength, the vigour of the Raksasa.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_87
+- Translator: Ralph T. H. Griffith (public domain).
