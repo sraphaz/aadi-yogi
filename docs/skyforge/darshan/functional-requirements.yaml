@@ -500,6 +500,33 @@ requirements:
       - dana surface is one quiet page; never a popup, never inside contemplative flows
       - no ads, no data monetization, no content-locking subscription anywhere, verified in release review
 
+  # ---------- confirmed elevations (spec v1.2 trail: confirmed -> tracked requirement) ----------
+  - id: RF-040
+    title: Public domain corpus API (elevation ELV-001)
+    description: Open API/dataset exposing the public-domain corpus chunks, ontology and citations for other calm applications and researchers.
+    source: sky-merits ELV-001, confirmed; approvals.yaml elevation_review
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: true
+    acceptance_criteria:
+      - serves only passages whose copyright_status permits redistribution (index-build filter reused)
+      - responses carry passage_id, fingerprint and citation payloads (passage-id scheme)
+      - read-only, anonymous, rate-limited; no user data collected
+      - dataset export downloadable as versioned bundles under an open license note
+  - id: RF-041
+    title: Educator mode for contemplative studies (elevation ELV-003)
+    description: Curated reading paths and comparative views packaged for teachers, with classroom-safe defaults.
+    source: sky-merits ELV-003, confirmed; approvals.yaml elevation_review
+    priority: could
+    mvp: false
+    ai_suggested: true
+    user_confirmed: true
+    acceptance_criteria:
+      - builds on reading journeys (RF-027) and comparative view (RF-014) without new content surfaces
+      - classroom-safe defaults - restraint-flagged and documentary-tier material excluded by construction
+      - no student accounts, tracking or grading mechanics (presence-metric law applies)
+
   # ---------- living corpus ----------
   - id: RF-038
     title: Living corpus growth protocol

@@ -1,7 +1,7 @@
-version: "1.3"
+version: "1.5"
 slug: darshan
-updated_at: "2026-07-04T22:30:00Z"
-overall_readiness: 0.68
+updated_at: "2026-07-05T00:20:00Z"
+overall_readiness: 0.71
 
 weights:
   business: 0.22
@@ -49,36 +49,43 @@ dimensions:
       - "seven new key screens specified (depth dial, situation doors, book room, original view, anthology)"
   technical:
     level: 2
-    score: 0.66
+    score: 0.72
     gaps:
-      - "chunking/embedding pipeline specified but not implemented (scripts/chunk, packages/rag empty)"
-      - "response contract needs a reference implementation in apps/agent-api"
+      - "existing chunker (scripts/chunk/semantic_chunk.py) must be retrofitted to the passage-id contract (docs/passage_id_scheme.md)"
+      - "agent API scaffold (/ask, /retrieve, /prompt) must evolve to emit the response-contract envelope (spec section 4.1)"
       - "eval harness needs LLM/human grader integration for the petal rubric"
     round_2_gains:
       - "C4 model levels 1-3 with component homes and five draft ADRs (c4-model.md)"
     round_4_gains:
       - "stable passage-id scheme designed (docs/passage_id_scheme.md, ADR 0005) - chunking has its contract"
       - "eval harness implemented: envelope model, 7 contract checks, 26 probes across 4 suites, petal rubric, runner + 17 tests (packages/evals)"
+    round_5_gains:
+      - "engine scaffold merged to main: hybrid retrieval (TF-IDF + dense, optional Qdrant) over ~1900 corpus chunks, prompt builder over the approved core, agent API with web UI, golden-question evals"
   sustainability:
     level: 1
-    score: 0.40
+    score: 0.48
     gaps:
-      - "hosting, observability and on-call posture undefined"
+      - "observability and on-call posture undefined"
       - "editorial review workflow for machine-converted volumes pending"
       - "bundle size budget defined (NFR-013) but unmeasured"
       - "health gate reviewers still unnamed (ADR 0003 holds the House in 'arriving' honestly)"
+      - "consciousness core approval carries its own caveat: human review before public production (approved_manifest.yaml)"
     round_4_gains:
       - "editorial policy decided: daily-word curation and D1 review workflow with cadence and interim ownership (ADR 0004)"
       - "health gate interim protocol decided: frozen safe-tier allowlist, no documentary render until reviewers signed (ADR 0003)"
+    round_5_gains:
+      - "production setup landed on main: docker-compose, .env.example, docs/production_setup.md, pipeline script"
   elevation:
     level: 2
-    score: 0.78
+    score: 0.82
     gaps:
-      - "elevations confirmed but none evidenced yet (evidence requires shipped artifacts/checkpoints)"
-      - "impact checkpoints only definable post-launch"
+      - "impact checkpoints only definable post-launch (score_kind stays intent until then)"
     round_2_gains:
       - "all three elevation suggestions and humanity connections user_confirmed"
       - "ELV-002 carried into spec as NFR-013 and RF-029"
+    round_6_gains:
+      - "spec v1.2 trail completed: all confirmed elevations evidenced as tracked requirements with acceptance criteria (RF-040, RF-029, RF-041)"
+      - "approvals ledger created (approvals.yaml) - permission as evidence"
 
 conversation_level: architecture
 

@@ -35,7 +35,18 @@ Two deepening documents extend this specification:
 - **Engine**: the Aadi Yogi architecture already defined in
   `docs/architecture.md` (sources -> chunking -> embeddings -> retriever ->
   consciousness-aware prompt builder -> agent API), with the consciousness
-  core (`content/consciousness_core/`) as the behavioral law.
+  core (`content/consciousness_core/`) as the behavioral law. The core is
+  **v1 approved** for prompt construction and behavior scaffolding
+  (`content/consciousness_core/approved_manifest.yaml`), with its own caveat
+  standing: human review must revisit before any public production
+  deployment - Darshan inherits that gate.
+- **Engine status**: a working scaffold already exists in the repository -
+  hybrid retrieval (keyword + TF-IDF + dense, optional Qdrant) over ~1900
+  chunks of the imported corpus, a prompt builder compiled from the approved
+  core, an agent API (`apps/agent-api/main.py`: `/ask`, `/retrieve`,
+  `/prompt`) and a minimal web UI. Darshan is the destination interface over
+  this engine; the scaffold's endpoints evolve toward the response contract
+  of section 4 rather than being replaced.
 
 ## 2. Information Architecture
 
@@ -297,17 +308,17 @@ questions per user, notification opt-in rate.
 
 ## 7. System Mapping (to this monorepo)
 
-| Layer | Home | Responsibility |
-| --- | --- | --- |
-| Corpus | `content/sources/` | canonical texts + metadata records |
-| Ontology | `content/ontology/` | concept lens, living maps, term marking |
-| Behavior law | `content/consciousness_core/` | states, modes, voice, silence doctrine |
-| Chunking/index | `scripts/chunk`, `scripts/index`, `packages/ingestion` | retrieval units with provenance |
-| Retrieval | `packages/rag` | tradition-aware retriever with citation payloads |
-| Prompting | `packages/prompts` | consciousness-aware prompt builder (state x mode matrix) |
-| Agent API | `apps/agent-api` | response contract enforcement, crisis protocol, rate rhythm |
-| Interface | `apps/web` | the seven gestures + silence room (PWA) |
-| Evaluation | `packages/evals` | golden questions, tone/safety audits, presence metrics |
+| Layer | Home | Status | Responsibility |
+| --- | --- | --- | --- |
+| Corpus | `content/sources/` | large and growing (see `docs/source_import_status.md`) | canonical texts + metadata records |
+| Ontology | `content/ontology/` | starters + 4 living maps | concept lens, living maps, term marking |
+| Behavior law | `content/consciousness_core/` | **v1 approved** (prompt-builder scope) | states, modes, voice, silence doctrine |
+| Chunking/index | `scripts/chunk`, `scripts/index` | implemented (TF-IDF + dense); **needs alignment with the passage-id scheme** | retrieval units with provenance |
+| Retrieval | `packages/rag` | implemented (hybrid, optional Qdrant) | tradition-aware retriever with citation payloads |
+| Prompting | `packages/prompts` | implemented over approved core | consciousness-aware prompt builder (state x mode matrix) |
+| Agent API | `apps/agent-api` | scaffold (`/ask`, `/retrieve`, `/prompt`); **contract envelope pending** | response contract enforcement, crisis protocol, rate rhythm |
+| Interface | `apps/web` | minimal query UI (utility); Darshan PWA to be built | the gestures + silence room (PWA) |
+| Evaluation | `packages/evals` | two layers implemented (see its README) | golden questions, contract audits, presence metrics |
 
 ## 8. Non-Functional Requirements (summary)
 

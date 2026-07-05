@@ -3,6 +3,14 @@
 Produced following `journey.yaml` next action `architecture` (c4-modeler).
 Diagrams use flowchart notation labeled by C4 level so they render on GitHub.
 
+Status note (round 5): an engine scaffold for the server-side containers now
+exists on main - hybrid retrieval in `packages/rag` (TF-IDF + dense, optional
+Qdrant), prompt builder in `packages/prompts` over the approved consciousness
+core, and an agent API scaffold in `apps/agent-api` (`/ask`, `/retrieve`,
+`/prompt`). The diagrams below remain the target architecture; the scaffold
+evolves toward them (contract envelope, passage-id retrofit) rather than
+being replaced.
+
 ## Level 1 - System Context
 
 ```mermaid

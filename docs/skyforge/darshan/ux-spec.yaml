@@ -206,3 +206,19 @@ anti_patterns_forbidden:
 institutional_site:
   required: true
   tone: calm, source-grounded, no urgency, no spiritual performance
+
+# Sky-Forge Cloud Design tracks (extension feature, 2026-07-05):
+# which handoff tracks this session wants generated at export time.
+cloud_design_tracks:
+  - id: mobile
+    surface: the Darshan PWA (the nine gestures + silence room)
+    priority: primary
+  - id: institucional
+    surface: institutional site (what Darshan is, the dana page, source lineage)
+    priority: secondary
+  - id: plataforma
+    surface: internal presence-metrics and editorial-review panels
+    priority: later
+  - id: showcase
+    surface: public preview gallery entry
+    priority: undecided   # journey user_preferences.public_showcase is undecided

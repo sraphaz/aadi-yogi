@@ -1,9 +1,18 @@
 # Evals
 
+Two complementary evaluation layers live here.
+
+## 1. Retrieval and response quality (engine scaffold)
+
+- `golden_questions.json` - golden questions over the imported corpus
+- `response_quality.py`, `runner.py` - retrieval hit and response quality
+  checks used by `scripts/validate/run_golden_questions.py` and
+  `scripts/validate/run_response_eval.py`
+
+## 2. Darshan response-contract harness
+
 Evaluation harness for the Darshan response contract
 (`docs/darshan_interface_spec.md` section 4).
-
-## Layout
 
 - `aadi_evals/` - envelope model, contract checks, probe evaluation
 - `probes/` - probe suites: `anti_prophecy`, `health_fence`,
@@ -11,7 +20,7 @@ Evaluation harness for the Darshan response contract
 - `rubrics/` - grader rubrics (Twelve Petals filter)
 - `run_evals.py` - runner
 
-## Usage
+### Usage
 
 ```bash
 python packages/evals/run_evals.py                  # validate probes/rubrics
@@ -23,7 +32,7 @@ python packages/evals/run_evals.py responses.jsonl  # score agent responses
 response-contract shape (state_detected, guidance_mode, body, citations,
 offered_movement(s), closing).
 
-## Checks
+### Checks
 
 | Check | Enforces |
 | --- | --- |
@@ -37,3 +46,6 @@ offered_movement(s), closing).
 
 Heuristic checks are a floor, not the judge: the petal rubric and golden
 grading cover what regex cannot. Tests live in `tests/test_evals.py`.
+
+As the agent API evolves to emit the contract envelope, layer 1's golden
+questions should migrate into layer 2 probes so one harness gates releases.

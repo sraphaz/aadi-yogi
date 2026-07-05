@@ -1,7 +1,7 @@
-version: "1.3"
+version: "1.5"
 slug: darshan
-current_phase: decide
-updated_at: "2026-07-04T22:30:00Z"
+current_phase: regenerate
+updated_at: "2026-07-05T00:20:00Z"
 
 user_preferences:
   communication_style: contemplative_precise
@@ -54,18 +54,53 @@ phase_notes_round_4: |
     petal rubric, runner, 17 tests green (closes eval_harness).
   cloud_design_export unlocked on merit (technical 0.58 -> 0.66).
 
+phase_notes_round_5: |
+  Round 5 ("harmonize"): all open PRs merged to main (conflicts resolved) -
+  the engine scaffold from the parallel content-import work now coexists
+  with the Darshan design. The consciousness core is v1 approved
+  (approved_manifest.yaml, scope: prompt construction and behavior
+  scaffolding, with a standing caveat of human review before public
+  production). Spec updated: engine status table, minimal web UI positioned
+  as utility (the Darshan PWA remains the destination interface), evals
+  README documents both layers. Corpus now includes Rig Veda Mandalas 1-7,
+  principal Upanishads, complete Gita, Tirumandiram tantras 1-9 and the
+  CWSA public-domain volumes.
+
+phase_notes_round_6: |
+  Round 6 ("regenerate", Sky-Forge spec v1.2 of 2026-07-05): session assets
+  regenerated against the published schemas and the new forge features.
+  - spec_version restamped 1.1 -> 1.2 (MPI rubric anchored; stays out of
+    the composite).
+  - nfr.yaml regenerated to the schema enum (category/statement/target/
+    tier_minimum), thematic prefixes preserved.
+  - alternatives.yaml created: dana model and natal boundary recorded as
+    resolved; llm_engine, ephemeris and vector_store open (mirroring
+    integrations user_choice: pending).
+  - approvals.yaml ledger created: elevation review, the five consciousness
+    decisions, and the pending creator calibrations.
+  - elevation trail completed: RF-040 (open corpus API) and RF-041
+    (educator mode) specified; all three elevations evidenced ->
+    SPI 60->62, GAP 64->66, SKY_SCORE 71->72.
+  - ux-spec declares the Cloud Design tracks (mobile primary,
+    institucional secondary, plataforma later, showcase undecided).
+  - .sky/link.yaml added at the repo root (sky link feature) binding this
+    repository to the darshan session; forge_root stays machine-local.
+
 next_suggested_actions:
   - id: creator_calibrations
     label: "Calibrations reserved to the creators: price the free measure and credits (ADR 0001), name the two health reviewers (ADR 0003), choose the legal vehicle for dana"
     agent: sky-host
-  - id: seed_prototype
-    label: Prototype the Seed phase (threshold, court, word, one reading room, silence room) with the design tokens - evaluate the sraphaz/darshan Next.js shell as base (docs/darshan_reuse_map.md)
+  - id: contract_envelope
+    label: Evolve apps/agent-api /ask to emit the response-contract envelope (spec 4.1) and wire packages/evals as its release gate
     agent: repo-scaffolder
-  - id: chunking_implementation
-    label: Implement the chunker against the passage-id contract (docs/passage_id_scheme.md section 7) starting with one verse work (Savitri) and one prose work (The Life Divine)
+  - id: passage_id_retrofit
+    label: Retrofit scripts/chunk/semantic_chunk.py to the passage-id contract (docs/passage_id_scheme.md section 7), starting with one verse work (Rig Veda or Savitri) and one prose work (The Life Divine)
+    agent: repo-scaffolder
+  - id: seed_prototype
+    label: Prototype the Darshan Seed phase (threshold, court, word, one reading room, silence room) with the design tokens - evaluate the sraphaz/darshan Next.js shell as base (docs/darshan_reuse_map.md)
     agent: repo-scaffolder
   - id: cloud_design_export
-    label: Run the Sky-Forge export (now unlocked) - ./scripts/sky/sky.ps1 export -Slug darshan
+    label: Run the Sky-Forge export (unlocked) - ./scripts/sky/sky.ps1 export -Slug darshan
     agent: delivery-steward
   - id: grader_integration
     label: Integrate an LLM/human grader for the petal rubric and honored-silence precision sampling

@@ -1,0 +1,12 @@
+# Sky-Forge link (sky link feature, 2026-07-05).
+# Binds this application repository to the Sky-Forge session "darshan" so the
+# forge CLI can be driven from here (status, pull-spec, export -ForAI).
+#
+# forge_root must point to a local checkout of https://github.com/sraphaz/sky-forge;
+# set it on each machine (path is machine-local, keep the placeholder in git).
+version: "1.0"
+slug: darshan
+forge_root: null   # e.g. C:\dev\sky-forge or ~/dev/sky-forge
+package_dir: docs/skyforge/darshan   # session artifacts tracked in this repo
+sync_mode: manual
+linked_at: "2026-07-05"
