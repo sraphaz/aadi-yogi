@@ -1,0 +1,24 @@
+﻿id: rag-corpus
+name: Corpus & Retrieval
+mode: consult
+enrich: |
+    ADR-0005: passage ids dot-path estáveis; CI verifica drift e orphan quotations.
+    Chunking não ad hoc — seguir docs/passage_id_scheme.md seção 7.
+    Copyright enforced at index build; CWM local-only per docs/copyright_policy.md.
+validate: |
+    RF-017: no-orphan-quotation; citation integrity 1.0 em CI.
+    Golden questions retrieval pass antes de expor oracle publicamente.
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - content/sources/**
+    - content/processed/**
+    - packages/rag/**
+    - scripts/chunk/**
+    - scripts/index/**
+    - docs/passage_id_scheme.md
+
+guardrails:
+  no_merge: true
+  consult_only: true

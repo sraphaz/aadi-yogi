@@ -1,0 +1,152 @@
+﻿# ARAH — Aadi Yogi (Darshan PWA + consciousness engine)
+# Edite domains e rode: arah domain sync
+
+version: 1
+harness:
+  source: arah-harness
+  version: "0.2.0"
+  path: C:/Users/rapha/arah-harness
+
+project:
+  name: aadi-yogi
+  stack: fullstack
+
+tests:
+  backend: "pytest && python scripts/validate/validate_markdown.py"
+  frontend: "echo 'Configure frontend tests when apps/web PWA ships'"
+  all: "pytest && python scripts/validate/validate_markdown.py && ruff check ."
+
+domains:
+  - id: darshan-ui
+    name: Darshan Interface
+    description: PWA contemplativa — nine gestures, hour themes, depth dial, five languages
+    paths:
+      - apps/web/**
+      - spec/design/claude-design/**
+      - spec/ux-spec.yaml
+      - spec/design-tokens.yaml
+    enrich: |
+      A interface é a primeira lição: silêncio antes da fala, um ponto por tela, closure como sucesso.
+      Protótipo Claude: spec/design/claude-design/Darshan App.dc.html (abrir no browser).
+      Tokens: spec/design-tokens.yaml + spec/design/claude-design/tokens/.
+      Proibido: feeds, streaks, spinners, dark patterns, emoji, exclamações, gamificação.
+      Fase Seed (BACKLOG.md): threshold, court, daily word, reading room, silence room, i18n x5.
+    validate: |
+      RF-001..RF-006, RF-016..RF-018: WCAG 2.1 AA, reduced-motion, no spinner, closure gesture.
+      Cada ritual skippável; touch targets ≥ 44px; hour themes data-hour only.
+    references:
+      - spec/ux-spec.yaml
+      - spec/functional-requirements.yaml
+      - docs/darshan_interface_spec.md
+      - spec/design/claude-design/readme.md
+
+  - id: consciousness-core
+    name: Consciousness & Editorial Law
+    description: Estados, modos de orientação, voz, silêncio honrado, política editorial
+    paths:
+      - content/consciousness_core/**
+      - packages/prompts/**
+      - spec/decisions/**
+      - docs/decisions/**
+    enrich: |
+      ADR-0003 health gate: House of Nature "arriving" até dois revisores nomeados.
+      ADR-0004: daily word em batches lunares, D1 só após revisão humana.
+      Honored silence short-circuits antes do retrieval (RF-006).
+      Response contract: citações resolvíveis, max one movement, diferenças explícitas.
+    validate: |
+      RF-005, RF-006: contract checker, honored-silence precision nos evals.
+      Nenhum path natal (ADR-0002); jyotisha documental apenas.
+    references:
+      - content/consciousness_core/
+      - spec/decisions/
+      - docs/decisions/
+
+  - id: rag-corpus
+    name: Corpus & Retrieval
+    description: Fontes canônicas, chunking, passage-id, retriever com citation payloads
+    paths:
+      - content/sources/**
+      - content/processed/**
+      - packages/rag/**
+      - scripts/chunk/**
+      - scripts/index/**
+      - docs/passage_id_scheme.md
+    enrich: |
+      ADR-0005: passage ids dot-path estáveis; CI verifica drift e orphan quotations.
+      Chunking não ad hoc — seguir docs/passage_id_scheme.md seção 7.
+      Copyright enforced at index build; CWM local-only per docs/copyright_policy.md.
+    validate: |
+      RF-017: no-orphan-quotation; citation integrity 1.0 em CI.
+      Golden questions retrieval pass antes de expor oracle publicamente.
+    references:
+      - docs/passage_id_scheme.md
+      - spec/integrations.yaml
+      - ROADMAP.md
+
+  - id: agent-api
+    name: Agent API & Orchestration
+    description: FastAPI, response contract enforcement, crisis protocol, rate rhythm
+    paths:
+      - apps/agent-api/**
+      - packages/prompts/**
+    enrich: |
+      /ask produz contemplation pages, não chat bubbles. Sem streaming durante composição.
+      Integra packages/rag + packages/prompts + packages/evals contract checker.
+      Dana-first (ADR-0001): superfícies contemplativas free forever.
+    validate: |
+      RF-004, RF-005: contract envelope, at most one clarifying reflection.
+      Eval suites verdes antes de exposure pública (phase Voice gate).
+    references:
+      - apps/agent-api/
+      - spec/c4-model.md
+      - packages/evals/
+
+  - id: evals-quality
+    name: Evaluation & Quality Gates
+    description: Golden questions, response contract probes, tone/safety audits
+    paths:
+      - packages/evals/**
+      - scripts/validate/**
+      - tests/**
+    enrich: |
+      Harness em packages/evals: envelope, 7 checks, 26 probes, petal rubric.
+      Honored-silence precision é métrica de sucesso, não falha.
+    validate: |
+      pytest green; run_response_eval.py antes de merge em agent-api/prompts.
+      Citation integrity = 1.0; anti-prophecy probes pass.
+    references:
+      - packages/evals/
+      - spec/nfr.yaml
+
+  - id: compliance
+    name: Compliance & Boundaries
+    description: Health fence, natal boundary, privacy, LGPD posture, dana model
+    paths:
+      - spec/nfr.yaml
+      - spec/decisions/**
+      - docs/copyright_policy.md
+      - content/consciousness_core/silence_and_non_answering.md
+    enrich: |
+      ADR-0001 dana-first · ADR-0002 natal strict · ADR-0003 health interim.
+      Location never leaves device (Sky Map). Diary engine-blind by architecture.
+      Zero third-party analytics; zero progress percentages.
+    validate: |
+      NFR privacy, health fence, anti-prophecy. Consultivo — não altera código sozinho.
+    references:
+      - spec/nfr.yaml
+      - spec/decisions/
+
+specialists:
+  - id: fastapi
+    name: FastAPI / Python API
+    stack: python
+    paths:
+      - apps/agent-api/**
+      - packages/**
+
+  - id: pwa-frontend
+    name: PWA / Contemplative UI
+    stack: frontend
+    paths:
+      - apps/web/**
+      - spec/design/claude-design/**

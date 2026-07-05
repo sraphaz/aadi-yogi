@@ -1,0 +1,20 @@
+﻿id: evals-quality
+name: Evaluation & Quality Gates
+mode: consult
+enrich: |
+    Harness em packages/evals: envelope, 7 checks, 26 probes, petal rubric.
+    Honored-silence precision é métrica de sucesso, não falha.
+validate: |
+    pytest green; run_response_eval.py antes de merge em agent-api/prompts.
+    Citation integrity = 1.0; anti-prophecy probes pass.
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - packages/evals/**
+    - scripts/validate/**
+    - tests/**
+
+guardrails:
+  no_merge: true
+  consult_only: true

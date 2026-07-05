@@ -1,0 +1,20 @@
+﻿id: agent-api
+name: Agent API & Orchestration
+mode: consult
+enrich: |
+    /ask produz contemplation pages, não chat bubbles. Sem streaming durante composição.
+    Integra packages/rag + packages/prompts + packages/evals contract checker.
+    Dana-first (ADR-0001): superfícies contemplativas free forever.
+validate: |
+    RF-004, RF-005: contract envelope, at most one clarifying reflection.
+    Eval suites verdes antes de exposure pública (phase Voice gate).
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - apps/agent-api/**
+    - packages/prompts/**
+
+guardrails:
+  no_merge: true
+  consult_only: true

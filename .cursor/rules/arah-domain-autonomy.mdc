@@ -1,0 +1,14 @@
+---
+description: Pareceres de domínio ARAH — leia .cursor/domain-review.md ao tocar código de domínio
+globs:
+  - packages/**
+  - apps/**
+  - content/**
+  - spec/**
+alwaysApply: false
+---
+
+Ao editar paths cobertos por `.agents/choreography*.yaml`, leia `.cursor/domain-review.md` se existir.
+Agentes de domínio publicam parecer consultivo (consciousness law, health gate, passage-id, etc.) — não bloqueiam via turno extra.
+
+Referência: [AGENTS.md](../../AGENTS.md) · [arah.config.yaml](../../arah.config.yaml)

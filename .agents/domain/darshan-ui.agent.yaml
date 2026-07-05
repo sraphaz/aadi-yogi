@@ -1,0 +1,24 @@
+﻿id: darshan-ui
+name: Darshan Interface
+mode: consult
+enrich: |
+    A interface é a primeira lição: silêncio antes da fala, um ponto por tela, closure como sucesso.
+    Protótipo Claude: spec/design/claude-design/Darshan App.dc.html (abrir no browser).
+    Tokens: spec/design-tokens.yaml + spec/design/claude-design/tokens/.
+    Proibido: feeds, streaks, spinners, dark patterns, emoji, exclamações, gamificação.
+    Fase Seed (BACKLOG.md): threshold, court, daily word, reading room, silence room, i18n x5.
+validate: |
+    RF-001..RF-006, RF-016..RF-018: WCAG 2.1 AA, reduced-motion, no spinner, closure gesture.
+    Cada ritual skippável; touch targets ≥ 44px; hour themes data-hour only.
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - apps/web/**
+    - spec/design/claude-design/**
+    - spec/ux-spec.yaml
+    - spec/design-tokens.yaml
+
+guardrails:
+  no_merge: true
+  consult_only: true

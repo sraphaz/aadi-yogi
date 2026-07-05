@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="site-strings.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7f4ec; }
+    button { -webkit-tap-highlight-color: transparent; }
+    [data-lang="hi"] {
+      --font-body: "Manrope", "Noto Sans Devanagari", system-ui, sans-serif;
+      --font-passage: "Source Serif 4", "Noto Serif Devanagari", Georgia, serif;
+    }
+  </style>
+</helmet>
+
+<div data-hour="{{ hourTheme }}" data-lang="{{ lang }}" style="min-height:100vh;background:var(--surface);color:var(--ink);font-family:var(--font-body);transition:background 600ms var(--ease-calm);">
+<div style="max-width:820px;margin:0 auto;padding:0 32px 120px;box-sizing:border-box;">
+
+  <!-- ══ masthead ══ -->
+  <header data-screen-label="Masthead" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:34px 0 0;flex-wrap:wrap;">
+    <div style="font-family:var(--font-passage);font-size:1.15rem;">darshan</div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+      <div style="display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end;">
+        <sc-for list="{{ langOptions }}" as="lo" hint-placeholder-count="5">
+          <button onClick="{{ lo.pick }}" style="{{ lo.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ lo.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end;">
+        <sc-for list="{{ hourOptions }}" as="opt" hint-placeholder-count="5">
+          <button onClick="{{ opt.pick }}" style="{{ opt.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ opt.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ opening ══ -->
+  <section data-screen-label="Opening" style="padding:calc(var(--space-breath) * 1.6) 0 var(--space-breath);text-align:center;">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.tagline }}</div>
+    <h1 style="font-family:var(--font-passage);font-size:3rem;font-weight:var(--weight-passage);line-height:var(--leading-word);margin:26px 0 0;">darshan</h1>
+    <p style="font-size:1.05rem;line-height:1.7;color:var(--ink-soft);max-width:44ch;margin:22px auto 0;">{{ s.heroP }}</p>
+  </section>
+
+  <!-- ══ founding insight ══ -->
+  <section data-screen-label="Founding Insight" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.insightLabel }}</div>
+    <blockquote style="margin:28px 0 0;padding:0;border:none;">
+      <div style="font-family:var(--font-passage);font-size:1.5rem;line-height:1.7;max-width:30ch;">{{ s.insightQuote }}</div>
+    </blockquote>
+    <p style="font-size:0.98rem;line-height:1.75;color:var(--ink-soft);max-width:62ch;margin:24px 0 0;">{{ s.insightP }}</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:30px;max-width:62ch;">
+      <div style="font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);opacity:0.8;">{{ s.notLabel }}</div>
+      <div style="font-size:0.95rem;line-height:1.8;color:var(--ink);">{{ s.notList }}</div>
+    </div>
+  </section>
+
+  <!-- ══ a passage honored ══ -->
+  <section data-screen-label="Passage Honored" style="padding:calc(var(--space-breath) * 1.4) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);text-align:center;">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.passageLabel }}</div>
+    <div style="margin:var(--space-breath) auto;max-width:52ch;">
+      <div lang="sa" style="font-family:var(--font-devanagari);font-size:1.5rem;line-height:1.9;">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</div>
+      <div lang="sa-Latn" style="font-family:var(--font-translit);font-style:italic;font-size:1.02rem;line-height:1.8;color:var(--ink-soft);margin-top:12px;">karmaṇy evādhikāras te mā phaleṣu kadācana</div>
+      <div lang="en" style="font-family:var(--font-passage);font-size:1.35rem;line-height:var(--leading-passage);margin-top:30px;">Thou hast a right to action, but only to action, never to its fruits.</div>
+      <div style="font-size:var(--type-meta);color:var(--ink-soft);margin-top:18px;">Bhagavad Gita, II.47 · tr. Sri Aurobindo · gita <span style="font-family:var(--font-mono);font-size:11px;opacity:0.8;margin-left:8px;">gita.02.047</span></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-soft);max-width:44ch;margin:0 auto;line-height:1.7;">{{ s.passageNote }}</p>
+  </section>
+
+  <!-- ══ ten principles ══ -->
+  <section data-screen-label="Ten Principles" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.principlesLabel }}</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:14px 40px;margin-top:30px;">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="10">
+        <div style="display:flex;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent-gold);flex-shrink:0;">{{ p.n }}</span>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ p.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;">{{ p.line }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ the gestures ══ -->
+  <section data-screen-label="Gestures" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.gesturesLabel }}</div>
+    <p style="font-size:0.98rem;line-height:1.75;color:var(--ink-soft);max-width:62ch;margin:18px 0 0;">{{ s.gesturesIntro }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));gap:12px;margin-top:28px;">
+      <sc-for list="{{ gestures }}" as="g" hint-placeholder-count="10">
+        <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:18px 18px 16px;transition:border-color var(--motion-ui-hover) var(--ease-calm);" style-hover="border-color: color-mix(in srgb, var(--accent-gold) 34%, transparent)">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+            <div style="font-family:var(--font-passage);font-size:1.05rem;">{{ g.name }}</div>
+            <div style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ g.sanskrit }}</div>
+          </div>
+          <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:6px;">{{ g.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ boundaries ══ -->
+  <section data-screen-label="Boundaries" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.boundariesLabel }}</div>
+    <div style="font-size:0.98rem;line-height:2;color:var(--ink);max-width:62ch;margin:20px 0 0;">{{ s.boundariesList }}</div>
+    <div style="border:1px solid var(--warn);border-radius:var(--radius-soft);padding:16px 18px;margin-top:28px;max-width:62ch;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--warn);">{{ s.structLabel }}</div>
+      <div style="font-size:13.5px;line-height:1.7;color:var(--ink-soft);margin-top:8px;">{{ s.structText }}</div>
+    </div>
+  </section>
+
+  <!-- ══ sustaining model ══ -->
+  <section data-screen-label="Sustaining Model" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.danaLabel }}</div>
+    <div style="font-family:var(--font-passage);font-size:1.35rem;line-height:1.7;max-width:36ch;margin:26px 0 0;">{{ s.danaQuote }}</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-top:30px;">
+      <sc-for list="{{ danaCards }}" as="d" hint-placeholder-count="3">
+        <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:18px;">
+          <div style="font-family:var(--font-passage);font-size:1rem;">{{ d.name }}</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--ink-soft);margin-top:6px;">{{ d.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ where the build stands ══ -->
+  <section data-screen-label="Build Phases" style="padding:var(--space-breath) 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.buildLabel }}</div>
+    <p style="font-size:0.98rem;line-height:1.75;color:var(--ink-soft);max-width:62ch;margin:18px 0 0;">{{ s.buildIntro }}</p>
+    <div style="display:flex;flex-direction:column;margin-top:30px;max-width:600px;">
+      <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="6">
+        <div style="display:flex;gap:20px;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:16px;">
+            <span style="{{ ph.mark }}">◦</span>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 14%, transparent);margin-top:4px;"></div>
+          </div>
+          <div style="padding-bottom:30px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+              <span style="font-family:var(--font-passage);font-size:1.05rem;">{{ ph.name }}</span>
+              <span style="{{ ph.stateStyle }}">{{ ph.state }}</span>
+            </div>
+            <div style="font-size:13px;line-height:1.65;color:var(--ink-soft);margin-top:5px;max-width:52ch;">{{ ph.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ footer ══ -->
+  <footer data-screen-label="Footer" style="padding:var(--space-breath) 0 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);text-align:center;">
+    <div style="font-size:12.5px;line-height:2;color:var(--ink-soft);max-width:60ch;margin:0 auto;">{{ s.footerSources }}</div>
+    <div style="font-size:12.5px;color:var(--ink-soft);margin-top:18px;">{{ s.footerLangs }}</div>
+    <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);opacity:0.8;margin-top:10px;">github.com/sraphaz/aadi-yogi</div>
+    <div style="margin-top:var(--space-breath);"><span style="color:var(--accent-gold);">◦</span></div>
+    <div style="font-family:var(--font-passage);font-size:1.05rem;margin-top:14px;padding-bottom:8px;">{{ s.footerGo }}</div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;lang&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;en&quot;, &quot;pt&quot;, &quot;hi&quot;, &quot;it&quot;, &quot;es&quot;],
+    &quot;default&quot;: &quot;en&quot;,
+    &quot;tsType&quot;: &quot;'en'|'pt'|'hi'|'it'|'es'&quot;,
+    &quot;section&quot;: &quot;language&quot;
+  },
+  &quot;hour&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;day&quot;, &quot;pre_dawn&quot;, &quot;dusk&quot;, &quot;night&quot;],
+    &quot;default&quot;: &quot;day&quot;,
+    &quot;tsType&quot;: &quot;'day'|'pre_dawn'|'dusk'|'night'&quot;,
+    &quot;section&quot;: &quot;atmosphere&quot;
+  }
+}">
+class Component extends DCLogic {
+  state = { hourPick: null, langPick: null, extLoaded: false };
+
+  langNames = { en: 'english', pt: 'português', hi: 'हिन्दी', it: 'italiano', es: 'español' };
+
+  // English lives inline so the page paints instantly; pt/hi/it/es load from site-strings.js
+  en = {
+    tagline: 'to see, and be seen, by the sacred',
+    heroP: 'a digital darshan, not a chatbot — the contemplative interface of the Aadi Yogi wisdom engine. free, anonymous, offline where it matters, and built to be left in peace.',
+    insightLabel: 'the founding insight',
+    insightQuote: 'The interface is not a window onto the wisdom. The interface is the first teaching.',
+    insightP: 'You cannot pour the Upanishads, the Gita, the Tirumandiram, Sri Aurobindo and the Mother into the grammar of consumption — a feed, a prompt box, an infinite scroll — without betraying them. The medium teaches louder than the message. So the silences, rhythms, refusals and disappearances of this application are composed as carefully as its answers.',
+    notLabel: 'what it is not',
+    notList: 'not a chatbot with a spiritual skin · not a content platform about spirituality · not a guru simulation · not a wellness product optimizing retention · not an oracle that performs certainty about your life',
+    passageLabel: 'the word is given darshan',
+    passageNote: 'passages appear alone, at reading pace, with space around them. every quotation names work, section and tradition, and opens into the complete book. citation is lineage, not liability.',
+    principlesLabel: 'design dharma · ten principles',
+    principles: [
+      { name: 'silence before speech', line: 'one conscious breath before anything is shown or asked. no spinners — loading is absorbed into the pause.' },
+      { name: 'one-pointedness', line: 'one screen holds one thing. there is no feed, no sidebar, no "you might also like".' },
+      { name: 'the seeker\u2019s state comes first', line: 'slower and warmer in pain, precise in philosophical inquiry, restrained in crisis.' },
+      { name: 'renunciation by design', line: 'success is measured by the quality of departure, not the length of stay.' },
+      { name: 'the word is given darshan', line: 'passages appear alone, typographically honored, revealed at reading pace.' },
+      { name: 'non-coercion and autonomy', line: 'everything is offered, never assigned. the sources are always visible.' },
+      { name: 'the right to be silent', line: 'sometimes the answer is a returned question, a pause, or an honored silence.' },
+      { name: 'rhythm, not sessions', line: 'dawn, dusk, season. the atmosphere follows the hour; nothing fragments time.' },
+      { name: 'work is the field', line: 'the interface points away from itself — into the seeker\u2019s day. disappearance is its highest function.' },
+      { name: 'humility of the instrument', line: 'it never claims realization, never impersonates a teacher, never performs authority.' },
+    ],
+    gesturesLabel: 'nine gestures, one hidden room',
+    gesturesIntro: 'functionalities are conceived as gestures of consciousness, not features. no feed, no dashboard — a single calm court, one gesture per visit, and an explicit way to leave in peace.',
+    gestures: [
+      { name: 'the threshold', sanskrit: 'dvara', desc: 'one breath, held visually. then the space opens.' },
+      { name: 'the word', sanskrit: 'vak darshan', desc: 'one passage a day, offered alone. when it closes there is no next — tomorrow there is another.' },
+      { name: 'the inquiry', sanskrit: 'prashna', desc: 'a well, not a slot machine. answers arrive as composed pages — cited, state-aware, sometimes silent.' },
+      { name: 'living maps', sanskrit: 'marga', desc: 'inner journeys walked over weeks, station by station. moving backwards is first-class.' },
+      { name: 'the practice field', sanskrit: 'sadhana', desc: 'silence, offering, the evening look-back, japa. a practice done is simply received.' },
+      { name: 'the library', sanskrit: 'svadhyaya', desc: 'reading rooms with full provenance. a concept lens; differences named, never flattened.' },
+      { name: 'the sky map', sanskrit: 'ritu', desc: 'the real sky, computed on device, read as rhythm — never as fate.' },
+      { name: 'the house of nature', sanskrit: 'prakriti', desc: 'elements, land, the body as temple. heritage cited as reading, never as medicine.' },
+      { name: 'the inner diary', sanskrit: 'sakshi', desc: 'written for no one. the engine is blind to it unless invited, once, as a witness.' },
+      { name: 'the silence room', sanskrit: 'mauna', desc: 'nothing. one slow pulse, zero telemetry — the most successful time the app can host.' },
+    ],
+    boundariesLabel: 'what will never be here',
+    boundariesList: 'no feeds or infinite scroll · no streaks, badges or gamification · no push notifications by default · no engagement-time optimization · no autoplay, no teasers · no dark patterns · no horoscopes, predictions or auspiciousness verdicts · no diagnosis, prescription or dosage · no scoring of the inner life · no advertising, ever · no sale of data, ever',
+    structLabel: 'two boundaries held structurally',
+    structText: 'the sky map reads rhythm, never fate — no natal charts, no predictions. the house of nature renders health heritage as cited documentary reading, never as instruction; illness is always met with restraint, and qualified care comes first.',
+    danaLabel: 'the sustaining model · dana',
+    danaQuote: 'The wisdom is free. You may pay for the machine\u2019s time, and for other people\u2019s access.',
+    danaCards: [
+      { name: 'free, forever', text: 'every surface that costs nothing per use — the library, the daily word, the silence room, the practice field, the maps, the sky, the diary — for everyone, without an account.' },
+      { name: 'the machine\u2019s time', text: 'the inquiry has a free daily measure for everyone. beyond it, credits at a transparent, cost-anchored price — this is what the answer costs us.' },
+      { name: 'dana', text: 'one quiet offering page, never a popup. patronage keeps the well open — it funds the free measure of others, and never alters the behavior law.' },
+    ],
+    buildLabel: 'where the build stands',
+    buildIntro: 'rooms open as the corpus and the safeguards land — honestly, never as vaporware. six phases, walked like a map: stations, not sprints.',
+    phases: [
+      { name: 'seed', state: 'open', desc: 'threshold, the court, the daily word, library reading rooms, the silence room. no engine required — the design dharma already ships value.' },
+      { name: 'voice', state: 'arriving', desc: 'retrieval, the response contract, the inquiry with contemplation pages. honored silence and the crisis protocol, evaluated before anyone meets them.' },
+      { name: 'path', state: 'future', desc: 'living maps, the practice field, the concept lens, the outer sky.' },
+      { name: 'witness', state: 'future', desc: 'the inner diary with witness mode, the inner sky, the opt-in bells.' },
+      { name: 'ground', state: 'future', desc: 'the house of nature, opening room by room behind the double editorial gate.' },
+      { name: 'sangha', state: 'unscheduled', desc: 'shared silence, study circles — only if it can be done without social-media dynamics.' },
+    ],
+    stateNames: { open: 'open', arriving: 'arriving', future: 'future', unscheduled: 'unscheduled' },
+    footerSources: 'sources · the Upanishads · the Bhagavad Gita · the Vedas · the Puranas · the Tantras · the Tirumandiram · the Complete Works of Sri Aurobindo · the records of the Mother',
+    footerLangs: 'english · português · हिन्दी · italiano · español — quotations stay in their canonical language',
+    footerGo: 'go gently.',
+  };
+
+  componentDidMount() {
+    // site-strings.js loads via helmet; re-render once it lands
+    if (window.__darshanSiteStrings) { this.setState({ extLoaded: true }); return; }
+    let tries = 0;
+    this._poll = setInterval(() => {
+      tries += 1;
+      if (window.__darshanSiteStrings) {
+        clearInterval(this._poll);
+        this.setState({ extLoaded: true });
+      } else if (tries > 40) {
+        clearInterval(this._poll);
+      }
+    }, 150);
+  }
+
+  componentWillUnmount() {
+    if (this._poll) clearInterval(this._poll);
+  }
+
+  lang() {
+    return this.state.langPick ?? this.props.lang ?? 'en';
+  }
+
+  dict(lang) {
+    if (lang === 'en') return this.en;
+    const ext = window.__darshanSiteStrings || {};
+    return ext[lang] || this.en;
+  }
+
+  renderVals() {
+    const st = this.state;
+    const lang = this.lang();
+    const s = this.dict(lang);
+    const hour = st.hourPick ?? (this.props.hour && this.props.hour !== 'auto' ? this.props.hour : 'day');
+
+    const chipStyle = (active) => ({
+      background: active ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+      border: 'none', borderRadius: 'var(--radius-pill)',
+      padding: '7px 12px', minHeight: '32px',
+      font: 'inherit', fontSize: '11.5px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink-soft)',
+      transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+    });
+
+    const hourLabels = { pre_dawn: 'pre-dawn', day: 'day', dusk: 'dusk', night: 'night' };
+    const hourOptions = [null, 'pre_dawn', 'day', 'dusk', 'night'].map(id => ({
+      label: id === null ? '·' : hourLabels[id],
+      pick: () => this.setState({ hourPick: id }),
+      style: chipStyle(st.hourPick === id),
+    }));
+
+    const langOptions = ['en', 'pt', 'hi', 'it', 'es'].map(l => ({
+      label: this.langNames[l],
+      pick: () => this.setState({ langPick: l }),
+      style: chipStyle(lang === l),
+    }));
+
+    const stateColors = {
+      open: 'var(--accent-flame)',
+      arriving: 'var(--accent-gold)',
+      future: 'var(--ink-soft)',
+      unscheduled: 'var(--ink-soft)',
+    };
+    const phases = s.phases.map(p => ({
+      name: p.name,
+      desc: p.desc,
+      state: s.stateNames[p.state] || p.state,
+      mark: { color: stateColors[p.state], fontSize: '15px', lineHeight: '1' },
+      stateStyle: {
+        fontSize: '11px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase',
+        color: stateColors[p.state],
+      },
+    }));
+
+    const nn = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
+    const principles = s.principles.map((p, i) => ({ n: nn[i], name: p.name, line: p.line }));
+
+    return {
+      s,
+      lang,
+      hourTheme: hour,
+      hourOptions,
+      langOptions,
+      principles,
+      gestures: s.gestures,
+      danaCards: s.danaCards,
+      phases,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* Darshan — spacing tokens (design-tokens.yaml §spacing_rem)
+   Space is doctrine: the breath around a word is part of the word. */
+
+:root {
+  --space-breath: 4rem;       /* vertical space around a D0 word */
+  --space-stanza: 2rem;       /* between passage groups */
+  --space-paragraph: 1.25rem; /* between paragraphs */
+  --measure-reading: 62ch;    /* max reading measure, characters per line */
+
+  /* intentional additions (not in design-tokens.yaml v1.0 — to be calibrated) */
+  --radius-soft: 12px;        /* court cards, panels */
+  --radius-pill: 999px;       /* door chips, quiet buttons */
+  --touch-target: 44px;       /* NFR-003: minimum touch target */
+  --hairline: 1px;            /* borders are hairlines, never heavy */
+}

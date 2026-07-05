@@ -1,0 +1,106 @@
+# Coreografia Aadi Yogi — overlay local (não sobrescrito por arah update)
+version: 1
+updated: 2026-07-04
+
+rules:
+  - id: aadiyogi-spec
+    paths:
+      - spec/**
+      - BACKLOG.md
+      - ROADMAP.md
+    agents:
+      - id: spec-steward
+        type: operational
+        autonomy: [activate]
+      - id: planner
+        type: operational
+        autonomy: [consult_post]
+      - id: docs-steward
+        type: operational
+        autonomy: [activate]
+
+  - id: aadiyogi-darshan-ui
+    paths:
+      - apps/web/**
+      - spec/design/claude-design/**
+    agents:
+      - id: frontend
+        type: operational
+        autonomy: [activate, invoke_skill]
+        skills: [craft-review, run-tests]
+      - id: darshan-ui
+        type: domain
+        autonomy: [consult_post]
+
+  - id: aadiyogi-agent-api
+    paths:
+      - apps/agent-api/**
+      - packages/prompts/**
+    agents:
+      - id: backend
+        type: operational
+        autonomy: [activate, invoke_skill]
+        skills: [craft-review, run-tests]
+      - id: agent-api
+        type: domain
+        autonomy: [consult_post]
+      - id: consciousness-core
+        type: domain
+        autonomy: [consult_post]
+
+  - id: aadiyogi-rag
+    paths:
+      - packages/rag/**
+      - scripts/chunk/**
+      - scripts/index/**
+      - content/sources/**
+      - content/processed/**
+    agents:
+      - id: backend
+        type: operational
+        autonomy: [activate, invoke_skill]
+        skills: [craft-review, run-tests]
+      - id: rag-corpus
+        type: domain
+        autonomy: [consult_post]
+
+  - id: aadiyogi-evals
+    paths:
+      - packages/evals/**
+      - scripts/validate/**
+      - tests/**
+    agents:
+      - id: qa
+        type: operational
+        autonomy: [activate, invoke_skill]
+        skills: [run-tests, craft-review]
+      - id: evals-quality
+        type: domain
+        autonomy: [consult_post]
+
+  - id: aadiyogi-content
+    paths:
+      - content/consciousness_core/**
+      - content/ontology/**
+      - docs/decisions/**
+    agents:
+      - id: docs-steward
+        type: operational
+        autonomy: [activate]
+      - id: consciousness-core
+        type: domain
+        autonomy: [consult_post]
+      - id: compliance
+        type: domain
+        autonomy: [consult_post]
+
+  - id: aadiyogi-infra
+    paths:
+      - .github/workflows/**
+      - docker-compose*.yml
+      - scripts/ingest/**
+      - scripts/export/**
+    agents:
+      - id: release
+        type: operational
+        autonomy: [activate]
