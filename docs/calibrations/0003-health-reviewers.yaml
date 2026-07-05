@@ -1,17 +1,23 @@
 # Creator calibration — ADR 0003 (health double editorial gate)
 # Until calibrated: House of Nature stays "arriving"; health-touching above D1 blocked.
 
-status: pending  # pending | calibrated
+status: pending
 
 gate:
   editorial_reviewer:
     name: null
     role: editorial
     signed_at: null
+    profile: >-
+      Corpus and tradition literacy; passage_id integrity; editorial judgment
+      on documentary tier — not clinical authority.
   safety_reviewer:
     name: null
     role: safety
     signed_at: null
+    profile: >-
+      Understands ayurveda/siddha as cited library only; crisis protocol;
+      qualified-care-first posture — not prescriber or guru role.
 
 while_pending:
   house_of_nature_state: arriving
@@ -20,7 +26,6 @@ while_pending:
   allowlist_path: packages/prompts/health_tier.py
 
 after_calibration:
-  # Actions unlocked only when status becomes calibrated
   unlock_documentary_health_rendering: false
   unlock_healing_memory_room: false
 

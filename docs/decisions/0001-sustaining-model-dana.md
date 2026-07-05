@@ -51,5 +51,6 @@ design law (NFR-002, `darshan_interface_concept.md` principle 4).
 |------|--------|-----|
 | 2026-07-04 | ADR accepted (dana-first model) | consciousness core |
 | — | Creator calibration pending — see `docs/calibrations/0001-dana.yaml` | — |
+| 2026-07-05 | Pricing calibrated: 2 free inquiries/day; credits ~R$1.00 / US$0.20 at cost; dana via nonprofit (BR), PIX; legal name pending | creators |
 - The store/positioning language can say plainly: the wisdom is free; you
   may pay for the machine's time and for other people's access.

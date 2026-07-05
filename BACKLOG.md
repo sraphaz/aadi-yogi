@@ -135,9 +135,9 @@ Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 
 Scaffold: [`docs/calibrations/`](docs/calibrations/README.md) · `scripts/validate/check_calibrations.py`
 
-- [ ] Precificar medida free e créditos → [`0001-dana.yaml`](docs/calibrations/0001-dana.yaml)
+- [x] Precificar medida free e créditos → [`0001-dana.yaml`](docs/calibrations/0001-dana.yaml) ✅ 2026-07-05
 - [ ] Nomear dois health reviewers → [`0003-health-reviewers.yaml`](docs/calibrations/0003-health-reviewers.yaml)
-- [ ] Escolher veículo legal para dana → [`0001-dana.yaml`](docs/calibrations/0001-dana.yaml)
+- [x] Escolher veículo legal para dana → associação sem fins lucrativos (BR), razão social pendente
 
 ---
 

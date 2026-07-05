@@ -18,6 +18,7 @@ const PRECACHE = [
   '/static/js/presence-metrics.js',
   '/static/js/bells.js',
   '/static/js/corpus-store.js',
+  '/static/js/inquiry-quota.js',
   '/static/data/daily-words.json',
   '/static/data/library/catalog.json',
   '/static/data/library/gita-ii-47.json',

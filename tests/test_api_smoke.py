@@ -63,6 +63,14 @@ def test_witness_endpoint_smoke() -> None:
     assert body["provider"] in {"witness", "fallback", "openai", "anthropic", "ollama"}
 
 
+def test_inquiry_policy_smoke() -> None:
+    response = client().get("/inquiry/policy")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["calibrated"] is True
+    assert body["free_daily_inquiries"] == 2
+
+
 def test_retrieve_smoke() -> None:
     response = client().post("/retrieve", json={"question": "What is dharma?", "top_k": 3})
     assert response.status_code == 200

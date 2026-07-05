@@ -51,6 +51,11 @@ import {
   dismissGrowthNotice,
   acknowledgeCorpusVersion,
 } from './corpus-store.js';
+import {
+  canUseFreeInquiry,
+  recordFreeInquiry,
+  inquiriesRemaining,
+} from './inquiry-quota.js';
 
 const state = {
   screen: 'threshold',
@@ -76,6 +81,7 @@ const state = {
   natureRoom: null,
   sanghaCharter: null,
   libraryCatalog: null,
+  inquiryPolicy: null,
 };
 
 const root = document.getElementById('app');
@@ -231,6 +237,17 @@ async function renderThreshold() {
     return;
   }
   state._thresholdTimer = setTimeout(() => goCourt(), duration);
+}
+
+async function loadInquiryPolicy() {
+  if (state.inquiryPolicy) return state.inquiryPolicy;
+  try {
+    const res = await fetch('/inquiry/policy');
+    state.inquiryPolicy = await res.json();
+  } catch {
+    state.inquiryPolicy = { calibrated: false };
+  }
+  return state.inquiryPolicy;
 }
 
 async function loadLibraryCatalog() {
@@ -542,18 +559,36 @@ async function renderSangha() {
 }
 
 function renderDana() {
-  const s = t();
-  root.innerHTML = `
+  loadInquiryPolicy().then((policy) => {
+    const s = t();
+    const lang = state.lang;
+    const label = policy.credit_unit_label?.[lang] || policy.credit_unit_label?.en || s.danaCreditUnit;
+    const anchor = policy.cost_anchor_note?.[lang] || policy.cost_anchor_note?.en || s.danaCostAnchor;
+    const free = policy.free_daily_inquiries;
+    const pricing =
+      policy.calibrated && free != null
+        ? s.danaPricingLine
+            .replace('{free}', String(free))
+            .replace('{brl}', String(policy.credit_price_brl))
+            .replace('{usd}', String(policy.credit_price_usd))
+            .replace('{unit}', label)
+        : s.danaPending;
+    const legal = policy.calibrated ? s.danaLegalNote : '';
+
+    root.innerHTML = `
     <section class="screen" aria-label="${s.danaLabel}">
       <div class="container">
         ${renderToolbar()}
         <div class="label">${s.danaLabel}</div>
         <p class="path-intro">${s.danaIntro}</p>
         <p class="path-note">${s.danaMachine}</p>
+        <p class="path-note path-note--muted">${pricing}</p>
+        <p class="path-note path-note--muted">${anchor}</p>
         <p class="path-note path-note--muted">${s.danaNever}</p>
-        <p class="path-note path-note--muted">${s.danaPending}</p>
+        ${legal ? `<p class="path-note path-note--muted">${legal}</p>` : ''}
       </div>
     </section>`;
+  });
 }
 
 
@@ -969,8 +1004,15 @@ function saveToShelf(page) {
   localStorage.setItem('darshan.contemplationShelf', JSON.stringify(shelf.slice(0, 24)));
 }
 
-function renderInquiry() {
+async function renderInquiry() {
   const s = t();
+  const policy = await loadInquiryPolicy();
+  const remaining = inquiriesRemaining(policy.free_daily_inquiries);
+  const measureNote =
+    policy.calibrated && remaining != null
+      ? `<p class="path-note path-note--muted">${s.inquiryMeasureNote.replace('{remaining}', String(remaining))}</p>`
+      : '';
+
   const doors = s.inquiryDoors
     .map(
       (d) =>
@@ -984,6 +1026,7 @@ function renderInquiry() {
         ${renderToolbar()}
         <div class="label">${s.inquiryLabel}</div>
         <p class="inquiry-intro">${s.inquiryIntro}</p>
+        ${measureNote}
         <div class="door-grid" role="group" aria-label="situation">${doors}</div>
         <form class="inquiry-form" data-action="inquiry-submit">
           <label class="sr-only" for="inquiry-field">${s.inquiryPlaceholder}</label>
@@ -1046,6 +1089,21 @@ async function submitInquiry(question) {
   const trimmed = question.trim();
   if (trimmed.length < 3) return;
 
+  const policy = await loadInquiryPolicy();
+  const s = t();
+  if (policy.calibrated && !canUseFreeInquiry(policy.free_daily_inquiries)) {
+    state.contemplation = {
+      envelope: {
+        guidance_mode: 'silence_contemplation',
+        body: s.inquiryQuotaExhausted,
+        citations: [],
+        closing: 'honored_silence',
+      },
+    };
+    navigate('contemplation');
+    return;
+  }
+
   state.inquiryQuestion = trimmed;
   navigate('inquiry-resting');
 
@@ -1059,6 +1117,7 @@ async function submitInquiry(question) {
     });
     if (!res.ok) throw new Error('inquire failed');
     const data = await res.json();
+    if (policy.calibrated) recordFreeInquiry();
     await new Promise((r) => setTimeout(r, restingMs));
     state.contemplation = data;
     navigate('contemplation');
