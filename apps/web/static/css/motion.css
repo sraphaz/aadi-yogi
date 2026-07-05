@@ -1,0 +1,26 @@
+:root {
+  --motion-breath-cycle: 8000ms;
+  --motion-passage-reveal: 1800ms;
+  --motion-depth-dial: 600ms;
+  --motion-ui-hover: 150ms;
+  --ease-calm: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-breath-cycle: 0ms;
+    --motion-passage-reveal: 0ms;
+    --motion-depth-dial: 0ms;
+    --motion-ui-hover: 0ms;
+  }
+}
+
+@keyframes darshan-breath {
+  0%, 100% { opacity: 0.12; transform: scale(0.92); }
+  50% { opacity: 0.3; transform: scale(1); }
+}
+
+@keyframes darshan-reveal {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

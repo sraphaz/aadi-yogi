@@ -1,49 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aadi Yogi — Orientação com Fontes</title>
-  <link rel="stylesheet" href="/static/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f4ec">
+  <meta name="description" content="Darshan — a contemplative interface for source-grounded wisdom.">
+  <title>darshan</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/static/css/fonts.css">
+  <link rel="stylesheet" href="/static/css/colors.css">
+  <link rel="stylesheet" href="/static/css/typography.css">
+  <link rel="stylesheet" href="/static/css/spacing.css">
+  <link rel="stylesheet" href="/static/css/motion.css">
+  <link rel="stylesheet" href="/static/css/app.css">
 </head>
 <body>
-  <div class="backdrop"></div>
-  <main class="container">
-    <header class="hero">
-      <p class="eyebrow">Aadi Yogi</p>
-      <h1>Orientação espiritual com humildade e citações</h1>
-      <p class="subtitle">
-        Respostas fundamentadas em fontes canônicas importadas. Não substitui um guru, prática viva ou apoio humano qualificado.
-      </p>
-    </header>
+  <div id="app" class="app-shell" data-hour="day" data-lang="en"></div>
 
-    <section class="panel ask-panel">
-      <label for="question">Sua pergunta</label>
-      <textarea id="question" rows="4" placeholder="Ex.: O que o Bhagavad Gita ensina sobre ação sem apego?"></textarea>
-      <div class="actions">
-        <button id="ask-btn" type="button">Perguntar</button>
-        <span id="status" class="status"></span>
-      </div>
-    </section>
-
-    <section id="caution-box" class="panel caution hidden"></section>
-
-    <section id="answer-box" class="panel answer hidden">
-      <h2>Resposta</h2>
-      <div id="answer-text" class="answer-text"></div>
-      <p id="provider-line" class="meta"></p>
-    </section>
-
-    <section id="citations-box" class="panel citations hidden">
-      <h2>Citações</h2>
-      <ul id="citations-list"></ul>
-    </section>
-
-    <section id="sources-box" class="panel sources hidden">
-      <h2>Trechos recuperados</h2>
-      <div id="sources-list" class="sources-list"></div>
-    </section>
-  </main>
-  <script src="/static/app.js"></script>
+  <script type="module" src="/static/js/app.js"></script>
 </body>
 </html>

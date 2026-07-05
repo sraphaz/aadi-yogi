@@ -13,6 +13,7 @@
     "pipeline:production": "bash scripts/run_production_pipeline.sh",
     "eval:golden": "PYTHONPATH=. python scripts/validate/run_golden_questions.py",
     "eval:response": "PYTHONPATH=. python scripts/validate/run_response_eval.py",
-    "api:dev": "PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000"
+    "api:dev": "PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000",
+    "content:daily-words": "python scripts/content/build_daily_words.py"
   }
 }

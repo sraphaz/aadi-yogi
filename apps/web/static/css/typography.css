@@ -1,0 +1,22 @@
+:root {
+  --font-passage: "Source Serif 4", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-devanagari: "Noto Serif Devanagari", serif;
+  --font-translit: "Gentium Plus", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --type-word-d0: 2.25rem;
+  --type-passage-d2: 1.375rem;
+  --type-reading: 1.125rem;
+  --type-body: 1rem;
+  --type-meta: 0.875rem;
+  --type-minimum: 0.75rem;
+  --leading-word: 1.4;
+  --leading-passage: 1.6;
+  --leading-reading: 1.8;
+  --leading-body: 1.6;
+  --tracking-label: 0.14em;
+}
+
+[data-lang="hi"] {
+  --font-body: "Manrope", "Noto Sans Devanagari", system-ui, sans-serif;
+}

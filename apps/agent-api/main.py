@@ -93,6 +93,16 @@ def root() -> FileResponse:
     return FileResponse(index_path)
 
 
+@app.get("/manifest.webmanifest")
+def manifest() -> FileResponse:
+    return FileResponse(WEB_ROOT / "manifest.webmanifest", media_type="application/manifest+json")
+
+
+@app.get("/sw.js")
+def service_worker() -> FileResponse:
+    return FileResponse(WEB_ROOT / "sw.js", media_type="application/javascript")
+
+
 @app.get("/health")
 def health() -> dict[str, object]:
     dense_store = retriever._dense_store_instance()
