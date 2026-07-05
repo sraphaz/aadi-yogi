@@ -183,6 +183,12 @@ export const STRINGS = {
     sanghaForbiddenLine: 'what will never appear here',
     sanghaFormsLine: 'forms under consideration',
     sanghaOpenSilence: 'enter the silence room',
+    danaLink: 'dana',
+    danaLabel: 'dana',
+    danaIntro: 'the wisdom is free. you may offer to keep the well open for others.',
+    danaMachine: 'inquiry uses real machine time beyond a daily measure — priced at cost when calibration is complete.',
+    danaNever: 'no urgency, no guilt, no popups inside contemplative flows.',
+    danaPending: 'pricing and legal vehicle await creator calibration (ADR 0001).',
   },
   pt: {
     hourLines: {
@@ -348,6 +354,12 @@ export const STRINGS = {
     sanghaForbiddenLine: 'o que nunca aparecerá aqui',
     sanghaFormsLine: 'formas em consideração',
     sanghaOpenSilence: 'entrar na sala do silêncio',
+    danaLink: 'dana',
+    danaLabel: 'dana',
+    danaIntro: 'a sabedoria é livre. você pode oferecer para manter o poço aberto para outros.',
+    danaMachine: 'a indagação usa tempo real de máquina além de uma medida diária — preço de custo quando a calibração estiver completa.',
+    danaNever: 'sem urgência, sem culpa, sem popups dentro dos fluxos contemplativos.',
+    danaPending: 'preço e veículo legal aguardam calibração dos criadores (ADR 0001).',
   },
   hi: {
     hourLines: {

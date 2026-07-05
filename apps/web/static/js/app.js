@@ -256,6 +256,7 @@ function renderCourt() {
           <span style="color:var(--halo)">◦</span> ${s.silenceRoom}
         </button>
         <p class="court-note">${s.courtNote}</p>
+        <button type="button" class="btn-quiet dana-link" data-gesture="dana">${s.danaLink}</button>
       </div>
       <button type="button" class="silence-glyph-fixed" data-action="silence" aria-label="${s.silenceRoom}">◦</button>
     </section>`;
@@ -505,6 +506,21 @@ async function renderSangha() {
         <ul class="sangha-forbidden">${forbidden}</ul>
         <div class="label label--soft">${s.sanghaFormsLine}</div>
         <div class="shelf-list">${forms}</div>
+      </div>
+    </section>`;
+}
+
+function renderDana() {
+  const s = t();
+  root.innerHTML = `
+    <section class="screen" aria-label="${s.danaLabel}">
+      <div class="container">
+        ${renderToolbar()}
+        <div class="label">${s.danaLabel}</div>
+        <p class="path-intro">${s.danaIntro}</p>
+        <p class="path-note">${s.danaMachine}</p>
+        <p class="path-note path-note--muted">${s.danaNever}</p>
+        <p class="path-note path-note--muted">${s.danaPending}</p>
       </div>
     </section>`;
 }
@@ -1056,6 +1072,7 @@ function navigate(screen) {
   else if (screen === 'nature-element') renderNatureElement();
   else if (screen === 'nature-room') renderNatureRoom();
   else if (screen === 'sangha') renderSangha();
+  else if (screen === 'dana') renderDana();
   else if (screen === 'silence') renderSilence();
   else if (screen === 'farewell') renderFarewell();
 }
@@ -1113,6 +1130,7 @@ root.addEventListener('click', async (e) => {
   if (el.dataset.gesture === 'diary') openDiary();
   if (el.dataset.gesture === 'nature') navigate('nature');
   if (el.dataset.gesture === 'sangha') navigate('sangha');
+  if (el.dataset.gesture === 'dana') navigate('dana');
   if (el.dataset.gesture === 'bells') navigate('bells');
   if (el.dataset.gesture === 'offering') navigate('offering');
   if (el.dataset.gesture === 'lookback') navigate('lookback');

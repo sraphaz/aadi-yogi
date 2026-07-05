@@ -118,9 +118,11 @@ Exploração apenas — sem feeds, profiles ou counts.
 
 ## Decisões reservadas aos criadores
 
-- [ ] Precificar medida free e créditos (ADR-0001)
-- [ ] Nomear dois health reviewers (ADR-0003)
-- [ ] Escolher veículo legal para dana
+Scaffold: [`docs/calibrations/`](docs/calibrations/README.md) · `scripts/validate/check_calibrations.py`
+
+- [ ] Precificar medida free e créditos → [`0001-dana.yaml`](docs/calibrations/0001-dana.yaml)
+- [ ] Nomear dois health reviewers → [`0003-health-reviewers.yaml`](docs/calibrations/0003-health-reviewers.yaml)
+- [ ] Escolher veículo legal para dana → [`0001-dana.yaml`](docs/calibrations/0001-dana.yaml)
 
 ---
 
