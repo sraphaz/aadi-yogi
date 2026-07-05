@@ -28,6 +28,14 @@ jobs:
       - name: Creator calibration status
         run: PYTHONPATH=. python scripts/validate/check_calibrations.py
 
+      - name: Health gate (RF-037)
+        run: PYTHONPATH=. python scripts/validate/check_health_gate.py
+
+      - name: Library catalog freshness
+        run: |
+          PYTHONPATH=. python scripts/content/build_library_catalog.py --write
+          PYTHONPATH=. python scripts/content/build_library_catalog.py --check
+
       - name: Validate Markdown
         run: python scripts/validate/validate_markdown.py
 

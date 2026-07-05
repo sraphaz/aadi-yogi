@@ -1,0 +1,42 @@
+{
+  "bundle_version": "2026-07-05",
+  "generated_at": "2026-07-05T04:18:02.942792+00:00",
+  "shelves": [
+    {
+      "id": "gita",
+      "name": {
+        "en": "the Bhagavad Gita",
+        "pt": "a Bhagavad Gita"
+      },
+      "line": {
+        "en": "the battlefield as the inner field.",
+        "pt": "o campo de batalha como campo interior."
+      },
+      "state": "open",
+      "passages": [
+        "gita-ii-47"
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "id": "sri_aurobindo_cwsa",
+      "title": "The Complete Works of Sri Aurobindo",
+      "state": "arriving",
+      "source_files": 0,
+      "volumes_full_text": 18,
+      "volumes_total": 31,
+      "health_sensitive": false
+    },
+    {
+      "id": "the_mother_cwm",
+      "title": "Collected Works of the Mother",
+      "state": "arriving",
+      "source_files": 0,
+      "volumes_full_text": 0,
+      "volumes_total": 18,
+      "health_sensitive": false
+    }
+  ],
+  "passage_count": 1
+}

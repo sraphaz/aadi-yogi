@@ -189,6 +189,8 @@ export const STRINGS = {
     danaMachine: 'inquiry uses real machine time beyond a daily measure — priced at cost when calibration is complete.',
     danaNever: 'no urgency, no guilt, no popups inside contemplative flows.',
     danaPending: 'pricing and legal vehicle await creator calibration (ADR 0001).',
+    corpusGrowthLine: 'the library has grown since your last visit.',
+    corpusGrowthDismiss: 'noted',
   },
   pt: {
     hourLines: {
@@ -360,6 +362,8 @@ export const STRINGS = {
     danaMachine: 'a indagação usa tempo real de máquina além de uma medida diária — preço de custo quando a calibração estiver completa.',
     danaNever: 'sem urgência, sem culpa, sem popups dentro dos fluxos contemplativos.',
     danaPending: 'preço e veículo legal aguardam calibração dos criadores (ADR 0001).',
+    corpusGrowthLine: 'a biblioteca cresceu desde a sua última visita.',
+    corpusGrowthDismiss: 'anotado',
   },
   hi: {
     hourLines: {
@@ -392,6 +396,7 @@ export const STRINGS = {
       { id: 'sky', name: 'आकाश मानचित्र', desc: 'वास्तविक आकाश, लय के रूप में', state: 'open' },
       { id: 'diary', name: 'आंतरिक डायरी', desc: 'किसी के लिए नहीं लिखा', state: 'open' },
       { id: 'nature', name: 'प्रकृति का घर', desc: 'तत्व, भूमि, शरीर', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'shared silence and study', state: 'open' },
     ],
     shelves: [{ id: 'gita', name: 'भगवद्गीता', line: 'युद्ध का मैदान आंतरिक क्षेत्र।' }],
     langLabel: 'भाषा',
@@ -429,6 +434,7 @@ export const STRINGS = {
       { id: 'sky', name: 'mappa del cielo', desc: 'il cielo reale, letto come ritmo', state: 'open' },
       { id: 'diary', name: 'diario interiore', desc: 'scritto per nessuno', state: 'open' },
       { id: 'nature', name: 'casa della natura', desc: 'elementi, terra, corpo', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'silenzio condiviso e studio', state: 'open' },
     ],
     shelves: [{ id: 'gita', name: 'Bhagavad Gita', line: 'il campo di battaglia come campo interiore.' }],
     langLabel: 'lingua',
@@ -466,6 +472,7 @@ export const STRINGS = {
       { id: 'sky', name: 'mapa del cielo', desc: 'el cielo real, leído como ritmo', state: 'open' },
       { id: 'diary', name: 'diario interior', desc: 'escrito para nadie', state: 'open' },
       { id: 'nature', name: 'casa de la naturaleza', desc: 'elementos, tierra, cuerpo', state: 'open' },
+      { id: 'sangha', name: 'sangha', desc: 'silencio compartido y estudio', state: 'open' },
     ],
     shelves: [{ id: 'gita', name: 'Bhagavad Gita', line: 'el campo de batalla como campo interior.' }],
     langLabel: 'idioma',

@@ -231,6 +231,18 @@ a:focus-visible,
   color: var(--ink);
 }
 
+.corpus-growth {
+  font-size: var(--type-meta);
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: var(--measure-reading);
+  margin-bottom: var(--space-paragraph);
+}
+
+.corpus-growth .btn-quiet {
+  margin-left: 0.5rem;
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;

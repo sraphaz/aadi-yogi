@@ -33,7 +33,8 @@ Config: [`arah.config.yaml`](arah.config.yaml) · Coreografia: [`.agents/choreog
 | 03 | Path (maps, sky, practice) | ✅ |
 | 04 | Witness (diary, bells, presence) | ✅ |
 | 05 | Ground (house of nature) | ✅ |
-| 06 | Sangha (exploration charter) | 🎯 **atual** |
+| 06 | Sangha (exploration charter) | ✅ |
+| 07 | Living corpus (RF-038 + health gate) | 🎯 **atual** |
 
 Backlog detalhado: [`BACKLOG.md`](BACKLOG.md)
 

@@ -46,6 +46,11 @@ import {
   requestBellPermission,
   scheduleBellChecks,
 } from './bells.js';
+import {
+  shouldShowGrowthNotice,
+  dismissGrowthNotice,
+  acknowledgeCorpusVersion,
+} from './corpus-store.js';
 
 const state = {
   screen: 'threshold',
@@ -70,6 +75,7 @@ const state = {
   natureDetail: null,
   natureRoom: null,
   sanghaCharter: null,
+  libraryCatalog: null,
 };
 
 const root = document.getElementById('app');
@@ -227,8 +233,32 @@ async function renderThreshold() {
   state._thresholdTimer = setTimeout(() => goCourt(), duration);
 }
 
-function renderCourt() {
+async function loadLibraryCatalog() {
+  if (state.libraryCatalog) return state.libraryCatalog;
+  const res = await fetch('/static/data/library/catalog.json');
+  state.libraryCatalog = await res.json();
+  return state.libraryCatalog;
+}
+
+function shelfList(catalog, s) {
+  const lang = state.lang;
+  const shelves = catalog?.shelves?.length ? catalog.shelves : (s.shelves || []);
+  return shelves
+    .map((sh) => {
+      const name = sh.name?.[lang] || sh.name?.en || sh.name || sh.id;
+      const line = sh.line?.[lang] || sh.line?.en || sh.line || '';
+      const stateLabel = sh.state && sh.state !== 'open' ? ` · ${s.states?.[sh.state] || sh.state}` : '';
+      return `<button type="button" class="shelf-item" data-shelf="${sh.id}" ${sh.state === 'open' || !sh.state ? '' : 'disabled'} aria-disabled="${sh.state && sh.state !== 'open'}">
+        <div class="shelf-item__name">${name}</div>
+        <div class="shelf-item__line">${line}${stateLabel}</div>
+      </button>`;
+    })
+    .join('');
+}
+
+async function renderCourt() {
   const s = t();
+  const catalog = await loadLibraryCatalog();
   const cards = orderedCourtCards(s.courtCards)
     .map((card) => {
       const enabled = card.state === 'open';
@@ -246,11 +276,19 @@ function renderCourt() {
     })
     .join('');
 
+  const growth = shouldShowGrowthNotice(catalog)
+    ? `<p class="corpus-growth" role="status">
+        ${s.corpusGrowthLine}
+        <button type="button" class="btn-quiet" data-action="corpus-dismiss">${s.corpusGrowthDismiss}</button>
+      </p>`
+    : '';
+
   root.innerHTML = `
     <section class="screen" aria-label="${s.court}">
       <div class="container">
         ${renderToolbar(false)}
         <div class="label">${s.court} · ${s.hourLines[state.hour]}</div>
+        ${growth}
         <div class="court-grid">${cards}</div>
         <button type="button" class="silence-link" data-action="silence">
           <span style="color:var(--halo)">◦</span> ${s.silenceRoom}
@@ -285,17 +323,10 @@ async function renderWord() {
     </section>`;
 }
 
-function renderLibraryShelf() {
+async function renderLibraryShelf() {
   const s = t();
-  const items = s.shelves
-    .map(
-      (sh) =>
-        `<button type="button" class="shelf-item" data-shelf="${sh.id}">
-          <div class="shelf-item__name">${sh.name}</div>
-          <div class="shelf-item__line">${sh.line}</div>
-        </button>`,
-    )
-    .join('');
+  const catalog = await loadLibraryCatalog();
+  const items = shelfList(catalog, s);
 
   root.innerHTML = `
     <section class="screen" aria-label="${s.libraryLabel}">
@@ -1099,6 +1130,13 @@ root.addEventListener('click', async (e) => {
   const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door], [data-map], [data-posture], [data-inner-sky], [data-element], [data-nature-room]');
   if (!el) return;
 
+  if (el.dataset.action === 'corpus-dismiss') {
+    const catalog = await loadLibraryCatalog();
+    dismissGrowthNotice(catalog?.bundle_version || '');
+    acknowledgeCorpusVersion(catalog);
+    renderCourt();
+    return;
+  }
   if (el.dataset.action === 'enter') {
     goCourt();
     return;
@@ -1228,7 +1266,12 @@ root.addEventListener('click', async (e) => {
     closeSession();
   }
   if (el.dataset.action === 'leave') closeSession();
-  if (el.dataset.shelf) openLibraryPassage(el.dataset.shelf === 'gita' ? 'gita-ii-47' : el.dataset.shelf);
+  if (el.dataset.shelf) {
+    const catalog = state.libraryCatalog || (await loadLibraryCatalog());
+    const shelf = catalog?.shelves?.find((sh) => sh.id === el.dataset.shelf);
+    const passageId = shelf?.passages?.[0] || (el.dataset.shelf === 'gita' ? 'gita-ii-47' : el.dataset.shelf);
+    openLibraryPassage(passageId);
+  }
   if (el.dataset.depth !== undefined) {
     state.depth = Number(el.dataset.depth);
     recordPresence('depth');
