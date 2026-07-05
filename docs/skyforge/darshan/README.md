@@ -15,17 +15,23 @@ Copy-Item -Recurse path/to/aadi-yogi/docs/skyforge/darshan .sky/sessions/darshan
 
 Artifacts follow the session template of `templates/sessions/example-horta`:
 
+Artifacts (regenerated against Sky-Forge spec v1.2 and its published schemas in `docs/schemas/`):
+
 - `brief-draft.yaml` - problem, users, value, scope
-- `functional-requirements.yaml` - 38 RFs with acceptance criteria, mapped to the gestures, the library depths, the becoming path, the Sky Map and the House of Nature
-- `nfr.yaml` - privacy, accessibility, latency posture, integrity, scripts, bundles, health fence, anti-prophecy
-- `ux-spec.yaml` - principles, key screens (incl. depth dial, situation doors, sky map, nature house), journeys
+- `functional-requirements.yaml` - 41 RFs with acceptance criteria, mapped to the gestures, the library depths, the becoming path, the Sky Map, the House of Nature and the evidenced elevations
+- `nfr.yaml` - schema-conformant (category/statement/target/tier_minimum): privacy, accessibility, latency posture, integrity, scripts, bundles, health fence, anti-prophecy
+- `ux-spec.yaml` - principles, key screens (incl. depth dial, situation doors, sky map, nature house), journeys, Cloud Design tracks
 - `design-tokens.yaml` - four hour-themes, typography (incl. Devanagari/Tamil/IAST), motion, semantic tokens
 - `integrations.yaml` - engine, infrastructure, local ephemeris and observance calendar choices
-- `sky-merits.yaml` - SKY indices (SPI, HCE, GAP, CWB, UXD -> SKY_SCORE 71, Horizon) plus MPI 68 alongside; elevations confirmed
+- `alternatives.yaml` - resolved decisions (dana model, natal boundary) and open topics with recommendations
+- `approvals.yaml` - session ledger: elevation review, consciousness decisions, pending creator calibrations
+- `sky-merits.yaml` - spec v1.2: SKY_SCORE **72** (Horizon) with the elevation trail evidenced (RF-040/RF-029/RF-041); MPI 68 alongside
 - `market-benchmark.yaml` - four segments, per-axis verdicts, gap suggestions (MPI lens)
 - `c4-model.md` - C4 levels 1-3 over the monorepo, with draft ADRs
 - `maturity.yaml` - dimension readiness and pipeline unlocks
 - `journey.yaml` - session state and next actions
+
+The repository root also carries `.sky/link.yaml` (sky link feature), binding this repo to the `darshan` session for forge-driven `status` / `pull-spec` / `export -ForAI` workflows.
 
 The narrative behind these artifacts lives in
 `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`,

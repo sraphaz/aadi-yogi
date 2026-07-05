@@ -1,7 +1,7 @@
-version: "1.4"
+version: "1.5"
 slug: darshan
-updated_at: "2026-07-04T23:50:00Z"
-overall_readiness: 0.70
+updated_at: "2026-07-05T00:20:00Z"
+overall_readiness: 0.71
 
 weights:
   business: 0.22
@@ -77,13 +77,15 @@ dimensions:
       - "production setup landed on main: docker-compose, .env.example, docs/production_setup.md, pipeline script"
   elevation:
     level: 2
-    score: 0.78
+    score: 0.82
     gaps:
-      - "elevations confirmed but none evidenced yet (evidence requires shipped artifacts/checkpoints)"
-      - "impact checkpoints only definable post-launch"
+      - "impact checkpoints only definable post-launch (score_kind stays intent until then)"
     round_2_gains:
       - "all three elevation suggestions and humanity connections user_confirmed"
       - "ELV-002 carried into spec as NFR-013 and RF-029"
+    round_6_gains:
+      - "spec v1.2 trail completed: all confirmed elevations evidenced as tracked requirements with acceptance criteria (RF-040, RF-029, RF-041)"
+      - "approvals ledger created (approvals.yaml) - permission as evidence"
 
 conversation_level: architecture
 
