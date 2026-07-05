@@ -84,21 +84,16 @@ This document records what has been imported into the repository, what has only 
 
 ### Sri Aurobindo
 
-- Official catalog inspected:
-  - `https://www.sabda.in/catalog/show.php?id=cw`
-- The inspected SABDA page advertises the Complete Works and shows a current Sri Aurobindo Ashram Trust copyright notice.
-- Phase 1 action:
-  - metadata-only catalog
-  - no full-text import
+- Official PDF library ingested via manifest (`scripts/ingest/manifests/sri_aurobindo_cwsa.yaml`), superseding the Phase 1 metadata-only posture with a per-volume classification:
+  - **full Markdown text** committed for volumes consisting predominantly of works published during Sri Aurobindo's lifetime (public domain in India, life + 60): The Life Divine, The Synthesis of Yoga, Essays on the Gita, The Secret of the Veda, Hymns to the Mystic Fire, both Upanishads volumes, Savitri, Bande Mataram, Karmayogin and more (18 volume files under `content/sources/sri_aurobindo/complete_works/`, status draft pending editorial review)
+  - **metadata-only records** for predominantly posthumous volumes still under active Trust copyright (Record of Yoga, Letters on Yoga I-IV, Letters on Poetry and Art, Autobiographical Notes, Index), plus volume 9 (non-Unicode Bengali typesetting defeats machine extraction)
+- Rationale documented in the manifest header and `content/sources/sri_aurobindo/complete_works/README.md`.
 
 ### The Mother
 
-- Official catalog inspected:
-  - `https://www.sabda.in/catalog/show.php?id=cw`
-- The inspected SABDA page lists the 17-volume Collected Works and shows a current Sri Aurobindo Ashram Trust copyright notice.
-- Phase 1 action:
-  - metadata-only catalog
-  - no full-text import
+- Official French PDF library mapped via manifest (`scripts/ingest/manifests/the_mother_cwm.yaml`).
+- All 18 volumes committed as **metadata-only records** under `content/sources/the_mother/collected_works/` (the Mother passed in 1973; active Trust copyright until at least 2034).
+- The pipeline supports local-only full-text conversion for personal study into the gitignored `data/markdown/` tree (`--include-restricted`).
 
 ### Bhagavad Gita
 

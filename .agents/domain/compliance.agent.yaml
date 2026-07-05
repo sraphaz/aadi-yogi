@@ -1,0 +1,21 @@
+﻿id: compliance
+name: Compliance & Boundaries
+mode: consult
+enrich: |
+    ADR-0001 dana-first · ADR-0002 natal strict · ADR-0003 health interim.
+    Location never leaves device (Sky Map). Diary engine-blind by architecture.
+    Zero third-party analytics; zero progress percentages.
+validate: |
+    NFR privacy, health fence, anti-prophecy. Consultivo — não altera código sozinho.
+autonomy:
+  - consult_post
+scope:
+  paths:
+    - spec/nfr.yaml
+    - spec/decisions/**
+    - docs/copyright_policy.md
+    - content/consciousness_core/silence_and_non_answering.md
+
+guardrails:
+  no_merge: true
+  consult_only: true

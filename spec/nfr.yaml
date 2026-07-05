@@ -1,0 +1,131 @@
+requirements:
+  - id: NFR-001
+    category: privacy
+    title: Diary is architecturally private
+    description: |
+      Inner Diary stored local-first, encrypted at rest with user-derived key;
+      never indexed, never used for training, profiling or metrics; witness
+      mode reads only the explicitly invited entry and retains nothing.
+    priority: must
+  - id: NFR-002
+    category: privacy
+    title: No surveillance economics
+    description: |
+      No third-party analytics, no advertising, no data resale, anonymous use
+      as default mode. Presence metrics computed on-device or aggregated
+      without user-level engagement profiles.
+    priority: must
+  - id: NFR-003
+    category: accessibility
+    title: WCAG 2.1 AA with honest ritual equivalents
+    description: |
+      All contemplative elements (breath cue, fades, silence room) have
+      reduced-motion and screen-reader-honest equivalents; every ritual is
+      skippable; touch targets >= 44px; typography sized for long reading.
+    priority: must
+  - id: NFR-004
+    category: integrity
+    title: Citation resolution rate 1.0
+    description: |
+      Every rendered citation must resolve to a passage in the Library. CI
+      evaluation gates releases on citation integrity and on tone/safety
+      suites derived from consciousness_core examples.
+    priority: must
+  - id: NFR-005
+    category: integrity
+    title: Copyright enforcement at index build time
+    description: |
+      Works marked restricted in content/sources frontmatter are excluded
+      from quotable indexes at build time per docs/copyright_policy.md;
+      the interface renders their metadata records with pointers to official
+      sources.
+    priority: must
+  - id: NFR-006
+    category: performance
+    title: Contemplative latency posture
+    description: |
+      Interface absorbs answer latency into pacing (no spinners); honest
+      "still composing" state after 20s; reading surfaces render instantly
+      from local cache.
+    priority: should
+  - id: NFR-007
+    category: availability
+    title: Offline-first reading
+    description: |
+      Library rooms, prefetched daily word, practice field and diary work
+      fully offline; Inquiry states its need for connection plainly.
+    priority: should
+  - id: NFR-008
+    category: safety
+    title: Crisis routing
+    description: |
+      Restraint-case detection routes to cautionary/silence modes with
+      region-appropriate human-support resources; never medical or psychiatric
+      instruction; evaluated as a success mode in the eval suite.
+    priority: must
+  - id: NFR-009
+    category: i18n
+    title: English and Portuguese at launch
+    description: |
+      Full interface and engine voice in en and pt-BR; canonical quotations
+      remain in source language with licensed translations.
+    priority: should
+  - id: NFR-010
+    category: i18n
+    title: Faithful rendering of original scripts
+    description: |
+      Devanagari, Tamil and IAST transliteration render correctly with bundled
+      fonts (design-tokens.yaml); no tofu glyphs; screen readers receive
+      language-tagged text for correct pronunciation.
+    priority: should
+  - id: NFR-011
+    category: performance
+    title: Reading and search latency offline
+    description: |
+      Reading rooms open from local bundle in under 1s on mid-range devices;
+      exact search over the local corpus returns in under 2s.
+    priority: should
+  - id: NFR-012
+    category: integrity
+    title: Stable passage identity across corpus versions
+    description: |
+      Passage ids survive corpus rebuilds and bundle updates so positions,
+      anthologies, contemplation shelves and citations never break
+      (the no-orphan-quotation law depends on this).
+    priority: must
+  - id: NFR-013
+    category: sustainability
+    title: Bundle size budget
+    description: |
+      The Seed offline bundle (library + daily words + silence room) fits a
+      low-bandwidth budget (target: full public-domain corpus under 60 MB
+      compressed, per-collection download optional) to honor ELV-002.
+    priority: should
+  - id: NFR-014
+    category: privacy
+    title: Sky Map computes locally, inner sky is diary-grade
+    description: |
+      Ephemeris and calendar math run on device with no network dependency;
+      device location never leaves the device. Inner-sky consultations carry
+      the same guarantees as the diary (NFR-001): local-first, encrypted,
+      never indexed, never profiled, engine-visible only by explicit
+      per-consultation attachment.
+    priority: must
+  - id: NFR-015
+    category: safety
+    title: Health content responsibility fence
+    description: |
+      The three-tier system (safe/documentary/closed) is enforced in data,
+      not only in UI copy: movement offers can only reference safe-tier
+      passages; the eval suite includes health-probe prompts verifying the
+      contract refuses diagnosis, dosage and prescription in all modes; the
+      heritage notice is a structural page element on House surfaces.
+    priority: must
+  - id: NFR-016
+    category: integrity
+    title: Anti-prophecy enforcement
+    description: |
+      The response contract and eval suite treat prediction requests
+      (astrological or otherwise) as refusal cases with a gentle redirect to
+      rhythm framing; no code path renders personal predictive content.
+    priority: must

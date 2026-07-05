@@ -21,6 +21,10 @@
 - [x] Tirumandiram: payiram + tantras 1–3
 - [x] scripts de ingestão: Wikisource SBE, Tamil Wikisource, Gutenberg Gita, Rig Veda WS
 - [x] índice mestre + índice Bhagavad Gita
+- [x] importar as Obras Completas de Sri Aurobindo (CWSA) e mapear as Obras da Mãe (CWM) das bibliotecas oficiais do Ashram (download por manifesto + conversão PDF→Markdown)
+- [ ] revisão editorial dos volumes CWSA convertidos por máquina (status: draft)
+- [ ] OCR dedicado com suporte a escrita bengali para o volume 9 do CWSA
+- [ ] formalizar checkpoints de revisão de qualidade de fontes
 
 ## Phase 3 — Retrieval Foundations ✅
 

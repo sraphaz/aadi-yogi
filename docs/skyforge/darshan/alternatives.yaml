@@ -1,0 +1,98 @@
+# Alternatives and client policies - Darshan
+# New artifact required by the session template (Sky-Forge spec v1.2).
+# Resolved topics carry the decision and its ADR; open topics mirror
+# integrations.yaml user_choice: pending.
+policies:
+  open_to_stack_alternatives: true
+  open_to_scope_changes: true
+  open_to_tier_upgrade: false        # dana-first model (ADR 0001); no paid tiers on contemplative surfaces
+  open_to_ai_recommendation: true
+  max_alternatives_per_topic: 3
+
+pending_suggestions:
+  - topic: sustaining_model
+    options:
+      - id: A
+        label: Dana-first (contemplative surfaces free forever; credits only for LLM marginal cost; patronage funds others)
+        cost: donation_based
+        complexity: medium
+      - id: B
+        label: Free/premium subscription split (darshan repo model)
+        cost: subscription
+        complexity: low
+    recommendation: A
+    rationale: >-
+      Non-coercion and renunciation-by-design forbid gating scripture or
+      peace behind paywalls; dana is the traditional current for dharma
+      teaching. Decided from the consciousness core in
+      docs/decisions/0001-sustaining-model-dana.md; RF-039 carries it.
+    resolved: true
+    user_choice: A
+  - topic: natal_readings
+    options:
+      - id: A
+        label: Strict - no birth data, no personal astrology anywhere
+        cost: free
+        complexity: low
+      - id: B
+        label: Documentary bridge - natal computation excluded, jyotisha texts readable as study
+        cost: free
+        complexity: low
+    recommendation: A
+    rationale: >-
+      Anti-prophecy boundary (project_vision.md, NFR-016). Decided strict in
+      docs/decisions/0002-natal-boundary-strict.md; option B's documentary
+      reading is preserved inside A (Library documentary tier).
+    resolved: true
+    user_choice: A
+  - topic: llm_engine
+    options:
+      - id: A
+        label: Claude API
+        cost: pay_per_use
+        complexity: low
+      - id: B
+        label: GPT API
+        cost: pay_per_use
+        complexity: low
+      - id: C
+        label: Local open weights
+        cost: infrastructure
+        complexity: high
+    recommendation: A
+    rationale: >-
+      Strong long-context synthesis and tone control for the response
+      contract; provider swappable behind the agent API (C4 ADR 4). Mirrors
+      INT-001 (user_choice pending).
+    resolved: false
+  - topic: ephemeris
+    options:
+      - id: A
+        label: darshan repo lib/core (Swiss Ephemeris / mhah-panchang resolver, MIT, tested)
+        cost: free
+        complexity: low
+      - id: B
+        label: astronomy-engine (MIT, pure computation)
+        cost: free
+        complexity: low
+    recommendation: A
+    rationale: >-
+      Creators' own tested code with tithi/moon-phase logic; must run
+      on-device per NFR-014. Mirrors INT-006 (user_choice pending).
+    resolved: false
+  - topic: vector_store
+    options:
+      - id: A
+        label: pgvector (single Postgres for metadata + vectors)
+        cost: infrastructure
+        complexity: low
+      - id: B
+        label: Qdrant (already scaffolded optionally in packages/rag)
+        cost: infrastructure
+        complexity: medium
+    recommendation: A
+    rationale: >-
+      One database sustains calm ops; but the merged engine scaffold already
+      speaks Qdrant optionally - decision deferred to the contract-envelope
+      implementation round. Mirrors INT-002 (user_choice pending).
+    resolved: false

@@ -1,0 +1,11 @@
+﻿id: fastapi
+name: FastAPI / Python API
+type: specialist
+description: Especialista técnico — python
+scope:
+  paths:
+    []
+  may_code: false
+guardrails:
+  no_merge: true
+  consult_only: true

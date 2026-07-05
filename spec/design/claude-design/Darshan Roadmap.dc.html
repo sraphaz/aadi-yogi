@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7f4ec; }
+  </style>
+</helmet>
+
+<div data-hour="{{ hourTheme }}" style="min-height:100vh;background:var(--surface);color:var(--ink);font-family:var(--font-body);transition:background 600ms var(--ease-calm);">
+<div style="max-width:880px;margin:0 auto;padding:0 32px 110px;box-sizing:border-box;">
+
+  <!-- ══ header ══ -->
+  <header data-screen-label="Header" style="padding:40px 0 0;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div>
+      <div style="font-family:var(--font-passage);font-size:1.15rem;">darshan</div>
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:6px;">development roadmap · for the teams</div>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);text-align:right;line-height:1.8;">package v1.0 · ux-spec + tokens + 5 adrs<br>engine: github.com/sraphaz/aadi-yogi</div>
+  </header>
+
+  <section data-screen-label="Orientation" style="padding:44px 0 0;">
+    <div style="font-family:var(--font-passage);font-size:1.6rem;line-height:1.6;max-width:34ch;">Six phases, walked like a map — stations, not sprints.</div>
+    <p style="font-size:0.95rem;line-height:1.75;color:var(--ink-soft);max-width:66ch;margin:18px 0 0;">The interface is the first teaching, so the behavioral law ships in phase one and never relaxes. Each station names its goal, its workstreams, and the gate that must be passed before the next opens. Surfaces render open · arriving · future honestly — nothing ships as vaporware.</p>
+  </section>
+
+  <!-- ══ constants ══ -->
+  <section data-screen-label="Constants" style="padding:40px 0 0;">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">held constant across every phase</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:12px;margin-top:18px;">
+      <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px 18px;">
+        <div style="font-family:var(--font-passage);font-size:1rem;">five languages</div>
+        <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:6px;">every surface — app and site — ships in english · português · हिन्दी · italiano · español. quotations stay in their canonical language. hindi ui needs a devanagari-capable face beside Manrope; string files are corpus artifacts, reviewed like the texts.</div>
+      </div>
+      <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px 18px;">
+        <div style="font-family:var(--font-passage);font-size:1rem;">tokens-only styling</div>
+        <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:6px;">design-tokens.yaml is the single source of truth; hardcoded colors are forbidden in application code. four hour themes, two accents, no shadows, no spinners.</div>
+      </div>
+      <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px 18px;">
+        <div style="font-family:var(--font-passage);font-size:1rem;">privacy by architecture</div>
+        <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:6px;">anonymous by default, diary local-first and encrypted, no third-party analytics, location never transmitted, no ads and no data sale — ever.</div>
+      </div>
+      <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px 18px;">
+        <div style="font-family:var(--font-passage);font-size:1rem;">presence metrics only</div>
+        <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:6px;">closure rate up, depth ratio up, citation integrity at 1.0, honored-silence precision up. session length, retention curves and opt-in rates are forbidden targets.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ phases ══ -->
+  <section data-screen-label="Phases" style="padding:52px 0 0;">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-bottom:26px;">the six stations</div>
+    <div style="display:flex;flex-direction:column;">
+      <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="6">
+        <div style="display:flex;gap:24px;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:20px;">
+            <span style="{{ ph.mark }}">◦</span>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 14%, transparent);margin-top:5px;"></div>
+          </div>
+          <div style="padding-bottom:44px;flex:1;">
+            <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+              <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);">{{ ph.n }}</span>
+              <span style="font-family:var(--font-passage);font-size:1.25rem;">{{ ph.name }}</span>
+              <span style="{{ ph.stateStyle }}">{{ ph.state }}</span>
+            </div>
+            <div style="font-size:0.95rem;line-height:1.7;color:var(--ink);margin-top:8px;max-width:62ch;">{{ ph.goal }}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+              <sc-for list="{{ ph.work }}" as="w" hint-placeholder-count="5">
+                <span style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:6px 13px;font-size:12px;color:var(--ink-soft);background:var(--surface-raised);">{{ w }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:10px;align-items:baseline;margin-top:16px;max-width:62ch;">
+              <span style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);flex-shrink:0;">the gate</span>
+              <span style="font-size:13px;line-height:1.65;color:var(--ink-soft);">{{ ph.gate }}</span>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ system map ══ -->
+  <section data-screen-label="System Map" style="padding:26px 0 0;border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">system map · one monorepo</div>
+    <div style="margin-top:22px;border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);border-radius:var(--radius-soft);overflow:hidden;">
+      <sc-for list="{{ layers }}" as="l" hint-placeholder-count="9">
+        <div style="display:grid;grid-template-columns:140px 240px 1fr;gap:16px;padding:11px 16px;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);background:var(--surface-raised);align-items:baseline;">
+          <span style="font-size:13px;color:var(--ink);">{{ l.layer }}</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--accent-flame);">{{ l.home }}</span>
+          <span style="font-size:12.5px;line-height:1.6;color:var(--ink-soft);">{{ l.role }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-size:12px;color:var(--ink-soft);margin-top:14px;line-height:1.7;max-width:66ch;">from the prior darshan repository: reuse the ephemeris core, the time pulse, and the credits/PIX infrastructure; adapt the Next.js shell. the natal engines are the one area not ported — by decision, not omission.</div>
+  </section>
+
+  <!-- ══ decisions ══ -->
+  <section data-screen-label="Decisions" style="padding:var(--space-breath) 0 0;">
+    <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">five decisions, already taken</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
+      <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:80px 1fr;gap:18px;background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:15px 18px;align-items:baseline;">
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--accent-gold);">{{ d.id }}</span>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ d.name }}</div>
+            <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:4px;">{{ d.line }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══ reserved to the creators ══ -->
+  <section data-screen-label="Calibration" style="padding:var(--space-breath) 0 0;">
+    <div style="border:1px solid var(--warn);border-radius:var(--radius-soft);padding:18px 20px;max-width:66ch;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--warn);">reserved to the creators — not the teams, not the machine</div>
+      <div style="font-size:13.5px;line-height:1.9;color:var(--ink-soft);margin-top:10px;">name the two reviewers of the health gate (adr 0003) · price the inquiry's free measure and choose the legal vehicle for dana (adr 0001) · approve each monthly daily-word batch (adr 0004) · calibrate the intentional token additions (radius, touch target, tracking) · review the five string files, language by language</div>
+    </div>
+  </section>
+
+  <!-- ══ footer ══ -->
+  <footer data-screen-label="Footer" style="padding:var(--space-breath) 0 0;text-align:center;">
+    <span style="color:var(--accent-gold);">◦</span>
+    <div style="font-family:var(--font-passage);font-size:1.05rem;margin-top:14px;">the medium teaches louder than the message — build accordingly.</div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;hour&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;day&quot;, &quot;pre_dawn&quot;, &quot;dusk&quot;, &quot;night&quot;],
+    &quot;default&quot;: &quot;day&quot;,
+    &quot;tsType&quot;: &quot;'day'|'pre_dawn'|'dusk'|'night'&quot;,
+    &quot;section&quot;: &quot;atmosphere&quot;
+  }
+}">
+class Component extends DCLogic {
+  phaseDefs = [
+    {
+      n: '01', name: 'seed', state: 'open',
+      goal: 'Ship the design dharma before the engine: an installable PWA that already embodies silence, one-pointedness and closure, serving the imported corpus offline.',
+      work: ['pwa shell + tokens', 'threshold + the court', 'daily word (batch pipeline)', 'library reading rooms, offline', 'silence room', 'i18n foundation — 5 languages'],
+      gate: 'WCAG 2.1 AA audit passes; every ritual has a reduced-motion equivalent; the daily word is screen-reader readable before its animation ends; all five string files reviewed.',
+    },
+    {
+      n: '02', name: 'voice', state: 'arriving',
+      goal: 'The oracle heart under the response contract: retrieval with citation payloads, contemplation pages, and the discipline to not answer.',
+      work: ['tradition-aware retrieval', 'response contract enforcement', 'inquiry + contemplation pages', 'honored silence + crisis protocol', 'eval suites before exposure'],
+      gate: 'citation integrity = 1.0 in CI; honored-silence precision audited on golden questions before any public exposure; no streaming during composition.',
+    },
+    {
+      n: '03', name: 'path', state: 'future',
+      goal: 'Orientation across time: the maps, the practice field, the concept lens, and the outer sky computed on device.',
+      work: ['living maps', 'practice field', 'concept lens + comparative view', 'outer sky — local ephemeris', 'rhythm composer (sky-bound bells)'],
+      gate: 'no progress percentages anywhere; moving backwards is a first-class gesture; location never leaves the device.',
+    },
+    {
+      n: '04', name: 'witness', state: 'future',
+      goal: 'The private hemisphere: a diary the engine cannot see, an inner sky that mirrors without scoring, and internal presence dashboards.',
+      work: ['inner diary — local-first, encrypted', 'witness mode', 'inner sky — five bands', 'presence metrics (internal)', 'opt-in bells, two at most'],
+      gate: 'the diary is provably engine-blind by architecture; zero third-party analytics; bells carry one quiet line and no teasers.',
+    },
+    {
+      n: '05', name: 'ground', state: 'future',
+      goal: 'The house of nature, opening room by room as collections land and pass the double editorial gate — element rooms first, healing memory last.',
+      work: ['element rooms (non-health first)', 'heritage fence on every surface', 'three-tier content tagging', 'double editorial gate tooling'],
+      gate: 'two named reviewers — one editorial, one safety — signed into ADR 0003 before anything health-touching renders above D2.',
+    },
+    {
+      n: '06', name: 'sangha', state: 'unscheduled',
+      goal: 'Shared silence sittings and study circles — explored only if it can be done without social-media dynamics.',
+      work: ['exploration only'],
+      gate: 'no feeds, no profiles, no counts of any kind — or it does not ship.',
+    },
+  ];
+
+  layerDefs = [
+    { layer: 'corpus', home: 'content/sources/', role: 'canonical texts + metadata records; copyright enforced at index build time' },
+    { layer: 'ontology', home: 'content/ontology/', role: 'concept lens, living maps, term marking' },
+    { layer: 'behavior law', home: 'content/consciousness_core/', role: 'states, guidance modes, voice, silence doctrine' },
+    { layer: 'chunking / index', home: 'scripts/chunk · packages/ingestion', role: 'retrieval units with provenance; passage-id contract from ADR 0005' },
+    { layer: 'retrieval', home: 'packages/rag', role: 'tradition-aware retriever with citation payloads' },
+    { layer: 'prompting', home: 'packages/prompts', role: 'consciousness-aware prompt builder — state × mode matrix' },
+    { layer: 'agent api', home: 'apps/agent-api', role: 'response contract enforcement, crisis protocol, rate rhythm' },
+    { layer: 'interface', home: 'apps/web', role: 'the nine gestures + silence room; PWA, five languages, hour themes' },
+    { layer: 'evaluation', home: 'packages/evals', role: 'golden questions, tone/safety audits, presence metrics' },
+  ];
+
+  decisionDefs = [
+    { id: 'adr 0001', name: 'sustaining model — dana-first', line: 'everything that costs nothing per use is free forever, without account. only the inquiry\u2019s marginal cost may be priced, cost-anchored. dana never gates, never nags, never alters the law.' },
+    { id: 'adr 0002', name: 'natal boundary — strict', line: 'birth data is never collected; no natal chart, numerology or human-design code path exists. the ephemeris serves only the shared sky of now. the prior repo\u2019s natal engines are not ported.' },
+    { id: 'adr 0003', name: 'health gate — arriving until named', line: 'the house of nature ships as "arriving" until two named reviewers exist. the safe-tier movement vocabulary is a frozen allowlist; nothing health-touching renders above D2 before the gate is human-signed.' },
+    { id: 'adr 0004', name: 'editorial policy — word + D1', line: 'daily words are drafted in lunar-month batches, reviewed before publication, never generated live. D1 plain meanings publish only after human review — unreviewed drafts are marked and excluded from pools.' },
+    { id: 'adr 0005', name: 'passage-id scheme', line: 'dot-path canonical ids (collection.work.division*.unit) with content fingerprints and alias tables. chunking cannot start ad hoc; CI checks drift, uniqueness, continuity.' },
+  ];
+
+  renderVals() {
+    const stateColors = {
+      open: 'var(--accent-flame)',
+      arriving: 'var(--accent-gold)',
+      future: 'var(--ink-soft)',
+      unscheduled: 'var(--ink-soft)',
+    };
+    const phases = this.phaseDefs.map(p => ({
+      ...p,
+      mark: {
+        color: stateColors[p.state],
+        fontSize: '15px', lineHeight: '1',
+      },
+      stateStyle: {
+        fontSize: '11px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase',
+        color: stateColors[p.state],
+      },
+    }));
+
+    return {
+      hourTheme: this.props.hour ?? 'day',
+      phases,
+      layers: this.layerDefs,
+      decisions: this.decisionDefs,
+    };
+  }
+}
+</script>
+</body>
+</html>

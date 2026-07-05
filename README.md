@@ -41,19 +41,17 @@ The repository has completed Phase 1 (foundation) and is actively in **Phase 2 â
 
 What exists today:
 
-- monorepo structure, editorial docs, consciousness core v1 draft, ontology starters
+- monorepo structure, editorial docs, consciousness core v1 (approved manifest), ontology starters
 - Markdown validation, tests, and CI
 - **canon catalogs** for 108 Upanishads, 18 Mahapuranas, 5 Vedic collections, Siddha corpus, Bhagavad Gita
-- **8 public-domain imports** (4 Upanishads, Rig Veda hymn, Vishnu Purana chapter, Tirumandiram payiram)
-- automated ingestion scripts for Wikisource SBE and Tamil Wikisource
+- large public-domain imports: Rig Veda Mandalas 1-4, principal Upanishads (Isha, Kena, Katha, Mundaka, Prashna, Mandukya, Taittiriya, Chandogya, Shvetashvatara, Brihadaranyaka, Kaivalya), Bhagavad Gita (18 chapters), Vishnu/Garuda Purana samples, Tirumandiram (payiram + tantras 1-9), Siddha corpus expansions
+- **the Complete Works of Sri Aurobindo (CWSA, 37 volumes)**: full Markdown text for public-domain volumes, metadata records for volumes under active Trust copyright, via manifest-driven Ashram PDF ingestion
+- **the Collected Works of the Mother (CWM, 18 volumes)**: metadata records with a local-only full-text pipeline, per `docs/copyright_policy.md`
+- automated ingestion scripts for Wikisource SBE, Tamil Wikisource and the Ashram PDF libraries
+- normalization, chunking, TF-IDF + dense retrieval (optional Qdrant), agent API scaffold with web UI
+- evaluation assets: golden questions, response-quality checks, and the Darshan response-contract harness (`packages/evals`)
 
-What is urgently in progress:
-
-- Bhagavad Gita chapter imports
-- expansion of principal Upanishad and Siddha text imports
-- normalization and chunking pipeline
-
-See [`docs/content_import_roadmap.md`](docs/content_import_roadmap.md) for the full import plan.
+See [`docs/content_import_roadmap.md`](docs/content_import_roadmap.md) and [`docs/source_import_status.md`](docs/source_import_status.md) for the full import plan and status.
 
 ## Validate Markdown
 
@@ -62,6 +60,10 @@ python scripts/validate/validate_markdown.py
 pytest
 ruff check .
 ```
+
+## Interface Vision
+
+The application layer is designed as **Darshan**, an interface whose behavior embodies the wisdom of the corpus instead of talking about it: silence before speech, one question at a time, presence metrics instead of engagement metrics. See `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`, and the Sky-Forge session package in `docs/skyforge/darshan/`.
 
 ## Next Milestones
 

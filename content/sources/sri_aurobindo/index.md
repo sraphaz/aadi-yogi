@@ -17,13 +17,20 @@ notes:
 
 # Sri Aurobindo
 
-## Phase 1 Status
+## Current Status
 
-Metadata only.
+Imported with per-volume copyright classification (superseding the Phase 1
+metadata-only posture): the official Ashram PDF library was ingested via
+`scripts/ingest/manifests/sri_aurobindo_cwsa.yaml`, committing full Markdown
+text for volumes consisting predominantly of works published during Sri
+Aurobindo's lifetime (public domain in India, life + 60 years) and
+metadata-only records for predominantly posthumous volumes (Record of Yoga,
+the Letters volumes, etc.) still under active Trust copyright. See
+`complete_works/README.md` for the rationale.
 
 ## Official Catalog Notes
 
-The SABDA catalog page inspected in Phase 1 lists the Complete Works of Sri Aurobindo as a 37-volume set and carries a current Sri Aurobindo Ashram Trust copyright notice. That is enough reason to avoid bulk full-text ingestion until edition and rights strategy are explicitly settled.
+The SABDA catalog page inspected in Phase 1 lists the Complete Works of Sri Aurobindo as a 37-volume set and carries a current Sri Aurobindo Ashram Trust copyright notice. The per-volume classification in the ingestion manifest is the repository's considered response: lifetime-published works are public domain regardless of the blanket notice; posthumously first-published material remains restricted.
 
 ## Key Catalogued Volumes For Future Work
 
@@ -40,6 +47,6 @@ The SABDA catalog page inspected in Phase 1 lists the Complete Works of Sri Auro
 
 ## Next Actions
 
-1. Keep repository entries at metadata-only or short quoted excerpts.
-2. Add bibliographic manifests volume by volume.
-3. Import only where reuse rights are clearly established.
+1. Editorial review of the machine-converted full-text volumes (status: draft).
+2. Keep posthumous volumes at metadata-only unless permission is obtained.
+3. Dedicated Bengali-script OCR pass for volume 9.

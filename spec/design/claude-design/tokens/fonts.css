@@ -1,0 +1,10 @@
+/* Darshan — webfonts (design-tokens.yaml §fonts)
+   passage_display: Source Serif 4 · body: Manrope · transliteration: Gentium Plus
+   originals: Noto Serif Devanagari / Noto Serif Tamil · mono: JetBrains Mono */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');

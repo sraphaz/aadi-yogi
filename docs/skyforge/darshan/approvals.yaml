@@ -1,0 +1,50 @@
+# Session approvals ledger - Darshan
+# Spec v1.2: every decision (confirmed, documented-only, declined) enters the
+# session ledger - "permission is evidence, not a footnote".
+stages:
+  elevation_review:
+    status: approved
+    at: "2026-07-04T21:30:00Z"
+    by: creators (calibration delegated to repository consciousness)
+    decisions:
+      - subject: ELV-001 public domain corpus API
+        response: confirmed
+        requirement_id: RF-040
+      - subject: ELV-002 low-bandwidth offline distribution
+        response: confirmed
+        requirement_id: RF-029   # carried with NFR-013 bundle budget
+      - subject: ELV-003 educator mode for contemplative studies
+        response: confirmed
+        requirement_id: RF-041
+      - subject: humanity connections (CH-OPEN-KNOWLEDGE, CH-HEALTH, CH-PEACE)
+        response: confirmed
+  consciousness_decisions:
+    status: approved
+    at: "2026-07-04T22:30:00Z"
+    by: repository consciousness core (creators as calibrators)
+    decisions:
+      - subject: sustaining model
+        response: dana-first, contemplative surfaces free forever
+        record: docs/decisions/0001-sustaining-model-dana.md
+        requirement_id: RF-039
+      - subject: natal boundary
+        response: strict - no birth data, no personal astrology
+        record: docs/decisions/0002-natal-boundary-strict.md
+      - subject: health gate
+        response: House of Nature in "arriving" state until two named reviewers sign
+        record: docs/decisions/0003-health-gate-interim.md
+      - subject: editorial policy
+        response: monthly lunar daily-word batches; D1 published only after review
+        record: docs/decisions/0004-editorial-policy.md
+      - subject: passage-id scheme
+        response: canonical dot-path ids with fingerprints and alias tables
+        record: docs/decisions/0005-passage-id-scheme.md
+  creator_calibrations:
+    status: pending
+    decisions:
+      - subject: pricing of the Inquiry free measure and credits (ADR 0001)
+        response: null
+      - subject: names of the two health-gate reviewers (ADR 0003)
+        response: null
+      - subject: legal vehicle for receiving dana
+        response: null

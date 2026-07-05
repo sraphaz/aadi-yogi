@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+  <script src="site-strings.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7f4ec; }
+    button { -webkit-tap-highlight-color: transparent; }
+    input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  </style>
+</helmet>
+
+<div data-hour="{{ hourTheme }}" style="min-height:100vh;background:var(--surface);color:var(--ink);font-family:var(--font-body);transition:background 600ms var(--ease-calm), color 600ms var(--ease-calm);">
+<div style="max-width:760px;margin:0 auto;padding:0 28px 90px;box-sizing:border-box;">
+
+  <!-- ══ masthead ══ -->
+  <header data-screen-label="Masthead" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 0 0;flex-wrap:wrap;">
+    <button onClick="{{ goHome }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-passage);font-size:1.15rem;color:var(--ink);" style-focus="outline:2px solid var(--halo);outline-offset:2px;">darshan</button>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+      <div style="display:flex;gap:2px;">
+        <sc-for list="{{ langChips }}" as="lc" hint-placeholder-count="2">
+          <button onClick="{{ lc.pick }}" style="{{ lc.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ lc.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:7px;" role="group" aria-label="hour theme">
+        <sc-for list="{{ hourDots }}" as="hd" hint-placeholder-count="5">
+          <button onClick="{{ hd.pick }}" aria-label="{{ hd.name }}" title="{{ hd.name }}" style="{{ hd.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;"></button>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ nav ══ -->
+  <nav data-screen-label="Nav" style="display:flex;flex-wrap:wrap;gap:2px 18px;justify-content:center;padding:30px 0 0;">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <button onClick="{{ n.pick }}" style="{{ n.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ n.label }}</button>
+    </sc-for>
+  </nav>
+
+  <!-- ══ entrada ══ -->
+  <sc-if value="{{ pgEntrada }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Entrada">
+      <div style="padding:calc(var(--space-breath) * 1.3) 0 0;text-align:center;">
+        <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.tagline }}</div>
+        <h1 style="font-family:var(--font-passage);font-size:2.9rem;font-weight:var(--weight-passage);line-height:var(--leading-word);margin:20px 0 0;">darshan</h1>
+      </div>
+      <div style="padding:calc(var(--space-breath) * 1.1) 0 0;text-align:center;">
+        <div lang="sa" style="font-family:var(--font-devanagari);font-size:1.4rem;line-height:1.9;">{{ quote.deva }}</div>
+        <div lang="sa-Latn" style="font-family:var(--font-translit);font-style:italic;font-size:0.98rem;line-height:1.7;color:var(--ink-soft);margin-top:10px;">{{ quote.translit }}</div>
+        <div style="font-family:var(--font-passage);font-size:1.3rem;line-height:var(--leading-passage);max-width:42ch;margin:26px auto 0;">{{ quote.trans }}</div>
+        <div style="font-size:var(--type-minimum);color:var(--ink-soft);margin-top:14px;">{{ quote.cite }}</div>
+        <a href="Darshan App.dc.html" title="{{ s.openCta }}" style="display:inline-block;font-family:var(--font-mono);font-size:11px;color:var(--accent-gold);text-decoration:none;margin-top:8px;">{{ quote.id }} ↗</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:52ch;margin:calc(var(--space-breath) * 1.1) auto 0;text-align:center;">
+        <p style="font-size:1.02rem;line-height:1.7;margin:0;">{{ s.p1 }}</p>
+        <p style="font-size:0.95rem;line-height:1.7;color:var(--ink-soft);margin:0;">{{ s.p2 }}</p>
+        <p style="font-size:0.95rem;line-height:1.7;color:var(--ink-soft);margin:0;">{{ s.p3 }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:calc(var(--space-breath) * 0.9);padding-bottom:var(--space-breath);">
+        <a href="Darshan App.dc.html" style="display:inline-block;border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:13px 30px;color:var(--accent-flame);text-decoration:none;font-size:0.95rem;transition:background var(--motion-ui-hover) var(--ease-calm);" style-hover="background:color-mix(in srgb, var(--accent-flame) 9%, transparent);" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ s.enter }}</a>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);">{{ s.traits }}</div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ o caminho ══ -->
+  <sc-if value="{{ pgCaminho }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="O Caminho" style="padding:var(--space-breath) 0 0;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.walkLabel }}</div>
+      <p style="font-size:0.95rem;line-height:1.7;color:var(--ink-soft);max-width:56ch;margin:16px 0 0;">{{ s.walkIntro }}</p>
+      <div style="display:flex;flex-direction:column;margin-top:34px;">
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="display:flex;gap:6px;"><div style="width:1.5px;height:16px;background:currentColor;"></div><div style="width:1.5px;height:16px;background:currentColor;"></div></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w1.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w1.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w1.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:16px;height:16px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w2.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w2.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w2.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:7px;height:7px;background:currentColor;border-radius:50%;"></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w3.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w3.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w3.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:16px;height:16px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;"><div style="width:4px;height:4px;background:currentColor;border-radius:50%;"></div></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w4.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w4.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w4.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><line x1="4" y1="17" x2="11" y2="6" stroke="currentColor" stroke-width="1.2"></line><line x1="11" y1="6" x2="18" y2="12" stroke="currentColor" stroke-width="1.2"></line><circle cx="4" cy="17" r="1.8" fill="currentColor"></circle><circle cx="11" cy="6" r="1.8" fill="currentColor"></circle><circle cx="18" cy="12" r="1.8" fill="currentColor"></circle></svg></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w5.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w5.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w5.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;"><div style="width:8px;height:8px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w6.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w6.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w6.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="display:flex;align-items:flex-end;gap:3px;"><div style="width:2px;height:14px;background:currentColor;"></div><div style="width:2px;height:17px;background:currentColor;"></div><div style="width:2px;height:12px;background:currentColor;"></div></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w7.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w7.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w7.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="position:relative;width:20px;height:20px;"><div style="position:absolute;left:0;bottom:0;width:14px;height:14px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div><div style="position:absolute;right:0;top:0;width:5px;height:5px;background:currentColor;border-radius:50%;"></div></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w8.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w8.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w8.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:12px;height:12px;border:1.5px solid currentColor;transform:rotate(45deg);box-sizing:border-box;"></div></div>
+            <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:6px;min-height:10px;"></div>
+          </div>
+          <div style="padding-bottom:28px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w9.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w9.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w9.line }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;">
+            <div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--accent-gold);"><div style="width:16px;height:16px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;opacity:0.4;"></div></div>
+          </div>
+          <div style="padding-bottom:10px;">
+            <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:var(--font-passage);font-size:1.05rem;">{{ w10.name }}</span><span style="font-family:var(--font-translit);font-style:italic;font-size:12px;color:var(--accent-gold);">{{ w10.skt }}</span></div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:52ch;">{{ w10.line }}</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;margin-top:14px;color:var(--ink-soft);">
+        <div style="width:30px;display:flex;justify-content:center;flex-shrink:0;"><div style="width:9px;height:9px;border:1px solid currentColor;box-sizing:border-box;opacity:0.7;"></div></div>
+        <div style="font-size:12.5px;font-style:italic;line-height:1.6;">{{ s.hidden }}</div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ a biblioteca ══ -->
+  <sc-if value="{{ pgBiblioteca }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="A Biblioteca" style="padding:var(--space-breath) 0 0;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.libLabel }}</div>
+      <p style="font-size:0.95rem;line-height:1.7;color:var(--ink-soft);max-width:56ch;margin:16px 0 0;">{{ s.libIntro }}</p>
+      <div style="margin-top:24px;">
+        <sc-for list="{{ shelves }}" as="sh" hint-placeholder-count="8">
+          <div style="display:flex;gap:16px;align-items:baseline;padding:15px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+            <span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);width:34px;flex-shrink:0;">{{ sh.tag }}</span>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+                <span style="font-family:var(--font-passage);font-size:1.02rem;">{{ sh.name }}</span>
+                <span style="{{ sh.stateStyle }}">{{ sh.stateName }}</span>
+              </div>
+              <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;">{{ sh.line }}</div>
+              <sc-if value="{{ sh.official }}" hint-placeholder-val="{{ false }}">
+                <a href="https://www.sriaurobindoashram.org" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:6px;">{{ s.officialLabel }}</a>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;">
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:6px;height:6px;border-radius:50%;background:var(--accent-flame);"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ s.states.open }}</span></div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:6px;height:6px;border-radius:50%;background:var(--accent-gold);"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ s.states.arriving }}</span></div>
+        <div style="display:flex;align-items:center;gap:6px;"><div style="width:6px;height:6px;border-radius:50%;background:var(--ink-soft);opacity:0.5;"></div><span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ s.states.future }}</span></div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ a dana ══ -->
+  <sc-if value="{{ pgDana }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="A Dana" style="padding:var(--space-breath) 0 0;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.danaLabel }}</div>
+      <div style="font-family:var(--font-passage);font-size:1.4rem;line-height:1.65;max-width:34ch;margin:24px 0 0;">{{ s.danaLaw }}</div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:30px;margin-top:calc(var(--space-breath) * 0.9);">
+        <div>
+          <div style="height:32px;display:flex;align-items:center;color:var(--accent-gold);"><div style="width:26px;height:26px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div></div>
+          <div style="font-family:var(--font-passage);font-size:1.02rem;margin-top:12px;">{{ d1.name }}</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--ink-soft);margin-top:5px;">{{ d1.line }}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+            <sc-for list="{{ freeChips }}" as="fc" hint-placeholder-count="7">
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:4px 9px;">{{ fc }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="height:32px;display:flex;align-items:center;color:var(--accent-gold);"><div style="width:26px;height:26px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;background:linear-gradient(90deg, currentColor 50%, transparent 50%);"></div></div>
+          <div style="font-family:var(--font-passage);font-size:1.02rem;margin-top:12px;">{{ d2.name }}</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--ink-soft);margin-top:5px;">{{ d2.line }}</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:14px;">
+            <div style="display:flex;gap:4px;"><div style="width:7px;height:7px;border-radius:50%;background:var(--accent-flame);"></div><div style="width:7px;height:7px;border-radius:50%;background:var(--accent-flame);"></div><div style="width:7px;height:7px;border-radius:50%;background:var(--accent-flame);"></div></div>
+            <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ s.meterLabel }}</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:12px;margin-top:10px;">{{ s.price }}</div>
+          <div style="font-size:11.5px;line-height:1.6;color:var(--ink-soft);margin-top:4px;">{{ s.priceNote }}</div>
+        </div>
+        <div>
+          <div style="height:32px;display:flex;align-items:center;color:var(--accent-gold);"><div style="position:relative;width:40px;height:26px;"><div style="position:absolute;left:0;top:1px;width:24px;height:24px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div><div style="position:absolute;left:14px;top:1px;width:24px;height:24px;border:1.5px solid currentColor;border-radius:50%;box-sizing:border-box;"></div></div></div>
+          <div style="font-family:var(--font-passage);font-size:1.02rem;margin-top:12px;">{{ d3.name }}</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--ink-soft);margin-top:5px;">{{ d3.line }}</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:26px;margin-top:var(--space-breath);max-width:480px;box-sizing:border-box;">
+        <sc-if value="{{ notOffered }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.offerTitle }}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+              <sc-for list="{{ amtChips }}" as="ac" hint-placeholder-count="4">
+                <button onClick="{{ ac.pick }}" style="{{ ac.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ ac.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ customOn }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:baseline;gap:8px;margin-top:14px;">
+                <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);">R$</span>
+                <input type="number" min="1" value="{{ customVal }}" onChange="{{ onCustom }}" aria-label="{{ s.otherLabel }}" style="background:none;border:none;border-bottom:1px solid color-mix(in srgb, var(--ink) 30%, transparent);color:var(--ink);font-family:var(--font-mono);font-size:14px;padding:4px 2px;width:90px;outline:none;">
+              </div>
+            </sc-if>
+            <div style="display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;">
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ freqChips }}" as="fq" hint-placeholder-count="2">
+                  <button onClick="{{ fq.pick }}" style="{{ fq.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ fq.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ methodChips }}" as="mc" hint-placeholder-count="2">
+                  <button onClick="{{ mc.pick }}" style="{{ mc.style }}" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ mc.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <button onClick="{{ offer }}" style="margin-top:22px;border:1px solid var(--accent-flame);border-radius:var(--radius-pill);background:none;padding:11px 28px;color:var(--accent-flame);font:inherit;font-size:0.92rem;cursor:pointer;transition:background var(--motion-ui-hover) var(--ease-calm);" style-hover="background:color-mix(in srgb, var(--accent-flame) 9%, transparent);" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ s.offerBtn }}</button>
+            <div style="font-size:11.5px;line-height:1.6;color:var(--ink-soft);margin-top:14px;">{{ s.offerNote }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ offered }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:14px 0;">
+            <div style="color:var(--accent-gold);font-size:18px;">◦</div>
+            <div style="font-family:var(--font-passage);font-size:1.08rem;margin-top:12px;">{{ s.offerDone }}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);margin-top:10px;">{{ offerSummary }}</div>
+            <button onClick="{{ offerReset }}" style="margin-top:16px;background:none;border:none;color:var(--ink-soft);font:inherit;font-size:11.5px;cursor:pointer;text-decoration:underline;" style-focus="outline:2px solid var(--halo);outline-offset:2px;">{{ s.offerAgain }}</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="font-family:var(--font-mono);font-size:11px;line-height:1.8;color:var(--ink-soft);margin-top:calc(var(--space-breath) * 0.7);">{{ s.neverLine }}</div>
+    </section>
+  </sc-if>
+
+  <!-- ══ integridade ══ -->
+  <sc-if value="{{ pgIntegridade }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Integridade" style="padding:var(--space-breath) 0 0;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.intLabel }}</div>
+      <div style="margin-top:20px;">
+
+        <div style="display:flex;gap:18px;padding:17px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="display:flex;align-items:center;"><div style="width:4px;height:4px;background:currentColor;border-radius:50%;"></div><div style="width:10px;height:1px;background:currentColor;"></div><div style="width:4px;height:4px;background:currentColor;border-radius:50%;"></div></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i1.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i1.line }}</div>
+            <a href="{{ i1.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i1.doc }}</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:17px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="width:13px;height:13px;border:1.3px solid currentColor;box-sizing:border-box;"></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i2.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i2.line }}</div>
+            <a href="{{ i2.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i2.doc }}</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:17px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="position:relative;width:17px;height:17px;"><div style="position:absolute;inset:1px;border:1.3px solid currentColor;border-radius:50%;box-sizing:border-box;"></div><div style="position:absolute;left:-1px;top:8px;width:19px;height:1.2px;background:currentColor;transform:rotate(-45deg);"></div></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i3.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i3.line }}</div>
+            <a href="{{ i3.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i3.doc }}</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:17px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="width:12px;height:12px;border:1.3px solid currentColor;transform:rotate(45deg);box-sizing:border-box;display:flex;align-items:center;justify-content:center;"><div style="width:3px;height:3px;background:currentColor;border-radius:50%;"></div></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i4.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i4.line }}</div>
+            <a href="{{ i4.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i4.doc }}</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:17px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="width:15px;height:15px;border:1.3px solid currentColor;border-radius:50%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;"><div style="width:7px;height:7px;background:currentColor;border-radius:50%;"></div></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i5.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i5.line }}</div>
+            <a href="{{ i5.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i5.doc }}</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:17px 0;">
+          <div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex-shrink:0;margin-top:2px;"><div style="display:flex;align-items:flex-end;gap:3px;"><div style="width:2px;height:6px;background:currentColor;"></div><div style="width:2px;height:11px;background:currentColor;"></div><div style="width:2px;height:8px;background:currentColor;"></div></div></div>
+          <div>
+            <div style="font-family:var(--font-passage);font-size:1.02rem;">{{ i6.name }}</div>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:3px;max-width:56ch;">{{ i6.line }}</div>
+            <a href="{{ i6.href }}" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);text-decoration:none;margin-top:7px;">{{ i6.doc }}</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ perguntas ══ -->
+  <sc-if value="{{ pgPerguntas }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Perguntas" style="padding:var(--space-breath) 0 0;">
+      <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ s.faqLabel }}</div>
+      <div style="margin-top:14px;">
+        <sc-for list="{{ faq }}" as="f" hint-placeholder-count="5">
+          <div style="padding:19px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+            <div style="font-family:var(--font-passage);font-size:1.05rem;">{{ f.q }}</div>
+            <div style="font-size:13.5px;line-height:1.65;color:var(--ink-soft);margin-top:6px;max-width:58ch;">{{ f.a }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ══ footer ══ -->
+  <footer data-screen-label="Footer" style="padding:var(--space-breath) 0 0;margin-top:var(--space-breath);border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);text-align:center;">
+    <div style="font-size:12px;line-height:2;color:var(--ink-soft);max-width:58ch;margin:0 auto;">{{ s.footerSources }}</div>
+    <div style="font-size:12px;color:var(--ink-soft);margin-top:12px;">{{ s.footerLangs }}</div>
+    <a href="https://github.com/sraphaz/aadi-yogi" target="_blank" rel="noreferrer" style="display:inline-block;font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);opacity:0.85;text-decoration:none;margin-top:10px;">github.com/sraphaz/aadi-yogi</a>
+    <div style="margin-top:calc(var(--space-breath) * 0.5);"><span style="color:var(--accent-gold);">◦</span></div>
+    <div style="font-family:var(--font-passage);font-size:1.02rem;margin-top:12px;padding-bottom:6px;">{{ s.footerGo }}</div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;lang&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;pt&quot;, &quot;en&quot;],
+    &quot;default&quot;: &quot;pt&quot;,
+    &quot;tsType&quot;: &quot;'pt'|'en'&quot;,
+    &quot;section&quot;: &quot;language&quot;
+  },
+  &quot;hour&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;auto&quot;, &quot;pre_dawn&quot;, &quot;day&quot;, &quot;dusk&quot;, &quot;night&quot;],
+    &quot;default&quot;: &quot;auto&quot;,
+    &quot;tsType&quot;: &quot;'auto'|'pre_dawn'|'day'|'dusk'|'night'&quot;,
+    &quot;section&quot;: &quot;atmosphere&quot;
+  },
+  &quot;page&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;entrada&quot;, &quot;caminho&quot;, &quot;biblioteca&quot;, &quot;dana&quot;, &quot;integridade&quot;, &quot;perguntas&quot;],
+    &quot;default&quot;: &quot;entrada&quot;,
+    &quot;tsType&quot;: &quot;'entrada'|'caminho'|'biblioteca'|'dana'|'integridade'|'perguntas'&quot;,
+    &quot;section&quot;: &quot;site&quot;
+  }
+}">
+class Component extends DCLogic {
+  state = {
+    pagePick: null, langPick: null, hourPick: null, extLoaded: false,
+    amt: 21, custom: '', freq: 'once', method: 'pix', offered: false,
+  };
+
+  // canonical passages — ids per docs/passage_id_scheme.md
+  canon = [
+    { deva: 'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।', translit: 'karmaṇy evādhikāras te mā phaleṣu kadācana', id: 'gita.ch02.s47' },
+    { deva: 'ईशा वास्यमिदं सर्वं यत्किञ्च जगत्यां जगत्।', translit: 'īśā vāsyam idaṁ sarvaṁ yat kiñca jagatyāṁ jagat', id: 'upanishads.isha.m01' },
+  ];
+
+  shelfMeta = [
+    { tag: 'sa', state: 'arriving' },
+    { tag: 'sa', state: 'open' },
+    { tag: 'sa', state: 'open' },
+    { tag: 'sa', state: 'arriving' },
+    { tag: 'sa', state: 'future' },
+    { tag: 'ta', state: 'arriving' },
+    { tag: 'en', state: 'future', official: true },
+    { tag: 'fr·en', state: 'future', official: true },
+  ];
+
+  // pt-BR inline (default paint); en loads from site-strings.js
+  pt = {
+    nav: ['entrada', 'o caminho', 'a biblioteca', 'a dana', 'integridade', 'perguntas'],
+    tagline: 'ver, e ser visto, pelo sagrado',
+    qtrans: [
+      'Tens direito à ação, somente à ação — nunca aos seus frutos.',
+      'Tudo isto é para habitação do Senhor — cada universo individual de movimento no movimento universal.',
+    ],
+    qcite: [
+      'Bhagavad Gita, II.47 · tr. Sri Aurobindo',
+      'Isha Upanishad, mantra 1 · tr. Sri Aurobindo',
+    ],
+    openCta: 'abrir em contexto',
+    p1: 'Um darshan digital, não um chatbot — a interface contemplativa do motor de sabedoria Aadi Yogi.',
+    p2: 'Upanishads, Gita, Tirumandiram, Sri Aurobindo, a Mãe — servidos com silêncio, citação e ritmo. Nunca como feed.',
+    p3: 'Livre, anônimo, offline onde importa. Feito para ser deixado em paz.',
+    enter: 'entrar no app',
+    traits: 'livre · anônimo · offline',
+    walkLabel: 'o caminho',
+    walkIntro: 'nove gestos, andados como estações — um por visita, e uma saída em paz.',
+    walk: [
+      { name: 'o limiar', skt: 'dvāra', line: 'uma respiração antes de tudo se abrir.' },
+      { name: 'o pátio', skt: '', line: 'uma corte calma; um gesto por vez.' },
+      { name: 'a palavra', skt: 'vāk darshan', line: 'uma passagem por dia, oferecida sozinha.' },
+      { name: 'a indagação', skt: 'praśna', line: 'um poço, não um caça-níqueis — respostas citadas, às vezes silêncio.' },
+      { name: 'mapas vivos', skt: 'mārga', line: 'travessias interiores, estação por estação.' },
+      { name: 'o campo de prática', skt: 'sādhana', line: 'silêncio, oferenda, o olhar da noite, japa.' },
+      { name: 'a biblioteca', skt: 'svādhyāya', line: 'salas de leitura com proveniência completa.' },
+      { name: 'o mapa do céu', skt: 'ṛtu', line: 'o céu real, lido como ritmo — nunca como destino.' },
+      { name: 'a casa da natureza', skt: 'prakṛti', line: 'elementos, terra, o corpo como templo — leitura, nunca receita.' },
+      { name: 'a sala de silêncio', skt: 'mauna', line: 'nada. um pulso lento, zero telemetria.' },
+    ],
+    hidden: 'e um quarto escondido — o diário interior (sākṣī), escrito para ninguém.',
+    libLabel: 'a biblioteca',
+    libIntro: 'as tradições do corpus, com proveniência e estado.',
+    shelves: [
+      { name: 'os Vedas', line: 'o canto raiz — hinos ao fogo, à aurora, ao vasto.' },
+      { name: 'as Upanishads', line: 'sentar-se perto: o ser, indagado diretamente.' },
+      { name: 'a Bhagavad Gita', line: 'o campo de batalha como campo interior.' },
+      { name: 'os Puranas', line: 'as histórias antigas que carregam o dharma.' },
+      { name: 'os Tantras', line: 'corpo e cosmos como um só tecido.' },
+      { name: 'os Siddhas · Tirumandiram', line: 'os cantores tâmeis do corpo-templo.' },
+      { name: 'Sri Aurobindo', line: 'a evolução da consciência, escrita de dentro.' },
+      { name: 'a Mãe', line: 'a prática, registrada dia a dia.' },
+    ],
+    states: { open: 'aberta', arriving: 'chegando', future: 'futura' },
+    officialLabel: 'fonte oficial ↗',
+    danaLabel: 'a dana',
+    danaLaw: 'A sabedoria é livre. Paga-se, se quiser, pelo tempo da máquina e pelo acesso dos outros.',
+    danaCards: [
+      { name: 'livre, para sempre', line: 'toda superfície sem custo por uso — para todos, sem conta.' },
+      { name: 'o tempo da máquina', line: 'a indagação tem medida diária livre. além dela, créditos ao custo.' },
+      { name: 'a dana', line: 'uma página quieta de oferenda. financia a medida livre dos outros.' },
+    ],
+    freeChips: ['a palavra', 'a biblioteca', 'o silêncio', 'a prática', 'os mapas', 'o céu', 'o diário'],
+    meterLabel: 'medida diária livre',
+    price: '≈ R$ 0,10 / resposta',
+    priceNote: 'ancorado ao custo real; exibido antes de cada uso. pix · cartão.',
+    offerTitle: 'oferenda',
+    otherLabel: 'outro',
+    freqOnce: 'única',
+    freqMonthly: 'mensal',
+    methodPix: 'pix',
+    methodCard: 'cartão',
+    offerBtn: 'oferecer',
+    offerDone: 'recebida. o poço segue aberto.',
+    offerAgain: 'nova oferenda',
+    offerNote: 'nunca um popup. jamais altera o comportamento do app.',
+    neverLine: 'nunca — anúncios · venda de dados · assinatura que tranca conteúdo · urgência · culpa',
+    intLabel: 'linhagem e integridade',
+    intRows: [
+      { name: 'citações resolvíveis', line: 'toda linha navega até o livro — integridade 1.0 em CI.', doc: 'docs/passage_id_scheme.md' },
+      { name: 'copyright honrado', line: 'obras restritas apontam para a fonte oficial.', doc: 'docs/decisions/0004-editorial-policy.md' },
+      { name: 'anti-profecia', line: 'ritmo, nunca destino — sem mapa natal, sem previsões.', doc: 'docs/decisions/0002-natal-boundary-strict.md' },
+      { name: 'cerca de saúde', line: 'herança citada como leitura documental, nunca prescrição.', doc: 'docs/decisions/0003-health-gate-interim.md' },
+      { name: 'privacidade por arquitetura', line: 'anônimo por padrão; o diário é local e cifrado.', doc: 'docs/skyforge/darshan/nfr.yaml' },
+      { name: 'presença, não engajamento', line: 'métricas de presença publicadas; tempo-de-tela jamais otimizado.', doc: 'docs/darshan_interface_concept.md' },
+    ],
+    faqLabel: 'perguntas sinceras',
+    faq: [
+      { q: 'isto substitui um guru?', a: 'não. o instrumento nunca simula um mestre — e aponta para longe de si.' },
+      { q: 'é terapia?', a: 'não. em crise, o app se contém e indica cuidado qualificado.' },
+      { q: 'por que é grátis?', a: 'dana. o dharma destas linhagens sempre se moveu por dom, nunca por catraca.' },
+      { q: 'meus dados?', a: 'locais e cifrados. anônimo por padrão; nada se vende, nunca.' },
+      { q: 'posso confiar nas citações?', a: 'toda afirmação navega até o livro — integridade 1.0, verificada em CI.' },
+    ],
+    footerSources: 'fontes · Upanishads · Bhagavad Gita · Vedas · Puranas · Tantras · Tirumandiram · Sri Aurobindo · a Mãe',
+    footerLangs: 'português · english — as citações permanecem na língua canônica',
+    footerGo: 'siga em paz.',
+  };
+
+  componentDidMount() {
+    if (window.__darshanSiteStrings) { this.setState({ extLoaded: true }); return; }
+    let tries = 0;
+    this._poll = setInterval(() => {
+      tries += 1;
+      if (window.__darshanSiteStrings) {
+        clearInterval(this._poll);
+        this.setState({ extLoaded: true });
+      } else if (tries > 40) {
+        clearInterval(this._poll);
+      }
+    }, 150);
+  }
+
+  componentWillUnmount() {
+    if (this._poll) clearInterval(this._poll);
+  }
+
+  lang() { return this.state.langPick ?? this.props.lang ?? 'pt'; }
+
+  dict(l) {
+    if (l === 'pt') return this.pt;
+    const ext = window.__darshanSiteStrings || {};
+    return ext[l] || this.pt;
+  }
+
+  clockHour() {
+    const h = new Date().getHours();
+    if (h >= 4 && h < 7) return 'pre_dawn';
+    if (h >= 7 && h < 17) return 'day';
+    if (h >= 17 && h < 20) return 'dusk';
+    return 'night';
+  }
+
+  renderVals() {
+    const st = this.state;
+    const lang = this.lang();
+    const s = this.dict(lang);
+    const hour = st.hourPick ?? ((this.props.hour && this.props.hour !== 'auto') ? this.props.hour : this.clockHour());
+    const page = st.pagePick ?? this.props.page ?? 'entrada';
+
+    const go = (id) => {
+      this.setState({ pagePick: id });
+      try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+    };
+
+    const pageIds = ['entrada', 'caminho', 'biblioteca', 'dana', 'integridade', 'perguntas'];
+    const navItems = pageIds.map((id, i) => ({
+      label: s.nav[i],
+      pick: () => go(id),
+      style: {
+        background: 'none', border: 'none',
+        borderBottom: page === id ? '1px solid var(--accent-flame)' : '1px solid transparent',
+        padding: '8px 2px', cursor: 'pointer', font: 'inherit', fontSize: '12.5px', letterSpacing: '0.05em',
+        color: page === id ? 'var(--accent-flame)' : 'var(--ink-soft)',
+        transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+      },
+    }));
+
+    const chip = (active) => ({
+      background: active ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+      border: 'none', borderRadius: 'var(--radius-pill)', padding: '6px 11px',
+      font: 'inherit', fontSize: '11px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink-soft)',
+      transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+    });
+
+    const langChips = ['pt', 'en'].map(l => ({
+      label: l === 'pt' ? 'português' : 'english',
+      pick: () => this.setState({ langPick: l }),
+      style: chip(lang === l),
+    }));
+
+    const hourColors = { pre_dawn: '#12141f', day: '#f7f4ec', dusk: '#2a222b', night: '#0c0d12' };
+    const hourNames = { pre_dawn: 'pre-dawn', day: 'dia', dusk: 'crepúsculo', night: 'noite' };
+    const hourDots = [null, 'pre_dawn', 'day', 'dusk', 'night'].map(id => ({
+      name: id === null ? 'auto' : hourNames[id],
+      pick: () => this.setState({ hourPick: id }),
+      style: {
+        width: '13px', height: '13px', borderRadius: '50%', padding: 0, cursor: 'pointer', boxSizing: 'border-box',
+        background: id === null ? 'transparent' : hourColors[id],
+        border: id === null ? '1px dashed color-mix(in srgb, var(--ink) 45%, transparent)' : '1px solid color-mix(in srgb, var(--ink) 30%, transparent)',
+        boxShadow: st.hourPick === id ? '0 0 0 2px var(--halo)' : 'none',
+      },
+    }));
+
+    const qi = Math.floor(Date.now() / 86400000) % this.canon.length;
+    const quote = {
+      deva: this.canon[qi].deva,
+      translit: this.canon[qi].translit,
+      id: this.canon[qi].id,
+      trans: s.qtrans[qi],
+      cite: s.qcite[qi],
+    };
+
+    const stateColors = { open: 'var(--accent-flame)', arriving: 'var(--accent-gold)', future: 'var(--ink-soft)' };
+    const shelves = s.shelves.map((sh, i) => {
+      const m = this.shelfMeta[i] || {};
+      return {
+        name: sh.name, line: sh.line, tag: m.tag, official: !!m.official,
+        stateName: s.states[m.state] || m.state,
+        stateStyle: {
+          fontSize: '10px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase',
+          color: stateColors[m.state],
+        },
+      };
+    });
+
+    const amtChipStyle = (active) => ({
+      background: 'none',
+      border: active ? '1px solid var(--accent-flame)' : '1px solid color-mix(in srgb, var(--ink) 18%, transparent)',
+      borderRadius: 'var(--radius-pill)', padding: '9px 16px', cursor: 'pointer',
+      fontFamily: 'var(--font-mono)', fontSize: '12px',
+      color: active ? 'var(--accent-flame)' : 'var(--ink)',
+      transition: 'border-color var(--motion-ui-hover) var(--ease-calm)',
+    });
+    const amtChips = [7, 21, 108].map(a => ({
+      label: 'R$ ' + a,
+      pick: () => this.setState({ amt: a }),
+      style: amtChipStyle(st.amt === a),
+    })).concat([{
+      label: s.otherLabel,
+      pick: () => this.setState({ amt: 'other' }),
+      style: amtChipStyle(st.amt === 'other'),
+    }]);
+
+    const freqChips = [['once', s.freqOnce], ['monthly', s.freqMonthly]].map(p => ({
+      label: p[1], pick: () => this.setState({ freq: p[0] }), style: chip(st.freq === p[0]),
+    }));
+    const methodChips = [['pix', s.methodPix], ['card', s.methodCard]].map(p => ({
+      label: p[1], pick: () => this.setState({ method: p[0] }), style: chip(st.method === p[0]),
+    }));
+
+    const amountVal = st.amt === 'other' ? (st.custom || '—') : st.amt;
+    const freqLabel = st.freq === 'once' ? s.freqOnce : s.freqMonthly;
+    const methodLabel = st.method === 'pix' ? s.methodPix : s.methodCard;
+
+    const intM = s.intRows.map(r => ({
+      name: r.name, line: r.line, doc: r.doc,
+      href: 'https://github.com/sraphaz/aadi-yogi/blob/main/' + r.doc,
+    }));
+
+    return {
+      s, lang, hourTheme: hour,
+      navItems, langChips, hourDots,
+      goHome: () => go('entrada'),
+      pgEntrada: page === 'entrada',
+      pgCaminho: page === 'caminho',
+      pgBiblioteca: page === 'biblioteca',
+      pgDana: page === 'dana',
+      pgIntegridade: page === 'integridade',
+      pgPerguntas: page === 'perguntas',
+      quote,
+      w1: s.walk[0], w2: s.walk[1], w3: s.walk[2], w4: s.walk[3], w5: s.walk[4],
+      w6: s.walk[5], w7: s.walk[6], w8: s.walk[7], w9: s.walk[8], w10: s.walk[9],
+      shelves,
+      d1: s.danaCards[0], d2: s.danaCards[1], d3: s.danaCards[2],
+      freeChips: s.freeChips,
+      amtChips, freqChips, methodChips,
+      customOn: st.amt === 'other',
+      customVal: st.custom,
+      onCustom: (e) => this.setState({ custom: e.target.value }),
+      offer: () => this.setState({ offered: true }),
+      offerReset: () => this.setState({ offered: false }),
+      offered: st.offered,
+      notOffered: !st.offered,
+      offerSummary: 'R$ ' + amountVal + ' · ' + freqLabel + ' · ' + methodLabel,
+      i1: intM[0], i2: intM[1], i3: intM[2], i4: intM[3], i5: intM[4], i6: intM[5],
+      faq: s.faq,
+    };
+  }
+}
+</script>
+</body>
+</html>

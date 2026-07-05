@@ -1,0 +1,224 @@
+# UX Spec - Darshan interface
+version: "1.0"
+slug: darshan
+
+principles:
+  - silence_before_speech
+  - one_pointedness_single_focus_per_screen
+  - low_excitation_no_dark_patterns
+  - renunciation_by_design_no_engagement_mechanics
+  - reverent_typography_for_sacred_text
+  - non_coercion_everything_offered_never_assigned
+  - hour_aware_atmosphere
+  - wcag_2_1_aa
+  - mobile_first_pwa
+  - privacy_by_architecture
+
+tokens:
+  source: design-tokens.yaml   # produced round 2; single source of truth
+  hardcoded_colors_forbidden: true
+  themes:
+    - pre_dawn
+    - day
+    - dusk
+    - night
+  motion:
+    breath_cycle: 8s
+    reveal_pace: reading_speed
+    reduced_motion_equivalents_required: true
+  typography:
+    passage_display: large_serif_generous_leading
+    body: humanist_sans
+    original_scripts: [devanagari, tamil, iast]
+    min_size: 12px
+
+key_screens:
+  - id: threshold
+    title: Threshold
+    primary_action: one breath, then enter
+    accessibility:
+      - skippable_by_single_tap
+      - reduced_motion_static_variant
+  - id: court
+    title: The Court (hub)
+    primary_action: choose one gesture
+    accessibility:
+      - max_one_navigation_level
+      - explicit_closing_gesture_always_visible
+  - id: word
+    title: Darshan of the Word
+    primary_action: receive the daily passage
+    accessibility:
+      - passage_readable_by_screen_reader_before_animation_ends
+  - id: inquiry
+    title: Inquiry
+    primary_action: compose one question with intention
+    accessibility:
+      - no_streaming_text_during_composition
+      - contemplation_page_is_single_document
+  - id: maps
+    title: Living Maps
+    primary_action: walk to the next station (manual)
+    accessibility:
+      - no_progress_percentages
+      - regression_is_first_class
+  - id: practice
+    title: Practice Field
+    primary_action: enter a practice
+    accessibility:
+      - haptic_only_japa_mode
+      - screen_off_friendly
+  - id: library
+    title: Library (the shelf)
+    primary_action: enter a collection or a door
+    accessibility:
+      - offline_reading
+      - position_memory
+      - concept_lens_keyboard_accessible
+  - id: depth_dial
+    title: Depth dial (D0-D6)
+    primary_action: press deeper into any passage
+    accessibility:
+      - current_depth_always_named
+      - keyboard_operable
+      - position_preserved_per_depth
+  - id: situation_portal
+    title: Situation doors
+    primary_action: arrive with a life moment
+    accessibility:
+      - human_words_no_jargon
+      - restraint_doors_follow_crisis_protocol
+      - includes_a_door_for_joy
+  - id: facet_browser
+    title: Facet browsing
+    primary_action: wander by tradition, theme, concept or practice
+    accessibility:
+      - max_two_active_facets
+      - no_infinite_grid
+  - id: book_room
+    title: Reading room (D3/D4)
+    primary_action: read the complete work
+    accessibility:
+      - reading_measure_max_62ch
+      - provenance_page_per_work
+      - first_entry_offers_d1_introduction_once
+  - id: original_view
+    title: The Original (D5)
+    primary_action: meet the source language
+    accessibility:
+      - language_tagged_for_screen_readers
+      - transliteration_parallel_view
+  - id: anthology
+    title: Personal anthology
+    primary_action: keep and arrange passages
+    accessibility:
+      - export_plain_markdown
+      - diary_grade_privacy
+  - id: sky_map
+    title: Sky Map (outer sky)
+    primary_action: read the rhythm of the moment
+    accessibility:
+      - drawn_sky_has_text_equivalent
+      - numbers_on_request_only
+      - no_location_transmission
+  - id: inner_sky
+    title: Inner sky (five planes)
+    primary_action: mark the weather, receive the mirror
+    accessibility:
+      - under_one_minute_consultation
+      - any_subset_of_bands_markable
+      - no_scoring_no_streaks
+      - restraint_weather_routes_to_crisis_protocol
+  - id: nature_house
+    title: House of Nature
+    primary_action: enter a room (elements, land, body, long life, healing memory)
+    accessibility:
+      - heritage_notice_structural_not_dismissable
+      - three_tier_marks_visible
+      - rooms_state_open_arriving_future_honestly
+  - id: diary
+    title: Inner Diary
+    primary_action: write freely
+    accessibility:
+      - engine_blind_by_default_stated_in_ui
+  - id: silence
+    title: Silence Room
+    primary_action: nothing
+    accessibility:
+      - zero_telemetry
+      - same_gesture_in_and_out
+
+journeys:
+  - persona: seeker in pain
+    steps:
+      - enter through threshold breath
+      - ask one question in inquiry
+      - state detected as pain; response leads with acknowledgment
+      - honored silence or gentle movement offered
+      - exit through silence room or closing gesture
+  - persona: daily practitioner
+    steps:
+      - dawn bell (opt-in) opens darshan of the word
+      - offering gesture in practice field
+      - evening look-back at dusk
+  - persona: student of traditions
+    steps:
+      - read in library room
+      - open concept lens on a term
+      - compare passages across traditions
+      - keep a contemplation page
+  - persona: person who never read scripture (posture Touched)
+    steps:
+      - arrive through situation door "grief"
+      - receive one word (D0) and its plain meaning (D1)
+      - days later, press the dial to the passage (D2)
+      - one evening, read the whole section (D3) without ever being told to
+  - persona: practitioner deepening a term (posture Practicing)
+    steps:
+      - meet a recurring term in a reading room
+      - open concept lens in the margin
+      - turn the dial to the constellation (D6)
+      - keep two passages into the anthology
+  - persona: person consulting the sky at a bus stop
+    steps:
+      - open the sky map; the outer sky is already drawn
+      - mark two bands of the inner sky (vital storming, mind clear)
+      - receive the mirror and one line from the Gita on the tempest of the senses
+      - close within a minute, steadier
+  - persona: seeker curious about the body as temple
+    steps:
+      - enter the House of Nature through the fire element room
+      - read Tirumular on the body as temple (D2, cited)
+      - meet the heritage notice and the documentary mark on kaya kalpa
+      - take one safe-tier movement (walking with the breath) into the day
+
+anti_patterns_forbidden:
+  - feeds_and_infinite_scroll
+  - streaks_badges_gamification
+  - push_notifications_by_default
+  - engagement_time_optimization
+  - autoplay_and_content_teasers
+  - dark_patterns_of_any_kind
+  - horoscopes_predictions_auspiciousness_verdicts
+  - health_diagnosis_prescription_or_dosage
+  - mood_tracker_scoring_of_the_inner_sky
+
+institutional_site:
+  required: true
+  tone: calm, source-grounded, no urgency, no spiritual performance
+
+# Sky-Forge Cloud Design tracks (extension feature, 2026-07-05):
+# which handoff tracks this session wants generated at export time.
+cloud_design_tracks:
+  - id: mobile
+    surface: the Darshan PWA (the nine gestures + silence room)
+    priority: primary
+  - id: institucional
+    surface: institutional site (what Darshan is, the dana page, source lineage)
+    priority: secondary
+  - id: plataforma
+    surface: internal presence-metrics and editorial-review panels
+    priority: later
+  - id: showcase
+    surface: public preview gallery entry
+    priority: undecided   # journey user_preferences.public_showcase is undecided

@@ -1,0 +1,105 @@
+# Market benchmark - Darshan (MPI lens)
+# Produced following journey.yaml next action "market_benchmark" (market-benchmark agent).
+# Verdicts per axis: new | better | parity — consciousness of positioning,
+# never pressure to change scope. All suggestions ai_suggested: true.
+version: "1.0"
+slug: darshan
+benchmark_date: "2026-07-04"
+
+segments:
+  - id: SEG-1
+    name: Meditation and calm-tech apps
+    competitors:
+      - name: Calm
+        notes: production polish, sleep/relax focus; subscription; engagement mechanics (streaks, stats)
+      - name: Headspace
+        notes: guided courses, gamified progress; secular framing
+      - name: Insight Timer
+        notes: huge free library, community feed; teacher marketplace dynamics
+      - name: Waking Up (Sam Harris)
+        notes: closest in seriousness; theory + practice; single-teacher voice; subscription
+    verdict_axis:
+      contemplative_seriousness: parity   # Waking Up is serious
+      anti_engagement_design: new         # all four use streaks/stats/retention
+      source_grounding: new               # none cite canonical sources as lineage
+  - id: SEG-2
+    name: Scripture access and digital libraries
+    competitors:
+      - name: sacred-texts.com
+        notes: vast public-domain archive; 1990s reading experience; no structure
+      - name: wisdomlib.org
+        notes: impressive cross-linked Indian corpus, glossaries; scholarly, dense UX
+      - name: vedabase.io
+        notes: excellent verse-level Sanskrit/word-by-word for Gaudiya canon; single-tradition lens
+      - name: incarnateword.in
+        notes: complete Sri Aurobindo/Mother corpus online, well structured; reading-only, no guidance layer
+    verdict_axis:
+      corpus_depth_per_tradition: parity  # vedabase/incarnateword are deep in their lanes
+      cross_tradition_constellation: new  # nobody links traditions with named differences
+      reading_experience_dignity: better  # long-form typography + offline + depth dial
+  - id: SEG-3
+    name: AI spiritual guidance apps
+    competitors:
+      - name: Bible Chat / Hallow (AI features)
+        notes: huge demand signal for tradition-rooted apps; Hallow top-grossing; engagement mechanics heavy
+      - name: assorted "GitaGPT" / guru-bot wrappers
+        notes: no citation discipline, frequent guru impersonation, no safety doctrine
+    verdict_axis:
+      citation_integrity: new             # response contract with resolvable citations
+      state_aware_restraint: new          # honored silence + crisis protocol absent everywhere
+      persona_honesty: better             # no guru simulation, engine voice defined by consciousness core
+  - id: SEG-4
+    name: Journaling and reflection apps
+    competitors:
+      - name: Day One / Stoic / Insight journal features
+        notes: prompts + stats; cloud-first; some sell insights features on user data
+    verdict_axis:
+      privacy_architecture: better        # local-first encrypted, engine blind by default
+      wisdom_linked_reflection: new       # witness mode linking entry to cited corpus
+
+mpi:
+  score: 68
+  confidence: medium
+  band: 10
+  rationale: |
+    The proposal knows its market: it is parity on corpus depth (per single
+    tradition) and contemplative seriousness, better on reading dignity,
+    privacy and persona honesty, and genuinely new on four axes at once -
+    anti-engagement design law, citation-integrity contract, state-aware
+    restraint (honored silence / crisis), and cross-tradition constellation.
+    The main positioning risks are (1) Hallow-scale incumbents adding AI to
+    devotional niches faster than a two-person team ships, and (2) the calm
+    positioning being hard to communicate in stores optimized for dopamine
+    screenshots.
+  evidence:
+    - type: artifact
+      ref: "docs/darshan_interface_spec.md section 4 - response contract vs SEG-3"
+    - type: artifact
+      ref: "docs/darshan_library_design.md sections 1-2 - depth dial vs SEG-2"
+    - type: artifact
+      ref: "docs/skyforge/darshan/ux-spec.yaml anti_patterns_forbidden vs SEG-1"
+
+gap_suggestions:
+  - id: GAP-001
+    title: Verse-level original + word-by-word beyond a single tradition
+    description: |
+      vedabase.io proves seekers love word-by-word originals but serves one
+      canon; D5 across Sanskrit AND Tamil AND French would be alone in the field.
+    ai_suggested: true
+    user_confirmed: null
+  - id: GAP-002
+    title: Situation doors as store positioning
+    description: |
+      No competitor lets a person arrive by life situation ("grief", "work")
+      instead of by tradition or technique; this is both a UX door and the
+      honest marketing language for the calm positioning risk above.
+    ai_suggested: true
+    user_confirmed: null
+  - id: GAP-003
+    title: Publish the presence-metrics methodology
+    description: |
+      Publishing the inverted metrics (closure rate, honored-silence
+      precision) as an open method differentiates against engagement-economy
+      apps at the level of proof, not claims - and aligns with CH-OPEN-KNOWLEDGE.
+    ai_suggested: true
+    user_confirmed: null

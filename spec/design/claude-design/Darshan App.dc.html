@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #e9e5da; }
+    textarea::placeholder { color: var(--ink-soft); opacity: 0.65; }
+    button { -webkit-tap-highlight-color: transparent; }
+    [data-lang="hi"] {
+      --font-body: "Manrope", "Noto Sans Devanagari", system-ui, sans-serif;
+      --font-passage: "Source Serif 4", "Noto Serif Devanagari", Georgia, serif;
+    }
+  </style>
+</helmet>
+
+<div data-hour="{{ hourTheme }}" data-lang="{{ lang }}" style="min-height:100vh;background:var(--veil);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:44px 20px;box-sizing:border-box;font-family:var(--font-body);transition:background 600ms var(--ease-calm);">
+
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ deviceDark }}" hint-size="402px,874px">
+    <div style="position:relative;height:100%;background:var(--surface);color:var(--ink);font-family:var(--font-body);transition:background 600ms var(--ease-calm);">
+
+      <!-- ══ threshold ══ -->
+      <sc-if value="{{ showThreshold }}" hint-placeholder-val="{{ true }}">
+        <div data-screen-label="Threshold" role="button" aria-label="{{ t.breathLine }}" onClick="{{ enterCourt }}" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;padding:0 32px;text-align:center;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ hourLine }}</div>
+          <div style="width:64px;height:64px;border-radius:50%;background:var(--halo);animation:darshan-breath var(--motion-breath-cycle) var(--ease-calm) infinite;margin:var(--space-breath) 0;"></div>
+          <div style="font-family:var(--font-passage);font-size:1.75rem;color:var(--ink);">darshan</div>
+          <div style="font-size:var(--type-meta);color:var(--ink-soft);margin-top:14px;">{{ t.breathLine }}</div>
+          <div style="position:absolute;bottom:52px;left:0;right:0;font-size:11px;color:var(--ink-soft);opacity:0.7;">{{ t.tapHint }}</div>
+        </div>
+      </sc-if>
+
+      <!-- ══ the court ══ -->
+      <sc-if value="{{ showCourt }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="The Court" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 22px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <div style="font-family:var(--font-passage);font-size:1.3rem;color:var(--ink);">darshan</div>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:6px;">{{ t.court }} · {{ hourWord }}</div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px;">
+            <sc-for list="{{ courtCards }}" as="card" hint-placeholder-count="8">
+              <button onClick="{{ card.pick }}" style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:15px 15px 13px;min-height:80px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:5px;transition:border-color var(--motion-ui-hover) var(--ease-calm);" style-hover="border-color: color-mix(in srgb, var(--accent-gold) 34%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">
+                <span style="font-family:var(--font-passage);font-size:1.02rem;">{{ card.name }}</span>
+                <span style="font-size:12px;line-height:1.5;color:var(--ink-soft);">{{ card.desc }}</span>
+              </button>
+            </sc-for>
+          </div>
+
+          <button onClick="{{ openSilence }}" aria-label="{{ t.silenceRoom }}" style="margin-top:10px;background:var(--veil);border:1px solid color-mix(in srgb, var(--ink) 8%, transparent);border-radius:var(--radius-soft);min-height:var(--touch-target);cursor:pointer;font:inherit;color:var(--ink-soft);font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:10px;transition:color var(--motion-ui-hover) var(--ease-calm);" style-hover="color: var(--ink)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">
+            <span style="color:var(--halo);">◦</span> {{ t.silenceRoom }}
+          </button>
+
+          <div style="font-size:11px;color:var(--ink-soft);opacity:0.75;margin-top:16px;line-height:1.6;">{{ t.courtNote }}</div>
+
+          <div style="margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:center;gap:20px;">
+            <button onClick="{{ goFarewell }}" style="background:none;border:none;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.goGently }}</button>
+            <button onClick="{{ goDana }}" style="background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);min-height:var(--touch-target);" style-hover="color: var(--accent-gold)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.danaLink }} ◦</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ darshan of the word ══ -->
+      <sc-if value="{{ showWord }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Darshan of the Word" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 26px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.wordLabel }} · {{ dateLine }}</div>
+
+          <div style="margin:var(--space-breath) 0;text-align:center;animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">
+            <div style="font-family:var(--font-passage);font-size:var(--type-word-d0);line-height:var(--leading-word);color:var(--ink);">{{ t.word }}</div>
+            <div style="font-size:var(--type-meta);color:var(--ink-soft);margin-top:18px;">{{ t.wordCitation }}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);opacity:0.7;margin-top:6px;">gita.02.047</div>
+          </div>
+
+          <sc-if value="{{ deepening }}" hint-placeholder-val="{{ false }}">
+            <div style="border-left:2px solid var(--accent-gold);padding-left:14px;margin-bottom:22px;animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">
+              <div style="font-size:13px;line-height:1.7;color:var(--ink);">{{ t.deepeningText }}</div>
+              <div style="font-size:12px;color:var(--ink-soft);margin-top:6px;">Essays on the Gita · Sri Aurobindo · cwsa</div>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+            <button onClick="{{ openDial }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.pressDeeper }}</button>
+            <button onClick="{{ toggleDeepening }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);opacity:0.85;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ deepeningLabel }}</button>
+          </div>
+
+          <div style="margin-top:auto;padding-top:26px;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <span style="color:var(--accent-gold);">◦</span>
+            <button onClick="{{ goFarewell }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--ink-soft);min-height:32px;" style-hover="color: var(--ink)">{{ t.enoughToday }}</button>
+          </div>
+
+          <!-- depth dial overlay -->
+          <sc-if value="{{ dialOpen }}" hint-placeholder-val="{{ false }}">
+            <div data-screen-label="Depth Dial" style="position:absolute;left:10px;right:10px;top:64px;bottom:12px;background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:20px 18px;box-sizing:border-box;overflow:auto;display:flex;flex-direction:column;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+                <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ t.dialTitle }} · {{ currentDepthName }}</div>
+                <button onClick="{{ closeDial }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);min-height:32px;flex-shrink:0;" style-hover="color: var(--ink)">{{ t.dialClose }}</button>
+              </div>
+
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+                <sc-for list="{{ depthChips }}" as="chip" hint-placeholder-count="7">
+                  <button onClick="{{ chip.pick }}" style="{{ chip.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">
+                    <span style="font-family:var(--font-mono);">{{ chip.d }}</span>
+                  </button>
+                </sc-for>
+              </div>
+              <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">{{ currentDepthHint }}</div>
+
+              <div style="border-top:1px solid color-mix(in srgb, var(--ink) 10%, transparent);margin-top:14px;padding-top:18px;flex:1;">
+                <sc-if value="{{ showD0 }}" hint-placeholder-val="{{ false }}">
+                  <div style="text-align:center;padding:26px 0;">
+                    <div style="font-family:var(--font-passage);font-size:1.6rem;color:var(--ink);">{{ t.word }}</div>
+                    <div style="font-size:12px;color:var(--ink-soft);margin-top:12px;">{{ t.d0Note }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ showD1 }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:0.95rem;line-height:1.7;color:var(--ink);max-width:52ch;">{{ t.d1Text }}</div>
+                </sc-if>
+                <sc-if value="{{ showD2 }}" hint-placeholder-val="{{ false }}">
+                  <div style="border-left:2px solid var(--accent-gold);padding-left:14px;">
+                    <div style="font-family:var(--font-passage);font-size:1.05rem;line-height:var(--leading-passage);color:var(--ink);animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">Thou hast a right to action, but only to action, never to its fruits.</div>
+                    <div style="font-size:12px;color:var(--ink-soft);margin-top:8px;">Bhagavad Gita, II.47 · tr. Sri Aurobindo (Essays on the Gita) · gita</div>
+                    <button onClick="{{ openLibrary }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--accent-flame);margin-top:8px;min-height:32px;">{{ t.openLibrary }}</button>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ showD3 }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:13px;line-height:1.7;color:var(--ink-soft);">{{ t.d3Text }}</div>
+                </sc-if>
+                <sc-if value="{{ showD4 }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:13px;line-height:1.7;color:var(--ink-soft);">{{ t.d4Text }}</div>
+                </sc-if>
+                <sc-if value="{{ showD5 }}" hint-placeholder-val="{{ false }}">
+                  <div>
+                    <div lang="sa" style="font-family:var(--font-devanagari);font-size:1.35rem;line-height:1.9;color:var(--ink);animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</div>
+                    <div lang="sa-Latn" style="font-family:var(--font-translit);font-style:italic;font-size:1rem;line-height:1.8;color:var(--ink-soft);margin-top:10px;">karmaṇy evādhikāras te mā phaleṣu kadācana</div>
+                    <div style="font-size:12px;color:var(--ink-soft);margin-top:12px;">{{ t.d5Note }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ showD6 }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:13px;line-height:1.7;color:var(--ink-soft);">{{ t.d6Text }}</div>
+                </sc-if>
+              </div>
+              <div style="font-size:11px;color:var(--ink-soft);opacity:0.7;margin-top:14px;">{{ t.dialFoot }}</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ══ inquiry ══ -->
+      <sc-if value="{{ showInquiry }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Inquiry" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.inquiryLabel }}</div>
+
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:26px;opacity:0.8;">{{ t.arriveLabel }}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+            <sc-for list="{{ doors }}" as="door" hint-placeholder-count="5">
+              <button onClick="{{ door.pick }}" style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:11px 18px;font:inherit;font-size:0.92rem;color:var(--ink);background:var(--surface-raised);cursor:pointer;text-align:left;min-height:var(--touch-target);transition:border-color var(--motion-ui-hover) var(--ease-calm);" style-hover="border-color: color-mix(in srgb, var(--accent-gold) 34%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ door.name }}</button>
+            </sc-for>
+            <button onClick="{{ pickIllness }}" style="border:1px solid color-mix(in srgb, var(--warn) 55%, transparent);border-radius:var(--radius-pill);padding:11px 18px;font:inherit;font-size:0.92rem;color:var(--ink);background:var(--surface-raised);cursor:pointer;text-align:left;min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.illnessName }}</button>
+          </div>
+
+          <div style="font-size:12px;color:var(--ink-soft);margin-top:26px;">{{ t.ownWords }}</div>
+          <textarea value="{{ question }}" onChange="{{ onQuestion }}" placeholder="{{ placeholder }}" rows="4" aria-label="{{ t.inquiryLabel }}" style="margin-top:10px;width:100%;box-sizing:border-box;background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:14px;font:inherit;font-size:0.95rem;line-height:1.6;color:var(--ink);min-height:106px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+          <div style="font-size:11px;color:var(--ink-soft);opacity:0.75;margin-top:10px;line-height:1.6;">{{ t.privacyNote }}</div>
+
+          <div style="margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="display:flex;gap:4px;">
+                <sc-for list="{{ measureDots }}" as="md" hint-placeholder-count="3">
+                  <div style="{{ md.style }}"></div>
+                </sc-for>
+              </div>
+              <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ measureLine }}</span>
+              <button onClick="{{ goDana }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:10.5px;color:var(--accent-gold);min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.danaLink }} ›</button>
+            </div>
+            <sc-if value="{{ canOffer }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ offerQuestion }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:12px 24px;font:inherit;font-size:13px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.offerBtn }}</button>
+            </sc-if>
+            <sc-if value="{{ cannotOffer }}" hint-placeholder-val="{{ true }}">
+              <div style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:12px 24px;font-size:13px;color:var(--ink-soft);opacity:0.55;min-height:var(--touch-target);box-sizing:border-box;display:flex;align-items:center;">{{ t.offerBtn }}</div>
+            </sc-if>
+          </div>
+          <sc-if value="{{ showCreditAsk }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:15px 16px;margin-top:14px;">
+              <div style="font-size:12.5px;line-height:1.65;color:var(--ink);max-width:52ch;">{{ t.creditAsk }}</div>
+              <div style="display:flex;gap:14px;margin-top:14px;align-items:center;flex-wrap:wrap;">
+                <sc-if value="{{ hasCredits }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ offerQuestion }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:10px 18px;font:inherit;font-size:12px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.useCreditBtn }}</button>
+                </sc-if>
+                <sc-if value="{{ noCredits }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ goDana }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:10px 18px;font:inherit;font-size:12px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.getCreditsBtn }}</button>
+                </sc-if>
+                <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);">{{ creditsLine }}</span>
+                <button onClick="{{ declineCredit }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:11.5px;color:var(--ink-soft);text-decoration:underline;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.notNow }}</button>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ══ resting (the well draws) ══ -->
+      <sc-if value="{{ showResting }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Resting" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:0 40px;text-align:center;">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--halo);animation:darshan-breath var(--motion-breath-cycle) var(--ease-calm) infinite;"></div>
+          <div style="font-size:var(--type-meta);color:var(--ink-soft);">{{ t.restingLine }}</div>
+        </div>
+      </sc-if>
+
+      <!-- ══ contemplation page — composed per detected state ══ -->
+      <sc-if value="{{ showContemplation }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Contemplation Page" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="{{ cpLabelStyle }}">
+            <span>{{ cpLabel }}</span>
+            <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0;text-transform:none;opacity:0.7;">{{ cpMode }}</span>
+          </div>
+
+          <sc-if value="{{ cpHasAck }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:var(--font-passage);font-size:1.15rem;line-height:1.7;color:var(--ink);margin-top:18px;max-width:48ch;">{{ cpAck }}</div>
+          </sc-if>
+          <sc-if value="{{ cpHasP1 }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:0.95rem;line-height:1.7;color:var(--ink);margin-top:16px;max-width:52ch;">{{ cpP1 }}</div>
+          </sc-if>
+          <sc-if value="{{ cpHasP2 }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:0.95rem;line-height:1.7;color:var(--ink);margin-top:12px;max-width:52ch;">{{ cpP2 }}</div>
+          </sc-if>
+
+          <sc-if value="{{ cpHasQuote }}" hint-placeholder-val="{{ false }}">
+            <div style="border-left:2px solid var(--accent-gold);padding-left:14px;margin-top:18px;">
+              <div style="font-family:var(--font-passage);font-size:1rem;line-height:var(--leading-passage);color:var(--ink);">{{ cpQuote }}</div>
+              <div style="font-size:12px;color:var(--ink-soft);margin-top:5px;">{{ cpCite }}
+                <button onClick="{{ openLibrary }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12px;color:var(--accent-flame);margin-left:10px;min-height:24px;">{{ t.openLibrary }}</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ cpHasDiffer }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:13px 15px;margin-top:16px;">
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);">{{ t.differLabel }}</div>
+              <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;line-height:1.6;">{{ t.differText }}</div>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:16px;">
+            <span style="color:var(--accent-gold);">◦</span>
+            <div style="font-size:13px;line-height:1.6;color:var(--ink);">{{ cpMovement }}</div>
+          </div>
+
+          <sc-if value="{{ cpHasCaution }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid var(--warn);border-radius:var(--radius-soft);padding:13px 15px;margin-top:16px;">
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--warn);">{{ t.cautionLabel }}</div>
+              <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;line-height:1.6;">{{ t.cautionText }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ cpHasReturnedQ }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:22px;text-align:center;">
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);">{{ t.returnedLabel }}</div>
+              <div style="font-family:var(--font-passage);font-size:1.1rem;line-height:1.7;color:var(--ink);margin:12px auto 0;max-width:38ch;">{{ cpReturnedQ }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ cpHasMapLine }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ openAspirationMap }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);margin-top:16px;align-self:flex-start;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ cpMapLine }}</button>
+          </sc-if>
+
+          <sc-if value="{{ cpHasSilenceLine }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12.5px;color:var(--ink-soft);margin-top:14px;line-height:1.6;">{{ cpSilenceLine }}</div>
+          </sc-if>
+
+          <div style="display:flex;gap:20px;margin-top:26px;font-size:13px;align-items:center;flex-wrap:wrap;">
+            <button onClick="{{ sitWithIt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.sit }}</button>
+            <sc-if value="{{ cpCanKeep }}" hint-placeholder-val="{{ true }}">
+              <sc-if value="{{ notKept }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ keepIt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.keep }}</button>
+              </sc-if>
+              <sc-if value="{{ kept }}" hint-placeholder-val="{{ false }}">
+                <span style="color:var(--accent-gold);font-size:13px;">{{ t.keptMark }}</span>
+              </sc-if>
+            </sc-if>
+            <button onClick="{{ goFarewell }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--ink-soft);min-height:var(--touch-target);" style-hover="color: var(--ink)">{{ t.leave }}</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ living maps ══ -->
+      <sc-if value="{{ showMaps }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Living Maps" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+
+          <sc-if value="{{ mapListView }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+            <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.mapsLabel }}</div>
+            <div style="font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin-top:14px;max-width:52ch;">{{ t.mapsIntro }}</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
+              <sc-for list="{{ mapCards }}" as="mc" hint-placeholder-count="4">
+                <button onClick="{{ mc.pick }}" style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px;cursor:pointer;text-align:left;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:5px;min-height:var(--touch-target);transition:border-color var(--motion-ui-hover) var(--ease-calm);" style-hover="border-color: color-mix(in srgb, var(--accent-gold) 34%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">
+                  <span style="font-family:var(--font-passage);font-size:1.02rem;">{{ mc.name }}</span>
+                  <span style="font-size:12px;line-height:1.55;color:var(--ink-soft);">{{ mc.start }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ mapDetailView }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ backToMaps }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">‹ {{ t.mapsLabel }}</button>
+            <div style="font-family:var(--font-passage);font-size:1.25rem;color:var(--ink);margin-top:18px;">{{ mapName }}</div>
+            <div style="font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin-top:8px;max-width:50ch;">{{ mapStart }}</div>
+
+            <div style="display:flex;flex-direction:column;margin-top:24px;">
+              <sc-for list="{{ mapStations }}" as="st" hint-placeholder-count="4">
+                <div style="display:flex;gap:14px;">
+                  <div style="display:flex;flex-direction:column;align-items:center;width:16px;flex-shrink:0;">
+                    <span style="{{ st.markStyle }}">◦</span>
+                    <div style="width:1px;flex:1;background:color-mix(in srgb, var(--ink) 12%, transparent);margin-top:3px;"></div>
+                  </div>
+                  <div style="padding-bottom:18px;">
+                    <div style="{{ st.txtStyle }}">{{ st.txt }}</div>
+                    <div style="font-size:10.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-flame);margin-top:3px;">{{ st.here }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:12px 14px;margin-top:6px;">
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);">{{ t.mapsCautionLabel }}</div>
+              <div style="font-size:12.5px;color:var(--ink-soft);margin-top:5px;line-height:1.6;">{{ mapCaution }}</div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-soft);margin-top:12px;line-height:1.6;">{{ t.mapsSourcesLabel }} · {{ mapSources }}</div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap;">
+              <sc-if value="{{ hasBack }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ mapBackStep }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);min-height:var(--touch-target);" style-hover="color: var(--ink)">{{ t.mapsBack }}</button>
+              </sc-if>
+              <sc-if value="{{ hasForward }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ mapForward }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:13px;color:var(--accent-flame);margin-left:auto;min-height:var(--touch-target);" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.mapsForward }}</button>
+              </sc-if>
+            </div>
+            <div style="font-size:11px;color:var(--ink-soft);opacity:0.75;margin-top:8px;">{{ t.mapsStay }}</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ══ practice field ══ -->
+      <sc-if value="{{ showPractice }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Practice Field" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.practiceLabel }}</div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px;">
+
+            <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+              <div>
+                <div style="font-family:var(--font-passage);font-size:1.02rem;color:var(--ink);">{{ t.prSilenceName }}</div>
+                <div style="font-size:12px;line-height:1.55;color:var(--ink-soft);margin-top:4px;">{{ t.prSilenceDesc }}</div>
+              </div>
+              <button onClick="{{ practiceSilence }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:10px 18px;font:inherit;font-size:12.5px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);flex-shrink:0;" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.prSilenceBtn }}</button>
+            </div>
+
+            <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px;">
+              <div style="font-family:var(--font-passage);font-size:1.02rem;color:var(--ink);">{{ t.prOfferName }}</div>
+              <sc-if value="{{ notOffered }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size:12px;color:var(--ink-soft);margin-top:4px;">{{ t.prOfferQ }}</div>
+                <textarea value="{{ offering }}" onChange="{{ onOffering }}" rows="2" aria-label="{{ t.prOfferQ }}" style="margin-top:10px;width:100%;box-sizing:border-box;background:var(--surface);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:12px;font:inherit;font-size:0.92rem;line-height:1.6;color:var(--ink);min-height:60px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+                <div style="display:flex;justify-content:flex-end;margin-top:10px;">
+                  <button onClick="{{ doOffer }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:10px 18px;font:inherit;font-size:12.5px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.prOfferBtn }}</button>
+                </div>
+              </sc-if>
+              <sc-if value="{{ offered }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px;">
+                  <span style="color:var(--accent-gold);">◦</span>
+                  <span style="font-size:13px;color:var(--ink);">{{ t.prReceived }}</span>
+                </div>
+                <div style="font-size:11px;color:var(--ink-soft);opacity:0.8;margin-top:6px;">{{ t.prOfferEcho }}</div>
+              </sc-if>
+            </div>
+
+            <div style="background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);border-radius:var(--radius-soft);padding:16px;">
+              <div style="font-family:var(--font-passage);font-size:1.02rem;color:var(--ink);">{{ t.prLookName }}</div>
+              <sc-if value="{{ lbNotDone }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size:12px;color:var(--ink-soft);margin-top:12px;">{{ t.prLookQ1 }}</div>
+                <textarea value="{{ lb1 }}" onChange="{{ onLb1 }}" rows="2" aria-label="{{ t.prLookQ1 }}" style="margin-top:6px;width:100%;box-sizing:border-box;background:var(--surface);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:12px;font:inherit;font-size:0.92rem;line-height:1.6;color:var(--ink);min-height:52px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+                <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">{{ t.prLookQ2 }}</div>
+                <textarea value="{{ lb2 }}" onChange="{{ onLb2 }}" rows="2" aria-label="{{ t.prLookQ2 }}" style="margin-top:6px;width:100%;box-sizing:border-box;background:var(--surface);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:12px;font:inherit;font-size:0.92rem;line-height:1.6;color:var(--ink);min-height:52px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+                <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">{{ t.prLookQ3 }}</div>
+                <textarea value="{{ lb3 }}" onChange="{{ onLb3 }}" rows="2" aria-label="{{ t.prLookQ3 }}" style="margin-top:6px;width:100%;box-sizing:border-box;background:var(--surface);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:12px;font:inherit;font-size:0.92rem;line-height:1.6;color:var(--ink);min-height:52px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+                <div style="display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:10px;">
+                  <button onClick="{{ doLookback }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:10px 18px;font:inherit;font-size:12.5px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.prLookBtn }}</button>
+                </div>
+                <div style="font-size:11px;color:var(--ink-soft);opacity:0.8;margin-top:8px;">{{ t.prLookNote }}</div>
+              </sc-if>
+              <sc-if value="{{ lbDone }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:baseline;gap:8px;margin-top:10px;">
+                  <span style="color:var(--accent-gold);">◦</span>
+                  <span style="font-size:13px;color:var(--ink);">{{ t.prReceived }}</span>
+                </div>
+                <div style="font-size:11px;color:var(--ink-soft);opacity:0.8;margin-top:6px;">{{ t.prLookNote }}</div>
+              </sc-if>
+            </div>
+
+            <div style="border:1px solid color-mix(in srgb, var(--ink) 8%, transparent);border-radius:var(--radius-soft);padding:14px 16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+                <span style="font-family:var(--font-passage);font-size:0.98rem;color:var(--ink-soft);">{{ t.prJapaName }}</span>
+                <span style="font-size:10.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);">{{ t.arrivingTag }}</span>
+              </div>
+              <div style="font-size:12px;line-height:1.55;color:var(--ink-soft);opacity:0.85;margin-top:4px;">{{ t.prJapaNote }}</div>
+            </div>
+
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ library ══ -->
+      <sc-if value="{{ showLibrary }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Library" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <sc-if value="{{ libShelves }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.libLabel }}</div>
+              <div style="font-size:12px;line-height:1.6;color:var(--ink-soft);margin-top:12px;">{{ t.shelfIntro }}</div>
+              <div style="display:flex;flex-direction:column;margin-top:12px;">
+                <sc-for list="{{ shelfRows }}" as="sh" hint-placeholder-count="8">
+                  <button onClick="{{ sh.pick }}" style="background:none;border:none;border-bottom:1px solid color-mix(in srgb, var(--ink) 8%, transparent);padding:14px 2px;cursor:pointer;font:inherit;color:var(--ink);display:flex;align-items:baseline;justify-content:space-between;gap:12px;text-align:left;min-height:var(--touch-target);width:100%;" style-hover="background: color-mix(in srgb, var(--ink) 3%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">
+                    <span style="display:flex;flex-direction:column;gap:3px;">
+                      <span style="font-family:var(--font-passage);font-size:1.02rem;">{{ sh.name }}</span>
+                      <span style="font-size:12px;color:var(--ink-soft);">{{ sh.line }}</span>
+                    </span>
+                    <span style="{{ sh.stateStyle }}">{{ sh.stateName }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ libRoom }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <button onClick="{{ backShelves }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);min-height:32px;" style-hover="color: var(--ink)">{{ t.roomBack }}</button>
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.roomTitle }}</div>
+              <div style="font-family:var(--font-mono);font-size:10.5px;color:var(--ink-soft);margin-top:10px;line-height:1.7;">{{ t.roomProvenance }}</div>
+              <button onClick="{{ toggleLens }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--accent-gold);margin-top:16px;text-align:left;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.lensBtn }}</button>
+              <sc-if value="{{ lensOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="border-left:2px solid var(--accent-gold);padding-left:14px;margin-top:10px;font-size:12.5px;line-height:1.7;color:var(--ink-soft);max-width:52ch;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">{{ t.lensNote }}</div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:26px;margin-top:28px;max-width:62ch;">
+                <sc-for list="{{ roomParas }}" as="rp" hint-placeholder-count="3">
+                  <div>
+                    <div style="font-family:var(--font-passage);font-size:var(--type-reading);line-height:var(--leading-reading);color:var(--ink);">{{ rp.text }}</div>
+                    <div style="font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);opacity:0.8;margin-top:8px;">{{ rp.cite }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:30px;color:var(--ink-soft);">
+                <span style="color:var(--accent-gold);">◦</span>
+                <span style="font-size:11.5px;">{{ t.posLine }}</span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ══ sky map ══ -->
+      <sc-if value="{{ showSky }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Sky Map" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.skyLabel }}</div>
+
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);opacity:0.8;margin-top:24px;">{{ t.skyOuterLabel }}</div>
+          <div style="position:relative;height:150px;background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);border-radius:var(--radius-soft);margin-top:12px;overflow:hidden;">
+            <div style="position:absolute;left:0;right:0;bottom:26px;height:1px;background:color-mix(in srgb, var(--ink) 18%, transparent);"></div>
+            <div style="{{ skyBodyStyle }}"><div style="{{ moonShadowStyle }}"></div></div>
+          </div>
+          <div style="font-size:13px;color:var(--ink);margin-top:14px;line-height:1.6;">{{ skyLine1 }}</div>
+          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.6;">{{ skyLine2 }}</div>
+          <button onClick="{{ toggleNumbers }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--accent-gold);margin-top:12px;text-align:left;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ numbersLabel }}</button>
+          <sc-if value="{{ skyNumbers }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);margin-top:6px;">{{ skyNumsLine }}</div>
+          </sc-if>
+
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);opacity:0.8;margin-top:32px;">{{ t.skyInnerLabel }}</div>
+          <div style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;line-height:1.6;">{{ t.innerPrompt }}</div>
+          <div style="display:flex;flex-direction:column;margin-top:10px;">
+            <sc-for list="{{ planeRows }}" as="pl" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 6%, transparent);">
+                <span style="font-size:13px;color:var(--ink);">{{ pl.name }}</span>
+                <div style="display:flex;gap:4px;">
+                  <sc-for list="{{ pl.opts }}" as="op" hint-placeholder-count="3">
+                    <button onClick="{{ op.pick }}" style="{{ op.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ op.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ skyMirrorOn }}" hint-placeholder-val="{{ false }}">
+            <div style="border-left:2px solid var(--accent-gold);padding-left:14px;margin-top:20px;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+              <div style="font-size:12px;color:var(--ink-soft);">{{ t.skyMirrorLead }}</div>
+              <div style="font-size:13px;color:var(--ink);margin-top:4px;line-height:1.7;">{{ skyMirror }}</div>
+              <div style="font-family:var(--font-passage);font-size:1.02rem;line-height:var(--leading-passage);color:var(--ink);margin-top:14px;">{{ t.skyGitaLine }}</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);margin-top:6px;">{{ t.skyGitaCite }}</div>
+            </div>
+          </sc-if>
+          <div style="font-size:11px;color:var(--ink-soft);opacity:0.75;margin-top:26px;line-height:1.6;">{{ t.skyNote }}</div>
+        </div>
+      </sc-if>
+
+      <!-- ══ house of nature ══ -->
+      <sc-if value="{{ showNature }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="House of Nature" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.natLabel }}</div>
+
+          <div style="border:1px solid var(--warn);border-radius:var(--radius-soft);padding:13px 15px;margin-top:18px;font-size:12.5px;line-height:1.65;color:var(--ink-soft);">{{ t.natNotice }}</div>
+
+          <div style="font-size:12px;color:var(--ink-soft);margin-top:24px;line-height:1.6;">{{ t.natElementsLine }}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+            <sc-for list="{{ natElements }}" as="el" hint-placeholder-count="5">
+              <span style="display:flex;align-items:center;gap:8px;border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:8px 14px;font-size:12.5px;color:var(--ink);"><span style="width:7px;height:7px;border:1px solid var(--accent-gold);border-radius:50%;box-sizing:border-box;"></span>{{ el }}</span>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;flex-direction:column;margin-top:26px;">
+            <sc-for list="{{ natTiers }}" as="tier" hint-placeholder-count="3">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid color-mix(in srgb, var(--ink) 7%, transparent);">
+                <div>
+                  <div style="font-family:var(--font-passage);font-size:1.02rem;color:var(--ink);">{{ tier.name }}</div>
+                  <div style="font-size:12.5px;line-height:1.6;color:var(--ink-soft);margin-top:4px;max-width:48ch;">{{ tier.line }}</div>
+                </div>
+                <span style="{{ tier.stateStyle }}">{{ tier.stateName }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ inner diary ══ -->
+      <sc-if value="{{ showDiary }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Inner Diary" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.diaryLabel }}</div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;">
+            <sc-for list="{{ diaryChips }}" as="dc" hint-placeholder-count="3">
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-pill);padding:4px 9px;">{{ dc }}</span>
+            </sc-for>
+          </div>
+          <div style="font-size:11.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6;">{{ t.diaryBlind }}</div>
+
+          <textarea value="{{ diaryText }}" onChange="{{ onDiary }}" placeholder="{{ t.diaryPrompt }}" rows="8" aria-label="{{ t.diaryLabel }}" style="margin-top:16px;width:100%;box-sizing:border-box;background:var(--surface-raised);border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-radius:var(--radius-soft);padding:16px;font-family:var(--font-passage);font-size:1.02rem;line-height:1.8;color:var(--ink);min-height:190px;resize:none;outline:none;" style-focus="border-color: var(--halo); box-shadow: 0 0 0 2px color-mix(in srgb, var(--halo) 30%, transparent)"></textarea>
+
+          <div style="display:flex;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap;">
+            <sc-if value="{{ canKeepDiary }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ keepDiary }}" style="border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:11px 22px;font:inherit;font-size:13px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.diaryKeepBtn }}</button>
+            </sc-if>
+            <sc-if value="{{ diaryKeptOn }}" hint-placeholder-val="{{ false }}">
+              <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-soft);"><span style="color:var(--accent-gold);">◦</span>{{ t.diaryKeptLine }}</span>
+              <button onClick="{{ newPage }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:11.5px;color:var(--ink-soft);text-decoration:underline;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.diaryNewBtn }}</button>
+            </sc-if>
+          </div>
+
+          <div style="border-top:1px solid color-mix(in srgb, var(--ink) 8%, transparent);margin-top:26px;padding-top:18px;">
+            <button onClick="{{ toggleWitness }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:11px;color:var(--accent-gold);text-align:left;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ witnessLabel }}</button>
+            <sc-if value="{{ witnessOn }}" hint-placeholder-val="{{ false }}">
+              <div style="border-left:2px solid var(--accent-gold);padding-left:14px;margin-top:12px;font-size:12.5px;line-height:1.7;color:var(--ink);max-width:48ch;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">{{ t.witnessLine }}</div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ dana (one quiet page — RF-039) ══ -->
+      <sc-if value="{{ showDana }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Dana" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 24px 96px;box-sizing:border-box;overflow:auto;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">{{ t.danaLabel }}</div>
+
+          <div style="font-family:var(--font-passage);font-size:1.2rem;line-height:1.7;color:var(--ink);max-width:34ch;margin-top:20px;">{{ t.danaLaw }}</div>
+          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;">{{ t.danaFreeLine }}</div>
+
+          <div style="border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);border-radius:var(--radius-soft);padding:16px;margin-top:22px;">
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);line-height:1.8;">{{ usedLine }}</div>
+            <div style="display:flex;align-items:center;gap:14px;margin-top:10px;flex-wrap:wrap;">
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink);">{{ creditsLine }}</span>
+              <button onClick="{{ addCredits }}" style="border:1px solid color-mix(in srgb, var(--ink) 16%, transparent);border-radius:var(--radius-pill);padding:8px 14px;font-family:var(--font-mono);font-size:11px;color:var(--ink);background:none;cursor:pointer;min-height:38px;" style-hover="border-color: color-mix(in srgb, var(--accent-gold) 40%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.addCreditsBtn }}</button>
+            </div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:10px;line-height:1.6;">{{ t.creditNote }}</div>
+          </div>
+
+          <sc-if value="{{ danaNotDone }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:26px;">
+              <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--ink-soft);">{{ t.offeringTitle }}</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+                <sc-for list="{{ danaAmts }}" as="da" hint-placeholder-count="3">
+                  <button onClick="{{ da.pick }}" style="{{ da.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ da.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;">
+                <div style="display:flex;gap:2px;">
+                  <sc-for list="{{ danaFreqs }}" as="df" hint-placeholder-count="2">
+                    <button onClick="{{ df.pick }}" style="{{ df.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ df.label }}</button>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:2px;">
+                  <sc-for list="{{ danaMethods }}" as="dm" hint-placeholder-count="2">
+                    <button onClick="{{ dm.pick }}" style="{{ dm.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ dm.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <button onClick="{{ danaOffer }}" style="margin-top:20px;border:1px solid var(--accent-flame);border-radius:var(--radius-pill);padding:12px 26px;font:inherit;font-size:13px;color:var(--accent-flame);background:none;cursor:pointer;min-height:var(--touch-target);" style-hover="background: color-mix(in srgb, var(--accent-flame) 8%, transparent)" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.danaOfferBtn }}</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ danaDone }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;padding:30px 0 10px;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+              <div style="color:var(--accent-gold);font-size:17px;">◦</div>
+              <div style="font-family:var(--font-passage);font-size:1.08rem;color:var(--ink);margin-top:12px;">{{ t.danaDoneLine }}</div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);margin-top:10px;">{{ danaSummary }}</div>
+              <button onClick="{{ danaAgainFn }}" style="margin-top:16px;background:none;border:none;color:var(--ink-soft);font:inherit;font-size:11.5px;cursor:pointer;text-decoration:underline;min-height:32px;" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ t.danaAgain }}</button>
+            </div>
+          </sc-if>
+
+          <div style="font-family:var(--font-mono);font-size:10.5px;line-height:1.8;color:var(--ink-soft);margin-top:auto;padding-top:26px;">{{ t.danaNever }}</div>
+        </div>
+      </sc-if>
+
+      <!-- ══ arriving (honest unbuilt doors) ══ -->
+      <sc-if value="{{ showArriving }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Arriving" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;padding:76px 26px 96px;box-sizing:border-box;animation:darshan-reveal var(--motion-depth-dial) var(--ease-calm);">
+          <button onClick="{{ backToCourt }}" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;font-size:12.5px;color:var(--ink-soft);align-self:flex-start;min-height:32px;" style-hover="color: var(--ink)">{{ t.backCourt }}</button>
+          <div style="margin:auto 0;text-align:center;padding-bottom:60px;">
+            <div style="font-family:var(--font-passage);font-size:1.35rem;color:var(--ink);">{{ arrivingName }}</div>
+            <div style="font-size:11px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--accent-gold);margin-top:14px;">{{ t.arrivingTag }}</div>
+            <div style="font-size:13px;line-height:1.7;color:var(--ink-soft);margin-top:14px;max-width:34ch;margin-left:auto;margin-right:auto;">{{ t.arrivingText }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ══ silence room ══ -->
+      <sc-if value="{{ showSilence }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Silence Room" role="button" aria-label="{{ t.silenceRoom }}" onClick="{{ exitSilence }}" style="position:absolute;inset:0;background:var(--veil);display:grid;place-items:center;cursor:pointer;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--halo);animation:darshan-breath var(--motion-breath-cycle) var(--ease-calm) infinite;"></div>
+        </div>
+      </sc-if>
+
+      <!-- ══ farewell ══ -->
+      <sc-if value="{{ showFarewell }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Farewell" role="button" aria-label="{{ t.farewellHint }}" onClick="{{ resetSession }}" style="position:absolute;inset:0;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;padding:0 40px;text-align:center;animation:darshan-reveal var(--motion-passage-reveal) var(--ease-calm);">
+          <span style="color:var(--accent-gold);font-size:15px;">◦</span>
+          <div style="font-family:var(--font-passage);font-size:1.45rem;color:var(--ink);margin-top:22px;">{{ t.farewell }}</div>
+          <div style="font-size:var(--type-meta);color:var(--ink-soft);margin-top:16px;line-height:1.7;max-width:30ch;">{{ t.farewellText }}</div>
+          <div style="position:absolute;bottom:52px;left:0;right:0;font-size:11px;color:var(--ink-soft);opacity:0.6;">{{ t.farewellHint }}</div>
+        </div>
+      </sc-if>
+
+      <!-- persistent silence glyph -->
+      <sc-if value="{{ showGlyph }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ glyphSilence }}" aria-label="{{ t.silenceRoom }}" style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);background:none;border:none;cursor:pointer;font-size:15px;color:var(--ink-soft);opacity:0.65;min-width:var(--touch-target);min-height:36px;" style-hover="opacity: 1">◦</button>
+      </sc-if>
+
+    </div>
+  </x-import>
+
+  <!-- desk: language + hour -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <sc-for list="{{ langOptions }}" as="lo" hint-placeholder-count="5">
+        <button onClick="{{ lo.pick }}" style="{{ lo.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ lo.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <sc-for list="{{ hourOptions }}" as="opt" hint-placeholder-count="5">
+        <button onClick="{{ opt.pick }}" style="{{ opt.style }}" style-focus="outline: 2px solid var(--halo); outline-offset: 2px;">{{ opt.label }}</button>
+      </sc-for>
+    </div>
+    <div style="font-size:11px;color:var(--ink-soft);opacity:0.75;">{{ t.deskNote }}</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;lang&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;en&quot;, &quot;pt&quot;, &quot;hi&quot;, &quot;it&quot;, &quot;es&quot;],
+    &quot;default&quot;: &quot;en&quot;,
+    &quot;tsType&quot;: &quot;'en'|'pt'|'hi'|'it'|'es'&quot;,
+    &quot;section&quot;: &quot;language&quot;
+  },
+  &quot;hour&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;options&quot;: [&quot;auto&quot;, &quot;pre_dawn&quot;, &quot;day&quot;, &quot;dusk&quot;, &quot;night&quot;],
+    &quot;default&quot;: &quot;auto&quot;,
+    &quot;tsType&quot;: &quot;'auto'|'pre_dawn'|'day'|'dusk'|'night'&quot;,
+    &quot;section&quot;: &quot;atmosphere&quot;
+  },
+  &quot;directEntry&quot;: {
+    &quot;editor&quot;: &quot;boolean&quot;,
+    &quot;default&quot;: false,
+    &quot;tsType&quot;: &quot;boolean&quot;,
+    &quot;section&quot;: &quot;ritual&quot;
+  }
+}">
+class Component extends DCLogic {
+  state = {
+    screen: 'threshold',
+    hourPick: null,
+    langPick: null,
+    depth: 0,
+    dialOpen: false,
+    deepening: false,
+    question: '',
+    restraint: false,
+    kept: false,
+    arriving: '',
+    silenceReturn: 'court',
+    placeholderIdx: 0,
+    door: null,
+    mapId: null,
+    mapPos: [0, 0, 0, 0],
+    offering: '',
+    offered: false,
+    lb1: '', lb2: '', lb3: '',
+    lbDone: false,
+    libView: 'shelves',
+    lensOpen: false,
+    skyNumbers: false,
+    innerMarks: {},
+    diaryText: '',
+    diaryKept: false,
+    witness: false,
+    measureUsed: 0,
+    credits: 12,
+    confirmCredit: false,
+    danaAmt: 21,
+    danaFreq: 'once',
+    danaMethod: 'pix',
+    danaDone: false,
+  };
+
+  locales = { en: 'en-US', pt: 'pt-BR', hi: 'hi-IN', it: 'it-IT', es: 'es-ES' };
+  langNames = { en: 'english', pt: 'português', hi: 'हिन्दी', it: 'italiano', es: 'español' };
+
+  strings = {
+    en: {
+      hourLines: { pre_dawn: 'pre-dawn · the still hour', day: 'day · the working hours', dusk: 'dusk · the look-back hour', night: 'night · the near-silence' },
+      hourNames: { pre_dawn: 'pre-dawn', day: 'day', dusk: 'dusk', night: 'night' },
+      hourAuto: 'follows the hour',
+      breathLine: 'one breath, then enter', tapHint: 'a single tap enters now',
+      court: 'the court',
+      gestures: [
+        { name: 'the word', desc: 'one passage for this day' },
+        { name: 'the inquiry', desc: 'bring one real question' },
+        { name: 'living maps', desc: 'an inner path, station by station' },
+        { name: 'practice field', desc: 'silence, offering, the look-back' },
+        { name: 'the library', desc: 'reading rooms, whole books' },
+        { name: 'the sky map', desc: 'the rhythm of the moment' },
+        { name: 'house of nature', desc: 'elements, land, the body as temple' },
+        { name: 'the inner diary', desc: 'written for no one — the engine is blind to it' },
+      ],
+      silenceRoom: 'the silence room',
+      courtNote: 'one gesture, then rest. the court leans with the hour — nothing is locked, only emphasis.',
+      goGently: 'go gently ·', backCourt: '‹ the court',
+      wordLabel: 'darshan of the word', word: 'offering',
+      wordCitation: 'held from the Bhagavad Gita, II.47 · gita',
+      pressDeeper: 'press deeper ›',
+      deepeningOpen: 'a word on this, from the sources ›', deepeningClose: 'enough — close the commentary',
+      deepeningText: 'The verse does not counsel idleness. Sri Aurobindo reads it as the seed of Karmayoga — equality in work, the fruit left to a greater Will. What empties work is the claim on it; what restores it is the offering.',
+      enoughToday: 'enough for today — go gently',
+      dialTitle: 'the depth dial', dialClose: 'close ›',
+      depthNames: ['the word', 'the meaning', 'the passage', 'the section', 'the book', 'the original', 'the constellation'],
+      depthHints: ['one word, alone', 'its plain sense, in a breath', 'the verse it was drawn from, cited', 'the verse inside its chapter', 'the whole work, in the reading room', 'the source language, with transliteration', 'where it travels across traditions'],
+      d0Note: 'one word, alone — the breath around it is part of it',
+      d1Text: 'To act, and to release the claim on what the act returns — the doing turned toward the Divine while the hands go on working. Renunciation in action, not of it.',
+      d3Text: 'the section — Gita, chapter II, the yoga of intelligence — reads whole in the library room. that room is arriving with the corpus.',
+      d4Text: 'the book — the Bhagavad Gita, complete, typeset for long reading, offline, with position memory. the reading room is arriving with the corpus.',
+      d5Note: 'sanskrit · devanagari, transliteration beneath · language-tagged for screen readers',
+      d6Text: 'the constellation — where this word travels across the traditions, difference by difference — is arriving with the concept lens.',
+      dialFoot: 'the dial turns at 600ms · your place at every depth is kept',
+      openLibrary: 'open in the library ›',
+      inquiryLabel: 'the inquiry', arriveLabel: 'arrive with your life',
+      doors: [
+        { name: 'grief', seed: 'a grief has settled in me and it will not move.' },
+        { name: 'work', seed: 'the work i do is emptying me. how do i keep going?' },
+        { name: 'a decision', seed: 'a decision is in front of me and both roads are dark.' },
+        { name: 'joy', seed: 'something joyful arrived and i want to hold it rightly.' },
+        { name: 'practice is dry', seed: 'my practice has gone dry. should i push on?' },
+      ],
+      illnessName: 'illness', illnessSeed: 'there is an illness in my house. i do not know how to carry it.',
+      ownWords: 'or bring it in your own words —',
+      placeholders: ['What is moving in you?', 'What weighs tonight?', 'What is asking to be seen?', 'Where does the day still pull?'],
+      privacyNote: 'while you compose, the engine is silent. composition is private.',
+      offerBtn: 'offer the question',
+      restingLine: 'the well is drawing — there is no hurry',
+      studyLabel: 'met in the mode of study',
+      studyP1: 'What you carry does not need solving before it can be met. Begin where the Gita begins — not with the feeling, but with the act in front of you.',
+      studyP2: 'Work done as offering ceases to bind. The doing continues; what is renounced is the claim on what the doing returns.',
+      differLabel: 'the traditions differ here',
+      differText: 'Classical Vedanta counsels renunciation of action; the Gita and the Mother teach renunciation in action — consecration, not withdrawal.',
+      movementStudy: 'offered, if you wish: before the next task, one breath — and inwardly offer the doing.',
+      sit: 'sit with it', keep: 'keep it', keptMark: 'kept on the shelf ·', leave: 'leave',
+      restraintLabel: 'met with restraint',
+      restraintAck: 'What the body is carrying is real, and it is not carried alone.',
+      restraintP: 'This deserves more care than words. Darshan can sit beside illness; it cannot treat it. If there is pain or danger now, qualified care comes first — this page accompanies it, and never replaces it.',
+      cautionLabel: 'held with restraint',
+      cautionText: 'the sources on health render here as cited heritage, not instruction. nothing on this page diagnoses, prescribes, or doses.',
+      movementRestraint: 'offered, if you wish: feel the weight of the body where it rests, and take five unhurried breaths.',
+      silenceOpenLine: 'if words are too many, the silence room is open.',
+      arrivingTag: 'arriving',
+      arrivingText: 'this door opens in a later phase of the build. what stands behind it is real — its corpus is still arriving.',
+      farewell: 'go gently.', farewellText: 'the session is closed. nothing here will call you back.', farewellHint: 'tap to return, when you wish',
+      deskNote: 'the ground follows the seeker\u2019s hour — override, if you wish',
+      cpGrief: { label: 'met in grief', ack: 'Grief does not need to be denied before it is held.', p1: 'nothing here asks you to be strong, or to understand yet. mourning is honored; the sources can wait.', movement: 'a safe first movement could be silence, simple presence, or a single sincere sentence — rather than forced devotion.' },
+      cpDecision: { label: 'met in discernment', p1: 'The sources suggest examining four things separately — your role, the truth of each road, the consequence, and the inner law. A dark road examined is already less dark.', movement: 'offered, if you wish: write one sincere sentence for each road tonight, and read them tomorrow morning.', returnedQ: 'which of the two roads could you walk with a whole heart, even if it costs more?' },
+      cpJoy: { label: 'met in a devotional opening', p1: 'Joy is also a message. Held as an offering it deepens; grasped, it thins. The Isha holds both in one breath — the world enjoyed, and nothing possessed.', movement: 'offered, if you wish: before sleep, name what arrived — and give thanks in one line.' },
+      cpDry: { label: 'met in doubt', p1: 'Dryness is a station on the path, not a verdict on it. Discouragement and discernment are not the same movement — one closes, the other clarifies.', movement: 'a safe first movement could be to make the daily moment smaller, not larger — one breath of recollection, kept honestly.', mapLine: 'the aspiration path holds this station ›' },
+      returnedLabel: 'a question, returned',
+      mapsLabel: 'living maps',
+      mapsIntro: 'inner journeys walked over weeks, not minutes. advancing is always yours; returning to an earlier station is first-class. no percentages, ever.',
+      mapsHere: 'you are here', mapsStay: 'stay here some days — the map never nags, never expires.',
+      mapsForward: 'walk forward ›', mapsBack: '‹ return to an earlier station',
+      mapsCautionLabel: 'held gently', mapsSourcesLabel: 'source areas',
+      mapsList: [
+        { name: 'ego to psychic being', start: 'conflict, pride, defensiveness, or a repeated inner falseness has been noticed.', stations: ['observe the movement, without justification', 'seek the more sincere motive underneath', 'prefer truthfulness over self-image', 'reinforce quiet aspiration and offering'], caution: 'no self-hatred. no premature claims of soul-contact.', sources: 'integral yoga · the Gita on equality and self-mastery' },
+        { name: 'suffering to conscious growth', start: 'pain, loss, or conflict is pressing for meaning and change.', stations: ['acknowledge the suffering directly', 'let no instant metaphysical explanation in', 'seek grounding, support, and truthful reflection', 'ask what movement toward consciousness is now possible'], caution: 'pain is not romanticized. karma is never used as blame.', sources: 'the Gita on grief and action · devotional supports · Sri Aurobindo on growth through difficulty' },
+        { name: 'aspiration path', start: 'the need for truth or inner change is felt, but steadiness is missing.', stations: ['name the aspiration simply', 'establish a brief daily moment of recollection', 'read one small source-grounded passage, regularly', 'observe what strengthens sincerity'], caution: 'aspiration is not converted into ambition. intensity is never forced.', sources: 'Upanishads · the Gita · Sri Aurobindo · the Mother' },
+        { name: 'surrender path', start: 'the limits of control, self-will, or mental certainty have been reached.', stations: ['acknowledge inability, without self-condemnation', 'turn inward or upward in simple offering', 'ask for light, peace, or right direction', 'continue practical responsibility, loosening possession'], caution: 'surrender is not passivity toward abuse or danger — and never a performance.', sources: 'the Gita · bhakti sources · the Mother' },
+      ],
+      practiceLabel: 'practice field',
+      prSilenceName: 'the silence', prSilenceDesc: 'a timer with nothing to achieve. one closing bell — afterwards, only: received.', prSilenceBtn: 'enter ›',
+      prOfferName: 'the offering', prOfferQ: 'what is offered today?', prOfferBtn: 'offer it', prReceived: 'received.', prOfferEcho: 'echoed at dusk, if you wish.',
+      prLookName: 'the evening look-back', prLookQ1: 'what was sincere?', prLookQ2: 'what resisted?', prLookQ3: 'what is asked of tomorrow?', prLookBtn: 'close the day', prLookNote: 'no scoring. this feeds nothing but your own diary.',
+      prJapaName: 'japa support', prJapaNote: 'haptic-only, screen-off — arriving with the native build.',
+      libLabel: 'the library', shelfIntro: 'shelves with provenance — rooms open as the corpus lands.',
+      shelves: [
+        { name: 'the Vedas', line: 'the root chant' },
+        { name: 'the Upanishads', line: 'sitting close to being' },
+        { name: 'the Bhagavad Gita', line: 'the inner battlefield' },
+        { name: 'the Puranas', line: 'the old carrying stories' },
+        { name: 'the Tantras', line: 'body and cosmos, one fabric' },
+        { name: 'the Siddhas · Tirumandiram', line: 'songs of the body-temple' },
+        { name: 'Sri Aurobindo', line: 'consciousness, evolving' },
+        { name: 'the Mother', line: 'practice, day by day' },
+      ],
+      shelfStates: { open: 'open', arriving: 'arriving', future: 'future' },
+      roomTitle: 'reading room', roomBack: '‹ shelves',
+      roomProvenance: 'the Bhagavad Gita · ch. II · tr. Sri Aurobindo · offline',
+      roomParas: [
+        { text: 'Thou hast a right to action, but only to action, never to its fruits; let not the fruits of thy works be thy motive, neither let there be in thee any attachment to inactivity.', cite: 'gita.ch02.s47' },
+        { text: 'Fixed in Yoga do thy actions, having abandoned attachment, having become equal in failure and success; for it is equality that is meant by Yoga.', cite: 'gita.ch02.s48' },
+        { text: 'Works are far inferior to Yoga of the intelligence; desire rather refuge in the intelligence; poor and wretched souls are they who make the fruit of their works the object of their thoughts and activities.', cite: 'gita.ch02.s49' },
+      ],
+      lensBtn: 'concept lens · samatā ›',
+      lensNote: 'samatā — equality: the even mind in gain and loss. the Gita names it the heart of Yoga; the Isha sees one Self in all things. differences between traditions stay named, never flattened.',
+      posLine: 'position remembered · resumes here',
+      skyLabel: 'the sky map', skyOuterLabel: 'the outer sky', skyInnerLabel: 'the inner sky',
+      skyRhythm: { pre_dawn: 'the still hour — good ground for silence', day: 'the working hours — the field is open', dusk: 'the look-back hour — gather the day', night: 'the near-silence — let it settle' },
+      moonWords: ['new moon — time of seed', 'waxing moon — time to build', 'full moon — time of fullness', 'waning moon — time to release'],
+      seasons: ['summer', 'autumn', 'winter', 'spring'],
+      seeNumbers: 'see the numbers ›', hideNumbers: 'enough — hide the numbers',
+      skyNote: 'rhythm, never fate — no horoscope, no prediction, no verdict.',
+      planes: ['the body', 'the breath', 'the mind', 'the discernment', 'the quiet joy'],
+      weathers: ['clear', 'veiled', 'stirred'],
+      innerPrompt: 'mark the weather of the planes, if you wish. nothing is scored, nothing kept beyond today.',
+      skyMirrorLead: 'the sky only mirrors —',
+      skyGitaLine: 'It is equality that is meant by Yoga.',
+      skyGitaCite: 'Bhagavad Gita, II.48 · tr. Sri Aurobindo · gita.ch02.s48',
+      natLabel: 'house of nature',
+      natNotice: 'heritage, not prescription — cited documentary reading from the traditions. it never diagnoses, prescribes or doses. in illness, qualified care comes first.',
+      natElements: ['earth', 'water', 'fire', 'air', 'ether'],
+      natElementsLine: 'the five elements, as the corpus reads body and land.',
+      natTiers: [
+        { name: 'the safe layer', line: 'rest, walking, water, the rhythm of the day — the traditions\u2019 common sense, cited.', state: 'open' },
+        { name: 'the documentary layer', line: 'the ayurveda and siddha texts as reading rooms, behind the double editorial gate.', state: 'arriving' },
+        { name: 'the closed layer', line: 'diagnosis, prescription, dosage — closed by design law, forever.', state: 'closed' },
+      ],
+      natStates: { open: 'open', arriving: 'arriving', closed: 'closed' },
+      diaryLabel: 'the inner diary',
+      diaryChips: ['local', 'encrypted', 'no cloud'],
+      diaryBlind: 'the engine is blind to this page unless invited — once.',
+      diaryPrompt: 'written for no one…',
+      diaryKeepBtn: 'set it down', diaryKeptLine: 'received — kept only on this device', diaryNewBtn: 'new page',
+      witnessInvite: 'invite the witness · once', witnessRevoke: 'return to blindness',
+      witnessLine: 'the witness sees: a full day, carried with care. no conclusion, no memory of it afterwards.',
+      danaLabel: 'the dana', danaLink: 'dana',
+      danaLaw: 'The wisdom is free. You may pay, if you wish, for the machine\u2019s time and for other people\u2019s access.',
+      danaFreeLine: 'every contemplative surface — free forever, no account, no lock.',
+      danaMeasure: 'inquiry · free daily measure: 3', danaUsed: 'used today',
+      creditsWord: 'credits', addCreditsBtn: 'add 10 credits · R$ 1,00',
+      creditNote: 'price anchored to real machine cost, shown before each use. pix · card.',
+      offeringTitle: 'offering', freqOnce: 'once', freqMonthly: 'monthly', methodPix: 'pix', methodCard: 'card',
+      danaOfferBtn: 'offer', danaDoneLine: 'received. the well stays open.', danaAgain: 'new offering',
+      danaNever: 'never — ads · sale of data · locked content · urgency · guilt',
+      measureWord: 'today\u2019s measure',
+      creditAsk: 'today\u2019s free measure is complete. beyond it, the machine\u2019s time is priced at cost — never the wisdom.',
+      useCreditBtn: 'offer with 1 credit · ≈ R$ 0,10', getCreditsBtn: 'get credits ›',
+      notNow: 'not now — the word and the library stay open',
+    },
+
+    pt: {
+      hourLines: { pre_dawn: 'madrugada · a hora quieta', day: 'dia · as horas de trabalho', dusk: 'entardecer · a hora de olhar o dia', night: 'noite · o quase-silêncio' },
+      hourNames: { pre_dawn: 'madrugada', day: 'dia', dusk: 'entardecer', night: 'noite' },
+      hourAuto: 'segue a hora',
+      breathLine: 'uma respiração, então entre', tapHint: 'um único toque entra agora',
+      court: 'o pátio',
+      gestures: [
+        { name: 'a palavra', desc: 'uma passagem para este dia' },
+        { name: 'a indagação', desc: 'traga uma pergunta verdadeira' },
+        { name: 'mapas vivos', desc: 'um caminho interior, estação por estação' },
+        { name: 'campo de prática', desc: 'silêncio, oferenda, o olhar da noite' },
+        { name: 'a biblioteca', desc: 'salas de leitura, livros inteiros' },
+        { name: 'o mapa do céu', desc: 'o ritmo do momento' },
+        { name: 'casa da natureza', desc: 'elementos, terra, o corpo como templo' },
+        { name: 'o diário interior', desc: 'escrito para ninguém — o motor é cego a ele' },
+      ],
+      silenceRoom: 'a sala de silêncio',
+      courtNote: 'um gesto, depois descanso. o pátio se inclina com a hora — nada está trancado, só a ênfase.',
+      goGently: 'vá em paz ·', backCourt: '‹ o pátio',
+      wordLabel: 'darshan da palavra', word: 'oferenda',
+      wordCitation: 'guardada do Bhagavad Gita, II.47 · gita',
+      pressDeeper: 'aprofunde ›',
+      deepeningOpen: 'uma palavra sobre isto, das fontes ›', deepeningClose: 'basta — fechar o comentário',
+      deepeningText: 'O verso não aconselha o ócio. Sri Aurobindo o lê como semente do Karmayoga — igualdade no trabalho, o fruto entregue a uma Vontade maior. O que esvazia o trabalho é a posse; o que o restaura é a oferenda.',
+      enoughToday: 'basta por hoje — vá em paz',
+      dialTitle: 'o dial de profundidade', dialClose: 'fechar ›',
+      depthNames: ['a palavra', 'o sentido', 'a passagem', 'a seção', 'o livro', 'o original', 'a constelação'],
+      depthHints: ['uma palavra, sozinha', 'seu sentido claro, num sopro', 'o verso de onde veio, citado', 'o verso dentro do capítulo', 'a obra inteira, na sala de leitura', 'a língua-fonte, com transliteração', 'por onde viaja entre as tradições'],
+      d0Note: 'uma palavra, sozinha — o espaço ao redor faz parte dela',
+      d1Text: 'Agir, e soltar a posse sobre o que o ato devolve — o fazer voltado ao Divino enquanto as mãos seguem trabalhando. Renúncia na ação, não da ação.',
+      d3Text: 'a seção — Gita, capítulo II, o yoga da inteligência — se lê inteira na sala de leitura. essa sala está chegando com o corpus.',
+      d4Text: 'o livro — o Bhagavad Gita completo, composto para leitura longa, offline, com memória de posição. a sala de leitura está chegando com o corpus.',
+      d5Note: 'sânscrito · devanágari, transliteração abaixo · marcado por idioma para leitores de tela',
+      d6Text: 'a constelação — por onde esta palavra viaja entre as tradições, diferença por diferença — está chegando com a lente de conceitos.',
+      dialFoot: 'o dial gira em 600ms · seu lugar em cada profundidade é guardado',
+      openLibrary: 'abrir na biblioteca ›',
+      inquiryLabel: 'a indagação', arriveLabel: 'chegue com a sua vida',
+      doors: [
+        { name: 'luto', seed: 'um luto pousou em mim e não se move.' },
+        { name: 'trabalho', seed: 'o trabalho que faço está me esvaziando. como continuar?' },
+        { name: 'uma decisão', seed: 'uma decisão está à minha frente e os dois caminhos estão escuros.' },
+        { name: 'alegria', seed: 'algo alegre chegou e quero segurá-lo direito.' },
+        { name: 'a prática secou', seed: 'minha prática secou. devo insistir?' },
+      ],
+      illnessName: 'doença', illnessSeed: 'há uma doença na minha casa. não sei como carregá-la.',
+      ownWords: 'ou traga com suas palavras —',
+      placeholders: ['O que se move em você?', 'O que pesa esta noite?', 'O que pede para ser visto?', 'Onde o dia ainda puxa?'],
+      privacyNote: 'enquanto você escreve, o motor está em silêncio. a composição é privada.',
+      offerBtn: 'oferecer a pergunta',
+      restingLine: 'o poço está puxando — não há pressa',
+      studyLabel: 'recebida no modo de estudo',
+      studyP1: 'O que você traz não precisa ser resolvido antes de ser acolhido. Comece onde o Gita começa — não pelo sentimento, mas pelo ato à sua frente.',
+      studyP2: 'O trabalho feito como oferenda deixa de prender. O fazer continua; renuncia-se à posse sobre o que o fazer devolve.',
+      differLabel: 'as tradições divergem aqui',
+      differText: 'O Vedanta clássico aconselha a renúncia da ação; o Gita e a Mãe ensinam a renúncia na ação — consagração, não retirada.',
+      movementStudy: 'oferecido, se quiser: antes da próxima tarefa, uma respiração — e ofereça interiormente o fazer.',
+      sit: 'ficar com ela', keep: 'guardar', keptMark: 'guardada na estante ·', leave: 'sair',
+      restraintLabel: 'recebida com contenção',
+      restraintAck: 'O que o corpo carrega é real, e não é carregado sozinho.',
+      restraintP: 'Isto merece mais cuidado que palavras. Darshan pode sentar-se ao lado da doença; não pode tratá-la. Se há dor ou perigo agora, o cuidado qualificado vem primeiro — esta página o acompanha, e nunca o substitui.',
+      cautionLabel: 'sustentado com contenção',
+      cautionText: 'as fontes sobre saúde aparecem aqui como herança citada, não instrução. nada nesta página diagnostica, prescreve ou dosa.',
+      movementRestraint: 'oferecido, se quiser: sinta o peso do corpo onde ele repousa, e faça cinco respirações sem pressa.',
+      silenceOpenLine: 'se as palavras são demais, a sala de silêncio está aberta.',
+      arrivingTag: 'chegando',
+      arrivingText: 'esta porta abre numa fase seguinte da construção. o que há atrás dela é real — seu corpus ainda está chegando.',
+      farewell: 'vá em paz.', farewellText: 'a sessão está encerrada. nada aqui vai te chamar de volta.', farewellHint: 'toque para voltar, quando quiser',
+      deskNote: 'o chão segue a hora de quem busca — mude, se quiser',
+      cpGrief: { label: 'recebida no luto', ack: 'O luto não precisa ser negado antes de ser sustentado.', p1: 'nada aqui pede que você seja forte, ou que entenda já. o luto é honrado; as fontes podem esperar.', movement: 'um primeiro movimento seguro pode ser o silêncio, a simples presença, ou uma única frase sincera — em vez de devoção forçada.' },
+      cpDecision: { label: 'recebida no discernimento', p1: 'As fontes sugerem examinar quatro coisas separadamente — seu papel, a verdade de cada caminho, a consequência, e a lei interior. Um caminho escuro examinado já é menos escuro.', movement: 'oferecido, se quiser: escreva esta noite uma frase sincera para cada caminho, e leia-as amanhã de manhã.', returnedQ: 'qual dos dois caminhos você poderia andar com o coração inteiro, mesmo custando mais?' },
+      cpJoy: { label: 'recebida numa abertura devocional', p1: 'A alegria também é mensagem. Sustentada como oferenda, aprofunda; agarrada, se esvai. O Isha segura as duas num só fôlego — o mundo fruído, e nada possuído.', movement: 'oferecido, se quiser: antes de dormir, nomeie o que chegou — e agradeça numa linha.' },
+      cpDry: { label: 'recebida na dúvida', p1: 'A secura é uma estação do caminho, não um veredito sobre ele. Desânimo e discernimento não são o mesmo movimento — um fecha, o outro clarifica.', movement: 'um primeiro movimento seguro pode ser tornar o momento diário menor, não maior — uma respiração de recolhimento, mantida com honestidade.', mapLine: 'o caminho da aspiração guarda esta estação ›' },
+      returnedLabel: 'uma pergunta, devolvida',
+      mapsLabel: 'mapas vivos',
+      mapsIntro: 'jornadas interiores caminhadas em semanas, não minutos. avançar é sempre seu; voltar a uma estação anterior é gesto de primeira classe. sem porcentagens, nunca.',
+      mapsHere: 'você está aqui', mapsStay: 'fique aqui alguns dias — o mapa não cobra, não expira.',
+      mapsForward: 'caminhar adiante ›', mapsBack: '‹ voltar a uma estação anterior',
+      mapsCautionLabel: 'sustentado com cuidado', mapsSourcesLabel: 'áreas-fonte',
+      mapsList: [
+        { name: 'do ego ao ser psíquico', start: 'notou-se conflito, orgulho, defensividade, ou uma falsidade interior repetida.', stations: ['observar o movimento, sem justificativa', 'buscar o motivo mais sincero por baixo', 'preferir a veracidade à autoimagem', 'reforçar aspiração quieta e oferenda'], caution: 'sem ódio de si. sem alegações prematuras de contato com a alma.', sources: 'yoga integral · o Gita sobre igualdade e domínio de si' },
+        { name: 'do sofrimento ao crescimento consciente', start: 'dor, perda ou conflito pressiona por sentido e mudança.', stations: ['reconhecer o sofrimento diretamente', 'não deixar entrar explicação metafísica instantânea', 'buscar chão, apoio e reflexão verdadeira', 'perguntar que movimento rumo à consciência é agora possível'], caution: 'a dor não é romantizada. o karma nunca é usado como culpa.', sources: 'o Gita sobre luto e ação · apoios devocionais · Sri Aurobindo sobre crescer pela dificuldade' },
+        { name: 'caminho da aspiração', start: 'sente-se a necessidade de verdade ou mudança interior, mas falta constância.', stations: ['nomear a aspiração com simplicidade', 'estabelecer um breve momento diário de recolhimento', 'ler regularmente uma pequena passagem com fonte', 'observar o que fortalece a sinceridade'], caution: 'a aspiração não vira ambição. a intensidade nunca é forçada.', sources: 'Upanishads · o Gita · Sri Aurobindo · a Mãe' },
+        { name: 'caminho da entrega', start: 'chegou-se ao limite do controle, da vontade própria, da certeza mental.', stations: ['reconhecer a incapacidade, sem autocondenação', 'voltar-se para dentro ou para o alto em oferenda simples', 'pedir luz, paz, ou direção certa', 'seguir com a responsabilidade prática, soltando a posse'], caution: 'entrega não é passividade diante de abuso ou perigo — e nunca é performance.', sources: 'o Gita · fontes bhakti · a Mãe' },
+      ],
+      practiceLabel: 'campo de prática',
+      prSilenceName: 'o silêncio', prSilenceDesc: 'um timer sem nada a alcançar. um único sino ao fim — depois, apenas: recebido.', prSilenceBtn: 'entrar ›',
+      prOfferName: 'a oferenda', prOfferQ: 'o que é oferecido hoje?', prOfferBtn: 'oferecer', prReceived: 'recebido.', prOfferEcho: 'ecoada ao entardecer, se quiser.',
+      prLookName: 'o olhar da noite', prLookQ1: 'o que foi sincero?', prLookQ2: 'o que resistiu?', prLookQ3: 'o que o amanhã pede?', prLookBtn: 'fechar o dia', prLookNote: 'sem pontuação. isto alimenta apenas o seu próprio diário.',
+      prJapaName: 'apoio de japa', prJapaNote: 'só háptico, tela apagada — chega com a versão nativa.',
+      libLabel: 'a biblioteca', shelfIntro: 'estantes com proveniência — salas abrem conforme o corpus chega.',
+      shelves: [
+        { name: 'os Vedas', line: 'o canto raiz' },
+        { name: 'as Upanishads', line: 'sentar-se perto do ser' },
+        { name: 'a Bhagavad Gita', line: 'o campo de batalha interior' },
+        { name: 'os Puranas', line: 'as histórias que carregam' },
+        { name: 'os Tantras', line: 'corpo e cosmos, um só tecido' },
+        { name: 'os Siddhas · Tirumandiram', line: 'cantos do corpo-templo' },
+        { name: 'Sri Aurobindo', line: 'a consciência, evoluindo' },
+        { name: 'a Mãe', line: 'a prática, dia a dia' },
+      ],
+      shelfStates: { open: 'aberta', arriving: 'chegando', future: 'futura' },
+      roomTitle: 'sala de leitura', roomBack: '‹ estantes',
+      roomProvenance: 'a Bhagavad Gita · cap. II · tr. Sri Aurobindo · offline',
+      roomParas: [
+        { text: 'Tens direito à ação, mas somente à ação, nunca aos seus frutos; que os frutos das tuas obras não sejam teu motivo, nem haja em ti apego algum à inação.', cite: 'gita.ch02.s47' },
+        { text: 'Firme no Yoga faze tuas ações, abandonado o apego, igual no fracasso e no sucesso; pois é a igualdade que se entende por Yoga.', cite: 'gita.ch02.s48' },
+        { text: 'As obras são muito inferiores ao Yoga da inteligência; busca antes refúgio na inteligência; pobres e miseráveis são os que fazem do fruto das obras o objeto de seus pensamentos e atividades.', cite: 'gita.ch02.s49' },
+      ],
+      lensBtn: 'lente de conceito · samatā ›',
+      lensNote: 'samatā — igualdade: a mente equânime no ganho e na perda. a Gita a nomeia o coração do Yoga; a Isha vê um só Ser em todas as coisas. as diferenças entre tradições permanecem nomeadas, nunca achatadas.',
+      posLine: 'posição lembrada · retoma daqui',
+      skyLabel: 'o mapa do céu', skyOuterLabel: 'o céu externo', skyInnerLabel: 'o céu interno',
+      skyRhythm: { pre_dawn: 'a hora quieta — bom chão para o silêncio', day: 'as horas de trabalho — o campo está aberto', dusk: 'a hora de olhar o dia — recolher', night: 'o quase-silêncio — deixar assentar' },
+      moonWords: ['lua nova — tempo de semente', 'lua crescente — tempo de construir', 'lua cheia — tempo de plenitude', 'lua minguante — tempo de soltar'],
+      seasons: ['verão', 'outono', 'inverno', 'primavera'],
+      seeNumbers: 'ver os números ›', hideNumbers: 'basta — esconder os números',
+      skyNote: 'ritmo, nunca destino — sem horóscopo, sem previsão, sem veredito.',
+      planes: ['o corpo', 'o alento', 'a mente', 'o discernimento', 'a alegria quieta'],
+      weathers: ['claro', 'velado', 'agitado'],
+      innerPrompt: 'marque o clima dos planos, se quiser. nada é pontuado, nada fica além de hoje.',
+      skyMirrorLead: 'o céu apenas espelha —',
+      skyGitaLine: 'É a igualdade que se entende por Yoga.',
+      skyGitaCite: 'Bhagavad Gita, II.48 · tr. Sri Aurobindo · gita.ch02.s48',
+      natLabel: 'a casa da natureza',
+      natNotice: 'herança, não prescrição — leitura documental citada das tradições. nunca diagnostica, prescreve ou dosa. na doença, o cuidado qualificado vem primeiro.',
+      natElements: ['terra', 'água', 'fogo', 'ar', 'éter'],
+      natElementsLine: 'os cinco elementos, como o corpus lê o corpo e a terra.',
+      natTiers: [
+        { name: 'a camada segura', line: 'descanso, caminhada, água, ritmo do dia — o senso comum das tradições, citado.', state: 'open' },
+        { name: 'a camada documental', line: 'os textos de ayurveda e siddha como salas de leitura, atrás do portão editorial duplo.', state: 'arriving' },
+        { name: 'a camada fechada', line: 'diagnóstico, prescrição, dosagem — fechada por lei de design, para sempre.', state: 'closed' },
+      ],
+      natStates: { open: 'aberta', arriving: 'chegando', closed: 'fechada' },
+      diaryLabel: 'o diário interior',
+      diaryChips: ['local', 'cifrado', 'sem nuvem'],
+      diaryBlind: 'o motor é cego a esta página, salvo convite — uma vez.',
+      diaryPrompt: 'escrito para ninguém…',
+      diaryKeepBtn: 'pousar', diaryKeptLine: 'recebido — guardado só neste aparelho', diaryNewBtn: 'nova página',
+      witnessInvite: 'convidar a testemunha · uma vez', witnessRevoke: 'voltar à cegueira',
+      witnessLine: 'a testemunha vê: um dia inteiro, carregado com cuidado. nenhuma conclusão, nenhuma memória depois.',
+      danaLabel: 'a dana', danaLink: 'dana',
+      danaLaw: 'A sabedoria é livre. Paga-se, se quiser, pelo tempo da máquina e pelo acesso dos outros.',
+      danaFreeLine: 'toda superfície contemplativa — livre para sempre, sem conta, sem tranca.',
+      danaMeasure: 'indagação · medida diária livre: 3', danaUsed: 'usadas hoje',
+      creditsWord: 'créditos', addCreditsBtn: 'somar 10 créditos · R$ 1,00',
+      creditNote: 'preço ancorado ao custo real da máquina, exibido antes de cada uso. pix · cartão.',
+      offeringTitle: 'oferenda', freqOnce: 'única', freqMonthly: 'mensal', methodPix: 'pix', methodCard: 'cartão',
+      danaOfferBtn: 'oferecer', danaDoneLine: 'recebida. o poço segue aberto.', danaAgain: 'nova oferenda',
+      danaNever: 'nunca — anúncios · venda de dados · conteúdo trancado · urgência · culpa',
+      measureWord: 'medida de hoje',
+      creditAsk: 'a medida livre de hoje se completou. além dela, o tempo da máquina tem preço de custo — nunca a sabedoria.',
+      useCreditBtn: 'oferecer com 1 crédito · ≈ R$ 0,10', getCreditsBtn: 'obter créditos ›',
+      notNow: 'agora não — a palavra e a biblioteca seguem abertas',
+    },
+
+    hi: {
+      hourLines: { pre_dawn: 'ब्रह्ममुहूर्त · शांत घड़ी', day: 'दिन · काम की घड़ियाँ', dusk: 'गोधूलि · लौटकर देखने की घड़ी', night: 'रात · लगभग मौन' },
+      hourNames: { pre_dawn: 'ब्रह्ममुहूर्त', day: 'दिन', dusk: 'गोधूलि', night: 'रात' },
+      hourAuto: 'घड़ी के साथ',
+      breathLine: 'एक साँस, फिर प्रवेश', tapHint: 'एक स्पर्श से अभी प्रवेश करें',
+      court: 'आँगन',
+      gestures: [
+        { name: 'वचन', desc: 'आज के लिए एक वचन' },
+        { name: 'जिज्ञासा', desc: 'एक सच्चा प्रश्न लाइए' },
+        { name: 'जीवित मानचित्र', desc: 'भीतर की राह, पड़ाव दर पड़ाव' },
+        { name: 'साधना क्षेत्र', desc: 'मौन, अर्पण, संध्या-दृष्टि' },
+        { name: 'ग्रंथालय', desc: 'पाठ-कक्ष, पूरे ग्रंथ' },
+        { name: 'आकाश-चित्र', desc: 'इस क्षण की लय' },
+        { name: 'प्रकृति-गृह', desc: 'तत्व, भूमि, देह — मंदिर' },
+        { name: 'अंतर-डायरी', desc: 'किसी के लिए नहीं — यंत्र इसे नहीं देखता' },
+      ],
+      silenceRoom: 'मौन कक्ष',
+      courtNote: 'एक भाव, फिर विश्राम। आँगन घड़ी के साथ झुकता है — कुछ बंद नहीं, बस बल बदलता है।',
+      goGently: 'शांति से जाइए ·', backCourt: '‹ आँगन',
+      wordLabel: 'वचन का दर्शन', word: 'अर्पण',
+      wordCitation: 'भगवद्गीता, II.47 से · gita',
+      pressDeeper: 'और गहरे ›',
+      deepeningOpen: 'स्रोतों से, इस पर एक बात ›', deepeningClose: 'बस — टिप्पणी बंद करें',
+      deepeningText: 'यह श्लोक आलस्य नहीं सिखाता। श्री अरविंद इसे कर्मयोग का बीज कहते हैं — कर्म में समता, फल एक बड़ी इच्छा को सौंपा हुआ। कर्म को खाली करता है दावा; उसे भरता है अर्पण।',
+      enoughToday: 'आज के लिए बस — शांति से जाइए',
+      dialTitle: 'गहराई का चक्र', dialClose: 'बंद करें ›',
+      depthNames: ['वचन', 'अर्थ', 'श्लोक', 'खंड', 'ग्रंथ', 'मूल', 'नक्षत्र-मंडल'],
+      depthHints: ['एक वचन, अकेला', 'सरल अर्थ, एक साँस में', 'जिस श्लोक से आया, उद्धृत', 'अध्याय के भीतर श्लोक', 'पूरा ग्रंथ, पाठ-कक्ष में', 'मूल भाषा, लिप्यंतरण सहित', 'परंपराओं के बीच इसकी यात्रा'],
+      d0Note: 'एक वचन, अकेला — उसके चारों ओर की साँस उसी का अंश है',
+      d1Text: 'कर्म करना, और जो कर्म लौटाए उस पर दावा छोड़ देना — हाथ काम करते रहें, करना दिव्य की ओर मुड़ा रहे। कर्म में त्याग, कर्म का नहीं।',
+      d3Text: 'खंड — गीता, अध्याय II, बुद्धियोग — पाठ-कक्ष में पूरा पढ़ा जाता है। वह कक्ष कोष के साथ आ रहा है।',
+      d4Text: 'ग्रंथ — पूरी भगवद्गीता, लंबे पाठ के लिए, ऑफ़लाइन, स्थान-स्मृति सहित। पाठ-कक्ष कोष के साथ आ रहा है।',
+      d5Note: 'संस्कृत · देवनागरी, नीचे लिप्यंतरण · स्क्रीन-रीडर हेतु भाषा-चिह्नित',
+      d6Text: 'नक्षत्र-मंडल — यह वचन परंपराओं के बीच जहाँ-जहाँ जाता है, भेद सहित — अवधारणा-दर्पण के साथ आ रहा है।',
+      dialFoot: 'चक्र 600ms में घूमता है · हर गहराई पर आपका स्थान सुरक्षित रहता है',
+      openLibrary: 'ग्रंथालय में खोलें ›',
+      inquiryLabel: 'जिज्ञासा', arriveLabel: 'अपने जीवन के साथ आइए',
+      doors: [
+        { name: 'शोक', seed: 'एक शोक मुझमें बैठ गया है और हटता नहीं।' },
+        { name: 'काम', seed: 'मेरा काम मुझे खाली कर रहा है। कैसे चलता रहूँ?' },
+        { name: 'एक निर्णय', seed: 'सामने एक निर्णय है और दोनों राहें अँधेरी हैं।' },
+        { name: 'आनंद', seed: 'कुछ आनंद का आया है और मैं उसे ठीक से थामना चाहता हूँ।' },
+        { name: 'साधना सूख गई', seed: 'मेरी साधना सूख गई है। क्या ज़ोर दूँ?' },
+      ],
+      illnessName: 'रोग', illnessSeed: 'घर में एक रोग है। समझ नहीं आता कैसे उठाऊँ।',
+      ownWords: 'या अपने शब्दों में कहिए —',
+      placeholders: ['आपके भीतर क्या हिल रहा है?', 'आज रात क्या भारी है?', 'क्या देखा जाना चाहता है?', 'दिन अब भी कहाँ खींचता है?'],
+      privacyNote: 'जब आप लिखते हैं, यंत्र मौन रहता है। रचना निजी है।',
+      offerBtn: 'प्रश्न अर्पित करें',
+      restingLine: 'कुआँ खींच रहा है — कोई जल्दी नहीं',
+      studyLabel: 'अध्ययन-भाव में मिला',
+      studyP1: 'जो आप लाए हैं, उसे अपनाने से पहले सुलझाना ज़रूरी नहीं। वहीं से शुरू कीजिए जहाँ से गीता शुरू होती है — भावना से नहीं, सामने रखे कर्म से।',
+      studyP2: 'अर्पण होकर किया गया कर्म बाँधता नहीं। करना चलता रहता है; छूटता है केवल उस पर दावा, जो करना लौटाता है।',
+      differLabel: 'यहाँ परंपराएँ भिन्न हैं',
+      differText: 'शास्त्रीय वेदांत कर्म के त्याग की बात करता है; गीता और माताजी कर्म में त्याग सिखाती हैं — समर्पण, पलायन नहीं।',
+      movementStudy: 'चाहें तो: अगले काम से पहले एक साँस — और भीतर ही करना अर्पित कर दीजिए।',
+      sit: 'इसके साथ बैठें', keep: 'रख लें', keptMark: 'ताक पर रखा ·', leave: 'जाएँ',
+      restraintLabel: 'संयम के साथ मिला',
+      restraintAck: 'देह जो उठा रही है वह सच है, और वह अकेले नहीं उठाया जा रहा।',
+      restraintP: 'यह शब्दों से अधिक देखभाल माँगता है। दर्शन रोग के पास बैठ सकता है; उसका उपचार नहीं कर सकता। यदि अभी पीड़ा या संकट है, तो योग्य चिकित्सा पहले आती है — यह पृष्ठ उसके साथ चलता है, उसकी जगह कभी नहीं लेता।',
+      cautionLabel: 'संयम में रखा गया',
+      cautionText: 'स्वास्थ्य पर स्रोत यहाँ उद्धृत विरासत की तरह आते हैं, निर्देश नहीं। यह पृष्ठ न निदान करता है, न नुस्खा, न मात्रा।',
+      movementRestraint: 'चाहें तो: देह जहाँ टिकी है वहाँ उसका भार महसूस कीजिए, और पाँच धीमी साँसें लीजिए।',
+      silenceOpenLine: 'यदि शब्द बहुत हों, मौन कक्ष खुला है।',
+      arrivingTag: 'आ रहा है',
+      arrivingText: 'यह द्वार निर्माण के अगले चरण में खुलेगा। इसके पीछे जो है वह सच है — उसका कोष अभी आ रहा है।',
+      farewell: 'शांति से जाइए।', farewellText: 'सत्र पूर्ण हुआ। यहाँ कुछ भी आपको वापस नहीं बुलाएगा।', farewellHint: 'जब चाहें, लौटने के लिए स्पर्श करें',
+      deskNote: 'धरातल साधक की घड़ी के साथ चलता है — चाहें तो बदलें',
+      cpGrief: { label: 'शोक में मिला', ack: 'शोक को थामने से पहले नकारना ज़रूरी नहीं।', p1: 'यहाँ कुछ नहीं माँगता कि आप मज़बूत हों, या अभी समझ जाएँ। शोक का मान है; स्रोत प्रतीक्षा कर सकते हैं।', movement: 'एक सुरक्षित पहला कदम हो सकता है मौन, सरल उपस्थिति, या एक सच्चा वाक्य — ज़बरदस्ती की भक्ति नहीं।' },
+      cpDecision: { label: 'विवेक में मिला', p1: 'स्रोत चार बातें अलग-अलग देखने को कहते हैं — आपकी भूमिका, हर राह का सत्य, परिणाम, और भीतरी विधान। जाँची हुई अँधेरी राह पहले से कम अँधेरी है।', movement: 'चाहें तो: आज रात हर राह के लिए एक सच्चा वाक्य लिखिए, और सुबह दोनों पढ़िए।', returnedQ: 'दोनों राहों में से किस पर आप पूरे हृदय से चल सकते हैं, भले क़ीमत अधिक हो?' },
+      cpJoy: { label: 'भक्ति के खुलने में मिला', p1: 'आनंद भी एक संदेश है। अर्पण की तरह थामा जाए तो गहराता है; पकड़ा जाए तो छीज जाता है। ईशा एक ही साँस में दोनों रखता है — जगत भोगा हुआ, और कुछ भी अपना नहीं।', movement: 'चाहें तो: सोने से पहले जो आया उसे नाम दीजिए — और एक पंक्ति में धन्यवाद कहिए।' },
+      cpDry: { label: 'संदेह में मिला', p1: 'सूखापन राह का एक पड़ाव है, राह पर फ़ैसला नहीं। हताशा और विवेक एक ही चाल नहीं — एक बंद करता है, दूसरा साफ़ करता है।', movement: 'एक सुरक्षित पहला कदम: दैनिक क्षण को बड़ा नहीं, छोटा कीजिए — स्मरण की एक साँस, ईमानदारी से रखी हुई।', mapLine: 'अभीप्सा-पथ इस पड़ाव को धारण करता है ›' },
+      returnedLabel: 'एक प्रश्न, लौटाया हुआ',
+      mapsLabel: 'जीवित मानचित्र',
+      mapsIntro: 'हफ़्तों में चली जाने वाली भीतरी यात्राएँ, मिनटों में नहीं। आगे बढ़ना सदा आपका है; पिछले पड़ाव पर लौटना प्रथम श्रेणी का भाव है। प्रतिशत कभी नहीं।',
+      mapsHere: 'आप यहाँ हैं', mapsStay: 'कुछ दिन यहीं रहिए — मानचित्र न टोकता है, न चुकता है।',
+      mapsForward: 'आगे चलें ›', mapsBack: '‹ पिछले पड़ाव पर लौटें',
+      mapsCautionLabel: 'कोमलता से धारण', mapsSourcesLabel: 'स्रोत-क्षेत्र',
+      mapsList: [
+        { name: 'अहं से चैत्य पुरुष तक', start: 'द्वंद्व, अभिमान, बचाव, या दोहराती भीतरी असत्यता दिखी है।', stations: ['चाल को देखिए, बिना सफ़ाई के', 'नीचे का अधिक सच्चा हेतु खोजिए', 'आत्म-छवि से ऊपर सत्य को रखिए', 'शांत अभीप्सा और अर्पण को बल दीजिए'], caution: 'आत्म-घृणा नहीं। आत्मा-संपर्क के अपरिपक्व दावे नहीं।', sources: 'पूर्ण योग · समता और आत्म-संयम पर गीता' },
+        { name: 'दुःख से सचेत विकास तक', start: 'पीड़ा, हानि या द्वंद्व अर्थ और बदलाव के लिए दबाव डाल रहा है।', stations: ['दुःख को सीधे स्वीकार कीजिए', 'तुरंत की तात्त्विक व्याख्या को भीतर न आने दीजिए', 'धरातल, सहारा और सच्चा चिंतन खोजिए', 'पूछिए — चेतना की ओर अब कौन-सी चाल संभव है'], caution: 'पीड़ा का महिमामंडन नहीं। कर्म कभी दोष नहीं बनता।', sources: 'शोक और कर्म पर गीता · भक्ति के सहारे · कठिनाई से विकास पर श्री अरविंद' },
+        { name: 'अभीप्सा-पथ', start: 'सत्य या भीतरी बदलाव की चाह है, पर स्थिरता नहीं।', stations: ['अभीप्सा को सरलता से नाम दीजिए', 'स्मरण का एक छोटा दैनिक क्षण स्थापित कीजिए', 'नियम से एक छोटा उद्धृत अंश पढ़िए', 'देखिए क्या सच्चाई को बल देता है'], caution: 'अभीप्सा महत्वाकांक्षा नहीं बनती। तीव्रता कभी थोपी नहीं जाती।', sources: 'उपनिषद · गीता · श्री अरविंद · माताजी' },
+        { name: 'समर्पण-पथ', start: 'नियंत्रण, स्व-इच्छा और मानसिक निश्चय की सीमा आ चुकी है।', stations: ['असमर्थता को स्वीकारिए, बिना आत्म-दंड के', 'सरल अर्पण में भीतर या ऊपर मुड़िए', 'प्रकाश, शांति या सही दिशा माँगिए', 'व्यावहारिक दायित्व निभाते रहिए, पकड़ ढीली करते हुए'], caution: 'समर्पण अन्याय या ख़तरे के आगे निष्क्रियता नहीं — और कभी प्रदर्शन नहीं।', sources: 'गीता · भक्ति-स्रोत · माताजी' },
+      ],
+      practiceLabel: 'साधना क्षेत्र',
+      prSilenceName: 'मौन', prSilenceDesc: 'एक घड़ी, पाने को कुछ नहीं। अंत में एक घंटी — उसके बाद केवल: स्वीकार हुआ।', prSilenceBtn: 'प्रवेश ›',
+      prOfferName: 'अर्पण', prOfferQ: 'आज क्या अर्पित है?', prOfferBtn: 'अर्पित करें', prReceived: 'स्वीकार हुआ।', prOfferEcho: 'चाहें तो गोधूलि में गूँजेगा।',
+      prLookName: 'संध्या-दृष्टि', prLookQ1: 'क्या सच्चा था?', prLookQ2: 'किसने विरोध किया?', prLookQ3: 'कल क्या माँगता है?', prLookBtn: 'दिन समेटें', prLookNote: 'कोई अंक नहीं। यह केवल आपकी अपनी डायरी को जाता है।',
+      prJapaName: 'जप सहयोग', prJapaNote: 'केवल स्पर्श-कंपन, स्क्रीन बंद — नेटिव संस्करण के साथ आ रहा है।',
+    },
+
+    it: {
+      hourLines: { pre_dawn: 'pre-alba · l\u2019ora quieta', day: 'giorno · le ore del lavoro', dusk: 'crepuscolo · l\u2019ora dello sguardo indietro', night: 'notte · il quasi-silenzio' },
+      hourNames: { pre_dawn: 'pre-alba', day: 'giorno', dusk: 'crepuscolo', night: 'notte' },
+      hourAuto: 'segue l\u2019ora',
+      breathLine: 'un respiro, poi entra', tapHint: 'un solo tocco entra subito',
+      court: 'la corte',
+      gestures: [
+        { name: 'la parola', desc: 'un passo per questo giorno' },
+        { name: 'l\u2019indagine', desc: 'porta una domanda vera' },
+        { name: 'mappe viventi', desc: 'un cammino interiore, stazione per stazione' },
+        { name: 'campo di pratica', desc: 'silenzio, offerta, lo sguardo della sera' },
+        { name: 'la biblioteca', desc: 'sale di lettura, libri interi' },
+        { name: 'la mappa del cielo', desc: 'il ritmo del momento' },
+        { name: 'casa della natura', desc: 'elementi, terra, il corpo come tempio' },
+        { name: 'il diario interiore', desc: 'scritto per nessuno — il motore non lo vede' },
+      ],
+      silenceRoom: 'la stanza del silenzio',
+      courtNote: 'un gesto, poi riposo. la corte si inclina con l\u2019ora — nulla è chiuso, solo l\u2019enfasi.',
+      goGently: 'va\u2019 in pace ·', backCourt: '‹ la corte',
+      wordLabel: 'darshan della parola', word: 'offerta',
+      wordCitation: 'custodita dalla Bhagavad Gita, II.47 · gita',
+      pressDeeper: 'scendi più a fondo ›',
+      deepeningOpen: 'una parola su questo, dalle fonti ›', deepeningClose: 'basta — chiudi il commento',
+      deepeningText: 'Il verso non consiglia l\u2019ozio. Sri Aurobindo lo legge come seme del Karmayoga — equanimità nel lavoro, il frutto lasciato a una Volontà più grande. Ciò che svuota il lavoro è la pretesa; ciò che lo restaura è l\u2019offerta.',
+      enoughToday: 'basta per oggi — va\u2019 in pace',
+      dialTitle: 'il quadrante della profondità', dialClose: 'chiudi ›',
+      depthNames: ['la parola', 'il senso', 'il passo', 'la sezione', 'il libro', 'l\u2019originale', 'la costellazione'],
+      depthHints: ['una parola, sola', 'il suo senso piano, in un respiro', 'il verso da cui viene, citato', 'il verso dentro il capitolo', 'l\u2019opera intera, nella sala di lettura', 'la lingua d\u2019origine, con traslitterazione', 'dove viaggia tra le tradizioni'],
+      d0Note: 'una parola, sola — il respiro intorno ne fa parte',
+      d1Text: 'Agire, e lasciare la pretesa su ciò che l\u2019atto restituisce — il fare rivolto al Divino mentre le mani continuano a lavorare. Rinuncia nell\u2019azione, non all\u2019azione.',
+      d3Text: 'la sezione — Gita, capitolo II, lo yoga dell\u2019intelligenza — si legge intera nella sala di lettura. quella sala sta arrivando con il corpus.',
+      d4Text: 'il libro — la Bhagavad Gita completa, composta per la lettura lunga, offline, con memoria di posizione. la sala di lettura sta arrivando con il corpus.',
+      d5Note: 'sanscrito · devanagari, traslitterazione sotto · marcato per lingua per gli screen reader',
+      d6Text: 'la costellazione — dove questa parola viaggia tra le tradizioni, differenza per differenza — sta arrivando con la lente dei concetti.',
+      dialFoot: 'il quadrante gira in 600ms · il tuo posto a ogni profondità è custodito',
+      openLibrary: 'apri nella biblioteca ›',
+      inquiryLabel: 'l\u2019indagine', arriveLabel: 'arriva con la tua vita',
+      doors: [
+        { name: 'lutto', seed: 'un lutto si è posato in me e non si muove.' },
+        { name: 'lavoro', seed: 'il lavoro che faccio mi sta svuotando. come continuo?' },
+        { name: 'una decisione', seed: 'ho davanti una decisione e le due strade sono buie.' },
+        { name: 'gioia', seed: 'è arrivato qualcosa di gioioso e voglio tenerlo bene.' },
+        { name: 'la pratica è secca', seed: 'la mia pratica si è seccata. devo insistere?' },
+      ],
+      illnessName: 'malattia', illnessSeed: 'c\u2019è una malattia nella mia casa. non so come portarla.',
+      ownWords: 'o portala con parole tue —',
+      placeholders: ['Cosa si muove in te?', 'Cosa pesa stanotte?', 'Cosa chiede di essere visto?', 'Dove tira ancora il giorno?'],
+      privacyNote: 'mentre componi, il motore tace. la composizione è privata.',
+      offerBtn: 'offri la domanda',
+      restingLine: 'il pozzo sta attingendo — non c\u2019è fretta',
+      studyLabel: 'accolta nel modo dello studio',
+      studyP1: 'Ciò che porti non ha bisogno di essere risolto prima di essere accolto. Comincia dove comincia la Gita — non dal sentimento, ma dall\u2019atto che hai davanti.',
+      studyP2: 'Il lavoro fatto come offerta smette di legare. Il fare continua; si rinuncia alla pretesa su ciò che il fare restituisce.',
+      differLabel: 'qui le tradizioni differiscono',
+      differText: 'Il Vedanta classico consiglia la rinuncia all\u2019azione; la Gita e la Madre insegnano la rinuncia nell\u2019azione — consacrazione, non ritiro.',
+      movementStudy: 'offerto, se vuoi: prima del prossimo compito, un respiro — e dentro di te offri il fare.',
+      sit: 'restale accanto', keep: 'custodiscila', keptMark: 'custodita sullo scaffale ·', leave: 'vai',
+      restraintLabel: 'accolta con ritegno',
+      restraintAck: 'Ciò che il corpo porta è reale, e non è portato da solo.',
+      restraintP: 'Questo merita più cura che parole. Darshan può sedersi accanto alla malattia; non può curarla. Se ora c\u2019è dolore o pericolo, la cura qualificata viene prima — questa pagina la accompagna, e non la sostituisce mai.',
+      cautionLabel: 'tenuto con ritegno',
+      cautionText: 'le fonti sulla salute compaiono qui come eredità citata, non istruzione. nulla in questa pagina diagnostica, prescrive o dosa.',
+      movementRestraint: 'offerto, se vuoi: senti il peso del corpo dove riposa, e fai cinque respiri senza fretta.',
+      silenceOpenLine: 'se le parole sono troppe, la stanza del silenzio è aperta.',
+      arrivingTag: 'in arrivo',
+      arrivingText: 'questa porta si apre in una fase successiva della costruzione. ciò che le sta dietro è reale — il suo corpus sta ancora arrivando.',
+      farewell: 'va\u2019 in pace.', farewellText: 'la sessione è chiusa. nulla qui ti richiamerà.', farewellHint: 'tocca per tornare, quando vorrai',
+      deskNote: 'il suolo segue l\u2019ora di chi cerca — cambia, se vuoi',
+      cpGrief: { label: 'accolta nel lutto', ack: 'Il lutto non ha bisogno di essere negato prima di essere sostenuto.', p1: 'nulla qui ti chiede di essere forte, o di capire già. il lutto è onorato; le fonti possono aspettare.', movement: 'un primo movimento sicuro può essere il silenzio, la semplice presenza, o una sola frase sincera — non la devozione forzata.' },
+      cpDecision: { label: 'accolta nel discernimento', p1: 'Le fonti suggeriscono di esaminare quattro cose separatamente — il tuo ruolo, la verità di ogni strada, la conseguenza, e la legge interiore. Una strada buia esaminata è già meno buia.', movement: 'offerto, se vuoi: scrivi stasera una frase sincera per ogni strada, e rileggile domattina.', returnedQ: 'quale delle due strade potresti percorrere con il cuore intero, anche se costa di più?' },
+      cpJoy: { label: 'accolta in un\u2019apertura devozionale', p1: 'Anche la gioia è un messaggio. Sostenuta come offerta si approfondisce; afferrata, si assottiglia. La Isha tiene entrambe in un solo respiro — il mondo goduto, e nulla posseduto.', movement: 'offerto, se vuoi: prima di dormire, nomina ciò che è arrivato — e ringrazia in una riga.' },
+      cpDry: { label: 'accolta nel dubbio', p1: 'L\u2019aridità è una stazione del cammino, non un verdetto su di esso. Scoraggiamento e discernimento non sono lo stesso movimento — uno chiude, l\u2019altro chiarisce.', movement: 'un primo movimento sicuro può essere rendere il momento quotidiano più piccolo, non più grande — un respiro di raccoglimento, tenuto con onestà.', mapLine: 'il cammino dell\u2019aspirazione custodisce questa stazione ›' },
+      returnedLabel: 'una domanda, restituita',
+      mapsLabel: 'mappe viventi',
+      mapsIntro: 'viaggi interiori percorsi in settimane, non minuti. avanzare è sempre tuo; tornare a una stazione precedente è di prima classe. niente percentuali, mai.',
+      mapsHere: 'sei qui', mapsStay: 'resta qui qualche giorno — la mappa non insiste, non scade.',
+      mapsForward: 'cammina avanti ›', mapsBack: '‹ torna a una stazione precedente',
+      mapsCautionLabel: 'tenuto con cura', mapsSourcesLabel: 'aree-fonte',
+      mapsList: [
+        { name: 'dall\u2019ego all\u2019essere psichico', start: 'si è notato conflitto, orgoglio, difensività, o una falsità interiore che si ripete.', stations: ['osserva il movimento, senza giustificarlo', 'cerca il motivo più sincero al di sotto', 'preferisci la veracità all\u2019immagine di sé', 'rafforza l\u2019aspirazione quieta e l\u2019offerta'], caution: 'nessun odio di sé. nessuna pretesa prematura di contatto con l\u2019anima.', sources: 'yoga integrale · la Gita su equanimità e padronanza di sé' },
+        { name: 'dalla sofferenza alla crescita cosciente', start: 'dolore, perdita o conflitto premono per senso e cambiamento.', stations: ['riconosci la sofferenza direttamente', 'non lasciar entrare spiegazioni metafisiche istantanee', 'cerca radicamento, sostegno e riflessione veritiera', 'chiedi quale movimento verso la coscienza è ora possibile'], caution: 'il dolore non è romanticizzato. il karma non è mai colpa.', sources: 'la Gita su lutto e azione · sostegni devozionali · Sri Aurobindo sul crescere nella difficoltà' },
+        { name: 'cammino dell\u2019aspirazione', start: 'si sente il bisogno di verità o cambiamento interiore, ma manca la costanza.', stations: ['nomina l\u2019aspirazione con semplicità', 'stabilisci un breve momento quotidiano di raccoglimento', 'leggi regolarmente un piccolo passo con fonte', 'osserva ciò che rafforza la sincerità'], caution: 'l\u2019aspirazione non diventa ambizione. l\u2019intensità non è mai forzata.', sources: 'Upanishad · la Gita · Sri Aurobindo · la Madre' },
+        { name: 'cammino della resa', start: 'si è giunti al limite del controllo, della volontà propria, della certezza mentale.', stations: ['riconosci l\u2019incapacità, senza autocondanna', 'volgiti dentro o in alto in offerta semplice', 'chiedi luce, pace, o giusta direzione', 'continua la responsabilità pratica, allentando il possesso'], caution: 'la resa non è passività davanti ad abuso o pericolo — e mai una performance.', sources: 'la Gita · fonti bhakti · la Madre' },
+      ],
+      practiceLabel: 'campo di pratica',
+      prSilenceName: 'il silenzio', prSilenceDesc: 'un timer con niente da raggiungere. una sola campana alla fine — dopo, soltanto: ricevuto.', prSilenceBtn: 'entra ›',
+      prOfferName: 'l\u2019offerta', prOfferQ: 'cosa è offerto oggi?', prOfferBtn: 'offrilo', prReceived: 'ricevuto.', prOfferEcho: 'riecheggiata al crepuscolo, se vuoi.',
+      prLookName: 'lo sguardo della sera', prLookQ1: 'cosa è stato sincero?', prLookQ2: 'cosa ha resistito?', prLookQ3: 'cosa chiede il domani?', prLookBtn: 'chiudi il giorno', prLookNote: 'nessun punteggio. nutre soltanto il tuo diario.',
+      prJapaName: 'sostegno al japa', prJapaNote: 'solo aptico, schermo spento — arriva con la build nativa.',
+    },
+
+    es: {
+      hourLines: { pre_dawn: 'madrugada · la hora quieta', day: 'día · las horas de trabajo', dusk: 'atardecer · la hora de mirar atrás', night: 'noche · el casi-silencio' },
+      hourNames: { pre_dawn: 'madrugada', day: 'día', dusk: 'atardecer', night: 'noche' },
+      hourAuto: 'sigue la hora',
+      breathLine: 'una respiración, luego entra', tapHint: 'un solo toque entra ahora',
+      court: 'el patio',
+      gestures: [
+        { name: 'la palabra', desc: 'un pasaje para este día' },
+        { name: 'la indagación', desc: 'trae una pregunta verdadera' },
+        { name: 'mapas vivos', desc: 'un camino interior, estación por estación' },
+        { name: 'campo de práctica', desc: 'silencio, ofrenda, la mirada de la tarde' },
+        { name: 'la biblioteca', desc: 'salas de lectura, libros enteros' },
+        { name: 'el mapa del cielo', desc: 'el ritmo del momento' },
+        { name: 'casa de la naturaleza', desc: 'elementos, tierra, el cuerpo como templo' },
+        { name: 'el diario interior', desc: 'escrito para nadie — el motor no lo ve' },
+      ],
+      silenceRoom: 'la sala de silencio',
+      courtNote: 'un gesto, luego descanso. el patio se inclina con la hora — nada está cerrado, solo el énfasis.',
+      goGently: 've en paz ·', backCourt: '‹ el patio',
+      wordLabel: 'darshan de la palabra', word: 'ofrenda',
+      wordCitation: 'guardada del Bhagavad Gita, II.47 · gita',
+      pressDeeper: 'profundiza ›',
+      deepeningOpen: 'una palabra sobre esto, de las fuentes ›', deepeningClose: 'basta — cerrar el comentario',
+      deepeningText: 'El verso no aconseja el ocio. Sri Aurobindo lo lee como semilla del Karmayoga — ecuanimidad en el trabajo, el fruto entregado a una Voluntad mayor. Lo que vacía el trabajo es la posesión; lo que lo restaura es la ofrenda.',
+      enoughToday: 'basta por hoy — ve en paz',
+      dialTitle: 'el dial de profundidad', dialClose: 'cerrar ›',
+      depthNames: ['la palabra', 'el sentido', 'el pasaje', 'la sección', 'el libro', 'el original', 'la constelación'],
+      depthHints: ['una palabra, sola', 'su sentido llano, en un soplo', 'el verso del que vino, citado', 'el verso dentro del capítulo', 'la obra entera, en la sala de lectura', 'la lengua original, con transliteración', 'por dónde viaja entre las tradiciones'],
+      d0Note: 'una palabra, sola — el aliento a su alrededor es parte de ella',
+      d1Text: 'Actuar, y soltar la posesión sobre lo que el acto devuelve — el hacer vuelto hacia lo Divino mientras las manos siguen trabajando. Renuncia en la acción, no de la acción.',
+      d3Text: 'la sección — Gita, capítulo II, el yoga de la inteligencia — se lee entera en la sala de lectura. esa sala está llegando con el corpus.',
+      d4Text: 'el libro — el Bhagavad Gita completo, compuesto para lectura larga, sin conexión, con memoria de posición. la sala de lectura está llegando con el corpus.',
+      d5Note: 'sánscrito · devanagari, transliteración debajo · etiquetado por idioma para lectores de pantalla',
+      d6Text: 'la constelación — por donde esta palabra viaja entre las tradiciones, diferencia por diferencia — está llegando con la lente de conceptos.',
+      dialFoot: 'el dial gira en 600ms · tu lugar en cada profundidad se guarda',
+      openLibrary: 'abrir en la biblioteca ›',
+      inquiryLabel: 'la indagación', arriveLabel: 'llega con tu vida',
+      doors: [
+        { name: 'duelo', seed: 'un duelo se ha posado en mí y no se mueve.' },
+        { name: 'trabajo', seed: 'el trabajo que hago me está vaciando. ¿cómo sigo?' },
+        { name: 'una decisión', seed: 'tengo una decisión delante y ambos caminos están oscuros.' },
+        { name: 'alegría', seed: 'llegó algo alegre y quiero sostenerlo bien.' },
+        { name: 'la práctica se secó', seed: 'mi práctica se secó. ¿debo insistir?' },
+      ],
+      illnessName: 'enfermedad', illnessSeed: 'hay una enfermedad en mi casa. no sé cómo llevarla.',
+      ownWords: 'o tráela con tus palabras —',
+      placeholders: ['¿Qué se mueve en ti?', '¿Qué pesa esta noche?', '¿Qué pide ser visto?', '¿Dónde tira aún el día?'],
+      privacyNote: 'mientras compones, el motor calla. la composición es privada.',
+      offerBtn: 'ofrecer la pregunta',
+      restingLine: 'el pozo está sacando agua — no hay prisa',
+      studyLabel: 'recibida en modo de estudio',
+      studyP1: 'Lo que traes no necesita resolverse antes de ser acogido. Empieza donde empieza el Gita — no por el sentimiento, sino por el acto que tienes delante.',
+      studyP2: 'El trabajo hecho como ofrenda deja de atar. El hacer continúa; se renuncia a la posesión sobre lo que el hacer devuelve.',
+      differLabel: 'las tradiciones difieren aquí',
+      differText: 'El Vedanta clásico aconseja la renuncia de la acción; el Gita y la Madre enseñan la renuncia en la acción — consagración, no retirada.',
+      movementStudy: 'ofrecido, si quieres: antes de la próxima tarea, una respiración — y ofrece interiormente el hacer.',
+      sit: 'quédate con ella', keep: 'guárdala', keptMark: 'guardada en el estante ·', leave: 'salir',
+      restraintLabel: 'recibida con contención',
+      restraintAck: 'Lo que el cuerpo carga es real, y no se carga solo.',
+      restraintP: 'Esto merece más cuidado que palabras. Darshan puede sentarse junto a la enfermedad; no puede tratarla. Si hay dolor o peligro ahora, el cuidado calificado viene primero — esta página lo acompaña, y nunca lo reemplaza.',
+      cautionLabel: 'sostenido con contención',
+      cautionText: 'las fuentes sobre salud aparecen aquí como herencia citada, no instrucción. nada en esta página diagnostica, prescribe ni dosifica.',
+      movementRestraint: 'ofrecido, si quieres: siente el peso del cuerpo donde descansa, y haz cinco respiraciones sin prisa.',
+      silenceOpenLine: 'si las palabras son demasiadas, la sala de silencio está abierta.',
+      arrivingTag: 'llegando',
+      arrivingText: 'esta puerta se abre en una fase posterior de la construcción. lo que hay detrás es real — su corpus aún está llegando.',
+      farewell: 've en paz.', farewellText: 'la sesión está cerrada. nada aquí te llamará de vuelta.', farewellHint: 'toca para volver, cuando quieras',
+      deskNote: 'el suelo sigue la hora de quien busca — cámbiala, si quieres',
+      cpGrief: { label: 'recibida en el duelo', ack: 'El duelo no necesita ser negado antes de ser sostenido.', p1: 'nada aquí te pide ser fuerte, ni entender ya. el duelo es honrado; las fuentes pueden esperar.', movement: 'un primer movimiento seguro puede ser el silencio, la simple presencia, o una sola frase sincera — no la devoción forzada.' },
+      cpDecision: { label: 'recibida en el discernimiento', p1: 'Las fuentes sugieren examinar cuatro cosas por separado — tu papel, la verdad de cada camino, la consecuencia, y la ley interior. Un camino oscuro examinado ya es menos oscuro.', movement: 'ofrecido, si quieres: escribe esta noche una frase sincera por cada camino, y léelas mañana temprano.', returnedQ: '¿cuál de los dos caminos podrías andar con el corazón entero, aunque cueste más?' },
+      cpJoy: { label: 'recibida en una apertura devocional', p1: 'La alegría también es mensaje. Sostenida como ofrenda se ahonda; agarrada, se adelgaza. El Isha sostiene ambas en un solo aliento — el mundo gozado, y nada poseído.', movement: 'ofrecido, si quieres: antes de dormir, nombra lo que llegó — y agradece en una línea.' },
+      cpDry: { label: 'recibida en la duda', p1: 'La sequedad es una estación del camino, no un veredicto sobre él. Desánimo y discernimiento no son el mismo movimiento — uno cierra, el otro aclara.', movement: 'un primer movimiento seguro puede ser hacer el momento diario más pequeño, no más grande — una respiración de recogimiento, mantenida con honestidad.', mapLine: 'el camino de la aspiración guarda esta estación ›' },
+      returnedLabel: 'una pregunta, devuelta',
+      mapsLabel: 'mapas vivos',
+      mapsIntro: 'viajes interiores caminados en semanas, no minutos. avanzar es siempre tuyo; volver a una estación anterior es de primera clase. sin porcentajes, nunca.',
+      mapsHere: 'estás aquí', mapsStay: 'quédate aquí unos días — el mapa no insiste, no caduca.',
+      mapsForward: 'caminar adelante ›', mapsBack: '‹ volver a una estación anterior',
+      mapsCautionLabel: 'sostenido con cuidado', mapsSourcesLabel: 'áreas-fuente',
+      mapsList: [
+        { name: 'del ego al ser psíquico', start: 'se ha notado conflicto, orgullo, defensividad, o una falsedad interior repetida.', stations: ['observa el movimiento, sin justificarlo', 'busca el motivo más sincero debajo', 'prefiere la veracidad a la autoimagen', 'refuerza la aspiración quieta y la ofrenda'], caution: 'sin odio de sí. sin reclamos prematuros de contacto con el alma.', sources: 'yoga integral · el Gita sobre ecuanimidad y dominio de sí' },
+        { name: 'del sufrimiento al crecimiento consciente', start: 'dolor, pérdida o conflicto presiona por sentido y cambio.', stations: ['reconoce el sufrimiento directamente', 'no dejes entrar explicaciones metafísicas instantáneas', 'busca suelo, apoyo y reflexión veraz', 'pregunta qué movimiento hacia la conciencia es posible ahora'], caution: 'el dolor no se romantiza. el karma nunca se usa como culpa.', sources: 'el Gita sobre duelo y acción · apoyos devocionales · Sri Aurobindo sobre crecer en la dificultad' },
+        { name: 'camino de la aspiración', start: 'se siente la necesidad de verdad o cambio interior, pero falta constancia.', stations: ['nombra la aspiración con sencillez', 'establece un breve momento diario de recogimiento', 'lee con regularidad un pequeño pasaje con fuente', 'observa qué fortalece la sinceridad'], caution: 'la aspiración no se vuelve ambición. la intensidad nunca se fuerza.', sources: 'Upanishads · el Gita · Sri Aurobindo · la Madre' },
+        { name: 'camino de la entrega', start: 'se llegó al límite del control, de la voluntad propia, de la certeza mental.', stations: ['reconoce la incapacidad, sin autocondena', 'vuélvete adentro o arriba en ofrenda simple', 'pide luz, paz, o dirección justa', 'sigue con la responsabilidad práctica, soltando la posesión'], caution: 'la entrega no es pasividad ante el abuso o el peligro — y nunca es actuación.', sources: 'el Gita · fuentes bhakti · la Madre' },
+      ],
+      practiceLabel: 'campo de práctica',
+      prSilenceName: 'el silencio', prSilenceDesc: 'un temporizador sin nada que lograr. una sola campana al final — después, solo: recibido.', prSilenceBtn: 'entrar ›',
+      prOfferName: 'la ofrenda', prOfferQ: '¿qué se ofrece hoy?', prOfferBtn: 'ofrecerla', prReceived: 'recibido.', prOfferEcho: 'con eco al atardecer, si quieres.',
+      prLookName: 'la mirada de la tarde', prLookQ1: '¿qué fue sincero?', prLookQ2: '¿qué resistió?', prLookQ3: '¿qué pide el mañana?', prLookBtn: 'cerrar el día', prLookNote: 'sin puntuación. esto no alimenta más que tu propio diario.',
+      prJapaName: 'apoyo de japa', prJapaNote: 'solo háptico, pantalla apagada — llega con la versión nativa.',
+    },
+  };
+
+  _timers = [];
+
+  delay(ms, fn) { this._timers.push(setTimeout(fn, ms)); }
+  clearTimers() { this._timers.forEach(clearTimeout); this._timers = []; }
+
+  componentDidMount() {
+    if (this.props.directEntry ?? false) {
+      this.setState({ screen: 'court' });
+    } else {
+      this.armThreshold();
+    }
+  }
+
+  componentWillUnmount() { this.clearTimers(); }
+
+  armThreshold() {
+    this.delay(8600, () => {
+      this.setState(s => (s.screen === 'threshold' ? { screen: 'court' } : null));
+    });
+  }
+
+  autoHour() {
+    const h = new Date().getHours();
+    if (h >= 4 && h < 7) return 'pre_dawn';
+    if (h >= 7 && h < 17) return 'day';
+    if (h >= 17 && h < 20) return 'dusk';
+    return 'night';
+  }
+
+  hour() {
+    if (this.state.hourPick) return this.state.hourPick;
+    const p = this.props.hour ?? 'auto';
+    return p !== 'auto' ? p : this.autoHour();
+  }
+
+  lang() {
+    const l = this.state.langPick ?? this.props.lang ?? 'en';
+    return this.strings[l] ? l : 'en';
+  }
+
+  resetSession() {
+    this.clearTimers();
+    const direct = this.props.directEntry ?? false;
+    this.setState(s => ({
+      screen: direct ? 'court' : 'threshold',
+      question: '',
+      kept: false,
+      restraint: false,
+      dialOpen: false,
+      depth: 0,
+      deepening: false,
+      placeholderIdx: (s.placeholderIdx + 1) % 4,
+      door: null,
+      mapId: null,
+      offering: '', offered: false,
+      lb1: '', lb2: '', lb3: '', lbDone: false,
+    }));
+    if (!direct) this.armThreshold();
+  }
+
+  // contemplation page composed per detected state (discernment matrix)
+  composePage(t, s) {
+    const Q47 = 'Thou hast a right to action, but only to action, never to its fruits.';
+    const C47 = 'Bhagavad Gita, II.47 · gita';
+    const QISHA = 'Enjoy by renunciation; covet not the possession of others —';
+    const CISHA = 'Isha Upanishad, v.1 · tr. Sri Aurobindo · upanishadic';
+    const d = s.door;
+    let cp;
+    if (s.restraint || d === 'illness') {
+      cp = { label: t.restraintLabel, mode: 'cautionary_guidance', warn: true, ack: t.restraintAck, p1: t.restraintP, movement: t.movementRestraint, caution: true, silenceLine: t.silenceOpenLine, canKeep: false };
+    } else if (d === 'grief') {
+      cp = { label: t.cpGrief.label, mode: 'silence_contemplation', ack: t.cpGrief.ack, p1: t.cpGrief.p1, movement: t.cpGrief.movement, silenceLine: t.silenceOpenLine, canKeep: true };
+    } else if (d === 'decision') {
+      cp = { label: t.cpDecision.label, mode: 'orientation', p1: t.cpDecision.p1, movement: t.cpDecision.movement, returnedQ: t.cpDecision.returnedQ, canKeep: true };
+    } else if (d === 'joy') {
+      cp = { label: t.cpJoy.label, mode: 'source_commentary', p1: t.cpJoy.p1, quote: QISHA, cite: CISHA, movement: t.cpJoy.movement, canKeep: true };
+    } else if (d === 'dry') {
+      cp = { label: t.cpDry.label, mode: 'practice', p1: t.cpDry.p1, movement: t.cpDry.movement, mapLine: t.cpDry.mapLine, canKeep: true };
+    } else {
+      cp = { label: t.studyLabel, mode: 'study', p1: t.studyP1, p2: t.studyP2, quote: Q47, cite: C47, differ: true, movement: t.movementStudy, canKeep: true };
+    }
+    return {
+      cpLabel: cp.label,
+      cpMode: cp.mode,
+      cpLabelStyle: {
+        fontSize: '11px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase',
+        color: cp.warn ? 'var(--warn)' : 'var(--ink-soft)', marginTop: '18px',
+        display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap',
+      },
+      cpHasAck: !!cp.ack, cpAck: cp.ack || '',
+      cpHasP1: !!cp.p1, cpP1: cp.p1 || '',
+      cpHasP2: !!cp.p2, cpP2: cp.p2 || '',
+      cpHasQuote: !!cp.quote, cpQuote: cp.quote || '', cpCite: cp.cite || '',
+      cpHasDiffer: !!cp.differ,
+      cpMovement: cp.movement,
+      cpHasCaution: !!cp.caution,
+      cpHasReturnedQ: !!cp.returnedQ, cpReturnedQ: cp.returnedQ || '',
+      cpHasMapLine: !!cp.mapLine, cpMapLine: cp.mapLine || '',
+      cpHasSilenceLine: !!cp.silenceLine, cpSilenceLine: cp.silenceLine || '',
+      cpCanKeep: cp.canKeep,
+    };
+  }
+
+  mapsVals(t, s) {
+    const listView = s.mapId === null;
+    const mapCards = t.mapsList.map((m, i) => ({
+      name: m.name,
+      start: m.start,
+      pick: () => this.setState({ mapId: i }),
+    }));
+    let mapName = '', mapStart = '', mapCaution = '', mapSources = '', mapStations = [];
+    let hasForward = false, hasBack = false;
+    if (!listView) {
+      const m = t.mapsList[s.mapId];
+      const pos = s.mapPos[s.mapId];
+      mapName = m.name; mapStart = m.start; mapCaution = m.caution; mapSources = m.sources;
+      mapStations = m.stations.map((txt, i) => ({
+        txt,
+        here: i === pos ? t.mapsHere : '',
+        isHere: i === pos,
+        markStyle: {
+          color: i === pos ? 'var(--accent-flame)' : 'var(--ink-soft)',
+          fontSize: '15px', lineHeight: '1.4',
+        },
+        txtStyle: {
+          fontSize: '13.5px', lineHeight: '1.6',
+          color: i === pos ? 'var(--ink)' : 'var(--ink-soft)',
+        },
+      }));
+      hasForward = pos < m.stations.length - 1;
+      hasBack = pos > 0;
+    }
+    const step = (dir) => this.setState(p => {
+      const arr = p.mapPos.slice();
+      const max = t.mapsList[p.mapId].stations.length - 1;
+      arr[p.mapId] = Math.min(max, Math.max(0, arr[p.mapId] + dir));
+      return { mapPos: arr };
+    });
+    return {
+      mapListView: listView, mapDetailView: !listView,
+      mapCards, mapName, mapStart, mapCaution, mapSources, mapStations,
+      hasForward, hasBack,
+      mapForward: () => step(1),
+      mapBackStep: () => step(-1),
+      backToMaps: () => this.setState({ mapId: null }),
+    };
+  }
+
+  practiceVals(t, s) {
+    return {
+      offering: s.offering,
+      offered: s.offered,
+      notOffered: !s.offered,
+      canOfferPractice: s.offering.trim().length > 0 && !s.offered,
+      lb1: s.lb1, lb2: s.lb2, lb3: s.lb3,
+      lbDone: s.lbDone,
+      lbNotDone: !s.lbDone,
+      canCloseDay: !s.lbDone && (s.lb1.trim() || s.lb2.trim() || s.lb3.trim()),
+      onOffering: (e) => this.setState({ offering: e.target.value }),
+      doOffer: () => { if (this.state.offering.trim()) this.setState({ offered: true }); },
+      onLb1: (e) => this.setState({ lb1: e.target.value }),
+      onLb2: (e) => this.setState({ lb2: e.target.value }),
+      onLb3: (e) => this.setState({ lb3: e.target.value }),
+      doLookback: () => this.setState({ lbDone: true }),
+      practiceSilence: () => this.setState({ silenceReturn: 'practice', screen: 'silence' }),
+    };
+  }
+
+  moon() {
+    const synodic = 29.530588;
+    const ref = Date.UTC(2000, 0, 6, 18, 14) / 86400000;
+    const age = ((Date.now() / 86400000 - ref) % synodic + synodic) % synodic;
+    const illum = (1 - Math.cos(2 * Math.PI * age / synodic)) / 2;
+    const tithi = Math.min(30, Math.floor(age / synodic * 30) + 1);
+    const idx = age < 1.5 ? 0 : age < 13.2 ? 1 : age < 16.3 ? 2 : age < 28 ? 3 : 0;
+    return { age, illum, tithi, idx };
+  }
+
+  libraryVals(t, s) {
+    const meta = ['arriving', 'arriving', 'open', 'arriving', 'future', 'arriving', 'future', 'future'];
+    const stateColor = { open: 'var(--accent-flame)', arriving: 'var(--accent-gold)', future: 'var(--ink-soft)' };
+    const shelfRows = t.shelves.map((sh, i) => ({
+      name: sh.name, line: sh.line,
+      stateName: t.shelfStates[meta[i]],
+      stateStyle: { fontSize: '10px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: stateColor[meta[i]], flexShrink: 0 },
+      pick: meta[i] === 'open'
+        ? () => this.setState({ libView: 'room', lensOpen: false })
+        : () => this.setState({ screen: 'arriving', arriving: sh.name }),
+    }));
+    return {
+      showLibrary: s.screen === 'library',
+      libShelves: s.libView === 'shelves',
+      libRoom: s.libView === 'room',
+      shelfRows,
+      roomParas: t.roomParas,
+      backShelves: () => this.setState({ libView: 'shelves' }),
+      toggleLens: () => this.setState(p => ({ lensOpen: !p.lensOpen })),
+      lensOpen: s.lensOpen,
+    };
+  }
+
+  skyVals(t, s, hour) {
+    const m = this.moon();
+    const month = new Date().getMonth();
+    const seasonIdx = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 0][month]; // southern hemisphere
+    const bodyLeft = { pre_dawn: '16%', day: '48%', dusk: '78%', night: '58%' }[hour];
+    const bodyBottom = { pre_dawn: '18px', day: '64px', dusk: '14px', night: '54px' }[hour];
+    const isSun = hour === 'day' || hour === 'dusk';
+    const skyBodyStyle = {
+      position: 'absolute', left: bodyLeft, bottom: bodyBottom, width: '26px', height: '26px',
+      borderRadius: '50%', overflow: 'hidden', boxSizing: 'border-box',
+      background: isSun ? 'var(--accent-gold)' : 'color-mix(in srgb, var(--accent-gold) 55%, transparent)',
+      transition: 'left 600ms var(--ease-calm), bottom 600ms var(--ease-calm)',
+    };
+    const moonShadowStyle = {
+      display: isSun ? 'none' : 'block',
+      position: 'absolute', inset: '0', borderRadius: '50%',
+      background: 'var(--surface-raised)',
+      transform: 'translateX(' + (-Math.round(m.illum * 26)) + 'px)',
+    };
+    const marks = s.innerMarks || {};
+    const chip = (active) => ({
+      background: active ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+      border: '1px solid color-mix(in srgb, var(--ink) 12%, transparent)', borderRadius: 'var(--radius-pill)',
+      padding: '6px 12px', minHeight: '34px', font: 'inherit', fontSize: '11.5px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink-soft)',
+      transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+    });
+    const planeRows = t.planes.map((p, i) => ({
+      name: p,
+      opts: t.weathers.map((w, wi) => ({
+        label: w,
+        pick: () => this.setState(prev => {
+          const next = Object.assign({}, prev.innerMarks);
+          if (next[i] === wi) { delete next[i]; } else { next[i] = wi; }
+          return { innerMarks: next };
+        }),
+        style: chip(marks[i] === wi),
+      })),
+    }));
+    const marked = Object.keys(marks);
+    const mirror = marked.map(k => t.planes[k] + ': ' + t.weathers[marks[k]]).join(' · ');
+    return {
+      showSky: s.screen === 'sky',
+      skyBodyStyle, moonShadowStyle,
+      skyLine1: t.skyRhythm[hour],
+      skyLine2: t.moonWords[m.idx] + ' · ' + t.seasons[seasonIdx],
+      skyNumsLine: 'tithi ' + m.tithi + ' / 30 · ' + Math.round(m.illum * 100) + '% · ' + m.age.toFixed(1) + 'd / 29,5d',
+      skyNumbers: s.skyNumbers,
+      toggleNumbers: () => this.setState(p => ({ skyNumbers: !p.skyNumbers })),
+      numbersLabel: s.skyNumbers ? t.hideNumbers : t.seeNumbers,
+      planeRows,
+      skyMirrorOn: marked.length > 0,
+      skyMirror: mirror,
+    };
+  }
+
+  natureVals(t, s) {
+    const stateColor = { open: 'var(--accent-flame)', arriving: 'var(--accent-gold)', closed: 'var(--warn)' };
+    const natTiers = t.natTiers.map(tier => ({
+      name: tier.name, line: tier.line,
+      stateName: t.natStates[tier.state],
+      stateStyle: { fontSize: '10px', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: stateColor[tier.state], flexShrink: 0 },
+    }));
+    return { showNature: s.screen === 'nature', natTiers, natElements: t.natElements };
+  }
+
+  diaryVals(t, s) {
+    return {
+      showDiary: s.screen === 'diary',
+      diaryText: s.diaryText,
+      onDiary: (e) => this.setState({ diaryText: e.target.value, diaryKept: false }),
+      keepDiary: () => this.setState({ diaryKept: true }),
+      diaryKeptOn: s.diaryKept && s.diaryText.trim().length > 0,
+      canKeepDiary: !s.diaryKept && s.diaryText.trim().length > 0,
+      newPage: () => this.setState({ diaryText: '', diaryKept: false, witness: false }),
+      toggleWitness: () => this.setState(p => ({ witness: !p.witness })),
+      witnessOn: s.witness,
+      witnessLabel: s.witness ? t.witnessRevoke : t.witnessInvite,
+      diaryChips: t.diaryChips,
+    };
+  }
+
+  danaVals(t, s) {
+    const amtChip = (active) => ({
+      background: 'none',
+      border: active ? '1px solid var(--accent-flame)' : '1px solid color-mix(in srgb, var(--ink) 16%, transparent)',
+      borderRadius: 'var(--radius-pill)', padding: '9px 15px', minHeight: '38px',
+      font: 'inherit', fontFamily: 'var(--font-mono)', fontSize: '12px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink)',
+      transition: 'border-color var(--motion-ui-hover) var(--ease-calm)',
+    });
+    const softChip = (active) => ({
+      background: active ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+      border: 'none', borderRadius: 'var(--radius-pill)', padding: '7px 12px', minHeight: '34px',
+      font: 'inherit', fontSize: '11.5px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink-soft)',
+    });
+    const danaAmts = [7, 21, 108].map(a => ({
+      label: 'R$ ' + a, pick: () => this.setState({ danaAmt: a }), style: amtChip(s.danaAmt === a),
+    }));
+    const danaFreqs = [['once', t.freqOnce], ['monthly', t.freqMonthly]].map(p => ({
+      label: p[1], pick: () => this.setState({ danaFreq: p[0] }), style: softChip(s.danaFreq === p[0]),
+    }));
+    const danaMethods = [['pix', t.methodPix], ['card', t.methodCard]].map(p => ({
+      label: p[1], pick: () => this.setState({ danaMethod: p[0] }), style: softChip(s.danaMethod === p[0]),
+    }));
+    const remaining = Math.max(0, 3 - s.measureUsed);
+    const measureDots = [0, 1, 2].map(i => ({
+      style: {
+        width: '7px', height: '7px', borderRadius: '50%', boxSizing: 'border-box',
+        background: i < remaining ? 'var(--accent-flame)' : 'transparent',
+        border: '1px solid ' + (i < remaining ? 'var(--accent-flame)' : 'color-mix(in srgb, var(--ink) 30%, transparent)'),
+      },
+    }));
+    const freqL = s.danaFreq === 'once' ? t.freqOnce : t.freqMonthly;
+    const methodL = s.danaMethod === 'pix' ? t.methodPix : t.methodCard;
+    return {
+      showDana: s.screen === 'dana',
+      goDana: () => this.setState({ screen: 'dana', danaDone: false, confirmCredit: false }),
+      danaAmts, danaFreqs, danaMethods,
+      danaOffer: () => this.setState({ danaDone: true }),
+      danaAgainFn: () => this.setState({ danaDone: false }),
+      danaDone: s.danaDone,
+      danaNotDone: !s.danaDone,
+      danaSummary: 'R$ ' + s.danaAmt + ' · ' + freqL + ' · ' + methodL,
+      creditsLine: t.creditsWord + ': ' + s.credits,
+      addCredits: () => this.setState(p => ({ credits: p.credits + 10 })),
+      measureDots,
+      measureLine: t.measureWord + ' · ' + remaining + '/3',
+      usedLine: t.danaMeasure + ' · ' + t.danaUsed + ': ' + s.measureUsed,
+      showCreditAsk: s.confirmCredit && s.screen === 'inquiry',
+      hasCredits: s.credits > 0,
+      noCredits: s.credits === 0,
+      declineCredit: () => this.setState({ confirmCredit: false }),
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const hour = this.hour();
+    const lang = this.lang();
+    // v2 keys live in en+pt; other languages fall back to en for the new screens
+    const t = lang === 'en' ? this.strings.en : Object.assign({}, this.strings.en, this.strings[lang]);
+
+    // hour-aware court ordering: dawn favors the word, dusk the look-back
+    const order = (hour === 'dusk' || hour === 'night') ? [3, 0, 1, 2, 4, 5, 6, 7] : [0, 1, 2, 3, 4, 5, 6, 7];
+    const ids = ['word', 'inquiry', 'maps', 'practice', 'library', 'sky', 'nature', 'diary'];
+    const courtCards = order.map(i => ({
+      name: t.gestures[i].name,
+      desc: t.gestures[i].desc,
+      pick: () => {
+        const id = ids[i];
+        if (id === 'word') this.setState({ screen: 'word', dialOpen: false, deepening: false });
+        else if (id === 'inquiry') this.setState({ screen: 'inquiry', confirmCredit: false });
+        else if (id === 'maps') this.setState({ screen: 'maps', mapId: null });
+        else if (id === 'practice') this.setState({ screen: 'practice' });
+        else if (id === 'library') this.setState({ screen: 'library', libView: 'shelves', lensOpen: false });
+        else if (id === 'sky') this.setState({ screen: 'sky', skyNumbers: false });
+        else if (id === 'nature') this.setState({ screen: 'nature' });
+        else if (id === 'diary') this.setState({ screen: 'diary' });
+      },
+    }));
+
+    const depthChips = t.depthNames.map((_, i) => ({
+      d: 'D' + i,
+      pick: () => this.setState({ depth: i }),
+      style: {
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '8px 13px', minHeight: '44px', minWidth: '44px', boxSizing: 'border-box',
+        borderRadius: 'var(--radius-pill)',
+        border: '1px solid ' + (i === s.depth ? 'transparent' : 'color-mix(in srgb, var(--ink) 14%, transparent)'),
+        background: i === s.depth ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+        color: i === s.depth ? 'var(--accent-flame)' : 'var(--ink-soft)',
+        font: 'inherit', fontSize: '12px', cursor: 'pointer',
+        transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+      },
+    }));
+
+    const doorIds = ['grief', 'work', 'decision', 'joy', 'dry'];
+    const doors = t.doors.map((d, i) => ({
+      name: d.name,
+      pick: () => this.setState({ question: d.seed, restraint: false, door: doorIds[i] }),
+    }));
+
+    const chipStyle = (active) => ({
+      background: active ? 'color-mix(in srgb, var(--accent-flame) 12%, transparent)' : 'none',
+      border: 'none', borderRadius: 'var(--radius-pill)',
+      padding: '7px 13px', minHeight: '34px',
+      font: 'inherit', fontSize: '11.5px', cursor: 'pointer',
+      color: active ? 'var(--accent-flame)' : 'var(--ink-soft)',
+      transition: 'color var(--motion-ui-hover) var(--ease-calm)',
+    });
+
+    const hourOpts = [
+      { id: null, label: t.hourAuto },
+      { id: 'pre_dawn', label: t.hourNames.pre_dawn },
+      { id: 'day', label: t.hourNames.day },
+      { id: 'dusk', label: t.hourNames.dusk },
+      { id: 'night', label: t.hourNames.night },
+    ];
+    const hourOptions = hourOpts.map(o => ({
+      label: o.label,
+      pick: () => this.setState({ hourPick: o.id }),
+      style: chipStyle(s.hourPick === o.id),
+    }));
+
+    const langOptions = ['en', 'pt', 'hi', 'it', 'es'].map(l => ({
+      label: this.langNames[l],
+      pick: () => this.setState({ langPick: l }),
+      style: chipStyle(lang === l),
+    }));
+
+    const dateLine = new Date()
+      .toLocaleDateString(this.locales[lang], { weekday: 'long', month: 'long', day: 'numeric' })
+      .toLowerCase();
+
+    const canOffer = s.screen === 'inquiry' && s.question.trim().length > 0;
+    const contemplating = s.screen === 'contemplation';
+
+    return {
+      t,
+      lang,
+      hourTheme: hour,
+      deviceDark: hour !== 'day',
+      hourLine: t.hourLines[hour],
+      hourWord: t.hourNames[hour],
+      dateLine,
+
+      showThreshold: s.screen === 'threshold',
+      showCourt: s.screen === 'court',
+      showWord: s.screen === 'word',
+      showInquiry: s.screen === 'inquiry',
+      showResting: s.screen === 'resting',
+      showContemplation: contemplating,
+      showMaps: s.screen === 'maps',
+      showPractice: s.screen === 'practice',
+      ...this.composePage(t, s),
+      ...this.mapsVals(t, s),
+      ...this.practiceVals(t, s),
+      showArriving: s.screen === 'arriving',
+      showSilence: s.screen === 'silence',
+      showFarewell: s.screen === 'farewell',
+      ...this.libraryVals(t, s),
+      ...this.skyVals(t, s, hour),
+      ...this.natureVals(t, s),
+      ...this.diaryVals(t, s),
+      ...this.danaVals(t, s),
+      showGlyph: ['court', 'word', 'inquiry', 'contemplation', 'maps', 'practice', 'library', 'sky', 'nature', 'diary'].includes(s.screen) && !s.dialOpen,
+
+      courtCards,
+      depthChips,
+      doors,
+      hourOptions,
+      langOptions,
+      arrivingName: s.arriving,
+
+      dialOpen: s.dialOpen,
+      currentDepthName: 'D' + s.depth + ' · ' + t.depthNames[s.depth],
+      currentDepthHint: t.depthHints[s.depth],
+      showD0: s.depth === 0, showD1: s.depth === 1, showD2: s.depth === 2,
+      showD3: s.depth === 3, showD4: s.depth === 4, showD5: s.depth === 5, showD6: s.depth === 6,
+
+      deepening: s.deepening,
+      deepeningLabel: s.deepening ? t.deepeningClose : t.deepeningOpen,
+
+      question: s.question,
+      placeholder: t.placeholders[s.placeholderIdx % t.placeholders.length],
+      canOffer,
+      cannotOffer: !canOffer,
+      kept: s.kept,
+      notKept: !s.kept,
+
+      enterCourt: () => this.setState({ screen: 'court' }),
+      backToCourt: () => this.setState({ screen: 'court', dialOpen: false }),
+      goFarewell: () => this.setState({ screen: 'farewell' }),
+      resetSession: () => this.resetSession(),
+
+      openDial: () => this.setState({ dialOpen: true, depth: 2 }),
+      closeDial: () => this.setState({ dialOpen: false }),
+      toggleDeepening: () => this.setState(p => ({ deepening: !p.deepening })),
+
+      openSilence: () => this.setState({ silenceReturn: 'court', screen: 'silence' }),
+      glyphSilence: () => this.setState(p => ({ silenceReturn: p.screen, screen: 'silence' })),
+      sitWithIt: () => this.setState({ silenceReturn: 'contemplation', screen: 'silence' }),
+      exitSilence: () => this.setState(p => ({ screen: p.silenceReturn || 'court' })),
+
+      pickIllness: () => this.setState({ question: t.illnessSeed, restraint: true, door: 'illness' }),
+      openAspirationMap: () => this.setState({ screen: 'maps', mapId: 2 }),
+      onQuestion: (e) => this.setState({ question: e.target.value }),
+      offerQuestion: () => {
+        const st = this.state;
+        if (!st.question.trim()) return;
+        // RF-039: free daily measure; beyond it, the machine's time at cost — quietly, never a popup
+        if (st.measureUsed >= 3) {
+          if (!st.confirmCredit) { this.setState({ confirmCredit: true }); return; }
+          if (st.credits <= 0) return;
+        }
+        const beyond = st.measureUsed >= 3;
+        this.setState(p => ({
+          screen: 'resting', kept: false, confirmCredit: false,
+          measureUsed: p.measureUsed + 1,
+          credits: beyond ? Math.max(0, p.credits - 1) : p.credits,
+        }));
+        this.delay(2600, () => this.setState({ screen: 'contemplation' }));
+      },
+      keepIt: () => this.setState({ kept: true }),
+      openLibrary: () => this.setState({ screen: 'library', libView: 'room', dialOpen: false, lensOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

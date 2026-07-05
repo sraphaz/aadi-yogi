@@ -1,0 +1,43 @@
+---
+id: the_mother_cwm/volume_16_words_of_the_mother_iii
+title: Words of the Mother - III (Collected Works of the Mother Vol. 16)
+source_title: Words of the Mother - III
+source_type: primary_text
+tradition:
+- integral_yoga
+author: The Mother
+language_original: french
+language_current: french
+collection: Collected Works of the Mother
+volume: '16'
+themes:
+- occultism
+- transformation
+- health
+- adverse_forces
+- prayers
+copyright_status: metadata_only
+status: metadata_only
+citation: 'The Mother, Words of the Mother - III, Collected Works of the Mother Vol. 16, Sri
+  Aurobindo Ashram Publication Department, Pondicherry. Digital edition: https://www.sriaurobindoashram.org/mother/writings.php'
+source_url: https://www.sriaurobindoashram.org/mother/downloadpdf.php?id=64
+notes: Metadata record only. The work remains under active copyright of the Sri Aurobindo
+  Ashram Trust, so the full text is not stored in this repository.
+title_original: Paroles de la Mère - III
+avoid_for:
+- verbatim_reproduction_without_permission
+---
+
+# Words of the Mother - III (Collected Works of the Mother Vol. 16)
+
+## About This Volume
+
+Brief written communications on the Divine and the universe, religion, occultism, adverse forces, war, government, transformation, health and illness, with messages, prayers and conversations.
+
+## Access
+
+This work remains under active copyright of the Sri Aurobindo Ashram Trust, so its full text is not stored in this public repository (see `docs/copyright_policy.md`). For personal study, download the official PDF from [the Ashram library](https://www.sriaurobindoashram.org/mother/downloadpdf.php?id=64) with `python scripts/ingest/download_ashram_pdfs.py` and convert it locally with `python scripts/convert/pdf_to_markdown.py --include-restricted` (output stays in the gitignored `data/` tree).
+
+## Agent Use
+
+Use this record for orientation and citation only. Do not present reconstructed passages as quotations from this volume.

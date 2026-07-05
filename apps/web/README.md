@@ -1,34 +1,54 @@
-# Web App
+# Darshan PWA — Seed phase
 
-Interface web mínima para consultar o agente Aadi Yogi.
+Contemplative interface served by the agent API at `http://localhost:8000/`.
 
-## Como usar
+## Run
 
-1. Suba a API:
-
-```bash
+```powershell
 pnpm api:dev
-# ou
-PYTHONPATH=. uvicorn apps.agent-api.main:app --reload --host 0.0.0.0 --port 8000
+# open http://localhost:8000/
 ```
 
-2. Abra `http://localhost:8000/` no navegador.
+## Seed deliverables (S-01–S-07)
 
-## Endpoints
+| ID | Feature |
+|----|---------|
+| S-01 | PWA shell + 4 hour themes (`data-hour`) |
+| S-02 | Threshold entry ritual (8s breath, skip, reduced-motion) |
+| S-03 | Court hub — one gesture per card |
+| S-04 | Daily word (batch JSON, offline via service worker) |
+| S-05 | Library reading room (D0–D2 depth dial) |
+| S-06 | Silence room |
+| S-07 | i18n — en · pt · hi · it · es |
 
-- `GET /` — interface web
-- `POST /ask` — resposta completa (LLM se configurado, fallback caso contrário)
-- `POST /retrieve` — apenas trechos recuperados
-- `POST /prompt` — prompt montado para inspeção
+## Structure
 
-## LLM opcional
-
-Configure uma API compatível com OpenAI:
-
-```bash
-export AADI_YOGI_LLM_API_KEY=...
-export AADI_YOGI_LLM_BASE_URL=https://api.openai.com/v1
-export AADI_YOGI_LLM_MODEL=gpt-4o-mini
+```
+apps/web/
+├── index.html
+├── manifest.webmanifest
+├── sw.js
+└── static/
+    ├── css/          # design tokens (from spec/design-tokens.yaml)
+    ├── js/           # app, strings, theme
+    ├── data/         # daily-words.json, library passages
+    └── icons/
 ```
 
-Sem chave, o sistema responde em modo fallback compondo trechos recuperados.
+## Daily word batch
+
+Editorial batches per ADR-0004 — never generated live:
+
+```powershell
+python scripts/content/build_daily_words.py
+```
+
+## Design reference
+
+- Tokens: `spec/design-tokens.yaml`
+- Prototype: `spec/design/claude-design/Darshan App.dc.html`
+- Spec: `spec/ux-spec.yaml`
+
+## Install as PWA
+
+Use browser “Install app” after first visit. Service worker caches static assets and daily word data for offline use.

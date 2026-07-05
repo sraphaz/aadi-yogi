@@ -1,0 +1,77 @@
+integrations:
+  - id: INT-001
+    type: llm_engine
+    required: true
+    provider_options:
+      - claude_api
+      - gpt_api
+      - local_open_weights
+    ai_recommendation: claude_api
+    reason: |
+      Strong long-context synthesis and tone control for the response
+      contract; provider must be swappable behind the agent API.
+    user_choice: pending
+  - id: INT-002
+    type: vector_store
+    required: true
+    provider_options:
+      - pgvector
+      - qdrant
+      - chroma
+    ai_recommendation: pgvector
+    reason: Single postgres for corpus metadata and vectors; simple sustains calm ops.
+    user_choice: pending
+  - id: INT-003
+    type: auth
+    required: true
+    provider_options:
+      - anonymous_first_with_optional_account
+      - supabase_auth
+    ai_recommendation: anonymous_first_with_optional_account
+    reason: Anonymous use is the privacy default; account only to sync diary/shelf.
+    user_choice: pending
+  - id: INT-004
+    type: hosting
+    required: true
+    provider_options:
+      - fly_io
+      - railway
+      - self_hosted_vps
+    ai_recommendation: fly_io
+    reason: PWA + small API footprint; regional latency for breath-paced UX.
+    user_choice: pending
+  - id: INT-005
+    type: telemetry
+    required: false
+    provider_options:
+      - self_hosted_aggregate_only
+      - none
+    ai_recommendation: self_hosted_aggregate_only
+    reason: Presence metrics only, aggregated; no third-party analytics allowed by NFR-002.
+    user_choice: pending
+  - id: INT-006
+    type: ephemeris
+    required: true   # for the Sky Map (gesture 8)
+    provider_options:
+      - darshan_repo_core        # sraphaz/darshan lib/core: Swiss Ephemeris / mhah-panchang resolver, MIT, tested
+      - astronomy_engine_js      # MIT, pure computation, offline
+      - suncalc_plus_local_tithi_math
+    ai_recommendation: darshan_repo_core
+    reason: |
+      The creators' darshan repo already implements an ephemeris provider
+      resolver (Swiss Ephemeris / mhah-panchang) with tithi and moon-phase
+      logic, tested and MIT - extract as shared package
+      (docs/darshan_reuse_map.md). Must run on device per NFR-014.
+    user_choice: pending
+  - id: INT-007
+    type: observance_calendar
+    required: true   # for the Sky Map observances
+    provider_options:
+      - corpus_maintained_calendar_data
+      - external_panchanga_api
+    ai_recommendation: corpus_maintained_calendar_data
+    reason: |
+      Observances kept as editorially maintained, cited corpus data rather
+      than an external API - provenance discipline applies to the calendar
+      exactly as to texts, and it works offline.
+    user_choice: pending

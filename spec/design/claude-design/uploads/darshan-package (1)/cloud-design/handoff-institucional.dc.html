@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darshan — Site Institucional — Handoff Cloud Design</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 960px; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.25rem; margin-top: 2rem; }
+section { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+.meta { color: #666; font-size: 0.9rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+td, th { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+pre { white-space: pre-wrap; font-size: 0.85rem; background: #f7f7f4; padding: 8px; border-radius: 6px; }
+.law { font-style: italic; border-left: 3px solid #a35f2d; padding-left: 12px; }
+</style>
+</helmet>
+
+<h1>Darshan — Site Institucional</h1>
+<p class="meta">Gerado por Sky-Forge · sessão: darshan · trilha: institucional (secundária) · espec SKY v1.2 · SKY_SCORE 72 (Horizon) · 2026-07-05</p>
+<p class="meta">Fonte de verdade: repositório aadi-yogi — docs/skyforge/darshan/ (sessão) + docs/darshan_*.md (narrativa)</p>
+
+<section id="proposito">
+<h2>Propósito do site</h2>
+<p>Apresentar o Darshan ao mundo com o mesmo comportamento que o app encarna: calma, fidelidade de fonte, zero urgência artificial. O site NÃO é funil de conversão — é um pátio de entrada. Tom: calmo, fundamentado nas fontes, sem performance espiritual, sem promessas.</p>
+<p class="law">A sabedoria é livre; paga-se, se quiser, pelo tempo de máquina e pelo acesso dos outros. (Modelo dana — ADR 0001)</p>
+</section>
+
+<section id="paginas">
+<h2>Mapa de páginas</h2>
+<table>
+<tr><th>Página</th><th>Conteúdo</th><th>Notas de design</th></tr>
+<tr><td>Entrada (landing)</td><td>uma linha do corpus (rotativa, citada) + o que é o Darshan em 3 parágrafos + convite único ("entrar no app")</td><td>hero contemplativo com tema de hora (mesmo sistema de tokens do app); sem carrossel, sem contador, sem popup</td></tr>
+<tr><td>O Caminho</td><td>os 9 gestos apresentados como caminhada (limiar → pátio → palavra → indagação → mapas → prática → biblioteca → céu → natureza → silêncio)</td><td>scroll longo e calmo, uma superfície por dobra, ilustrações mínimas</td></tr>
+<tr><td>A Biblioteca</td><td>as tradições do corpus (Vedas, Upanishads, Gita, Puranas, Tantras, Siddhas, Sri Aurobindo, a Mãe) com proveniência e estado (aberta/chegando/futura)</td><td>estantes com 1 parágrafo de espírito por coleção; link para fontes oficiais das obras restritas</td></tr>
+<tr><td>A Dana</td><td>o modelo de sustentação explicado com transparência: superfícies contemplativas livres para sempre; custo marginal da Indagação; patrocínio financia o acesso dos outros</td><td>uma página quieta; sem urgência; botão de oferenda único; preços exibidos como custo, não como valor</td></tr>
+<tr><td>Linhagem e Integridade</td><td>políticas: citações resolvíveis, copyright honrado, anti-profecia, cerca de saúde, privacidade por arquitetura, métricas de presença publicadas</td><td>texto direto com links para os documentos do repositório (fonte aberta)</td></tr>
+<tr><td>Perguntas Sinceras (FAQ)</td><td>"isso substitui um guru?" (não) · "é terapia?" (não) · "por que grátis?" (dana) · "meus dados?" (locais, cifrados) · "posso confiar nas citações?" (integridade 1.0 em CI)</td><td>respostas curtas, honestas, sem marketing defensivo</td></tr>
+</table>
+</section>
+
+<section id="tokens">
+<h2>Design tokens (herdados do app — design-tokens.yaml)</h2>
+<pre>
+Mesmo sistema do app: 4 temas de hora (pre_dawn/day/dusk/night), tokens semânticos
+(--surface, --ink, --accent-flame, --accent-gold, --halo, --veil, --warn),
+"Source Serif 4" para passagens, "Manrope" para corpo, medida máx. 62ch,
+movimento com equivalentes reduced-motion, WCAG 2.1 AA.
+O site respira com a hora do visitante como o app respira com a do buscador.
+</pre>
+</section>
+
+<section id="requisitos">
+<h2>Requisitos aplicáveis</h2>
+<ul>
+<li>RF-039 Fronteira de monetização: a página da dana nunca usa urgência, escassez ou culpa; sem popups de doação.</li>
+<li>NFR-002 Sem economia de vigilância: zero trackers de terceiros; sem pixels de anúncio; analytics agregado próprio ou nenhum.</li>
+<li>NFR-003 WCAG 2.1 AA; NFR-009 pt-BR + en desde o lançamento.</li>
+<li>RF-017 Nenhuma citação órfã: toda linha do corpus exibida no site carrega citação e link para a passagem em contexto (no app ou fonte oficial).</li>
+<li>Anti-padrões do app valem no site: sem contadores regressivos, sem "vagas limitadas", sem depoimentos fabricados, sem badges de loja exageradas.</li>
+</ul>
+</section>
+
+<section id="posicionamento">
+<h2>Posicionamento (de market-benchmark.yaml, MPI 68)</h2>
+<pre>
+Novo no campo (dizer com sobriedade, sem superlativos):
+- lei de design anti-engajamento (métricas de presença publicadas)
+- contrato de integridade de citações (toda afirmação navegável até o livro)
+- contenção consciente (silêncio honrado + protocolo de crise)
+- constelação entre tradições com diferenças nomeadas (sem sincretismo forçado)
+Linguagem de entrada recomendada: as portas de situação ("chegue com sua vida:
+luto, medo, trabalho, alegria") — GAP-002 do benchmark.
+</pre>
+</section>
+
+<section id="next">
+<h2>Próximos passos</h2>
+<ol>
+<li>Cloud Design: compor landing + 5 páginas internas com os tokens de hora</li>
+<li>Reusar componentes do protótipo Semente do app onde couber (mesma linguagem visual)</li>
+<li>Conteúdo: extrair textos institucionais dos docs (concept/spec/decisions) — nada inventado</li>
+</ol>
+</section>
+
+</x-dc>
+</body>
+</html>

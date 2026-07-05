@@ -1,0 +1,179 @@
+# Non-functional requirements - Darshan
+# Regenerated against docs/schemas/nfr.schema.yaml (Sky-Forge spec v1.2):
+# category constrained to the schema enum, statement as the required field.
+# Original thematic categories preserved in each statement prefix.
+requirements:
+  - id: NFR-001
+    category: security
+    statement: >-
+      [privacy] The Inner Diary is architecturally private: stored local-first,
+      encrypted at rest with a user-derived key; never indexed, never used for
+      training, profiling or metrics; witness mode reads only the explicitly
+      invited entry and retains nothing server-side.
+    target: zero diary bytes at rest on servers; witness requests are transient
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-002
+    category: security
+    statement: >-
+      [privacy] No surveillance economics: no third-party analytics, no
+      advertising, no data resale; anonymous use is the default mode. Presence
+      metrics are computed on-device or aggregated without user-level
+      engagement profiles.
+    target: zero third-party trackers; no user-level engagement profile exists
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-003
+    category: accessibility
+    statement: >-
+      WCAG 2.1 AA with honest ritual equivalents: every contemplative element
+      (breath cue, fades, silence room) has a reduced-motion and
+      screen-reader-honest equivalent; every ritual is skippable; touch
+      targets >= 44px; typography sized for long reading.
+    target: WCAG 2.1 AA audit pass, including ritual surfaces
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-004
+    category: compliance
+    statement: >-
+      [integrity] Citation resolution rate 1.0: every rendered citation
+      resolves to a passage in the Library; CI evaluation gates releases on
+      citation integrity and on tone/safety suites derived from the
+      consciousness core.
+    target: citation_integrity = 1.0 as a release gate (packages/evals)
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-005
+    category: compliance
+    statement: >-
+      [integrity] Copyright enforced at index build time: works marked
+      restricted in content/sources frontmatter are excluded from quotable
+      indexes at build time per docs/copyright_policy.md; the interface
+      renders their metadata records with pointers to official sources.
+    target: zero restricted passages in quotable indexes (CI check)
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-006
+    category: performance
+    statement: >-
+      Contemplative latency posture: the interface absorbs answer latency into
+      pacing (no spinners anywhere); an honest "still composing" state appears
+      after 20s; reading surfaces render instantly from local cache.
+    target: reading surfaces < 1s from cache; composing state at 20s
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-007
+    category: availability
+    statement: >-
+      Offline-first reading: Library rooms, the prefetched daily word, the
+      practice field and the diary work fully offline; the Inquiry states its
+      need for connection plainly.
+    target: all reading and practice surfaces functional with no network
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-008
+    category: compliance
+    statement: >-
+      [safety] Crisis routing: restraint-case detection routes to
+      cautionary/silence modes with region-appropriate human-support
+      resources; never medical or psychiatric instruction; evaluated as a
+      success mode in the eval suite.
+    target: honored_silence_precision tracked; restraint probes pass in CI
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-009
+    category: accessibility
+    statement: >-
+      [i18n] English and Portuguese at launch: full interface and engine voice
+      in en and pt-BR; canonical quotations remain in source language with
+      licensed translations.
+    target: 100% UI strings and voice prompts in en + pt-BR
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-010
+    category: accessibility
+    statement: >-
+      [i18n] Faithful rendering of original scripts: Devanagari, Tamil and
+      IAST transliteration render correctly with bundled fonts
+      (design-tokens.yaml); no tofu glyphs; screen readers receive
+      language-tagged text for correct pronunciation.
+    target: zero tofu on reference devices; lang tags on all original text
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-011
+    category: performance
+    statement: >-
+      Reading and search latency offline: reading rooms open from the local
+      bundle in under 1s on mid-range devices; exact search over the local
+      corpus returns in under 2s.
+    target: room open < 1s; local exact search < 2s (mid-range device)
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-012
+    category: maintainability
+    statement: >-
+      [integrity] Stable passage identity across corpus versions: passage ids
+      survive corpus rebuilds and bundle updates so positions, anthologies,
+      contemplation shelves and citations never break (the no-orphan-quotation
+      law depends on this). Design: docs/passage_id_scheme.md.
+    target: zero broken references across bundle updates (alias-chain CI test)
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-013
+    category: cost
+    statement: >-
+      [sustainability] Bundle size budget: the Seed offline bundle (library +
+      daily words + silence room) fits a low-bandwidth budget, with
+      per-collection download optional, honoring elevation ELV-002.
+    target: full public-domain corpus bundle < 60 MB compressed
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-014
+    category: security
+    statement: >-
+      [privacy] The Sky Map computes locally and the inner sky is diary-grade:
+      ephemeris and calendar math run on device with no network dependency;
+      device location never leaves the device; inner-sky consultations carry
+      NFR-001 guarantees and are engine-visible only by explicit
+      per-consultation attachment.
+    target: zero network calls from Sky Map surfaces; zero location egress
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-015
+    category: compliance
+    statement: >-
+      [safety] Health content responsibility fence: the three-tier system
+      (safe/documentary/closed) is enforced in data, not only in UI copy;
+      movement offers can only reference safe-tier passages; health-probe
+      prompts verify the contract refuses diagnosis, dosage and prescription
+      in all modes; the heritage notice is a structural page element on House
+      of Nature surfaces.
+    target: health_fence probe suite passes in CI; zero non-safe movements
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
+  - id: NFR-016
+    category: compliance
+    statement: >-
+      [integrity] Anti-prophecy enforcement: the response contract and eval
+      suite treat prediction requests (astrological or otherwise) as refusal
+      cases with a gentle redirect to rhythm framing; no code path renders
+      personal predictive content.
+    target: anti_prophecy probe suite passes in CI
+    tier_minimum: mvp-free
+    ai_suggested: false
+    user_confirmed: true
