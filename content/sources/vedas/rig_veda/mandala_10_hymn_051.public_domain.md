@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_051
+title: Rig Veda - Mandala 10 Hymn 51
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_051
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_51
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 10, Hymn 51; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 10 Hymn 51
+
+## Public-Domain Translation
+
+1. LARGE was that covering, and firm of texture, folded wherein thou enteredst the waters. One Deity alone, O Jatavedas Agni, saw all thy forms in sundry places. 2. What God hath seen me? Who of all their number clearly beheld my forms in many places? Where lie, then, all the sacred logs of Agni that lead him God-ward, Varuna and Mitra? 3. In many places, Agni Jatavedas, we sought thee hidden in the plants and waters. Then Yama marked thee, God of wondrous splendour! effulgent from thy tenfold secret dwelling, 4. I fled in fear from sacrificial worship, Varuna, lest the Gods should thus engage me. Thus were my forms laid down in many places. This, as my goal, I Agni saw before me. 5. Come; man is pious and would fain do worship, he waits prepared: in gloom thou, Agni, dwellest. Make pathways leading God-ward clear and easy, and bear oblations with a kindly spirit. 6. This goal mine elder brothers erst selected, as he who drives a car the way to travel. So,Varuna, I fled afar through terror, as flies the wild-bull from an archer's bowstring. 7. We give thee life unwasting, Jatavedas, so that, employed, thou never shalt be injured. So, nobly born! shalt thou with kindly spirit bear to the Gods their share of men's oblations. 8. Grant me the first oblations and the latter, entire, my forceful shares of holy presents, The soul of plants, the fatness of the waters, and let there be long life, ye Gods, to Agni. 9. Thine be the first oblations and the latter, entire, thy forceful shares of holy presents. Let all this sacrifice be thine, O Agni, and let the world's four regions bow before thee.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_51
+- Translator: Ralph T. H. Griffith (public domain).

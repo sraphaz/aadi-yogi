@@ -131,5 +131,26 @@
     "expected_source_ids": ["vedas/rig_veda/mandala_07_hymn_001"],
     "themes": ["agni", "vasishta", "invocation"],
     "tradition": "vedic"
+  },
+  {
+    "id": "gq_020",
+    "question": "What role does Soma play in Rig Veda Mandala 9 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_09_hymn_001"],
+    "themes": ["soma", "indra", "soma_mandala"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_021",
+    "question": "What is Indra praised as in Rig Veda Mandala 8 Hymn 1?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_08_hymn_001"],
+    "themes": ["indra", "vrtra", "fort_destroyer"],
+    "tradition": "vedic"
+  },
+  {
+    "id": "gq_022",
+    "question": "What does Rig Veda Mandala 10 Hymn 1 say about the birth of Agni?",
+    "expected_source_ids": ["vedas/rig_veda/mandala_10_hymn_001"],
+    "themes": ["agni", "birth", "cosmology"],
+    "tradition": "vedic"
   }
 ]

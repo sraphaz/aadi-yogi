@@ -117,6 +117,8 @@ This document records what has been imported into the repository, what has only 
 - Mandala 6 **all 75 hymns** imported from English Wikisource (Griffith translation).
 - Mandala 7 **all 104 hymns** imported from English Wikisource (Griffith translation).
 - **Family books (Mandalas 2–7) complete**: 429 hymns total.
+- Mandala 8 **all 92 hymns**, Mandala 9 **all 114 hymns**, Mandala 10 **all 191 hymns** imported.
+- **Full Rig Veda Samhita (Mandalas 1–10): 1017 hymns complete.**
 - Import script supports `--book`, `--from`, `--to`, `--skip-existing`, and retry with backoff for rate limits.
 
 ### Siddha Expansion (Phase 3)
@@ -131,11 +133,11 @@ This document records what has been imported into the repository, what has only 
 ### Pipeline and Agent Scaffold
 
 - Normalization, chunking, TF-IDF index, dense embeddings (hash/OpenAI), and optional Qdrant export/sync operational.
-- **2522 chunks** across **675** normalized source artifacts.
+- **3523 chunks** across **1072** normalized source artifacts.
 - Hybrid retriever combines keyword, TF-IDF, and dense signals with explicit source-reference injection (hymn, chapter, prapathaka).
 - Optional Qdrant-backed dense retrieval via `AADI_YOGI_USE_QDRANT=1` and `QdrantRetriever`.
 - Agent API at `apps/agent-api/main.py` with `/health`, `/retrieve`, `/prompt`, `/ask` and Portuguese web UI at `/`.
-- 5 synthesis notes, consciousness core v1 approved, **19 golden questions** (100% retrieval), **19/19** response quality checks (fallback mode).
+- 5 synthesis notes, consciousness core v1 approved, **22 golden questions** (100% retrieval), **22/22** response quality checks (fallback mode).
 - Optional LLM via `AADI_YOGI_LLM_API_KEY`; optional OpenAI embeddings via `AADI_YOGI_EMBEDDING_API_KEY`.
 - Production setup: `docker-compose.yml`, `.env.example`, `docs/production_setup.md`, `scripts/run_production_pipeline.sh`.
 
@@ -148,9 +150,8 @@ This document records what has been imported into the repository, what has only 
 
 ## Next Safe Expansion
 
-1. Expand Rig Veda Mandalas 8–10 (later books).
-2. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
-3. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
-4. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
-5. Complete human production review via `docs/production_review_checklist.md`.
-6. Improve OCR cleanup for Brihadaranyaka Archive.org witness where needed.
+1. Add more public-domain Purana witnesses beyond Vishnu and Garuda sample chapters.
+2. Keep Sri Aurobindo and the Mother at metadata-only unless reuse rights are confirmed.
+3. Run LLM-backed response quality eval with `AADI_YOGI_LLM_API_KEY`.
+4. Complete human production review via `docs/production_review_checklist.md`.
+5. Improve OCR cleanup for Brihadaranyaka Archive.org witness where needed.

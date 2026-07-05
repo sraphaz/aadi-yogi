@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_091
+title: Rig Veda - Mandala 10 Hymn 91
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_091
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_91
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 10, Hymn 91; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_10_hymn_091.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 10 Hymn 91
+
+## Normalized Primary Text
+
+1. BRISK, at the place of Ila, hymned by men who wake, our own familiar Friend is kindled in the house; Hotar of all oblation, worthy of our choice, Lord, beaming, trusty friend to one who loveth him. 2. He, excellent in glory, guest in every house, finds like a swift-winged bird a home in every tree. Benevolent to men, he scorns no living man: Friend to the tribes of men he dwells with every tribe. 3. Most sage with insight, passing skillful with thy powers art thou, O Agni, wise with wisdom, knowing all. As Vasu, thou alone art Lord of all good things, of all the treasures that the heavens and earth produce. 4. Foreknowing well, O Agni, thou in Ila's place hast occupied thy regular station balmed with oil. Marked are thy comings like the comings of the Dawns, the rays of him who shineth spotless as the Sun. 5. Thy glories are, as lightnings from the rainy cloud, marked, many-hued, like heralds of the Dawns' approach, When, loosed to wander over plants and forest trees, thou crammest by thyself thy food into thy mouth. 6. Him, duly coming as their germ, have plants received: this Agni have maternal Waters brought to life. So in like manner do the forest trees and plants bear him within them and produce him evermore. 7. When, sped and urged by wind, thou spreadest thee abroad, swift piercing through thy food according to thy will, Thy never-ceasing blazes, longing to consume, like men on chariots, Agni, strive on every side. 8. Agni, the Hotar-priest who fills the assembly full, Waker of knowledge, chief Controller of the thought,- Him, yea, none other than thyself, doth man elect at sacrificial offerings great and small alike. 9. Here, Api, the arrangers, those attached to thee, elect thee as their Priest in sacred gatherings, When men with strewn clipt grass and sacrificial gifts offer thee entertainment, piously inclined. 10. Thine is the Herald's task and Cleanser's duly timed; Leader art thou, and Kindler for the pious man. Thou art Director, thou the ministering Priest: thou art the Brahman, Lord and Master in our home. 11. When mortal man presents to thee Immortal God, Agni, his fuel or his sacrificial gift, Then thou art his Adhvaryu, Hotar, messenger, callest the Gods and orderest the sacrifice. 12. From us these hymns in concert have gone forth to him, these. holy words, these Rcas, songs and eulogies, Eager for wealth, to Jatavedas fain for wealth: when they have waxen strong they please their Strengthener. 13. This newest eulogy will I speak forth to him, the Ancient One who loves it. May he hear our voice. May it come near his heart and make it stir with love, as a fond well-dressed matron clings about her lord. 14. He in whom horses, bulls, oxen, and barren cows, and rams, when duly set apart, are offered up,- To Agni, Soma-sprinkled, drinker of sweet juice, Disposer, with my heart I bring a fair hymn forth. 15. Into thy mouth is poured the offering, Agni, as Soma into cup, oil into ladle. Vouchsafe us wealth. strength-winning, blest with heroes, wealth lofty, praised by men, and full of splendour.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_91
+- Translator: Ralph T. H. Griffith (public domain).

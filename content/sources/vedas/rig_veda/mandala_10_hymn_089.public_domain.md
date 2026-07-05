@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_089
+title: Rig Veda - Mandala 10 Hymn 89
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_089
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_89
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 10, Hymn 89; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 10 Hymn 89
+
+## Public-Domain Translation
+
+1. I WILL extol the most heroic Indra who with his might forced earth and sky asunder; Who hath filled all with width as man's Upholder, surpassing floods and rivers in his greatness. 2. Surya is he: throughout the wide expanses shall Indra turn him, swift as car-wheels, hither, Like a stream resting not but ever active he hath destroyed, with light, the black hued darkness. 3. To him I sing a holy prayer, incessant new, matchless, common to the earth and heaven, Who marks, as they were backs, all living creatures: ne'er doth he fail a friend, the noble Indra. 4. I will send forth my songs in flow unceasing, like water from the ocean's depth, to Indra. Who to his car on both its sides securely hath fixed the earth and heaven as with an axle. 5. Rousing with draughts, the Shaker, rushing onward, impetuous, very strong, armed as with arrows Is Soma; forest trees and all the bushes deceive not Indra with their offered likeness. 6. Soma hath flowed to him whom naught can equal, the earth, the heavens, the firmament, the mountains,- When heightened in his ire his indignation shatters the firm and breaks the strong in pieces. 7. As an axe fells the tree so be slew Vrtra, brake down the strongholds and dug out the rivers. He cleft the mountain like a new-made pitcher. Indra brought forth the kine with his Companions. 8. Wise art thou, Punisher of guilt, O Indra. The sword lops limbs, thou smitest down the sinner, The men who injure, as it were a comrade, the lofty Law of Varuna and Mitra. 9. Men who lead evil lives, who break agreements, and injure Varuna, Aryaman and Mitra,- Against these foes, O Mighty Indra, sharpen, as furious death, thy Bull of fiery colour. 10. Indra is Sovran Lord of Earth and Heaven, Indra is Lord of waters and of mountains. Indra is Lord of prosperers and sages Indra must be invoked in rest and effort. 11. Vaster than days and nights, Giver of increase, vaster than firmament and flood of ocean, Vaster than bounds of earth and wind's extension, vaster than rivers and our lands is Indra. 12. Forward, as herald of refulgent Morning, let thine insatiate arrow fly, O Indra. And pierce, as 'twere a stone launched forth from heaven, with hottest blaze the men who love deception. 13. Him, verily, the moons, the mountains followed, the tall trees followed and the plants and herbage. Yearning with love both Worlds approached, the Waters waited on Indra when he first had being. 14. Where was the vengeful dart when thou, O Indra, clavest the demon ever beat on outrage? When fiends lay there upon the ground extended like cattle in the place of immolation? 15. Those who are set in enmity against us, the Oganas, O Indra, waxen mighty,- Let blinding darkness follow those our foemen, while these shall have bright shining nights to light them. 16. May plentiful libations of the people, and singing Rsis' holy prayers rejoice thee. Hearing with love this common invocation, come unto us, pass by all those who praise thee. 17. O Indra, thus may we be made partakers of thy new favours that shall bring us profit. Singing with love, may we the Visvamitras win daylight even now through thee, O Indra. 18. Call we on Maghavan, auspicious Indra, best hero in the fight where spoil is gathered, The Strong who listens, who gives aid in battles, who slays the Vrtras, wins and gathers riches.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_89
+- Translator: Ralph T. H. Griffith (public domain).

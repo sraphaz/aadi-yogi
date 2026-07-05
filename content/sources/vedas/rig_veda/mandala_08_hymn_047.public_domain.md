@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_08_hymn_047
+title: Rig Veda - Mandala 8 Hymn 47
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_08_hymn_047
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_47
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 8, Hymn 47; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 8 Hymn 47
+
+## Public-Domain Translation
+
+1. GREAT help ye give the worshipper, Varuna, Mitra, Mighty Ones! No sorrow ever reaches him whom ye, Adityas, keep from harm. Yours are incomparable aids, and good the succour they afford. 2. O Gods, Adityas, well ye know the way to keep all woes afar. As the birds spread their sheltering wings, spread your protection over us. 3. As the birds spread their sheltering wings let your protection cover us. We mean all shelter and defense, ye who have all things for your own. 4. To whomsoever they, Most Wise, have given a home and means of life, O'er the whole riches of this man they, the Adityas, have control. 5. As drivers of the car avoid ill roads, let sorrows pass us by. May we be under Indra's guard, in the Adityas' favouring grace. 6. For verily men sink and faint through loss of wealth which ye have given. Much hath he gained from you, O Gods, whom ye, Adityas, have approached. 7. On him shall no fierce anger fall, no sore distress shall visit him, To whom, Adityas, ye have lent your shelter that extendeth far. 8. Resting in you, O Gods, we are like men who fight in coats of mail. Ye guard us from each great offence, ye guard us from each lighter fault. 9. May Aditi defend us, may Aditi guard and shelter us, Mother of wealthy Mitra and of Aryaman and Varuna. 10. The shelter, Gods, that is secure, auspicious, free from malady, A sure protection, triply strong, even that do ye extend to us. 11. Look down on us, Adityas, as a guide exploring from the bank. Lead us to pleasant ways as men lead horses to an easy ford. 12. Ill be it for the demons' friend to find us or come near to us. But for the milch-cow be it well, and for the man who strives for fame. 13. Each evil deed made manifest, and that which is concealed, O Gods, The whole thereof remove from us to Trita Aptya far away. 14. Daughter of Heaven, the dream that bodes evil to us or to our kine, Remove, O Lady of the Light, to Trita Aptya far away. 15. Even if, O Child of Heaven, it make a garland or a chain of gold, The whole bad dream, whate'er it be, to Trita Aptya we consign. 16. To him whose food and work is this, who comes to take his share therein, To Trita, and to Dvita, Dawn! bear thou the evil dream away. 17. As we collect the utmost debt, even the eighth and sixteenth part, So unto Aptya we transfer together all the evil dream. 18. Now have we conquered and obtained, and from our trespasses are free. Shine thou away the evil dream, O Dawn, whereof we are afraid. Yours are incomparable aids, and good the succour they afford.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_47
+- Translator: Ralph T. H. Griffith (public domain).

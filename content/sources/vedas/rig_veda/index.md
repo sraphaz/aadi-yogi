@@ -33,6 +33,14 @@ notes:
 
 **Family books (Mandalas 2–7): complete — 429 hymns.**
 
+## Imported In Phase 5 — Later Books
+
+- **Mandala 8**: hymns 1–92 (complete; mixed authors)
+- **Mandala 9**: hymns 1–114 (complete; Soma mandala)
+- **Mandala 10**: hymns 1–191 (complete; mixed authors, including late hymns)
+
+**Full Rig Veda Samhita: 1017 hymns (Mandalas 1–10 complete).**
+
 ## Provenance
 
 - Sanskrit pages inspected from the Internet Sacred Text Archive Rig Veda Unicode collection.

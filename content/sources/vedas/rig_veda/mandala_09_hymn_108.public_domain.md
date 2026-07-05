@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_09_hymn_108
+title: Rig Veda - Mandala 9 Hymn 108
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_09_hymn_108
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_9/Hymn_108
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 9, Hymn 108; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 9 Hymn 108
+
+## Public-Domain Translation
+
+1. FOR Indra, flow thou Soma on, as gladdening juice most sweet, intelligent, Great, cheering, dwelling most in heaven. 2. Thou, of whom having drunk the Steer acts like a steer. drinking of this that finds the light, He, Excellently Wise, is come to strengthening food, to spoil and wealth like Etasa. 3. For, verily, Pavamana, thou bast, splendidest, called all the generations of The Gods to immortality. 4. By whom Dadhyac Navagva opens fastened doors, by whom the sages gained their wish, By whom they won the fame of lovely Amrta in the felicity of Gods. 5. Effused, he floweth in a stream, best rapture-giver, in the long wool of the sheep, Sporting, as 'twere the waters' wave. 6. He who from out the rocky cavern took with might the red refulgent watery Cows, Thou masterest the stable full of kine and steeds: burst it, brave Lord, like one in mail. 7. Press ye and pour him, like a steed, laudworthy, speeding through the region and the flood, Who swims in water, roan in wood; 8. Increaser of the water, Steer with thousand streams, dear to the race of Deities; Who born in Law hath waxen mighty by the Law, King, God, and lofty Ordinance. 9. Make splendid glory shine on us, thou Lord of strengthening food, God, as the Friend of Gods: Unclose the fount of middle air. 10. Roll onward to the bowls, O Mighty One, effused, as Prince supporter of the tribes. Pour on us rain from heaven, send us the waters' flow: incite our thoughts to win the spoil. 11. They have drained him the Steer of heaven, him with a thousand streams, distilling rapturous joy, Him who brings all things excellent. 12. The Mighty One was born Immortal, giving life, lightening darkness with his shine. Well-praised by. sages he hath. by his wondrous power assumed the Threefold as his robe. 13. Effused is he who brings good things, who brings us bounteous gifts and sweet refreshing food, Soma who brings us quiet homes: 14. He whom our Indra and the Marut host shall drink, Bhaga shall drink with Aryaman, By whom we bring to us Mitra and Varuna and Indra for our great defence. 15. Soma, for Indra's drink do thou, led by the men, well-weaponed and most gladdening, Flow on with greatest store of sweets. 16. Enter the Soma-holder, even Indra's heart, as rivers pass into the sea, Acceptable to Mitra, Vayu, Varuna, the noblest Pillar of the heavens.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_9/Hymn_108
+- Translator: Ralph T. H. Griffith (public domain).

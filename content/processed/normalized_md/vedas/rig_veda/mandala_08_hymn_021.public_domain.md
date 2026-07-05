@@ -1,0 +1,47 @@
+---
+id: vedas/rig_veda/mandala_08_hymn_021
+title: Rig Veda - Mandala 8 Hymn 21
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+- vedic
+author: Ralph T. H. Griffith
+section: mandala_08_hymn_021
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+- vedic_hymn
+- invocation
+concepts:
+- agni
+- yajna
+use_for:
+- vedic_source_grounding
+- symbolic_reading
+avoid_for:
+- ritual_instruction_without_context
+related_sources:
+- vedas/rig_veda/index
+notes:
+- Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_21
+- Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: Rig Veda, Mandala 8, Hymn 21; Ralph T. H. Griffith translation
+normalized_from: /workspace/content/sources/vedas/rig_veda/mandala_08_hymn_021.public_domain.md
+normalized_sections:
+- Public-Domain Translation
+- Source Provenance
+---
+
+# Rig Veda - Mandala 8 Hymn 21
+
+## Normalized Primary Text
+
+1. WE call on thee, O Matchless One! We seeking help, possessing nothing firm ourselves, Call on thee wonderful in fight 2. On thee for aid in sacrifice. This youth of ours, the bold, the mighty, hath gonse forth. We therefore, we thy friends, Indra, have chosen thee, free-giver, as our Guardian God. 3. Come hither, for the drops are here, O Lord of corn-lands. Lord of horses, Lord of kine: Drink thou the Soma, Soma's Lord! 4. For we the kinless singers have drawn hither thee, O Indra, who hast numerous kin. With all the forms thou hast, comic thou of bull-like strength, come near to drink the Soma juice. 5. Sitting like birds beside thy meath, mingled with milk, that gladdeneth and exalteth thee, Indra, to thee we sing aloud. 6. We speak to thee with this our reverential prayer. Why art thou pondering yet awhile? Here are our wishes; thou art liberal, Lord of Bays: we and our hymns are present here. 7. For not in recent times alone, O Indra, Thunder-armed, have we obtained thine aid. Of old we knew thy plenteous wealth. 8. Hero, we knew thy friendship and thy rich rewards: these, Thunderer, now we crave of thee. O Vasu, for all wealth that cometh of the kine, sharpen our powers, fair-visored God. 9. Him who of old hath brought to us this and that blessing, him I magnify for you, Even Indra, O my friends, for help 10. Borne by Bay Steeds, the Lord of heroes, ruling men, for it is he who takes; delight. May Maghavan bestow on us his worshippers hundreds of cattle and of steeds. 11. Hero, may we, with thee for Friend, withstand the man who pants against us in his wrath, In fight with people rich in kine. 12. May we be victors in the singer's battle song, and meet the wicked, Much invoked! With heroes smite the foeman and show forth our strength. O Indra, further thou our thoughts. 13. O Indra, from all ancient time rivalless ever and companionless art thou: Thou seekest comradeship in war. 14. Thou findest not the wealthy man to be thy friend: those scorn thee who are flown with wine. What time thou thunderest and gatherest, then thou, even as a Father, art invoked. 15. O Indra, let us not, like fools who waste their lives at home, with friendship such as thine Sit idly by the poured-out juice. 16. Giver of kine, may we not miss thy gracious gifts: let us not rob thee of thine own. Strip even the strong places of the foe, and bring: thy gifts can never be made vain. 17. Indra or blest Sarasvati alone bestows such wealth, treasure so great, or thou, O Citra, on the worshipper. 18. Citra is King, and only kinglings are the rest who dwell beside Sarasvati. He, like Parjanya with his rain, hath spread himself with thousand, yea, with myriad gifts.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_8/Hymn_21
+- Translator: Ralph T. H. Griffith (public domain).

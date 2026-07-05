@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_09_hymn_075
+title: Rig Veda - Mandala 9 Hymn 75
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_09_hymn_075
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_9/Hymn_75
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 9, Hymn 75; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 9 Hymn 75
+
+## Public-Domain Translation
+
+1. GRACIOUSLY-MINDED he is flowing on his way to win dear names o'er which the Youthful One grows great. The Mighty and Far-seeing One hath mounted now the mighty Surya's car which moves to every side. 2. The Speaker, unassailable Master of this hymn, the Tongue of sacrifice pours forth the pleasant meath. Within the lustrous region of the heavens the Son makes the third secret name of Mother and of Sire. 3. Sending forth flashes he hath bellowed to the jars, led by the men into the golden reservoir. The milky streams of sacrifice have sung to him: he of the triple height shines brightly through the morns. 4. Pressed by the stones, with hymns, and graciously inclined, illuminating both the Parents, Heaven and Earth, He flows in ordered season onward through the flee, a current of sweet juice still swelling day by day. 5. Flow onward, Soma, flow to bring prosperity: cleansed by the men, invest thee with the milky draught. What gladdening drinks thou hast, foaming, exceeding strong, even with these incite Indra to give us wealth.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_9/Hymn_75
+- Translator: Ralph T. H. Griffith (public domain).

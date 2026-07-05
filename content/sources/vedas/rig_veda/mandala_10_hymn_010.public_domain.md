@@ -1,0 +1,43 @@
+---
+id: vedas/rig_veda/mandala_10_hymn_010
+title: Rig Veda - Mandala 10 Hymn 10
+source_title: Rig Veda
+source_type: primary_text
+tradition:
+  - vedic
+author: Ralph T. H. Griffith
+section: mandala_10_hymn_010
+language_original: sanskrit
+language_current: english
+translator: Ralph T. H. Griffith
+themes:
+  - vedic_hymn
+  - invocation
+concepts:
+  - agni
+  - yajna
+use_for:
+  - vedic_source_grounding
+  - symbolic_reading
+avoid_for:
+  - ritual_instruction_without_context
+related_sources:
+  - vedas/rig_veda/index
+notes:
+  - Imported from English Wikisource: https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_10
+  - Griffith translation (public domain).
+copyright_status: public_domain
+status: imported_public_domain
+citation: "Rig Veda, Mandala 10, Hymn 10; Ralph T. H. Griffith translation"
+---
+
+# Rig Veda - Mandala 10 Hymn 10
+
+## Public-Domain Translation
+
+1. FAIN would I win my friend to kindly friendship. So may the Sage, come through the air's wide ocean, Remembering the earth and days to follow, obtain a son, the issue of his father. 2. Thy friend loves not the friendship which considers her who is near in kindred as stranger. Sons of the mighty Asura, the Heroes, supporters of the heavens, see far around them. 3. Yea, this the Immortals seek of thee with longing, progeny of the sole existing mortal. Then let thy soul and mine be knit together, and as a loving husband take thy consort. 4. Shall we do now what we ne'er did aforetime? we who spake righteously now talk impurely? Gandharva in the floods, the Dame of Waters-such is our bond, such our most lofty kinship. 5. Even in the womb God Tvastar, Vivifier, shaping all forms, Creator, made us consorts. None violates his holy ordinances: that we are his the heavens and earth acknowledge. 6. Who knows that earliest day whereof thou speakest? Who hath beheld it? Who can here declare it? Great is the Law of Varuna and Mitra. What, wanton! wilt thou say to men to tempt them? 7. I, Yami, am possessed by love of Yama, that I may rest on the same couch beside him. I as a wife would yield me to my husband. Like car-wheels let us speed to meet each other. 8. They stand not still, they never close their eyelids, those sentinels of Gods who wander round us. Not me-go quickly, wanton, with another, and hasten like a chariot wheel to meet him. 9. May Surya's eye with days and nights endow him, and ever may his light spread out before him. In heaven and earth the kindred Pair commingle. On Yam! be the unbrotherly act of Yama. 10. Sure there will come succeeding times when brothers and sisters will do acts unmeet for kinsfolk. Not me, O fair one,-seek another husband, and make thine arm a pillow for thy consort. 11. Is he a brother when no lord is left her? Is she a sister when Destruction cometh? Forced by my love these many words I utter. Come near, and hold me in thy close embraces. 12. I will not fold mine arms about thy body: they call it sin when one comes near his sister. Not me,-prepare thy pleasures with another: thy brother seeks not this from thee, O fair one. 13. Alas! thou art indeed a weakling, Yama we find in thee no trace of heart or spirit. As round the tree the woodbine clings, another will cling about thee girt as with a girdle. 14. Embrace another, Yami; let another, even as the woodbine rings the tree, enfold thee. Win thou his heart and let him win thy fancy, and he shall form with thee a blest alliance.
+
+## Source Provenance
+
+- Imported from https://en.wikisource.org/wiki/The_Hymns_of_the_Rigveda/Book_10/Hymn_10
+- Translator: Ralph T. H. Griffith (public domain).
