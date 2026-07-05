@@ -102,7 +102,7 @@ House of Nature — element rooms first; heritage fence; double editorial gate.
 
 ---
 
-## Fase 06 — Sangha ← **ATUAL**
+## Fase 06 — Sangha ✅
 
 Exploração apenas — sem feeds, profiles ou counts.
 
@@ -112,7 +112,22 @@ Exploração apenas — sem feeds, profiles ou counts.
 | SG-02 | Shared silence sitting → silence room (local only) | frontend | `apps/web/static/data/sangha/` | RF-006 |
 | SG-03 | Study circle placeholder (`arriving`) | frontend | `apps/web/` | — |
 
-**Gate:** nenhum endpoint social; nenhum analytics de terceiros; carta revisada pelos criadores antes de qualquer sync.
+**Gate:** nenhum endpoint social; carta revisada pelos criadores antes de qualquer sync.
+
+---
+
+## Fase 07 — Living Corpus ← **ATUAL**
+
+Protocolo de crescimento honesto — features acendem conforme o corpus importa.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| LC-01 | Library catalog from manifests + passage JSON | backend | `scripts/content/build_library_catalog.py` | RF-038 |
+| LC-02 | Shelves estendem do catalog; estados open/arriving/future | frontend | `apps/web/` | RF-038 |
+| LC-03 | Linha quiet "the library has grown" no Court (dismissable) | frontend | `corpus-store.js` | RF-038 |
+| LC-04 | Health gate CI — health_sensitive exige safety_review | qa | `scripts/validate/check_health_gate.py` | RF-037 |
+
+**Gate:** catalog.json gerado em CI; nenhum conteúdo closed-tier na UI.
 
 ---
 
