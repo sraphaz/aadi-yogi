@@ -6,6 +6,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
 from fastapi.testclient import TestClient
 
 
@@ -71,13 +72,36 @@ def test_inquiry_policy_smoke() -> None:
     assert body["free_daily_inquiries"] == 2
 
 
-def test_inquiry_quota_smoke() -> None:
+def test_inquiry_quota_smoke(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("DARSHAN_INQUIRY_QUOTA_STORE", str(tmp_path / "quota.json"))
     api = client()
     device = "smoke-test-device"
     headers = {"X-Darshan-Device": device}
     quota = api.get("/inquiry/quota", headers=headers)
     assert quota.status_code == 200
     assert quota.json()["remaining"] == 2
+
+
+def test_inquire_quota_enforced_429(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Gate I-01: free measure enforced server-side when calibrated (RF-039)."""
+    monkeypatch.setenv("DARSHAN_INQUIRY_QUOTA_STORE", str(tmp_path / "quota.json"))
+    api = client()
+    device = "quota-429-device"
+    headers = {"X-Darshan-Device": device}
+    payload = {"question": "What is dharma in one breath?"}
+
+    for _ in range(2):
+        response = api.post("/inquire", json=payload, headers=headers)
+        assert response.status_code == 200
+
+    blocked = api.post("/inquire", json=payload, headers=headers)
+    assert blocked.status_code == 429
+    body = blocked.json()
+    assert body["detail"]["reason"] == "free_measure_rested"
+    assert body["detail"]["remaining"] == 0
+
+    quota = api.get("/inquiry/quota", headers=headers)
+    assert quota.json()["remaining"] == 0
 
 
 def test_retrieve_smoke() -> None:

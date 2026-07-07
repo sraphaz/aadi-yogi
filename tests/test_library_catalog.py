@@ -11,9 +11,14 @@ def test_build_catalog_has_gita_shelf() -> None:
     ids = {s["id"] for s in catalog["shelves"]}
     assert "gita" in ids
     assert "upanishads" in ids
+    assert "integral_yoga" in ids
     gita = next(s for s in catalog["shelves"] if s["id"] == "gita")
     assert gita["state"] == "open"
     assert "gita-ii-47" in gita["passages"]
+    upanishads = next(s for s in catalog["shelves"] if s["id"] == "upanishads")
+    assert upanishads["state"] == "arriving"
+    cwsa = next(s for s in catalog["shelves"] if s["id"] == "integral_yoga")
+    assert cwsa["state"] == "arriving"
     assert catalog.get("facets")
 
 
