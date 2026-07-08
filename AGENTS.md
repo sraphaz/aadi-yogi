@@ -36,6 +36,7 @@ Config: [`arah.config.yaml`](arah.config.yaml) · Coreografia: [`.agents/choreog
 | 06 | Sangha (exploration charter) | ✅ |
 | 07 | Living corpus (RF-038 + health gate) | ✅ |
 | 08 | Integrate (server quota, catalog facets) | ✅ |
+| 09 | Library browse (facet browser, RF-021) | 🎯 **atual** |
 
 Backlog detalhado: [`BACKLOG.md`](BACKLOG.md)
 
