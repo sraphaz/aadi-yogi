@@ -51,7 +51,7 @@ import {
   dismissGrowthNotice,
   acknowledgeCorpusVersion,
 } from './corpus-store.js';
-import { getDeviceId, inquiryFetchInit, fetchInquiryQuota } from './inquiry-quota.js';
+import { getDeviceId, inquiryFetchInit, fetchInquiryQuota, grantDevCredits } from './inquiry-quota.js';
 
 const state = {
   screen: 'threshold',
@@ -555,7 +555,7 @@ async function renderSangha() {
 }
 
 function renderDana() {
-  loadInquiryPolicy().then((policy) => {
+  Promise.all([loadInquiryPolicy(), fetchInquiryQuota()]).then(([policy, quota]) => {
     const s = t();
     const lang = state.lang;
     const label = policy.credit_unit_label?.[lang] || policy.credit_unit_label?.en || s.danaCreditUnit;
@@ -570,6 +570,12 @@ function renderDana() {
             .replace('{unit}', label)
         : s.danaPending;
     const legal = policy.calibrated ? s.danaLegalNote : '';
+    const creditCount = quota?.credits ?? 0;
+    const creditsLine = s.danaCreditsLine.replace('{credits}', String(creditCount));
+    const devGrant =
+      quota?.dev_grant_allowed === true
+        ? `<button type="button" class="btn-quiet dana-link" data-action="dev-credit-grant">${s.danaDevGrant}</button>`
+        : '';
 
     root.innerHTML = `
     <section class="screen" aria-label="${s.danaLabel}">
@@ -579,9 +585,12 @@ function renderDana() {
         <p class="path-intro">${s.danaIntro}</p>
         <p class="path-note">${s.danaMachine}</p>
         <p class="path-note path-note--muted">${pricing}</p>
+        <p class="path-note path-note--muted">${creditsLine}</p>
+        <p class="path-note path-note--muted">${s.danaCreditsUnwired}</p>
         <p class="path-note path-note--muted">${anchor}</p>
         <p class="path-note path-note--muted">${s.danaNever}</p>
         ${legal ? `<p class="path-note path-note--muted">${legal}</p>` : ''}
+        ${devGrant}
       </div>
     </section>`;
   });
@@ -1005,9 +1014,12 @@ async function renderInquiry() {
   const policy = await loadInquiryPolicy();
   const quota = await fetchInquiryQuota();
   const remaining = quota?.remaining;
+  const creditCount = quota?.credits ?? 0;
   const measureNote =
     policy.calibrated && remaining != null
-      ? `<p class="path-note path-note--muted">${s.inquiryMeasureNote.replace('{remaining}', String(remaining))}</p>`
+      ? `<p class="path-note path-note--muted">${s.inquiryMeasureNote
+          .replace('{remaining}', String(remaining))
+          .replace('{credits}', String(creditCount))}</p>`
       : '';
 
   const doors = s.inquiryDoors
@@ -1186,6 +1198,11 @@ root.addEventListener('click', async (e) => {
     dismissGrowthNotice(catalog?.bundle_version || '');
     acknowledgeCorpusVersion(catalog);
     renderCourt();
+    return;
+  }
+  if (el.dataset.action === 'dev-credit-grant') {
+    await grantDevCredits(10);
+    renderDana();
     return;
   }
   if (el.dataset.action === 'enter') {

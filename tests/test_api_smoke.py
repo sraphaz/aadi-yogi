@@ -77,7 +77,17 @@ def test_inquiry_quota_smoke() -> None:
     headers = {"X-Darshan-Device": device}
     quota = api.get("/inquiry/quota", headers=headers)
     assert quota.status_code == 200
-    assert quota.json()["remaining"] == 2
+    body = quota.json()
+    assert body["remaining"] == 2
+    assert body["credits"] == 0
+    assert body["credits_purchase_wired"] is False
+
+
+def test_inquiry_credit_grant_requires_dev_flag() -> None:
+    api = client()
+    headers = {"X-Darshan-Device": "grant-locked"}
+    denied = api.post("/inquiry/credits/grant", headers=headers, json={"amount": 10})
+    assert denied.status_code == 403
 
 
 def test_retrieve_smoke() -> None:

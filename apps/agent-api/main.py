@@ -13,6 +13,13 @@ from pydantic import BaseModel, Field
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
 from packages.prompts.contract import envelope_to_dict
+from packages.prompts.inquiry_credits import (
+    can_use_credit,
+    credit_balance,
+    debit_credit,
+    dev_grant_allowed,
+    grant_credits,
+)
 from packages.prompts.inquiry_policy import inquiry_policy
 from packages.prompts.inquiry_quota import (
     can_use_free_inquiry,
@@ -250,15 +257,22 @@ def inquire_endpoint(request: AskRequest, http_request: Request) -> InquireRespo
     """Darshan inquiry — response contract envelope, no streaming (RF-004, RF-005)."""
     device_id = http_request.headers.get("x-darshan-device", "").strip() or None
     policy = inquiry_policy()
-    if policy.get("calibrated") and not can_use_free_inquiry(device_id):
-        raise HTTPException(
-            status_code=429,
-            detail={
-                "reason": "free_measure_rested",
-                "remaining": 0,
-                "policy": policy,
-            },
-        )
+    use_free = True
+    if policy.get("calibrated"):
+        if can_use_free_inquiry(device_id):
+            use_free = True
+        elif can_use_credit(device_id):
+            use_free = False
+        else:
+            raise HTTPException(
+                status_code=429,
+                detail={
+                    "reason": "free_measure_rested",
+                    "remaining": 0,
+                    "credits": credit_balance(device_id),
+                    "policy": policy,
+                },
+            )
 
     result = inquire(
         request.question,
@@ -267,20 +281,50 @@ def inquire_endpoint(request: AskRequest, http_request: Request) -> InquireRespo
         top_k=request.top_k,
     )
     if policy.get("calibrated"):
-        record_free_inquiry(device_id)
+        if use_free:
+            record_free_inquiry(device_id)
+        else:
+            debit_credit(device_id)
     return inquire_to_response(result)
 
 
 @app.get("/inquiry/quota")
 def inquiry_quota_endpoint(http_request: Request) -> dict[str, object]:
-    """Remaining free inquiries for this device (server mirror)."""
+    """Remaining free inquiries + credit balance for this device (server mirror)."""
     device_id = http_request.headers.get("x-darshan-device", "").strip() or None
     policy = inquiry_policy()
     return {
         "calibrated": policy.get("calibrated", False),
         "remaining": remaining_free_inquiries(device_id),
         "free_daily_inquiries": policy.get("free_daily_inquiries"),
+        "credits": credit_balance(device_id),
+        "credits_purchase_wired": False,
+        "dev_grant_allowed": dev_grant_allowed(),
     }
+
+
+class CreditGrantRequest(BaseModel):
+    amount: int = Field(default=10, ge=1, le=100)
+
+
+@app.post("/inquiry/credits/grant")
+def inquiry_credits_grant(
+    request: CreditGrantRequest, http_request: Request
+) -> dict[str, object]:
+    """Scaffold grant — only when DARSHAN_ALLOW_DEV_CREDIT_GRANT is set (no PIX yet)."""
+    if not dev_grant_allowed():
+        raise HTTPException(
+            status_code=403,
+            detail={"reason": "credits_purchase_not_wired"},
+        )
+    device_id = http_request.headers.get("x-darshan-device", "").strip() or None
+    if not device_id:
+        raise HTTPException(status_code=400, detail={"reason": "device_required"})
+    try:
+        balance = grant_credits(device_id, request.amount)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail={"reason": str(exc)}) from exc
+    return {"credits": balance, "granted": request.amount, "scaffold": True}
 
 
 @app.get("/inquiry/policy")

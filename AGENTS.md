@@ -35,7 +35,8 @@ Config: [`arah.config.yaml`](arah.config.yaml) · Coreografia: [`.agents/choreog
 | 05 | Ground (house of nature) | ✅ |
 | 06 | Sangha (exploration charter) | ✅ |
 | 07 | Living corpus (RF-038 + health gate) | ✅ |
-| 08 | Integrate (server quota, catalog facets) | 🎯 **atual** |
+| 08 | Integrate (server quota, catalog facets) | ✅ |
+| 09 | Sustain (credit ledger scaffold, dana quiet) | 🎯 **atual** |
 
 Backlog detalhado: [`BACKLOG.md`](BACKLOG.md)
 
