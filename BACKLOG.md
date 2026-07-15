@@ -131,7 +131,7 @@ Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 
 ---
 
-## Fase 08 — Integrate ← **ATUAL**
+## Fase 08 — Integrate ✅
 
 Quota server-side · facets no catalog · shelves arriving honestos.
 
@@ -141,7 +141,22 @@ Quota server-side · facets no catalog · shelves arriving honestos.
 | I-02 | GET `/inquiry/quota` + PWA sync | frontend + backend | `inquiry-quota.js`, `apps/agent-api/` | RF-039 |
 | I-03 | Catalog facets + shelves upanishads/CWSA arriving | backend | `build_library_catalog.py` | RF-038 |
 
-**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired.
+**Gate:** medida free enforced server-side when calibrated ✅ · créditos/pagamento fora deste gate.
+
+---
+
+## Fase 09 — Sustain ← **ATUAL**
+
+Ledger de créditos (scaffold) · inquiry além da medida free · dana quieta sem PIX ainda.
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| C-01 | Credit ledger server-side (`inquiry_credits.py`) | backend | `packages/prompts/inquiry_credits.py` | RF-039 |
+| C-02 | `/inquire` consome free → crédito → 429; grant só com `DARSHAN_ALLOW_DEV_CREDIT_GRANT` | backend | `apps/agent-api/` | RF-039 |
+| C-03 | Quota payload + PWA mostram créditos; rest sem urgência | frontend + backend | `inquiry-quota.js`, `apps/web/` | RF-039 |
+| C-04 | Dana page reflete calibração; compra PIX ainda não wired | frontend | `apps/web/` | RF-039 |
+
+**Gate:** crédito debita após medida free; compra real (PIX/Stripe) permanece não wired; sem popups de dana em fluxos contemplativos.
 
 ---
 

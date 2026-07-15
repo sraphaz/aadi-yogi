@@ -32,3 +32,18 @@ export async function fetchInquiryQuota() {
     return null;
   }
 }
+
+/** Scaffold grant — server rejects unless DARSHAN_ALLOW_DEV_CREDIT_GRANT is set. */
+export async function grantDevCredits(amount = 10) {
+  try {
+    const res = await fetch('/inquiry/credits/grant', {
+      method: 'POST',
+      headers: { ...deviceHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount }),
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
