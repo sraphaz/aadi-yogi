@@ -10,11 +10,17 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from packages.consciousness import advise, list_vocabulary, load_manifest, load_posture_bundle
-from packages.evals.aadi_evals.envelope import ResponseEnvelope
+from packages.consciousness import (
+    consult,
+    list_vocabulary,
+    load_foundation,
+    load_manifest,
+    load_posture_bundle,
+    propose_feedback,
+)
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
-from packages.prompts.contract import envelope_to_dict, validate_envelope
+from packages.prompts.contract import envelope_to_dict
 from packages.prompts.inquiry_policy import inquiry_policy
 from packages.prompts.inquiry_quota import (
     can_use_free_inquiry,
@@ -115,13 +121,15 @@ class InquireResponse(BaseModel):
     retrieved_chunks: list[ChunkResponse]
 
 
-class AdviseRequest(BaseModel):
-    question: str = Field(min_length=1, max_length=4000)
-    draft_envelope: dict | None = None
+class ConsultRequest(BaseModel):
+    situation: str = Field(min_length=1, max_length=4000)
 
 
-class ValidateRequest(BaseModel):
-    envelope: dict
+class FeedbackRequest(BaseModel):
+    situation: str = Field(min_length=1, max_length=4000)
+    observation: str = Field(min_length=1, max_length=8000)
+    suggested_adjustment: str = Field(default="", max_length=4000)
+    host_repo: str = Field(default="unknown-host", max_length=200)
 
 
 class WitnessRequest(BaseModel):
@@ -330,38 +338,43 @@ def consciousness_manifest() -> dict[str, object]:
     return load_manifest().to_dict()
 
 
+@app.get("/consciousness/foundation")
+def consciousness_foundation() -> dict[str, object]:
+    """Living basis of conduct for host agents — not Darshan app rules."""
+    return load_foundation().to_dict()
+
+
 @app.get("/consciousness/posture")
 def consciousness_posture() -> dict[str, object]:
-    """System-prompt posture a host agent should inject as base frequency."""
+    """Alias: agent preamble / posture derived from the living foundation."""
     return load_posture_bundle().to_dict()
 
 
 @app.get("/consciousness/vocabulary")
 def consciousness_vocabulary() -> dict[str, object]:
-    """Shared states, modes, closings, and decision laws."""
+    """Conduct principles and learning currents (Darshan enums nested as secondary)."""
     return list_vocabulary()
 
 
+@app.post("/consciousness/consult")
+def consciousness_consult(request: ConsultRequest) -> dict[str, object]:
+    """Orient a host agent from the foundation for a concrete situation."""
+    return consult(request.situation).to_dict()
+
+
+@app.post("/consciousness/feedback")
+def consciousness_feedback(request: FeedbackRequest) -> dict[str, object]:
+    """Propose a learning note — inbox only; never auto-mutates the foundation."""
+    return propose_feedback(
+        situation=request.situation,
+        observation=request.observation,
+        suggested_adjustment=request.suggested_adjustment,
+        host_repo=request.host_repo,
+        write=True,
+    ).to_dict()
+
+
 @app.post("/consciousness/advise")
-def consciousness_advise(request: AdviseRequest) -> dict[str, object]:
-    """Recommend the next decision under Adyog consciousness for a host agent."""
-    return advise(request.question, draft_envelope=request.draft_envelope).to_dict()
-
-
-@app.post("/consciousness/validate")
-def consciousness_validate(request: ValidateRequest) -> dict[str, object]:
-    """Validate a draft response envelope against the consciousness contract."""
-    envelope = ResponseEnvelope.from_dict(request.envelope)
-    validation = validate_envelope(envelope, lambda _pid: None)
-    return {
-        "passed": validation.passed,
-        "results": [
-            {
-                "name": r.name,
-                "passed": r.passed,
-                "details": r.details,
-                "status": r.status,
-            }
-            for r in validation.results
-        ],
-    }
+def consciousness_advise(request: ConsultRequest) -> dict[str, object]:
+    """Compatibility alias for /consciousness/consult."""
+    return consult(request.situation).to_dict()

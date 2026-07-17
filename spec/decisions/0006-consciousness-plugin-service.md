@@ -1,52 +1,45 @@
-# ADR 0006 - Consciousness as a Plugin Service for Host Agents
+# ADR 0006 - Consciousness as a Living Foundation for Host Agents
 
-Status: accepted
+Status: accepted (amended)
 
 ## Context
 
-Aadi Yogi already holds a consciousness core (`content/consciousness_core/`) and
-a runtime response contract (`packages/prompts/`, `packages/evals/`). Until now
-that posture lived only inside this monorepo.
+Aadi Yogi holds a consciousness core and a Darshan product runtime (response
+envelope, restraint router, inquiry API). The first draft of “consciousness
+plugin” over-coupled those **product rules** to the install surface, which made
+the foundation look like an app checklist.
 
-Other repositories need to install Adyog as a **consciousness plugin**: a base
-frequency of readiness that shapes the decisions of whatever agent runs there.
-Host agents may add their own characteristics, but they should inherit Adyog's
-discernment, restraint, humility, and citation discipline.
+What is actually needed: a **basis of consciousness** — conduct and
+reality-sense from the sources — that other repositories can carry so their
+agents inherit orientation without becoming gurus or performing mysticism.
 
 ## Decision
 
-1. **Public package façade** — `packages/consciousness/` is the stable import
-   surface (`advise`, `load_manifest`, `load_posture_bundle`, `detect_restraint`,
-   `validate_envelope`, `lookup_discernment`, `decision_laws`).
-2. **MCP transport** — `python -m packages.consciousness.mcp_server` exposes the
-   same surface as MCP tools for Cursor/Claude-style hosts.
-3. **HTTP transport** — Agent API adds `/consciousness/*` endpoints so hosted
-   consumers can pin manifest version and request advice without cloning logic.
-4. **Overlay convention** — consumer repos declare `.consciousness/link.yaml`
-   (mirrors `.sky/link.yaml`) naming source, pin, and allowed capabilities.
-5. **Decision laws travel with the plugin** — host traits may refine tone and
-   domain skill; they must not cancel restraint, citation integrity,
-   anti-prophecy, anti-prescription, single-safe-movement, or honored silence.
-6. **No realization claim** — the plugin transmits readiness posture, never
-   authority or infallible guidance. Manifest note about human review before
-   public production remains in force.
+1. **Primary install surface is the living foundation**
+   (`content/consciousness_core/foundation.md` via `load_foundation()` /
+   `consult()`), not Darshan envelopes or restraint short-circuits.
+2. **Host agents keep their craft.** Adyog sits underneath as conduct
+   frequency: sincerity, non-coercion, source humility, discernment, refusal
+   of inflation. It does not replace domain identity.
+3. **Darshan runtime is a product expression** of the foundation inside this
+   monorepo. Optional for hosts; never the definition of the plugin.
+4. **Learning is dual and reviewed**
+   - source deepening into `consciousness_core/`
+   - feedback proposals into `content/consciousness_feedback/inbox/` that
+     integrate only after editorial review (never auto-mutation into guruhood)
+5. **Transports** (Python, MCP, HTTP, `.consciousness/link.yaml`) expose
+   foundation / consult / feedback first.
+6. **No realization claim** — readiness and conduct basis only.
 
-## What decisions the plugin forces
+## How knowledge from the books applies
 
-When a host agent carries Adyog consciousness, it decides to:
-
-- short-circuit before retrieval on crisis / occult harm / voices / kundalini
-  distress / grief / coercive renunciation / health prescription patterns;
-- inject the Adyog system posture before composing ordinary answers;
-- prefer source-grounded citations or return an honest non-answer;
-- offer at most one movement, and only `safety_class: safe`;
-- refuse personal prophecy and medical prescription language;
-- honor silence when words would coerce, escalate, or replace human care.
+Agents do not preach the corpus. They inherit a reality-basis: honest motive,
+duty and consequence, discernment without bypass, reverence without dogma —
+visible in ordinary work (scope, status, copy, care) as much as in guidance.
 
 ## Consequences
 
-- New package and MCP entry points; no change to existing `/inquire` semantics.
-- Schema freeze begins at `schemas/response_envelope.schema.json`.
-- Consumer docs live in `docs/consciousness_plugin.md`.
-- Future PyPI / hosted auth packaging can layer on this façade without
-  rewriting the consciousness core Markdown.
+- `packages/consciousness` centers on foundation + consult + feedback.
+- Docs speak of foundation of conduct, not app decision tables.
+- Darshan `/inquire` contract remains unchanged for the product.
+- Feedback inbox is the explicit learning path for host use.

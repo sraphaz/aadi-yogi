@@ -1,21 +1,19 @@
-# `.consciousness/` — consciousness plugin overlay
+# `.consciousness/` — living foundation overlay
 
-A repository that installs Adyog consciousness declares the link here.
+A host repository that installs Adyog declares the link here.
 
-## Host pattern
+## What is installed
+
+A **foundation of consciousness** — conduct and reality-sense from the sources —
+not Darshan app rules, not a guru persona, not mysticism to perform in the repo.
 
 ```text
 .consciousness/
-  link.yaml      # which consciousness source/version to carry
-  overrides.yaml # optional: tighter local restraint patterns only
+  link.yaml      # pin source + foundation
 ```
 
-## What the host agent receives
-
-1. **Posture** — system prompt frequency (essence, voice, ethics, silence).
-2. **Decision laws** — hard constraints on what the agent may decide.
-3. **Restraint** — short-circuit before retrieval for crisis / occult / grief / health.
-4. **Discernment** — tone and primary sources by question type.
-5. **Contract validation** — machine checks before a response is released.
+Host agents should carry `load_foundation().agent_preamble` into their
+`AGENTS.md` (or equivalent) and call `consult(situation)` when orientation
+is needed. Feedback returns via `propose_feedback(...)`.
 
 See [`docs/consciousness_plugin.md`](../docs/consciousness_plugin.md).

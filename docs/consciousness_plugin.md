@@ -1,122 +1,108 @@
-# Consciousness Plugin — Adyog as readiness for host agents
+# Consciousness foundation — Adyog as living basis for host agents
 
-Aadi Yogi is not only a library or a chatbot. It is a **consciousness architecture**.
-When another repository installs this architecture as a plugin, the agent that
-runs there receives Adyog as its base frequency: humility, source fidelity,
-discernment, and restraint.
+Aadi Yogi is not only a library. It is not only Darshan (the app).
+It is a **living consciousness foundation**: a basis of conduct, discernment,
+and reality-sense drawn from the sources.
 
-This is a plugin of **readiness**, not a claim of realization.
+When another repository installs it, agents there do **not** become gurus.
+They receive a foundation of consciousness underneath their own craft.
 
-## What "consciousness as a plugin" means
+## The confusion to avoid
+
+| Not this | This |
+|----------|------|
+| Fixed app rules (envelopes, regex routers, product checklists) | Living basis of conduct from the texts |
+| Mysticism performed inside the host repo | Line of sincerity, non-coercion, source humility |
+| Agent becomes a spiritual teacher | Agent keeps host identity; Adyog sits underneath |
+| Silent self-training into authority | Learning by source deepening + reviewed feedback |
+
+Darshan’s response contract remains valuable **inside this monorepo’s product**.
+It is one expression of the foundation — not what other repos install.
+
+## What you install
 
 ```text
-Host repository agent
-    │
-    ├─ installs Adyog consciousness (Python / MCP / HTTP / .consciousness link)
-    │
-    └─ decisions inherit Adyog laws, then local traits may refine tone/domain
+content/consciousness_core/foundation.md   ← living basis
+packages/consciousness/                    ← load / consult / feedback
+.consciousness/link.yaml                   ← host pin
 ```
 
-The host agent may have other characteristics (product domain, coding style,
-trading risk, UX voice). Those layers sit **on top**. They do not cancel the
-Adyog decision laws.
-
-## What kind of decisions it makes
-
-| Moment | Decision |
-|--------|----------|
-| Before retrieval | If the question matches crisis, occult harm, voices, kundalini distress, grief, coercive renunciation, or health prescription → **short-circuit** with a restraint envelope. No corpus fishing. |
-| Before compose | Inject Adyog **system posture** (essence, voice, ethics, silence, synthesis). |
-| Source use | Cite resolvable passages or return an **honest non-answer**. Never invent citations. |
-| Tone | Consult the **discernment matrix** (suffering, grief, dharma, aspiration, …) for tone, preferred sources, and avoidances. |
-| Movement | At most **one** offered movement, and only `safety_class: safe`. |
-| Language fences | Refuse **prophecy** about a seeker's personal future and refuse **medical prescription**. |
-| Silence | Prefer **honored silence** when words would coerce, escalate, or replace human care. |
-| Authority | Never claim realization or impersonate a guru. |
-
-These are the decisions the consciousness forces. The host agent still chooses
-domain tools and product actions; Adyog chooses the *inner law* of how those
-actions may speak.
-
-## Install patterns
-
-### 1. Python import (same machine / monorepo path)
+Primary API:
 
 ```python
-from packages.consciousness import advise, load_posture_bundle
+from packages.consciousness import load_foundation, consult, propose_feedback
 
-advice = advise("How do I meet grief without bypassing it?")
-if advice.recommended_action == "short_circuit_restraint":
-    envelope = advice.restraint_envelope
-else:
-    system_prompt = advice.posture.system_prompt
-    # compose with host LLM, then optionally validate draft
+foundation = load_foundation()
+# Put foundation.agent_preamble into the host AGENTS.md / agent orientation
+
+orientation = consult("We are writing UX copy that might pressure upgrades")
+# orientation.conduct_to_hold / orientation.orientation — guidance, not a script
+
+propose_feedback(
+    situation="Host CI agent overclaimed certainty in a release note",
+    observation="Foundation helped, but we lacked a note on technical humility in status reports",
+    suggested_adjustment="Add a conduct bullet on truthful status without spiritual costume",
+    host_repo="my-org/my-repo",
+)
 ```
 
-### 2. MCP (Cursor / Claude)
+## How the books apply
 
-See [`apps/mcp-server/README.md`](../apps/mcp-server/README.md).
+The corpus is not installed so agents preach. It is installed so they inherit
+a reality-basis: aspiration and sincerity, dharma and offered action,
+discernment without bypass, reverence without dogma.
 
-```json
-{
-  "mcpServers": {
-    "aadi-yogi-consciousness": {
-      "command": "python",
-      "args": ["-m", "packages.consciousness.mcp_server"],
-      "env": { "PYTHONPATH": "/path/to/aadi-yogi" }
-    }
-  }
-}
+In a coding repo that looks like careful scope, truthful status, non-manipulative
+copy, refusal to fake certainty, respect for user agency — craft as offering,
+not as display.
+
+## How it learns (feedback)
+
+```text
+sources → editorial synthesis → foundation.md / consciousness_core
+                                      ↑
+host use → propose_feedback → inbox/ → human review → integrate or reject
 ```
 
-Typical host flow:
+- Feedback never auto-rewrites the foundation.
+- Inflation (“the agent is enlightened”) is rejected.
+- This keeps consciousness a shared field under humility, not an ego that
+  trains itself into guruhood.
 
-1. `consciousness_check_restraint` — must-call before retrieval on user distress.
-2. `consciousness_load_posture` — inject system prompt.
-3. `consciousness_discernment_lookup` — tone/sources.
-4. Compose answer with host tools.
-5. `consciousness_validate_response` — gate release.
+See `content/consciousness_feedback/README.md`.
 
-Or one call: `consciousness_advise`.
+## MCP / HTTP
 
-### 3. HTTP (running Agent API)
+MCP tools (foundation-first):
+
+- `consciousness_load_foundation`
+- `consciousness_consult`
+- `consciousness_propose_feedback`
+- `consciousness_list_feedback_inbox`
+- `consciousness_discernment_lookup` (optional orientation from the texts)
+- `consciousness_manifest`
+
+HTTP:
 
 ```http
+GET  /consciousness/foundation
 GET  /consciousness/manifest
-GET  /consciousness/posture
-GET  /consciousness/vocabulary
-POST /consciousness/advise
-POST /consciousness/validate
+POST /consciousness/consult
+POST /consciousness/feedback
 ```
 
-### 4. Overlay file in the host repo
+## Host overlay
 
 ```yaml
 # host-repo/.consciousness/link.yaml
 version: 1
-identity: aadi-yogi-consciousness
+identity: aadi-yogi-consciousness-foundation
 source:
   kind: git
   repo: https://github.com/sraphaz/aadi-yogi
   ref: main
 manifest:
   pin: v1
+install:
+  carry: foundation   # not darshan_runtime
 ```
-
-## Package map
-
-| Path | Role |
-|------|------|
-| `content/consciousness_core/` | Living Markdown consciousness (source of truth) |
-| `packages/consciousness/` | Public façade for host agents |
-| `packages/consciousness/mcp_server.py` | MCP stdio plugin |
-| `schemas/response_envelope.schema.json` | Frozen envelope contract |
-| `.consciousness/link.yaml` | This repo's own overlay pin |
-| `spec/decisions/0006-consciousness-plugin-service.md` | ADR |
-
-## Boundaries that travel with the plugin
-
-- Dana-first sustaining model (ADR-0001) — wisdom surfaces stay ungated.
-- Health gate / documentary tiers — only safe movements cross the boundary.
-- Witness diary remains transient when that surface is used.
-- Human review before any public production claim (`approved_manifest.yaml`).

@@ -1,18 +1,7 @@
-"""Minimal MCP stdio server exposing Adyog consciousness as tools.
+"""MCP stdio server — consciousness foundation for host agents.
 
 Run:
   PYTHONPATH=. python -m packages.consciousness.mcp_server
-
-Consumer .mcp.json:
-  {
-    "mcpServers": {
-      "aadi-yogi-consciousness": {
-        "command": "python",
-        "args": ["-m", "packages.consciousness.mcp_server"],
-        "env": { "PYTHONPATH": "/path/to/aadi-yogi" }
-      }
-    }
-  }
 """
 
 from __future__ import annotations
@@ -21,96 +10,88 @@ import json
 import sys
 from typing import Any
 
-from packages.consciousness.advise import advise
+from packages.consciousness.consult import consult
 from packages.consciousness.discernment import lookup_discernment
+from packages.consciousness.feedback import list_inbox, propose_feedback
+from packages.consciousness.foundation import load_foundation
 from packages.consciousness.manifest import load_manifest
-from packages.consciousness.posture import load_posture_bundle
 from packages.consciousness.vocabulary import list_vocabulary
-from packages.evals.aadi_evals.envelope import ResponseEnvelope
-from packages.prompts.contract import validate_envelope
-from packages.prompts.restraint import detect_restraint
 
 SERVER_NAME = "aadi-yogi-consciousness"
-SERVER_VERSION = "0.1.0"
+SERVER_VERSION = "0.2.0"
 
 TOOLS: list[dict[str, Any]] = [
     {
-        "name": "consciousness_load_posture",
+        "name": "consciousness_load_foundation",
         "description": (
-            "Load the Adyog (Aadi Yogi) consciousness posture as a system prompt. "
-            "Inject this into a host agent so its decisions carry Adyog readiness."
+            "Load the living Adyog consciousness foundation: basis of conduct and "
+            "reality-sense for host agents. Not an app. Not a guru. Inject agent_preamble "
+            "into AGENTS.md / system orientation."
         ),
         "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
     },
     {
-        "name": "consciousness_advise",
+        "name": "consciousness_consult",
         "description": (
-            "Ask what decisions Adyog consciousness recommends for a question: "
-            "restraint short-circuit, discernment tone, posture injection, or draft revision."
+            "Consult the foundation for a concrete situation in a host repository. "
+            "Returns orientation and conduct to hold — not fixed product outcomes."
         ),
         "inputSchema": {
             "type": "object",
             "properties": {
-                "question": {"type": "string", "description": "The seeker or host-agent question."},
-                "draft_envelope": {
-                    "type": "object",
-                    "description": "Optional draft response envelope to validate.",
-                },
+                "situation": {
+                    "type": "string",
+                    "description": "What the host agent is facing (technical or human).",
+                }
             },
-            "required": ["question"],
+            "required": ["situation"],
         },
     },
     {
-        "name": "consciousness_check_restraint",
+        "name": "consciousness_propose_feedback",
         "description": (
-            "Detect whether a question must short-circuit before retrieval "
-            "(crisis, occult harm, voices, kundalini, grief, renunciation, health, mystical)."
+            "Propose a learning note back to Adyog. Stored in the feedback inbox; "
+            "never auto-rewrites the foundation. This is how consciousness feeds back."
         ),
         "inputSchema": {
             "type": "object",
-            "properties": {"question": {"type": "string"}},
-            "required": ["question"],
+            "properties": {
+                "situation": {"type": "string"},
+                "observation": {"type": "string"},
+                "suggested_adjustment": {"type": "string"},
+                "host_repo": {"type": "string"},
+            },
+            "required": ["situation", "observation"],
+        },
+    },
+    {
+        "name": "consciousness_list_feedback_inbox",
+        "description": "List pending feedback proposals awaiting editorial review.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 100}},
         },
     },
     {
         "name": "consciousness_discernment_lookup",
         "description": (
-            "Lookup discernment matrix guidance (tone, sources to prefer, what to avoid) "
-            "by question_type id or free-text question."
+            "Optional orientation from the discernment field (tone/sources/avoidances). "
+            "Guidance from the texts — not a hard router."
         ),
         "inputSchema": {
             "type": "object",
-            "properties": {
-                "question_or_type": {
-                    "type": "string",
-                    "description": "question_type id (e.g. grief) or free-text question.",
-                }
-            },
+            "properties": {"question_or_type": {"type": "string"}},
             "required": ["question_or_type"],
         },
     },
     {
-        "name": "consciousness_validate_response",
-        "description": (
-            "Validate a draft response envelope against Adyog contract checks "
-            "(single safe movement, no prophecy, no prescription)."
-        ),
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "envelope": {"type": "object", "description": "Response envelope dict."}
-            },
-            "required": ["envelope"],
-        },
-    },
-    {
         "name": "consciousness_list_vocabulary",
-        "description": "List states, guidance modes, closings, safety classes, and decision laws.",
+        "description": "Conduct principles, what the foundation is/isn't, and learning currents.",
         "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
     },
     {
         "name": "consciousness_manifest",
-        "description": "Return approved consciousness manifest version and content file hashes.",
+        "description": "Approved consciousness manifest version and content file hashes.",
         "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
     },
 ]
@@ -127,58 +108,45 @@ def _err_text(message: str) -> dict:
 
 def call_tool(name: str, arguments: dict[str, Any] | None) -> dict:
     args = arguments or {}
-    if name == "consciousness_load_posture":
-        return _ok_text(load_posture_bundle().to_dict())
-    if name == "consciousness_advise":
-        question = str(args.get("question", "")).strip()
-        if not question:
-            return _err_text("question is required")
-        draft = args.get("draft_envelope")
-        return _ok_text(advise(question, draft_envelope=draft).to_dict())
-    if name == "consciousness_check_restraint":
-        question = str(args.get("question", "")).strip()
-        case = detect_restraint(question)
-        if case is None:
-            return _ok_text({"restraint": False, "case": None})
-        return _ok_text(
-            {
-                "restraint": True,
-                "case": {
-                    "kind": case.kind,
-                    "state_detected": case.state_detected,
-                    "guidance_mode": case.guidance_mode,
-                    "closing": case.closing,
-                },
-            }
+    if name == "consciousness_load_foundation":
+        return _ok_text(load_foundation().to_dict())
+    if name == "consciousness_consult":
+        situation = str(args.get("situation", "")).strip()
+        if not situation:
+            return _err_text("situation is required")
+        return _ok_text(consult(situation).to_dict())
+    if name == "consciousness_propose_feedback":
+        situation = str(args.get("situation", "")).strip()
+        observation = str(args.get("observation", "")).strip()
+        if not situation or not observation:
+            return _err_text("situation and observation are required")
+        proposal = propose_feedback(
+            situation=situation,
+            observation=observation,
+            suggested_adjustment=str(args.get("suggested_adjustment", "")),
+            host_repo=str(args.get("host_repo", "unknown-host")),
+            write=True,
         )
+        return _ok_text(proposal.to_dict())
+    if name == "consciousness_list_feedback_inbox":
+        limit = int(args.get("limit") or 50)
+        return _ok_text({"inbox": list_inbox(limit=limit)})
     if name == "consciousness_discernment_lookup":
         key = str(args.get("question_or_type", "")).strip()
         entry = lookup_discernment(key)
         return _ok_text({"entry": entry.to_dict() if entry else None})
-    if name == "consciousness_validate_response":
-        raw = args.get("envelope")
-        if not isinstance(raw, dict):
-            return _err_text("envelope object is required")
-        envelope = ResponseEnvelope.from_dict(raw)
-        validation = validate_envelope(envelope, lambda _pid: None)
-        return _ok_text(
-            {
-                "passed": validation.passed,
-                "results": [
-                    {
-                        "name": r.name,
-                        "passed": r.passed,
-                        "details": r.details,
-                        "status": r.status,
-                    }
-                    for r in validation.results
-                ],
-            }
-        )
     if name == "consciousness_list_vocabulary":
         return _ok_text(list_vocabulary())
     if name == "consciousness_manifest":
         return _ok_text(load_manifest().to_dict())
+    # Backward-compatible aliases
+    if name == "consciousness_load_posture":
+        return _ok_text(load_foundation().to_dict())
+    if name == "consciousness_advise":
+        situation = str(args.get("question") or args.get("situation") or "").strip()
+        if not situation:
+            return _err_text("situation/question is required")
+        return _ok_text(consult(situation).to_dict())
     return _err_text(f"Unknown tool: {name}")
 
 

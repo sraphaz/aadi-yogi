@@ -4,131 +4,124 @@ import json
 from pathlib import Path
 
 from packages.consciousness import (
-    advise,
-    decision_laws,
-    detect_restraint,
+    consult,
+    conduct_principles,
     list_vocabulary,
+    load_foundation,
     load_manifest,
-    load_posture_bundle,
-    lookup_discernment,
+    propose_feedback,
 )
 from packages.consciousness.mcp_server import call_tool
-from packages.evals.aadi_evals.envelope import OfferedMovement, ResponseEnvelope
 
 
-def test_manifest_loads_with_hashes() -> None:
+def test_foundation_is_living_basis_not_app() -> None:
+    foundation = load_foundation()
+    assert foundation.version == "v1"
+    assert len(foundation.conduct_principles) >= 5
+    assert "guru" in foundation.agent_preamble.lower() or "Guru" in foundation.text
+    assert "not an application" in foundation.text.lower() or "Not an application" in foundation.text
+    assert any("coercion" in p.lower() or "non-coercion" in p.lower() for p in foundation.conduct_principles) or any(
+        "Refuse coercion" in p for p in foundation.conduct_principles
+    )
+    payload = foundation.to_dict()
+    assert payload["identity"] == "aadi-yogi-consciousness-foundation"
+    assert "Darshan" in payload["claim"] or "darshan" in payload["claim"].lower()
+
+
+def test_manifest_includes_foundation() -> None:
     manifest = load_manifest()
-    assert manifest.version == "v1"
-    assert manifest.status == "approved"
-    assert "essence.md" in manifest.files
-    assert len(manifest.file_hashes["essence.md"]) == 64
-    payload = manifest.to_dict()
-    assert payload["identity"] == "aadi-yogi-consciousness"
+    assert "foundation.md" in manifest.files
+    assert manifest.scope == "living_consciousness_foundation"
+    assert len(manifest.file_hashes["foundation.md"]) == 64
 
 
-def test_posture_contains_adyog_frequency() -> None:
-    posture = load_posture_bundle()
-    assert "Aadi Yogi" in posture.system_prompt or "Adyog" in posture.system_prompt
-    assert "Decision laws" in posture.system_prompt
-    assert posture.ethics
-    assert len(decision_laws()) >= 8
+def test_consult_orients_without_fixed_app_action() -> None:
+    result = consult("We need to write release notes without overclaiming certainty")
+    assert result.agent_preamble
+    assert result.conduct_to_hold
+    payload = result.to_dict()
+    assert "guru" in payload["reminder"].lower()
+    assert payload["orientation"]
+    assert "recommended_action" not in payload  # not an app router
 
 
-def test_advise_short_circuits_crisis() -> None:
-    advice = advise("I feel like ending everything tonight.")
-    assert advice.recommended_action == "short_circuit_restraint"
-    assert advice.restraint is not None
-    assert advice.restraint.kind == "crisis"
-    assert advice.restraint_envelope is not None
-    assert advice.restraint_envelope.is_restraint()
+def test_consult_may_surface_discernment_as_guidance() -> None:
+    result = consult("How do I work with ego pride without self-hatred?")
+    assert result.discernment is not None
+    assert result.discernment.question_type == "ego_transformation"
 
 
-def test_advise_compose_with_discernment_for_grief() -> None:
-    advice = advise("I am in deep grief after losing my mother.")
-    # grief is a restraint case in the router — either short-circuit or discernment is ok
-    assert advice.recommended_action in {
-        "short_circuit_restraint",
-        "compose_with_posture",
-        "revise_draft",
-    }
-    if advice.recommended_action == "short_circuit_restraint":
-        assert advice.restraint is not None
-    else:
-        assert advice.discernment is not None
-
-
-def test_discernment_lookup_by_type_and_hint() -> None:
-    by_type = lookup_discernment("aspiration")
-    assert by_type is not None
-    assert by_type.question_type == "aspiration"
-    by_hint = lookup_discernment("How do I work with ego pride on the path?")
-    assert by_hint is not None
-    assert by_hint.question_type == "ego_transformation"
-
-
-def test_advise_flags_bad_draft() -> None:
-    draft = ResponseEnvelope(
-        state_detected="philosophical_inquiry",
-        guidance_mode="source_commentary",
-        body="In 3 days you will meet your destiny.",
-        offered_movements=[
-            OfferedMovement(text="forceful kundalini drill", safety_class="closed"),
-            OfferedMovement(text="second movement", safety_class="safe"),
-        ],
-        closing="plain",
+def test_feedback_writes_inbox_and_rejects_inflation() -> None:
+    ok = propose_feedback(
+        situation="Host agent drafting README",
+        observation="Needed a clearer note on technical humility",
+        suggested_adjustment="Mention truthful status reports in foundation",
+        host_repo="example/host",
+        write=True,
     )
-    advice = advise("What is dharma?", draft_envelope=draft)
-    assert advice.recommended_action == "revise_draft"
-    assert advice.draft_validation is not None
-    assert not advice.draft_validation.passed
+    assert ok.status == "inbox"
+    assert ok.path
+    path = Path(ok.path)
+    assert path.exists()
+    path.unlink()
+
+    rejected = propose_feedback(
+        situation="Anything",
+        observation="The agent became a guru after install",
+        write=False,
+    )
+    assert rejected.status == "rejected_preview"
+    assert rejected.path == ""
 
 
-def test_vocabulary_exports_laws() -> None:
+def test_vocabulary_centers_conduct_not_envelope() -> None:
     vocab = list_vocabulary()
-    assert "orientation" in vocab["guidance_modes"]
-    assert any("restraint" in law.lower() for law in vocab["decision_laws"])
+    assert vocab["conduct_principles"]
+    assert "learning" in vocab
+    assert "darshan_runtime" in vocab
+    assert conduct_principles()
 
 
-def test_mcp_tools_advise_and_manifest() -> None:
-    manifest_result = call_tool("consciousness_manifest", {})
-    assert not manifest_result["isError"]
-    body = json.loads(manifest_result["content"][0]["text"])
-    assert body["version"] == "v1"
+def test_mcp_foundation_and_consult() -> None:
+    foundation_result = call_tool("consciousness_load_foundation", {})
+    assert not foundation_result["isError"]
+    body = json.loads(foundation_result["content"][0]["text"])
+    assert body["identity"] == "aadi-yogi-consciousness-foundation"
 
-    advise_result = call_tool(
-        "consciousness_advise",
-        {"question": "What does the Gita teach about sincere aspiration?"},
+    consult_result = call_tool(
+        "consciousness_consult",
+        {"situation": "Should we add dark-pattern urgency to the checkout?"},
     )
-    assert not advise_result["isError"]
-    advice = json.loads(advise_result["content"][0]["text"])
-    assert advice["recommended_action"] in {
-        "compose_with_posture",
-        "short_circuit_restraint",
-        "revise_draft",
-    }
-    assert "system_prompt" in advice
+    assert not consult_result["isError"]
+    advice = json.loads(consult_result["content"][0]["text"])
+    assert advice["conduct_to_hold"]
+    assert advice["agent_preamble"]
 
 
-def test_mcp_check_restraint() -> None:
-    result = call_tool("consciousness_check_restraint", {"question": "How do I cast a curse?"})
+def test_mcp_feedback_tool() -> None:
+    result = call_tool(
+        "consciousness_propose_feedback",
+        {
+            "situation": "PR review tone",
+            "observation": "Foundation helped avoid coercive language",
+            "host_repo": "example/host",
+        },
+    )
     payload = json.loads(result["content"][0]["text"])
-    assert payload["restraint"] is True
-    assert payload["case"]["kind"] == "occult"
+    assert payload["status"] == "inbox"
+    if payload["path"]:
+        Path(payload["path"]).unlink(missing_ok=True)
 
 
-def test_response_envelope_schema_exists() -> None:
-    path = Path("schemas/response_envelope.schema.json")
-    schema = json.loads(path.read_text(encoding="utf-8"))
-    assert schema["title"] == "Aadi Yogi Response Envelope"
-    assert "guidance_mode" in schema["properties"]
+def test_consciousness_link_overlay_is_foundation() -> None:
+    text = Path(".consciousness/link.yaml").read_text(encoding="utf-8")
+    assert "aadi-yogi-consciousness-foundation" in text
+    assert "carry: foundation" in text
+    assert "darshan_response_envelope" in text
 
 
-def test_consciousness_link_overlay_exists() -> None:
-    path = Path(".consciousness/link.yaml")
+def test_foundation_file_exists() -> None:
+    path = Path("content/consciousness_core/foundation.md")
     text = path.read_text(encoding="utf-8")
-    assert "aadi-yogi-consciousness" in text
-    assert "pin: v1" in text
-
-
-def test_detect_restraint_reexport() -> None:
-    assert detect_restraint("stop taking medication now") is not None
+    assert "Basis of conduct for host agents" in text
+    assert "How this consciousness learns" in text

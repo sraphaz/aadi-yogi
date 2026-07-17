@@ -2,12 +2,15 @@ version: v1
 status: approved
 approved_date: "2026-07-04"
 reviewer: "repository editorial scaffold"
-scope: agent_prompt_builder
+scope: living_consciousness_foundation
 notes:
-  - Approved for use in prompt construction and agent behavior scaffolding.
+  - Approved as the living basis of conduct for host agents and prompt scaffolding.
   - This is not a claim of realization, authority, or infallible guidance.
+  - foundation.md is the install surface; Darshan app contracts are a product expression, not the foundation.
   - Human review should revisit before any public production deployment.
+  - Feedback integrates only via content/consciousness_feedback review — never auto-mutation.
 files:
+  - foundation.md
   - essence.md
   - voice.md
   - inner_posture.md

@@ -6,4 +6,4 @@ This tree defines the intended inner posture, ethical boundaries, synthesis rule
 
 It is a guidance architecture, not a claim of realization.
 
-When another repository installs Adyog as a consciousness plugin, this tree is the source of the readiness frequency those host agents receive. The installable surface is [`packages/consciousness/`](../../packages/consciousness/); the consumer guide is [`docs/consciousness_plugin.md`](../../docs/consciousness_plugin.md).
+When another repository installs Adyog, start from [`foundation.md`](foundation.md) — the living basis of conduct. Host agents do not become gurus; they carry this foundation underneath their craft. Install surface: [`packages/consciousness/`](../../packages/consciousness/). Guide: [`docs/consciousness_plugin.md`](../../docs/consciousness_plugin.md). Learning inbox: [`../consciousness_feedback/`](../consciousness_feedback/).

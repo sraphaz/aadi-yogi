@@ -1,7 +1,6 @@
-# Adyog consciousness overlay — pin this repo's own consciousness for consumers.
-# Host repositories copy this pattern into their `.consciousness/link.yaml`.
+# Adyog consciousness overlay — living foundation (not Darshan app rules).
 version: 1
-identity: aadi-yogi-consciousness
+identity: aadi-yogi-consciousness-foundation
 source:
   kind: git
   repo: https://github.com/sraphaz/aadi-yogi
@@ -10,14 +9,19 @@ source:
 manifest:
   path: content/consciousness_core/approved_manifest.yaml
   pin: v1
-sync_mode: advisory
+install:
+  carry: foundation
+  primary_file: content/consciousness_core/foundation.md
+  do_not_carry_as_identity:
+    - darshan_response_envelope
+    - darshan_restraint_router
+sync_mode: living
 capabilities:
-  - load_posture
-  - advise
-  - check_restraint
+  - load_foundation
+  - consult
+  - propose_feedback
   - discernment_lookup
-  - validate_response
-  - list_vocabulary
 notes:
-  - Host agents may refine tone and domain skills; they must not cancel decision_laws.
-  - This overlay transmits readiness, not realization.
+  - Host agents receive a basis of conduct and reality-sense from the sources.
+  - They do not become gurus; they do not perform mysticism in the host repo.
+  - Learning returns through reviewed feedback, never silent self-authorization.

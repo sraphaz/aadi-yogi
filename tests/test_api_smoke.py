@@ -94,20 +94,25 @@ def test_consciousness_manifest_smoke() -> None:
     body = response.json()
     assert body["identity"] == "aadi-yogi-consciousness"
     assert body["version"] == "v1"
-    assert "essence.md" in body["file_hashes"]
+    assert "foundation.md" in body["file_hashes"]
 
 
-def test_consciousness_advise_smoke() -> None:
+def test_consciousness_foundation_smoke() -> None:
+    response = client().get("/consciousness/foundation")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["identity"] == "aadi-yogi-consciousness-foundation"
+    assert body["agent_preamble"]
+    assert body["conduct_principles"]
+
+
+def test_consciousness_consult_smoke() -> None:
     response = client().post(
-        "/consciousness/advise",
-        json={"question": "What is sincere aspiration on the path?"},
+        "/consciousness/consult",
+        json={"situation": "Write status updates without performing mysticism"},
     )
     assert response.status_code == 200
     body = response.json()
-    assert body["recommended_action"] in {
-        "compose_with_posture",
-        "short_circuit_restraint",
-        "revise_draft",
-    }
-    assert body["system_prompt"]
-    assert body["decision_laws"]
+    assert body["agent_preamble"]
+    assert body["conduct_to_hold"]
+    assert body["orientation"]
