@@ -10,6 +10,7 @@ Camada de agentes para desenvolvimento autônomo coreografado — distinta do **
 |--------|------|--------|
 | **ARAH SDLC** | `.agents/`, `.skills/`, `scripts/agents/` | PR, QA, specs, gates, domínio consultivo |
 | **Runtime IA** | `packages/rag/`, `packages/prompts/`, `apps/agent-api/` | Oracle, retrieval, response contract |
+| **Consciousness plugin** | `packages/consciousness/`, `.consciousness/`, MCP/HTTP | Postura Adyog instalável em outros repos |
 
 ```powershell
 ./scripts/agents/validate-manifests.ps1
@@ -56,12 +57,17 @@ pnpm api:dev                  # agent API + PWA
 |--------|------|--------|
 | Corpus | `content/sources/` | Textos canônicos + metadados |
 | Consciousness | `content/consciousness_core/` | Estados, voz, silêncio |
+| Plugin | `packages/consciousness/` | Fachada + MCP + advice para host agents |
 | RAG | `packages/rag/` | Retriever híbrido + citations |
 | Prompts | `packages/prompts/` | Builder consciousness-aware |
-| Agent API | `apps/agent-api/` | `/ask`, `/inquire`, `/witness` |
+| Agent API | `apps/agent-api/` | `/ask`, `/inquire`, `/witness`, `/consciousness/*` |
 | Interface | `apps/web/` | Nine gestures + silence room |
 | Evals | `packages/evals/` | Golden questions, contract probes |
 
 ## Domínios ARAH (consultivos)
 
 Gerados em `.agents/domain/` via `domain sync`: `darshan-ui`, `consciousness-core`, `rag-corpus`, `agent-api`, `evals-quality`, `compliance`.
+
+## Plugin de consciência (host agents)
+
+Quando outro repositório instala Adyog, o agente host herda as **decision laws** (restraint antes do retrieval, citações honestas, anti-profecia, um movimento safe, silêncio honrado). Guia: [`docs/consciousness_plugin.md`](docs/consciousness_plugin.md). Overlay: [`.consciousness/link.yaml`](.consciousness/link.yaml).

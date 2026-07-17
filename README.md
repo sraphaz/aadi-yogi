@@ -10,6 +10,7 @@ This repository is designed to preserve, structure, and prepare Indian spiritual
 - A structured Markdown-first content base with future ingestion in mind.
 - A place to define editorial, ethical, and consciousness-aware agent behavior.
 - A foundation for later retrieval, evaluation, and application layers.
+- A **consciousness plugin** (Adyog readiness) that other agent repositories can install so their decisions inherit discernment, restraint, humility, and source fidelity — see [`docs/consciousness_plugin.md`](docs/consciousness_plugin.md).
 
 ## What This Repository Is Not
 
@@ -65,10 +66,26 @@ ruff check .
 
 The application layer is designed as **Darshan**, an interface whose behavior embodies the wisdom of the corpus instead of talking about it: silence before speech, one question at a time, presence metrics instead of engagement metrics. See `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`, and the Sky-Forge session package in `docs/skyforge/darshan/`.
 
+## Consciousness Plugin (for other repos)
+
+```bash
+# Python
+PYTHONPATH=. python -c "from packages.consciousness import advise; print(advise('What is aspiration?').recommended_action)"
+
+# MCP (Cursor / Claude) — see .mcp.json and apps/mcp-server/README.md
+PYTHONPATH=. python -m packages.consciousness.mcp_server
+
+# HTTP (with api:dev running)
+# GET  /consciousness/manifest
+# GET  /consciousness/posture
+# POST /consciousness/advise
+```
+
+Host repos declare `.consciousness/link.yaml` to pin this consciousness. ADR: [`spec/decisions/0006-consciousness-plugin-service.md`](spec/decisions/0006-consciousness-plugin-service.md).
+
 ## Next Milestones
 
-- define richer source metadata conventions
-- add normalization and chunking pipelines
 - expand ontology and living maps
-- introduce retrieval and evaluation datasets
-- scaffold agent API and web application surfaces
+- deepen retrieval and evaluation datasets
+- publish consciousness package for external installers
+- harden hosted API auth for cross-repo consumers

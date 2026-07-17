@@ -86,3 +86,28 @@ def test_retrieve_smoke() -> None:
     body = response.json()
     assert body["question"] == "What is dharma?"
     assert isinstance(body["chunks"], list)
+
+
+def test_consciousness_manifest_smoke() -> None:
+    response = client().get("/consciousness/manifest")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["identity"] == "aadi-yogi-consciousness"
+    assert body["version"] == "v1"
+    assert "essence.md" in body["file_hashes"]
+
+
+def test_consciousness_advise_smoke() -> None:
+    response = client().post(
+        "/consciousness/advise",
+        json={"question": "What is sincere aspiration on the path?"},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["recommended_action"] in {
+        "compose_with_posture",
+        "short_circuit_restraint",
+        "revise_draft",
+    }
+    assert body["system_prompt"]
+    assert body["decision_laws"]

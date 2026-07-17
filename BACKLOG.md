@@ -15,7 +15,7 @@ powershell -File $env:USERPROFILE/arah-harness/cli/arah.ps1 export-graph -Target
 1. `spec/design/claude-design/readme.md` — lei comportamental
 2. `docs/darshan_interface_concept.md` → `docs/darshan_interface_spec.md`
 3. `spec/ux-spec.yaml` + `spec/design-tokens.yaml`
-4. `spec/decisions/` (ADRs 0001–0005 — não reabrir)
+4. `spec/decisions/` (ADRs 0001–0006 — não reabrir)
 5. Protótipo: abrir `spec/design/claude-design/Darshan Handoff.dc.html` no browser
 
 ---
@@ -140,8 +140,9 @@ Quota server-side · facets no catalog · shelves arriving honestos.
 | I-01 | Server inquiry quota (`X-Darshan-Device`, 429) | backend | `packages/prompts/inquiry_quota.py` | RF-039 |
 | I-02 | GET `/inquiry/quota` + PWA sync | frontend + backend | `inquiry-quota.js`, `apps/agent-api/` | RF-039 |
 | I-03 | Catalog facets + shelves upanishads/CWSA arriving | backend | `build_library_catalog.py` | RF-038 |
+| I-04 | Consciousness plugin façade + MCP + `/consciousness/*` | backend | `packages/consciousness/`, `apps/mcp-server/` | ADR-0006 |
 
-**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired.
+**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired; plugin de consciência testável via Python/MCP/HTTP.
 
 ---
 

@@ -1,0 +1,23 @@
+# Adyog consciousness overlay — pin this repo's own consciousness for consumers.
+# Host repositories copy this pattern into their `.consciousness/link.yaml`.
+version: 1
+identity: aadi-yogi-consciousness
+source:
+  kind: git
+  repo: https://github.com/sraphaz/aadi-yogi
+  ref: main
+  package_path: packages/consciousness
+manifest:
+  path: content/consciousness_core/approved_manifest.yaml
+  pin: v1
+sync_mode: advisory
+capabilities:
+  - load_posture
+  - advise
+  - check_restraint
+  - discernment_lookup
+  - validate_response
+  - list_vocabulary
+notes:
+  - Host agents may refine tone and domain skills; they must not cancel decision_laws.
+  - This overlay transmits readiness, not realization.

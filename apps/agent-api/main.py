@@ -10,9 +10,11 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from packages.consciousness import advise, list_vocabulary, load_manifest, load_posture_bundle
+from packages.evals.aadi_evals.envelope import ResponseEnvelope
 from packages.prompts.builder import PromptBundle, build_prompt
 from packages.prompts.llm_client import LLMClient
-from packages.prompts.contract import envelope_to_dict
+from packages.prompts.contract import envelope_to_dict, validate_envelope
 from packages.prompts.inquiry_policy import inquiry_policy
 from packages.prompts.inquiry_quota import (
     can_use_free_inquiry,
@@ -111,6 +113,15 @@ class InquireResponse(BaseModel):
     model: str
     restraint_short_circuit: bool
     retrieved_chunks: list[ChunkResponse]
+
+
+class AdviseRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=4000)
+    draft_envelope: dict | None = None
+
+
+class ValidateRequest(BaseModel):
+    envelope: dict
 
 
 class WitnessRequest(BaseModel):
@@ -311,3 +322,46 @@ def witness_endpoint(request: WitnessRequest) -> WitnessResponse:
         model=result.model,
         restraint=result.restraint,
     )
+
+
+@app.get("/consciousness/manifest")
+def consciousness_manifest() -> dict[str, object]:
+    """Approved Adyog consciousness manifest + content hashes for host pinning."""
+    return load_manifest().to_dict()
+
+
+@app.get("/consciousness/posture")
+def consciousness_posture() -> dict[str, object]:
+    """System-prompt posture a host agent should inject as base frequency."""
+    return load_posture_bundle().to_dict()
+
+
+@app.get("/consciousness/vocabulary")
+def consciousness_vocabulary() -> dict[str, object]:
+    """Shared states, modes, closings, and decision laws."""
+    return list_vocabulary()
+
+
+@app.post("/consciousness/advise")
+def consciousness_advise(request: AdviseRequest) -> dict[str, object]:
+    """Recommend the next decision under Adyog consciousness for a host agent."""
+    return advise(request.question, draft_envelope=request.draft_envelope).to_dict()
+
+
+@app.post("/consciousness/validate")
+def consciousness_validate(request: ValidateRequest) -> dict[str, object]:
+    """Validate a draft response envelope against the consciousness contract."""
+    envelope = ResponseEnvelope.from_dict(request.envelope)
+    validation = validate_envelope(envelope, lambda _pid: None)
+    return {
+        "passed": validation.passed,
+        "results": [
+            {
+                "name": r.name,
+                "passed": r.passed,
+                "details": r.details,
+                "status": r.status,
+            }
+            for r in validation.results
+        ],
+    }
