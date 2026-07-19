@@ -53,6 +53,14 @@ What exists today:
 
 See [`docs/content_import_roadmap.md`](docs/content_import_roadmap.md) and [`docs/source_import_status.md`](docs/source_import_status.md) for the full import plan and status.
 
+## Site público
+
+O website institucional fica em `site/` e publica automaticamente no GitHub Pages via Actions (`.github/workflows/deploy-pages.yml`).
+
+URL: **https://sraphaz.github.io/aadi-yogi/**
+
+Uma vez: em Settings → Pages → Source, escolha **GitHub Actions**. Depois disso, cada push em `main` que altere `site/**` faz o deploy.
+
 ## Validate Markdown
 
 ```bash
