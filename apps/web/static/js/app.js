@@ -51,7 +51,7 @@ import {
   dismissGrowthNotice,
   acknowledgeCorpusVersion,
 } from './corpus-store.js';
-import { getDeviceId, inquiryFetchInit, fetchInquiryQuota } from './inquiry-quota.js';
+import { inquiryFetchInit, fetchInquiryQuota } from './inquiry-quota.js';
 
 const state = {
   screen: 'threshold',

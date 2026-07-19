@@ -131,7 +131,7 @@ Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 
 ---
 
-## Fase 08 — Integrate ← **ATUAL**
+## Fase 08 — Integrate ✅
 
 Quota server-side · facets no catalog · shelves arriving honestos.
 
@@ -141,7 +141,7 @@ Quota server-side · facets no catalog · shelves arriving honestos.
 | I-02 | GET `/inquiry/quota` + PWA sync | frontend + backend | `inquiry-quota.js`, `apps/agent-api/` | RF-039 |
 | I-03 | Catalog facets + shelves upanishads/CWSA arriving | backend | `build_library_catalog.py` | RF-038 |
 
-**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired.
+**Gate:** medida free enforced server-side when calibrated; créditos/pagamento ainda não wired. ✅
 
 ---
 
