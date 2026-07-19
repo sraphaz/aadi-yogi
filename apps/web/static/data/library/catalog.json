@@ -1,6 +1,6 @@
 {
-  "bundle_version": "2026-07-05",
-  "generated_at": "2026-07-05T04:54:35.465055+00:00",
+  "bundle_version": "2026-07-08",
+  "generated_at": "2026-07-08T20:19:32.922483+00:00",
   "shelves": [
     {
       "id": "gita",
@@ -15,6 +15,10 @@
       "state": "open",
       "passages": [
         "gita-ii-47"
+      ],
+      "traditions": [
+        "gita",
+        "vedantic"
       ]
     },
     {
@@ -29,7 +33,10 @@
       },
       "state": "arriving",
       "passages": [],
-      "source_files": 31
+      "source_files": 31,
+      "traditions": [
+        "integral_yoga"
+      ]
     },
     {
       "id": "upanishads",
@@ -43,13 +50,51 @@
       },
       "state": "arriving",
       "passages": [],
-      "source_files": 19
+      "source_files": 19,
+      "traditions": [
+        "upanishadic"
+      ]
     }
   ],
   "facets": [
     {
-      "id": "integral_yoga",
+      "type": "tradition",
+      "id": "gita",
       "count": 2
+    },
+    {
+      "type": "tradition",
+      "id": "integral_yoga",
+      "count": 3
+    },
+    {
+      "type": "tradition",
+      "id": "upanishadic",
+      "count": 1
+    },
+    {
+      "type": "tradition",
+      "id": "vedantic",
+      "count": 2
+    }
+  ],
+  "browse_entries": [
+    {
+      "id": "gita-ii-47",
+      "passage_id": "gita.bhagavad_gita.ch02.v047",
+      "shelf": "gita",
+      "traditions": [
+        "gita",
+        "vedantic"
+      ],
+      "work": {
+        "en": "Bhagavad Gita",
+        "pt": "Bhagavad Gita"
+      },
+      "preview": {
+        "en": "offering",
+        "pt": "oferecimento"
+      }
     }
   ],
   "collections": [

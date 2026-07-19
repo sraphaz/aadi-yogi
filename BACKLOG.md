@@ -131,7 +131,7 @@ Protocolo de crescimento honesto — features acendem conforme o corpus importa.
 
 ---
 
-## Fase 08 — Integrate ← **ATUAL**
+## Fase 08 — Integrate ✅
 
 Quota server-side · facets no catalog · shelves arriving honestos.
 
