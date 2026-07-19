@@ -145,6 +145,19 @@ Quota server-side · facets no catalog · shelves arriving honestos.
 
 ---
 
+## Fase 09 — Library Browse ← **ATUAL**
+
+Porta Browse — facetas de tradição no catalog, filtro contemplativo (máx. 2).
+
+| ID | Entrega | Agente | Paths | RF |
+|----|---------|--------|-------|-----|
+| B-01 | Catalog browse_entries + shelf traditions | backend | `build_library_catalog.py` | RF-021, RF-038 |
+| B-02 | Facet chips + filtered shelves/entries na library | frontend | `apps/web/` | RF-021 |
+
+**Gate:** facetas derivadas do corpus (sem duplicatas manuais); máx. 2 facetas ativas; entradas calmas com obra e tradição nomeadas.
+
+---
+
 ## Decisões reservadas aos criadores
 
 Scaffold: [`docs/calibrations/`](docs/calibrations/README.md) · `scripts/validate/check_calibrations.py`

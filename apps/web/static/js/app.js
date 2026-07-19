@@ -77,6 +77,7 @@ const state = {
   natureRoom: null,
   sanghaCharter: null,
   libraryCatalog: null,
+  libraryFacets: [],
   inquiryPolicy: null,
 };
 
@@ -253,10 +254,13 @@ async function loadLibraryCatalog() {
   return state.libraryCatalog;
 }
 
-function shelfList(catalog, s) {
+function shelfList(catalog, s, activeFacets = []) {
   const lang = state.lang;
   const shelves = catalog?.shelves?.length ? catalog.shelves : (s.shelves || []);
-  return shelves
+  const filtered = activeFacets.length
+    ? shelves.filter((sh) => (sh.traditions || []).some((t) => activeFacets.includes(t)))
+    : shelves;
+  return filtered
     .map((sh) => {
       const name = sh.name?.[lang] || sh.name?.en || sh.name || sh.id;
       const line = sh.line?.[lang] || sh.line?.en || sh.line || '';
@@ -267,6 +271,67 @@ function shelfList(catalog, s) {
       </button>`;
     })
     .join('');
+}
+
+function facetLabel(id) {
+  return id.replace(/_/g, ' ');
+}
+
+function facetChipList(catalog, s) {
+  const facets = catalog?.facets || [];
+  if (!facets.length) return '';
+  const chips = facets
+    .map((facet) => {
+      const active = state.libraryFacets.includes(facet.id);
+      return `<button type="button" class="door-chip ${active ? 'is-active' : ''}" data-facet="${facet.id}" aria-pressed="${active}">${facetLabel(facet.id)}</button>`;
+    })
+    .join('');
+  return `
+    <div class="library-browse">
+      <div class="label label--inline">${s.libraryBrowseLabel}</div>
+      <p class="path-note path-note--muted">${s.libraryBrowseHint}</p>
+      <div class="door-grid" role="group" aria-label="${s.libraryBrowseLabel}">${chips}</div>
+    </div>`;
+}
+
+function browseEntryList(catalog, s, activeFacets = []) {
+  const lang = state.lang;
+  const entries = catalog?.browse_entries || [];
+  const filtered = activeFacets.length
+    ? entries.filter((entry) => (entry.traditions || []).some((t) => activeFacets.includes(t)))
+    : entries;
+  if (!filtered.length) return '';
+  const items = filtered
+    .map((entry) => {
+      const work = entry.work?.[lang] || entry.work?.en || entry.passage_id || entry.id;
+      const preview = entry.preview?.[lang] || entry.preview?.en || '';
+      const traditions = (entry.traditions || []).map(facetLabel).join(' · ');
+      return `<button type="button" class="browse-entry" data-passage="${entry.id}">
+        <div class="browse-entry__work">${work}</div>
+        <div class="browse-entry__preview">${preview}</div>
+        <div class="browse-entry__meta">${traditions}</div>
+      </button>`;
+    })
+    .join('');
+  return `
+    <div class="browse-entries">
+      <div class="label label--inline">${s.libraryEntriesLabel}</div>
+      <div class="browse-entry-list">${items}</div>
+    </div>`;
+}
+
+function toggleLibraryFacet(id) {
+  const active = [...state.libraryFacets];
+  const idx = active.indexOf(id);
+  if (idx >= 0) {
+    active.splice(idx, 1);
+  } else if (active.length < 2) {
+    active.push(id);
+  } else {
+    active.shift();
+    active.push(id);
+  }
+  state.libraryFacets = active;
 }
 
 async function renderCourt() {
@@ -339,7 +404,10 @@ async function renderWord() {
 async function renderLibraryShelf() {
   const s = t();
   const catalog = await loadLibraryCatalog();
-  const items = shelfList(catalog, s);
+  const active = state.libraryFacets;
+  const items = shelfList(catalog, s, active);
+  const facets = facetChipList(catalog, s);
+  const entries = browseEntryList(catalog, s, active);
 
   root.innerHTML = `
     <section class="screen" aria-label="${s.libraryLabel}">
@@ -347,7 +415,9 @@ async function renderLibraryShelf() {
         ${renderToolbar()}
         <div class="label">${s.libraryLabel}</div>
         <p style="color:var(--ink-soft);font-size:var(--type-meta);max-width:var(--measure-reading);line-height:1.65">${s.libraryIntro}</p>
+        ${facets}
         <div class="shelf-list">${items}</div>
+        ${entries}
       </div>
     </section>`;
 }
@@ -1178,7 +1248,7 @@ function closeSession() {
 }
 
 root.addEventListener('click', async (e) => {
-  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door], [data-map], [data-posture], [data-inner-sky], [data-element], [data-nature-room]');
+  const el = e.target.closest('[data-action], [data-gesture], [data-shelf], [data-depth], [data-door], [data-map], [data-posture], [data-inner-sky], [data-element], [data-nature-room], [data-facet], [data-passage]');
   if (!el) return;
 
   if (el.dataset.action === 'corpus-dismiss') {
@@ -1322,6 +1392,16 @@ root.addEventListener('click', async (e) => {
     const shelf = catalog?.shelves?.find((sh) => sh.id === el.dataset.shelf);
     const passageId = shelf?.passages?.[0] || (el.dataset.shelf === 'gita' ? 'gita-ii-47' : el.dataset.shelf);
     openLibraryPassage(passageId);
+    return;
+  }
+  if (el.dataset.passage) {
+    openLibraryPassage(el.dataset.passage);
+    return;
+  }
+  if (el.dataset.facet) {
+    toggleLibraryFacet(el.dataset.facet);
+    renderLibraryShelf();
+    return;
   }
   if (el.dataset.depth !== undefined) {
     state.depth = Number(el.dataset.depth);

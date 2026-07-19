@@ -15,11 +15,15 @@ def test_build_catalog_has_gita_shelf() -> None:
     gita = next(s for s in catalog["shelves"] if s["id"] == "gita")
     assert gita["state"] == "open"
     assert "gita-ii-47" in gita["passages"]
+    assert "gita" in gita.get("traditions", [])
     upanishads = next(s for s in catalog["shelves"] if s["id"] == "upanishads")
     assert upanishads["state"] == "arriving"
     cwsa = next(s for s in catalog["shelves"] if s["id"] == "integral_yoga")
     assert cwsa["state"] == "arriving"
     assert catalog.get("facets")
+    assert all(f.get("type") == "tradition" for f in catalog["facets"])
+    assert catalog.get("browse_entries")
+    assert catalog["browse_entries"][0]["id"] == "gita-ii-47"
 
 
 def test_shelf_id_from_passage_id() -> None:

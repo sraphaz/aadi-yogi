@@ -43,6 +43,23 @@ DEFAULT_SHELVES = {
     },
 }
 
+SHELF_TRADITIONS: dict[str, list[str]] = {
+    "gita": ["gita", "vedantic"],
+    "upanishads": ["upanishadic"],
+    "integral_yoga": ["integral_yoga"],
+}
+
+
+def traditions_for_shelf(shelf_id: str) -> list[str]:
+    return list(SHELF_TRADITIONS.get(shelf_id, [shelf_id]))
+
+
+def traditions_for_passage(passage: dict, shelf_id: str) -> list[str]:
+    explicit = passage.get("traditions")
+    if isinstance(explicit, list) and explicit:
+        return [str(t) for t in explicit]
+    return traditions_for_shelf(shelf_id)
+
 
 def load_passages() -> list[dict]:
     passages: list[dict] = []
@@ -85,13 +102,46 @@ def count_source_files(collection: str, manifest: dict | None = None) -> int:
     return count_md_files(root)
 
 
-def load_facets(manifests: list[dict]) -> list[dict]:
+def load_facets(
+    manifests: list[dict],
+    shelves: list[dict],
+    browse_entries: list[dict],
+) -> list[dict]:
     counts: dict[str, int] = {}
     for data in manifests:
         for raw in data.get("tradition") or []:
             key = str(raw)
             counts[key] = counts.get(key, 0) + 1
-    return [{"id": k, "count": counts[k]} for k in sorted(counts)]
+    for shelf in shelves:
+        weight = max(1, len(shelf.get("passages") or []))
+        for tradition in traditions_for_shelf(str(shelf["id"])):
+            counts[tradition] = counts.get(tradition, 0) + weight
+    for entry in browse_entries:
+        for tradition in entry.get("traditions") or []:
+            counts[str(tradition)] = counts.get(str(tradition), 0) + 1
+    return [
+        {"type": "tradition", "id": key, "count": counts[key]}
+        for key in sorted(counts)
+    ]
+
+
+def build_browse_entries(passages: list[dict]) -> list[dict]:
+    entries: list[dict] = []
+    for passage in passages:
+        shelf_id = shelf_id_for_passage(passage)
+        depths = passage.get("depths") or {}
+        preview = depths.get("d0") or depths.get("d1") or {}
+        entries.append(
+            {
+                "id": passage["_file"],
+                "passage_id": passage.get("passage_id"),
+                "shelf": shelf_id,
+                "traditions": traditions_for_passage(passage, shelf_id),
+                "work": passage.get("work", {}),
+                "preview": preview,
+            }
+        )
+    return sorted(entries, key=lambda item: str(item.get("passage_id") or item["id"]))
 
 
 def load_collections() -> tuple[list[dict], list[dict]]:
@@ -141,6 +191,7 @@ def build_catalog() -> dict:
             },
         )
         entry["passages"].append(passage["_file"])
+        entry["traditions"] = traditions_for_passage(passage, shelf_id)
 
     for shelf_id, meta in DEFAULT_SHELVES.items():
         if shelf_id not in shelves_map:
@@ -152,17 +203,22 @@ def build_catalog() -> dict:
                 "state": "open" if source_count > 0 and shelf_id == "gita" else ("arriving" if source_count > 0 else "future"),
                 "passages": [],
                 "source_files": source_count,
+                "traditions": traditions_for_shelf(shelf_id),
             }
+        elif "traditions" not in shelves_map[shelf_id]:
+            shelves_map[shelf_id]["traditions"] = traditions_for_shelf(shelf_id)
 
     shelves = sorted(shelves_map.values(), key=lambda s: s["id"])
     collections, manifests = load_collections()
-    facets = load_facets(manifests)
+    browse_entries = build_browse_entries(passages)
+    facets = load_facets(manifests, shelves, browse_entries)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     return {
         "bundle_version": now,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "shelves": shelves,
         "facets": facets,
+        "browse_entries": browse_entries,
         "collections": collections,
         "passage_count": len(passages),
     }
@@ -173,6 +229,7 @@ def stable_catalog_view(catalog: dict) -> dict:
     return {
         "shelves": catalog.get("shelves"),
         "facets": catalog.get("facets"),
+        "browse_entries": catalog.get("browse_entries"),
         "collections": catalog.get("collections"),
         "passage_count": catalog.get("passage_count"),
     }
