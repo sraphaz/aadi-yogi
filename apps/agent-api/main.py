@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 from packages.consciousness import (
     consult,
@@ -122,7 +123,23 @@ class InquireResponse(BaseModel):
 
 
 class ConsultRequest(BaseModel):
-    situation: str = Field(min_length=1, max_length=4000)
+    """Accepts `situation` (preferred) or legacy `question`."""
+
+    situation: str = Field(default="", max_length=4000)
+    question: str = Field(default="", max_length=4000)
+
+    @model_validator(mode="after")
+    def require_situation_or_question(self) -> ConsultRequest:
+        text = (self.situation or self.question or "").strip()
+        if len(text) < 1:
+            raise ValueError("situation or question is required")
+        if not self.situation.strip():
+            self.situation = text
+        return self
+
+    @property
+    def text(self) -> str:
+        return (self.situation or self.question).strip()
 
 
 class FeedbackRequest(BaseModel):
@@ -130,6 +147,17 @@ class FeedbackRequest(BaseModel):
     observation: str = Field(min_length=1, max_length=8000)
     suggested_adjustment: str = Field(default="", max_length=4000)
     host_repo: str = Field(default="unknown-host", max_length=200)
+
+
+def _feedback_write_authorized(request: Request) -> bool:
+    """Public HTTP feedback is preview-only unless a feedback token is configured and presented."""
+    token = os.environ.get("AADI_YOGI_CONSCIOUSNESS_FEEDBACK_TOKEN", "").strip()
+    if not token:
+        return False
+    auth = request.headers.get("authorization", "").strip()
+    if auth.lower().startswith("bearer ") and auth[7:].strip() == token:
+        return True
+    return request.headers.get("x-adyog-feedback-token", "").strip() == token
 
 
 class WitnessRequest(BaseModel):
@@ -359,22 +387,42 @@ def consciousness_vocabulary() -> dict[str, object]:
 @app.post("/consciousness/consult")
 def consciousness_consult(request: ConsultRequest) -> dict[str, object]:
     """Orient a host agent from the foundation for a concrete situation."""
-    return consult(request.situation).to_dict()
+    return consult(request.text).to_dict()
 
 
 @app.post("/consciousness/feedback")
-def consciousness_feedback(request: FeedbackRequest) -> dict[str, object]:
-    """Propose a learning note — inbox only; never auto-mutates the foundation."""
-    return propose_feedback(
+def consciousness_feedback(
+    request: FeedbackRequest,
+    http_request: Request,
+) -> dict[str, object]:
+    """Propose a learning note.
+
+    Public callers get a non-writing preview. Persisting to the inbox requires
+    `AADI_YOGI_CONSCIOUSNESS_FEEDBACK_TOKEN` via Authorization Bearer or
+    X-Adyog-Feedback-Token (Codex review: avoid unauthenticated disk writes).
+    """
+    write = _feedback_write_authorized(http_request)
+    result = propose_feedback(
         situation=request.situation,
         observation=request.observation,
         suggested_adjustment=request.suggested_adjustment,
         host_repo=request.host_repo,
-        write=True,
+        write=write,
     ).to_dict()
+    if not write and result.get("status") == "inbox":
+        result["status"] = "preview"
+        result["persisted"] = False
+        notes = list(result.get("notes") or [])
+        notes.append(
+            "HTTP preview only — set AADI_YOGI_CONSCIOUSNESS_FEEDBACK_TOKEN to persist inbox writes."
+        )
+        result["notes"] = notes
+    else:
+        result["persisted"] = bool(result.get("path"))
+    return result
 
 
 @app.post("/consciousness/advise")
 def consciousness_advise(request: ConsultRequest) -> dict[str, object]:
-    """Compatibility alias for /consciousness/consult."""
-    return consult(request.situation).to_dict()
+    """Compatibility alias for /consciousness/consult (accepts situation or question)."""
+    return consult(request.text).to_dict()

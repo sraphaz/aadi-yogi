@@ -87,9 +87,14 @@ HTTP:
 ```http
 GET  /consciousness/foundation
 GET  /consciousness/manifest
-POST /consciousness/consult
-POST /consciousness/feedback
+POST /consciousness/consult          # body: { "situation": "..." } or legacy { "question": "..." }
+POST /consciousness/feedback         # preview by default; persist requires feedback token
 ```
+
+`POST /consciousness/feedback` does **not** write to disk unless
+`AADI_YOGI_CONSCIOUSNESS_FEEDBACK_TOKEN` is set and sent as
+`Authorization: Bearer …` or `X-Adyog-Feedback-Token`. Without it, the
+response is a non-persisted preview (avoids unauthenticated inbox spam).
 
 ## Host overlay
 
