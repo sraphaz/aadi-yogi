@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aadi-yogi.local/schemas/response_envelope.schema.json",
+  "title": "Aadi Yogi Response Envelope",
+  "type": "object",
+  "required": ["state_detected", "guidance_mode", "body", "closing"],
+  "additionalProperties": false,
+  "properties": {
+    "state_detected": { "type": "string", "minLength": 1 },
+    "guidance_mode": {
+      "type": "string",
+      "enum": [
+        "orientation",
+        "study",
+        "practice",
+        "symbolic_interpretation",
+        "comparative_philosophy",
+        "source_commentary",
+        "cautionary_guidance",
+        "silence_contemplation"
+      ]
+    },
+    "body": { "type": "string" },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["passage_id"],
+        "additionalProperties": false,
+        "properties": {
+          "passage_id": { "type": "string" },
+          "quote": { "type": "string" },
+          "tradition": { "type": "string" }
+        }
+      }
+    },
+    "offered_movement": {
+      "type": ["object", "null"],
+      "required": ["text", "safety_class"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "safety_class": { "type": "string", "enum": ["safe", "documentary", "closed"] }
+      }
+    },
+    "offered_movements": {
+      "type": "array",
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["text", "safety_class"],
+        "additionalProperties": false,
+        "properties": {
+          "text": { "type": "string" },
+          "safety_class": { "type": "string", "enum": ["safe", "documentary", "closed"] }
+        }
+      }
+    },
+    "closing": {
+      "type": "string",
+      "enum": ["plain", "returned_question", "honored_silence"]
+    }
+  }
+}

@@ -10,6 +10,7 @@ This repository is designed to preserve, structure, and prepare Indian spiritual
 - A structured Markdown-first content base with future ingestion in mind.
 - A place to define editorial, ethical, and consciousness-aware agent behavior.
 - A foundation for later retrieval, evaluation, and application layers.
+- A **living consciousness foundation** (Adyog) that other repositories can install as a basis of conduct and reality-sense from the sources — not an app, not a guru — see [`docs/consciousness_plugin.md`](docs/consciousness_plugin.md).
 
 ## What This Repository Is Not
 
@@ -73,10 +74,28 @@ ruff check .
 
 The application layer is designed as **Darshan**, an interface whose behavior embodies the wisdom of the corpus instead of talking about it: silence before speech, one question at a time, presence metrics instead of engagement metrics. See `docs/darshan_interface_concept.md`, `docs/darshan_interface_spec.md`, and the Sky-Forge session package in `docs/skyforge/darshan/`.
 
+## Consciousness foundation (for other repos)
+
+Not a product checklist. A living basis of conduct from the texts.
+
+```bash
+# Python — install the foundation, consult a situation, send feedback
+PYTHONPATH=. python -c "from packages.consciousness import load_foundation; print(load_foundation().agent_preamble[:400])"
+
+# MCP — see .mcp.json and apps/mcp-server/README.md
+PYTHONPATH=. python -m packages.consciousness.mcp_server
+
+# HTTP
+# GET  /consciousness/foundation
+# POST /consciousness/consult
+# POST /consciousness/feedback
+```
+
+Host repos declare `.consciousness/link.yaml`. Learning returns through reviewed feedback (`content/consciousness_feedback/`). ADR: [`spec/decisions/0006-consciousness-plugin-service.md`](spec/decisions/0006-consciousness-plugin-service.md).
+
 ## Next Milestones
 
-- define richer source metadata conventions
-- add normalization and chunking pipelines
 - expand ontology and living maps
-- introduce retrieval and evaluation datasets
-- scaffold agent API and web application surfaces
+- deepen retrieval and evaluation datasets
+- publish consciousness package for external installers
+- harden hosted API auth for cross-repo consumers

@@ -42,22 +42,29 @@ domains:
 
   - id: consciousness-core
     name: Consciousness & Editorial Law
-    description: Estados, modos de orientação, voz, silêncio honrado, política editorial
+    description: Estados, modos de orientação, voz, silêncio honrado, política editorial, plugin Adyog
     paths:
       - content/consciousness_core/**
+      - packages/consciousness/**
       - packages/prompts/**
+      - .consciousness/**
+      - schemas/response_envelope.schema.json
+      - docs/consciousness_plugin.md
       - spec/decisions/**
       - docs/decisions/**
     enrich: |
       ADR-0003 health gate: House of Nature "arriving" até dois revisores nomeados.
       ADR-0004: daily word em batches lunares, D1 só após revisão humana.
+      ADR-0006: consciousness plugin — host agents herdam decision laws, não cancelam.
       Honored silence short-circuits antes do retrieval (RF-006).
       Response contract: citações resolvíveis, max one movement, diferenças explícitas.
     validate: |
       RF-005, RF-006: contract checker, honored-silence precision nos evals.
       Nenhum path natal (ADR-0002); jyotisha documental apenas.
+      Plugin contract tests verdes (tests/test_consciousness_plugin.py).
     references:
       - content/consciousness_core/
+      - docs/consciousness_plugin.md
       - spec/decisions/
       - docs/decisions/
 

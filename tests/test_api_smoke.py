@@ -110,3 +110,60 @@ def test_retrieve_smoke() -> None:
     body = response.json()
     assert body["question"] == "What is dharma?"
     assert isinstance(body["chunks"], list)
+
+
+def test_consciousness_manifest_smoke() -> None:
+    response = client().get("/consciousness/manifest")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["identity"] == "aadi-yogi-consciousness"
+    assert body["version"] == "v1"
+    assert "foundation.md" in body["file_hashes"]
+
+
+def test_consciousness_foundation_smoke() -> None:
+    response = client().get("/consciousness/foundation")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["identity"] == "aadi-yogi-consciousness-foundation"
+    assert body["agent_preamble"]
+    assert body["conduct_principles"]
+
+
+def test_consciousness_consult_smoke() -> None:
+    response = client().post(
+        "/consciousness/consult",
+        json={"situation": "Write status updates without performing mysticism"},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["agent_preamble"]
+    assert body["conduct_to_hold"]
+    assert body["orientation"]
+
+
+def test_consciousness_advise_accepts_legacy_question() -> None:
+    response = client().post(
+        "/consciousness/advise",
+        json={"question": "What is sincere aspiration on the path?"},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["agent_preamble"]
+    assert body["conduct_to_hold"]
+
+
+def test_consciousness_feedback_is_preview_without_token() -> None:
+    response = client().post(
+        "/consciousness/feedback",
+        json={
+            "situation": "PR tone",
+            "observation": "Needed less coercive language",
+            "host_repo": "example/host",
+        },
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["persisted"] is False
+    assert body["status"] == "preview"
+    assert body.get("path") in {"", None}

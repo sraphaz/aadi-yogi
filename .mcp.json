@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aadi-yogi-consciousness": {
+      "command": "python",
+      "args": ["-m", "packages.consciousness.mcp_server"],
+      "env": {
+        "PYTHONPATH": "."
+      }
+    }
+  }
+}

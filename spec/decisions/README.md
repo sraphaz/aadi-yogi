@@ -13,3 +13,4 @@ creators calibrate.
 | 0003 | Health gate: House of Nature stays "arriving" until named safety reviewers exist | accepted |
 | 0004 | Editorial policy: daily word curation and D1 review workflow | accepted |
 | 0005 | Stable passage-id scheme (see `docs/passage_id_scheme.md`) | accepted |
+| 0006 | Consciousness as a plugin service for host agents | accepted |
