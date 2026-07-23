@@ -55,6 +55,23 @@ def _as_list(value: object) -> list[str]:
     return [str(value)]
 
 
+def _hint_matches(hint: str, haystack: str, words: list[str]) -> bool:
+    normalized_hint = hint.lower().strip()
+    if not normalized_hint:
+        return False
+    if " " in normalized_hint:
+        pattern = r"(?<!\w)" + r"\s+".join(re.escape(part) for part in normalized_hint.split()) + r"(?!\w)"
+        return re.search(pattern, haystack) is not None
+    if normalized_hint.isalpha() and len(normalized_hint) >= 7:
+        return any(word.startswith(normalized_hint) for word in words)
+    return normalized_hint in words
+
+
+def _strong_hint(hint: str) -> bool:
+    normalized_hint = hint.lower().strip()
+    return " " in normalized_hint or len(normalized_hint) >= 7
+
+
 def load_discernment_entries(root: Path | None = None) -> list[DiscernmentEntry]:
     path = (root or CONSCIOUSNESS_ROOT) / "discernment_matrix.md"
     text = path.read_text(encoding="utf-8")
@@ -95,12 +112,14 @@ def lookup_discernment(
 
     scores: list[tuple[int, DiscernmentEntry]] = []
     haystack = text.lower()
+    words = re.findall(r"\b[\w']+\b", haystack)
     for question_type, hints in _HINTS.items():
         entry = entries.get(question_type)
         if not entry:
             continue
-        score = sum(1 for hint in hints if hint in haystack)
-        if score:
+        matched_hints = [hint for hint in hints if _hint_matches(hint, haystack, words)]
+        score = len(matched_hints)
+        if score and (score >= 2 or any(_strong_hint(hint) for hint in matched_hints)):
             scores.append((score, entry))
     if not scores:
         return None

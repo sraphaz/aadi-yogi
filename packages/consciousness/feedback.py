@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -56,26 +56,30 @@ def propose_feedback(
     write: bool = True,
 ) -> FeedbackProposal:
     """Propose a learning note. Never auto-mutates the foundation."""
+    clean_situation = situation.strip()
+    clean_observation = observation.strip()
+    clean_adjustment = suggested_adjustment.strip()
     notes = [
         "Proposal only — foundation changes require editorial review.",
         "This is how consciousness feeds back: use → reflection → review → integrate.",
     ]
     status = "inbox"
-    if _INFLATION.search(f"{observation} {suggested_adjustment}"):
+    inflation_text = f"{clean_situation} {clean_observation} {clean_adjustment}"
+    if _INFLATION.search(inflation_text):
         status = "rejected_preview"
         notes.append(
             "Rejected preview: feedback must not claim realization, revelation, or guruhood."
         )
 
-    feedback_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8]
-    created_at = datetime.now(timezone.utc).isoformat()
+    feedback_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8]
+    created_at = datetime.now(UTC).isoformat()
     record = {
         "id": feedback_id,
         "created_at": created_at,
         "host_repo": host_repo,
-        "situation": situation.strip(),
-        "observation": observation.strip(),
-        "suggested_adjustment": suggested_adjustment.strip(),
+        "situation": clean_situation,
+        "observation": clean_observation,
+        "suggested_adjustment": clean_adjustment,
         "status": status,
         "integration_rule": "human_or_editorial_review_required",
     }
@@ -97,9 +101,9 @@ def propose_feedback(
         id=feedback_id,
         created_at=created_at,
         host_repo=host_repo,
-        situation=situation.strip(),
-        observation=observation.strip(),
-        suggested_adjustment=suggested_adjustment.strip(),
+        situation=clean_situation,
+        observation=clean_observation,
+        suggested_adjustment=clean_adjustment,
         status=status,
         path=path,
         notes=notes,

@@ -4,11 +4,12 @@ import json
 from pathlib import Path
 
 from packages.consciousness import (
-    consult,
     conduct_principles,
+    consult,
     list_vocabulary,
     load_foundation,
     load_manifest,
+    lookup_discernment,
     propose_feedback,
 )
 from packages.consciousness.mcp_server import call_tool
@@ -73,6 +74,14 @@ def test_feedback_writes_inbox_and_rejects_inflation() -> None:
     assert rejected.status == "rejected_preview"
     assert rejected.path == ""
 
+    rejected_from_situation = propose_feedback(
+        situation="The agent became a guru after install",
+        observation="Needed a clearer note on technical humility",
+        write=True,
+    )
+    assert rejected_from_situation.status == "rejected_preview"
+    assert rejected_from_situation.path == ""
+
 
 def test_vocabulary_centers_conduct_not_envelope() -> None:
     vocab = list_vocabulary()
@@ -111,6 +120,22 @@ def test_mcp_feedback_tool() -> None:
     assert payload["status"] == "inbox"
     if payload["path"]:
         Path(payload["path"]).unlink(missing_ok=True)
+
+
+def test_mcp_feedback_inbox_limit_validation() -> None:
+    result = call_tool("consciousness_list_feedback_inbox", {"limit": "x"})
+    assert result["isError"] is True
+    assert "limit must be an integer between 1 and 100" in result["content"][0]["text"]
+
+
+def test_discernment_lookup_ignores_technical_substrings() -> None:
+    assert lookup_discernment("We need stakeholder negotiation for this release") is None
+    assert lookup_discernment("This launch has become a death march") is None
+
+
+def test_foundation_principles_keep_wrapped_lines() -> None:
+    foundation = load_foundation()
+    assert any("the next right step over persuasion" in principle for principle in foundation.conduct_principles)
 
 
 def test_consciousness_link_overlay_is_foundation() -> None:

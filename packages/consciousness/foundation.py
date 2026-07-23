@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -46,19 +47,34 @@ def _section_bullets(text: str, heading: str) -> list[str]:
     lines = text.splitlines()
     capturing = False
     bullets: list[str] = []
+    current: list[str] = []
+
+    def flush_current() -> None:
+        if current:
+            bullets.append(" ".join(current).strip())
+            current.clear()
+
     for line in lines:
         if line.startswith("## "):
+            if capturing:
+                flush_current()
             capturing = line.strip() == f"## {heading}"
             continue
         if capturing:
-            if line.startswith("## "):
-                break
             stripped = line.strip()
             if stripped.startswith("- "):
-                bullets.append(stripped[2:].strip())
-            elif stripped[:1].isdigit() and ". " in stripped:
+                flush_current()
+                current.append(stripped[2:].strip())
+                continue
+            numbered = re.match(r"^\d+\.\s+(.*)$", stripped)
+            if numbered:
+                flush_current()
                 # "1. **Title.** rest" → keep principle without leading number
-                bullets.append(stripped.split(". ", 1)[-1])
+                current.append(numbered.group(1).strip())
+                continue
+            if current and stripped:
+                current.append(stripped)
+    flush_current()
     return bullets
 
 

@@ -20,7 +20,6 @@ from packages.consciousness import (
     propose_feedback,
 )
 from packages.prompts.builder import PromptBundle, build_prompt
-from packages.prompts.llm_client import LLMClient
 from packages.prompts.contract import envelope_to_dict
 from packages.prompts.inquiry_policy import inquiry_policy
 from packages.prompts.inquiry_quota import (
@@ -28,13 +27,13 @@ from packages.prompts.inquiry_quota import (
     record_free_inquiry,
     remaining_free_inquiries,
 )
+from packages.prompts.llm_client import LLMClient
 from packages.prompts.orchestrator import AgentAnswer, InquireResult, ask_question, inquire
 from packages.prompts.witness import WitnessResult, witness_reflect
 from packages.rag.embeddings import get_embedding_provider
-from packages.rag.hybrid_retriever import HybridRetriever, HybridRetrievedChunk, USE_QDRANT
+from packages.rag.hybrid_retriever import USE_QDRANT, HybridRetrievedChunk, HybridRetriever
 from packages.rag.qdrant_retriever import QdrantRetriever
 from packages.rag.retriever import RetrievedChunk
-
 
 APP_ROOT = Path(__file__).resolve().parent
 WEB_ROOT = APP_ROOT.parent / "web"
@@ -130,16 +129,18 @@ class ConsultRequest(BaseModel):
 
     @model_validator(mode="after")
     def require_situation_or_question(self) -> ConsultRequest:
-        text = (self.situation or self.question or "").strip()
+        situation = self.situation.strip()
+        question = self.question.strip()
+        text = situation or question
         if len(text) < 1:
             raise ValueError("situation or question is required")
-        if not self.situation.strip():
-            self.situation = text
+        self.situation = situation or text
+        self.question = question
         return self
 
     @property
     def text(self) -> str:
-        return (self.situation or self.question).strip()
+        return self.situation.strip() or self.question.strip()
 
 
 class FeedbackRequest(BaseModel):

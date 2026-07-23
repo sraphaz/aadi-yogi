@@ -153,6 +153,17 @@ def test_consciousness_advise_accepts_legacy_question() -> None:
     assert body["conduct_to_hold"]
 
 
+def test_consciousness_consult_falls_back_to_question_when_situation_is_blank() -> None:
+    response = client().post(
+        "/consciousness/consult",
+        json={"situation": "   ", "question": "Write status updates without pressure"},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["situation"] == "Write status updates without pressure"
+    assert body["orientation"]
+
+
 def test_consciousness_feedback_is_preview_without_token() -> None:
     response = client().post(
         "/consciousness/feedback",

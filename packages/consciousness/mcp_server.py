@@ -106,6 +106,18 @@ def _err_text(message: str) -> dict:
     return {"content": [{"type": "text", "text": message}], "isError": True}
 
 
+def _parse_limit(value: Any) -> int | None:
+    if value in (None, ""):
+        return 50
+    try:
+        limit = int(value)
+    except (TypeError, ValueError):
+        return None
+    if 1 <= limit <= 100:
+        return limit
+    return None
+
+
 def call_tool(name: str, arguments: dict[str, Any] | None) -> dict:
     args = arguments or {}
     if name == "consciousness_load_foundation":
@@ -129,7 +141,9 @@ def call_tool(name: str, arguments: dict[str, Any] | None) -> dict:
         )
         return _ok_text(proposal.to_dict())
     if name == "consciousness_list_feedback_inbox":
-        limit = int(args.get("limit") or 50)
+        limit = _parse_limit(args.get("limit"))
+        if limit is None:
+            return _err_text("limit must be an integer between 1 and 100")
         return _ok_text({"inbox": list_inbox(limit=limit)})
     if name == "consciousness_discernment_lookup":
         key = str(args.get("question_or_type", "")).strip()
