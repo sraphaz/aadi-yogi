@@ -1,34 +1,39 @@
-const CACHE = 'darshan-corpus-v1';
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '');
+const CACHE = 'darshan-corpus-v2';
 const PRECACHE = [
-  '/',
-  '/manifest.webmanifest',
-  '/static/css/fonts.css',
-  '/static/css/colors.css',
-  '/static/css/typography.css',
-  '/static/css/spacing.css',
-  '/static/css/motion.css',
-  '/static/css/app.css',
-  '/static/js/app.js',
-  '/static/js/strings.js',
-  '/static/js/theme.js',
-  '/static/js/ephemeris.js',
-  '/static/js/path-store.js',
-  '/static/js/diary-crypto.js',
-  '/static/js/diary-store.js',
-  '/static/js/presence-metrics.js',
-  '/static/js/bells.js',
-  '/static/js/corpus-store.js',
-  '/static/js/inquiry-quota.js',
-  '/static/data/daily-words.json',
-  '/static/data/library/catalog.json',
-  '/static/data/library/gita-ii-47.json',
-  '/static/data/living-maps/aspiration-path.json',
-  '/static/data/nature/house.json',
-  '/static/data/nature/fire-agni.json',
-  '/static/data/sangha/exploration.json',
-  '/static/icons/icon-192.svg',
-  '/static/icons/icon-512.svg',
+  `${BASE}/`,
+  `${BASE}/index.html`,
+  `${BASE}/manifest.webmanifest`,
+  `${BASE}/static/css/fonts.css`,
+  `${BASE}/static/css/colors.css`,
+  `${BASE}/static/css/typography.css`,
+  `${BASE}/static/css/spacing.css`,
+  `${BASE}/static/css/motion.css`,
+  `${BASE}/static/css/app.css`,
+  `${BASE}/static/js/base.js`,
+  `${BASE}/static/js/app.js`,
+  `${BASE}/static/js/strings.js`,
+  `${BASE}/static/js/theme.js`,
+  `${BASE}/static/js/ephemeris.js`,
+  `${BASE}/static/js/path-store.js`,
+  `${BASE}/static/js/diary-crypto.js`,
+  `${BASE}/static/js/diary-store.js`,
+  `${BASE}/static/js/presence-metrics.js`,
+  `${BASE}/static/js/bells.js`,
+  `${BASE}/static/js/corpus-store.js`,
+  `${BASE}/static/js/inquiry-quota.js`,
+  `${BASE}/static/data/daily-words.json`,
+  `${BASE}/static/data/library/catalog.json`,
+  `${BASE}/static/data/library/gita-ii-47.json`,
+  `${BASE}/static/data/living-maps/aspiration-path.json`,
+  `${BASE}/static/data/nature/house.json`,
+  `${BASE}/static/data/nature/fire-agni.json`,
+  `${BASE}/static/data/sangha/exploration.json`,
+  `${BASE}/static/icons/icon-192.svg`,
+  `${BASE}/static/icons/icon-512.svg`,
 ];
+
+const API_PREFIXES = ['/ask', '/inquire', '/witness', '/retrieve', '/inquiry'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -49,7 +54,9 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  if (url.pathname.startsWith('/ask') || url.pathname.startsWith('/inquire') || url.pathname.startsWith('/witness') || url.pathname.startsWith('/retrieve')) return;
+  const path = url.pathname;
+  const relative = BASE && path.startsWith(BASE) ? path.slice(BASE.length) || '/' : path;
+  if (API_PREFIXES.some((p) => relative.startsWith(p) || path.startsWith(p))) return;
 
   event.respondWith(
     caches.match(request).then((cached) => {

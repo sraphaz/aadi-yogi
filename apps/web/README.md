@@ -52,3 +52,10 @@ python scripts/content/build_daily_words.py
 ## Install as PWA
 
 Use browser “Install app” after first visit. Service worker caches static assets and daily word data for offline use.
+
+## GitHub Pages
+
+Static shell deploys automatically from `main` via `.github/workflows/deploy-pages.yml`.
+
+- URL: https://sraphaz.github.io/aadi-yogi/
+- Oracle/API routes (`/inquire`, `/ask`, …) require `pnpm api:dev` locally — not available on Pages.

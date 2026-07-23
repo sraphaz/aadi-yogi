@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "site/**"
+      - "apps/web/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -27,13 +27,21 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Prepare Darshan PWA
+        run: |
+          mkdir -p _site
+          cp -a apps/web/. _site/
+          touch _site/.nojekyll
+          # Project Pages URL is /aadi-yogi/
+          sed -i 's|<meta name="darshan-base" content="">|<meta name="darshan-base" content="/aadi-yogi">|' _site/index.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -1,6 +1,7 @@
 /**
  * Darshan PWA — Seed + Voice + Path + Witness + Ground + Sangha (exploration)
  */
+import { asset } from './base.js';
 import { STRINGS, LANGS, HOUR_THEMES } from './strings.js';
 import {
   resolveHourTheme,
@@ -96,7 +97,7 @@ function detectLang() {
 
 async function loadDailyWords() {
   if (state.dailyBatch) return state.dailyBatch;
-  const res = await fetch('/static/data/daily-words.json');
+  const res = await fetch(asset('/static/data/daily-words.json'));
   state.dailyBatch = await res.json();
   return state.dailyBatch;
 }
@@ -249,7 +250,7 @@ async function loadInquiryPolicy() {
 
 async function loadLibraryCatalog() {
   if (state.libraryCatalog) return state.libraryCatalog;
-  const res = await fetch('/static/data/library/catalog.json');
+  const res = await fetch(asset('/static/data/library/catalog.json'));
   state.libraryCatalog = await res.json();
   return state.libraryCatalog;
 }
@@ -441,19 +442,19 @@ function pickLang(obj) {
 }
 
 async function loadLivingMap(id) {
-  const res = await fetch(`/static/data/living-maps/${id}.json`);
+  const res = await fetch(asset(`/static/data/living-maps/${id}.json`));
   return res.json();
 }
 
 async function loadNatureHouse() {
   if (state.natureHouse) return state.natureHouse;
-  const res = await fetch('/static/data/nature/house.json');
+  const res = await fetch(asset('/static/data/nature/house.json'));
   state.natureHouse = await res.json();
   return state.natureHouse;
 }
 
 async function loadNatureElement(id) {
-  const res = await fetch(`/static/data/nature/${id === 'fire' ? 'fire-agni' : id}.json`);
+  const res = await fetch(asset(`/static/data/nature/${id === 'fire' ? 'fire-agni' : id}.json`));
   if (!res.ok) return null;
   return res.json();
 }
@@ -584,7 +585,7 @@ async function openNatureElement(id) {
 
 async function loadSanghaCharter() {
   if (state.sanghaCharter) return state.sanghaCharter;
-  const res = await fetch('/static/data/sangha/exploration.json');
+  const res = await fetch(asset('/static/data/sangha/exploration.json'));
   state.sanghaCharter = await res.json();
   return state.sanghaCharter;
 }
@@ -1230,7 +1231,7 @@ function navigate(screen) {
 }
 
 async function openLibraryPassage(id) {
-  const res = await fetch(`/static/data/library/${id}.json`);
+  const res = await fetch(asset(`/static/data/library/${id}.json`));
   state.libraryPassage = await res.json();
   state.depth = 0;
   state.screen = 'library-read';
@@ -1496,7 +1497,7 @@ async function init() {
   applyShellAttrs();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register(asset('/sw.js')).catch(() => {});
   }
 
   await loadDailyWords();
